@@ -8,15 +8,15 @@ ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 
 toc::[]
 
-== The Reader 
+== Считыватель
 
-Clojure is a http://en.wikipedia.org/wiki/Homoiconicity[homoiconic] language, which is a fancy term describing the fact that Clojure programs are represented by Clojure data structures. This is a very important difference between Clojure (and Common Lisp) and most other programming languages - Clojure is defined in terms of the evaluation of data structures and *not* in terms of the syntax of character streams/files. It is quite common, and easy, for Clojure programs to manipulate, transform and produce other Clojure programs.
+Clojure является http://en.wikipedia.org/wiki/Homoiconicity[гомоиконным] языком. Этот причудливый термин означает, что программы на Clojure представлены в виде структур данных Clojure. Это очень важное отличие между Clojure (и Common Lisp) и большинством других языков программирования - Clojure определена в терминах вычисления структур данных, а *не* с точки зрения синтаксиса потоков символов или файлов. Для Clojure-программ довольно распространено и просто оперировать, модифицировать и генерировать другие Clojure-программы.
 
-That said, most Clojure programs begin life as text files, and it is the task of the _reader_ to parse the text and produce the data structure the compiler will see. This is not merely a phase of the compiler. The reader, and the Clojure data representations, have utility on their own in many of the same contexts one might use XML or JSON etc.
+Тем не менее, большинство Clojure-программ создаются в виде текстовых файлов, и задачей _считывателя_ является преобразование текста в структуры данных, которые уже увидит компилятор. То есть это не просто фаза компиляции. И считыватель, и представление данных Clojure, полезны сами по себе для решения многих задач, где можно использовать XML, JSON и т.п.
 
-One might say the reader has syntax defined in terms of characters, and the Clojure language has syntax defined in terms of symbols, lists, vectors, maps etc. The reader is represented by the function http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/read[read], which reads the next form (not character) from a stream, and returns the object represented by that form.
+Можно сказать, что у считывателя есть синтаксис, определенный в терминах символов, а синтаксис языка Clojure определяется в терминах знаков, списков, векторов, ассоциативных массивов и т.д. Считыватель представлен функцией http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/read[read], которая считывает следующую форму (не символ) из потока и возвращает объект представляемый этой формой.
 
-Since we have to start somewhere, this reference starts where evaluation starts, with the reader forms. This will inevitably entail talking about data structures whose descriptive details, and interpretation by the compiler, will follow.
+Так как нужно с чего-то начать, этот справочник начинается там же, где начинается вычисление - с форм считывателя. Это неизбежно повлечет за собой разговор о структурах данных, а затем об их описательных способностях и интерпретации компилятором.
 
 === Reader forms 
 
