@@ -40,26 +40,26 @@ Clojure является http://en.wikipedia.org/wiki/Homoiconicity[гомоик
 *** Они не могут содержать '.' или имена классов.
 *** Ключевое слово, начинающееся с двух двоеточий соответствует текущему пространству имен:
 **** В пространстве имен user, '::rect' прочитывается как `:user/rect`
-* Lists
+* Списки
 +
-Lists are zero or more forms enclosed in parentheses: `(a b c)`
+Списки - ноль или более форм, заключенных в скобки: `(a b c)`
 
-* Vectors
+* Вектора
 +
-Vectors are zero or more forms enclosed in square brackets: `[1 2 3]`
-* Maps
+Вектора - ноль или более форм, заключенных в квадратные скобки: `[1 2 3]`
+* Ассоциативные массивы
 +
-Maps are zero or more key/value pairs enclosed in braces: `{:a 1 :b 2}` +
-Commas are considered whitespace, and can be used to organize the pairs: `{:a 1, :b 2}` +
-Keys and values can be any forms.
-* Sets
+Ассоциативный массив - ноль или более пар ключ-значение, заключенных в фигурные скобки: `{:a 1 :b 2}` +
+Запятые рассматриваются как пробельный символ и могут быть использованы для огранизации пар: `{:a 1, :b 2}` +
+В качестве ключей и значений могут выступать любые формы.
+* Множества
 +
-Sets are zero or more forms enclosed in braces preceded by `pass:[#]`: `#{:a :b :c}`
-* deftype, defrecord, and constructor calls (version 1.3 and later):
+Множества - ноль или более форм, заключенных в фигурные скобки и начинающиеся с `pass:[#]`: `#{:a :b :c}`
+* deftype, defrecord и вызовы конструкторов (версия 1.3 и выше):
 +
-Calls to Java class, deftype, and defrecord constructors can be called using their fully qualified class name preceded by # and followed by a vector: `#my.klass_or_type_or_record[:a :b :c]` +
-The elements in the vector part are passed *unevaluated* to the relevant constructor. defrecord instances can also be created with a similar form that takes a map instead: `#my.record{:a 1, :b 2}` +
-The keyed values in the map are assigned *unevaluated* to the relevant fields in the defrecord. Any defrecord fields without corresponding entries in the literal map are assigned nil as their value. Any extra keyed values in the map literal are added to the resulting defrecord instance.
+Вызовы конструкторов Java классов, deftype и defrecord могут быть выполнены с использованием полного имени класса с # перед ним и вектором после: `#my.klass_or_type_or_record[:a :b :c]` +
+Элементы в векторе передаются "невычисленными" в соответствующий конструктор. Экземпляры defrecord также могут быть созданы похожим образом, с использованием ассоциативного массива вместо вектора: `#my.record{:a 1, :b 2}` +
+Значения, ассоциированные с ключами, передаются "невычисленными" в соответствующие поля defrecord. Всем полям defrecord, которым не соответствует пара ключ-значение, будет присвоено значение nil. Дополнительные пары ключ-значение будут добавлены в конструируемый экземпляр defrecord.
 
 [[macrochars]]
 === Macro characters
