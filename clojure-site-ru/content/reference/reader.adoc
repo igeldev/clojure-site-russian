@@ -62,35 +62,35 @@ Clojure является http://en.wikipedia.org/wiki/Homoiconicity[гомоик
 Значения, ассоциированные с ключами, передаются "невычисленными" в соответствующие поля defrecord. Всем полям defrecord, которым не соответствует пара ключ-значение, будет присвоено значение nil. Дополнительные пары ключ-значение будут добавлены в конструируемый экземпляр defrecord.
 
 [[macrochars]]
-=== Macro characters
+=== Макросимволы
 
-The behavior of the reader is driven by a combination of built-in constructs and an extension system called the read table. Entries in the read table provide mappings from certain characters, called macro characters, to specific reading behavior, called reader macros. Unless indicated otherwise, macro characters cannot be used in user symbols.
+Поведение считывателя управляется с помощью комбинации встроеных конструкций и системы расширений, называемой таблицей чтения. Ячейки таблицы чтения содержат соответствия между особенными символами, называемыми макросимволами, и конкретными действиями при их чтении, называемыми макросами. Если не заявлено обратное, макросимволы не могут быть использованы внутри пользовательских знаков.
 
-* Quote (')
+* Кавычка (')
 +
 `'form` => `(quote form)`
-* Character (\)
+* Символ (\)
 +
-As per above, yields a character literal.
-* Comment (;)
+Как указано выше, производят символьный литерал.
+* Комментарий (;)
 +
-Single-line comment, causes the reader to ignore everything from the semicolon to the end-of-line.
-* Deref (@)
+Однострочный комментарий, заставляющий считыватель игнорировать все, начиная с текущей позиции до конца строки.
+* Оператор deref (@)
 +
-`@form => (deref form)`
-* Metadata (^)
+`@form` => `(deref form)`
+* Метаданные (^)
 +
-Metadata is a map associated with some kinds of objects: Symbols, Lists, Vector, Sets, Maps, tagged literals returning an IMeta, and record, type, and constructor calls. The metadata reader macro first reads the metadata and attaches it to the next form read (see http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/with-meta[with-meta] to attach meta to an object): +
-`^{:a 1 :b 2} [1 2 3]` yields the vector `[1 2 3]` with a metadata map of `{:a 1 :b 2}`. +
+Метаданные - это ассоциативный массив, связанный с некоторыми объектами: знаками, списками, векторами, множествами, другими ассоциативными массивами, маркированными литералами производящими значение IMeta, а также с записями, типами и вызовами конструкторов. Этот макрос считывателя сначала считывает метаданные и прикрепляет их к следующей прочитанной форме (см. http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/with-meta[with-meta] чтобы привязать метаданные к объекту): +
+`^{:a 1 :b 2} [1 2 3]` производит вектор `[1 2 3]` с метаданными `{:a 1 :b 2}`. +
 +
-A shorthand version allows the metadata to be a simple symbol or string, in which case it is treated as a single entry map with a key of :tag and a value of the (resolved) symbol or string, e.g.: +
-`^String x` is the same as `^{:tag java.lang.String} x` +
-Such tags can be used to convey type information to the compiler. +
+Сокращенная версия позволяет передавать в качестве метаданных простой знак или строку. В этом случае это рассматривается как ассоциативный массив с одной парой ключ-значение, где ключ - :tag, а значение - знак или строка, например: +
+`^String x` - то же самое, что `^{:tag java.lang.String} x` +
+Такие теги могут быть использованы для передачи компилятору информации о типах. +
 +
-Another shorthand version allows the metadata to be a keyword, in which case it is treated as a single entry map with a key of the keyword and a value of true, e.g.: +
-`^:dynamic x` is the same as `^{:dynamic true} x` +
+Другая сокращенная версия позволяет метаданным быть ключевым словом, в этом случае это рассматривается как ассоциативный массив с одной парой, где ключ - это ключевое слово, а значение - true, например:
+`^:dynamic x` - то же самое, что `^{:dynamic true} x` +
 +
-Metadata can be chained in which case they are merged from right to left.
+Метаданные могут быть сцеплены. В этом случае они объединяются как ассоциативные массивы в направлении справа налево.
 * Dispatch (pass:[#])
 +
 The dispatch macro causes the reader to use a reader macro from another table, indexed by the character following
