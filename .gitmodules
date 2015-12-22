@@ -1,0 +1,3 @@
+[submodule "clojure-site-en"]
+	path = clojure-site-en
+	url = git@github.com:clojure/clojure-site.git
