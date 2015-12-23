@@ -66,7 +66,7 @@ Clojure является http://en.wikipedia.org/wiki/Homoiconicity[гомоик
 
 Поведение считывателя управляется с помощью комбинации встроеных конструкций и системы расширений, называемой таблицей чтения. Ячейки таблицы чтения содержат соответствия между особенными символами, называемыми макросимволами, и конкретными действиями при их чтении, называемыми макросами. Если не заявлено обратное, макросимволы не могут быть использованы внутри пользовательских знаков.
 
-* Кавычка (')
+* Апостроф (')
 +
 `'form` => `(quote form)`
 * Символ (\)
@@ -91,34 +91,34 @@ Clojure является http://en.wikipedia.org/wiki/Homoiconicity[гомоик
 `^:dynamic x` - то же самое, что `^{:dynamic true} x` +
 +
 Метаданные могут быть сцеплены. В этом случае они объединяются как ассоциативные массивы в направлении справа налево.
-* Dispatch (pass:[#])
+* Управляющий символ (pass:[#])
 +
-The dispatch macro causes the reader to use a reader macro from another table, indexed by the character following
+Управляющий символ заставляет считыватель использовать макрос из другой таблицы, содержащей следующие записи:
 
-** pass:[#{}] - see Sets above
-** Regex patterns (pass:[#"pattern"])
+** pass:[#{}] - используется для объявления множеств, как было упомянуто выше
+** Регулярные выражения (pass:[#"pattern"])
 +
-A regex pattern is read and _compiled at read time_. The resulting object is of type java.util.regex.Pattern. Regex strings do not follow the same escape character rules as strings. Specifically, backslashes in the pattern are treated as themselves (and do not need to be escaped with an additional backslash). For example, `(re-pattern "\\s*\\d+")` can be written more concisely as `#"\s*\d+"`.
-** Var-quote (pass:[#'])
+Регулярные выражения прочитываются и _компилируются во время чтения_. В результате получается экземпляр класса java.util.regex.Pattern. Регулярные выражения не поддерживают те же правила экранирования что и обычные строки, а именно: обратная косая черта в регулярных выражениях обрабатывается сама по себе (и не должна экранироваться с помощью дополнительной черты). Например, `(re-pattern "\\s*\\d+")` может быть записано более кратко как `#"\s*\d+"`.
+** Апостроф var (pass:[#'])
 +
-`#'x` => `(var x)`
-** Anonymous function literal (#())
+`#'x` => `(var x)` - возвращает переменную как объект, а нее её значение.
+** Анонимная функция (#())
 +
 `#(...)` => `(fn [args] (...))` +
-where args are determined by the presence of argument literals taking the form %, %n or %&. % is a synonym for %1, %n designates the nth arg (1-based), and %& designates a rest arg. This is not a replacement for http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/fn[fn] - idiomatic use would be for very short one-off mapping/filter fns and the like. #() forms cannot be nested.
-** Ignore next form (pass:[#_])
+где args определяются по наличию литералов аргументов вида %, %n или %&. % - синоним для %1, %n обозначает n-тый аргумент (отсчет начинается с 1-го) и %& обозначает остальные аргументы. Это не замена для http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/fn[fn] - корректно использовать их для очень короткоживующих функций для сопоставления/фильтрации и т.п. Формы #() не могут быть вложенными.
+** Игнорировать следующую форму (pass:[#_])
 +
-The form following pass:[#_] is completely skipped by the reader. (This is a more complete removal than the http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/comment[comment] macro which yields nil).
+Форма, следующая за pass:[#_] полностью пропускается считывателем. (Это даже более полное удаление чем макрос http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/comment[comment], который порождает nil).
 
-* [[syntax-quote]] Syntax-quote (`, note, the "backquote" character), Unquote (~) and Unquote-splicing (~@)
+* [[syntax-quote]] Цитирование (` - обратный апостроф), подстановка (~) и подстановка-сращивание (~@)
 +
-For all forms other than Symbols, Lists, Vectors, Sets and Maps, `x is the same as 'x. +
+Для всех форм кроме знаков, списков, векторов, множеств и ассоциативных массивов, `x - это же самое что 'x. +
 +
-For Symbols, syntax-quote _resolves_ the symbol in the current context, yielding a fully-qualified symbol (i.e. namespace/name or fully.qualified.Classname). If a symbol is non-namespace-qualified and ends with pass:['#'], it is resolved to a generated symbol with the same name to which '_' and a unique id have been appended. e.g. x# will resolve to x_123. All references to that symbol within a syntax-quoted expression resolve to the same generated symbol. +
+Для знаков, цитирование _разрешает_ знак в текущем контексте, порождая уточненный знак (т.е. namespace/name или fully.qualitied.Classname). Если знак не принадлежит пространству имен и заканчивается на pass:['#'] он разрешается в сгенерированный знак с тем же именем, но с уникальным id добавленным в конец через '_'. То есть x# будет разрешен в x_123. Все ссылки на этот знак внутри выражения, помеченного цитированием, разрешаются в этот сгенерированный символ. +
 +
-For Lists/Vectors/Sets/Maps, syntax-quote establishes a template of the corresponding data structure. Within the template, unqualified forms behave as if recursively syntax-quoted, but forms can be exempted from such recursive quoting by qualifying them with unquote or unquote-splicing, in which case they will be treated as expressions and be replaced in the template by their value, or sequence of values, respectively. +
+Для списков, векторов, множеств и ассоциативных массивов цитирование создает соответствующую структуру данных. Внутри нее все формы ведут себя как рекурсивно помеченные цитированием, кроме помеченных подстановкой или подстановкой-сращиванием. В этом случае они будут обработаны как выражения и будут заменены в созданной структуре данных своими значениями или последовательностями значений, соответственно. +
 +
-For example: +
+Например: +
 +
 [source,clojure]
 ----
@@ -128,7 +128,7 @@ For example: +
     (user/fred user/x 5 user/lst a b c 7 8 :nine)
 ----
 +
-The read table is currently not accessible to user programs.
+На данный момент таблица чтения недоступна для пользовательских программ.
 
 === extensible data notation (edn) 
 Clojure's reader supports a superset of https://github.com/edn-format/edn[extensible data notation (edn)]. The edn specification is under active development, and complements this document by defining a subset of Clojure data syntax in a language-neutral way.
