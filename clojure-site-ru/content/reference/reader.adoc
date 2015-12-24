@@ -151,9 +151,9 @@ Clojure является http://en.wikipedia.org/wiki/Homoiconicity[гомоик
 
 Теги без уточнения пространства имен зарезервированы Clojure. Теги, зарегистрированные по-умолчанию определены в http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/default-data-readers[default-data-readers], но могут быть переопределены в `data_readers.clj` или с помощью переопределения http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%2Adata-readers%2A[pass:[*data-readers*]]. Если тег не зарегистрирован, будет вызвана функция http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%2Adefault-data-reader-fn%2A[pass:[*default-data-reader-fn*]], которой этот тег будет передан, чтобы получить нужный обработчик. Если pass:[*default-data-reader-fn*] возвратит nil (что является поведением по-умолчанию) - будет сгенерировано исключение RuntimeException.
 
-=== Reader Conditionals
+=== Условные выражения reader-а
  
-Clojure 1.7 introduced a new extension (.cljc) for portable files that can be loaded by multiple Clojure platforms. The primary mechanism for managing platform-specific code is to isolate that code into a minimal set of namespaces, and then provide platform-specific versions (.clj/.class or .cljs) of those namespaces.
+Clojure 1.7 представила новое расширение (.cljc) для переносимых файлов, которые могут быть загружены несколькими платформама Clojure. Главный механизм управления специфичного для платформы кода - изолировать этот код в минимальное множество пространств имен и затем предоставить платформенно-зависимые версии этих пространств имен (.clj/.class или .clojs).
 
 In cases where is not feasible to isolate the varying parts of the code, or where the code is mostly portable with only small platform-specific parts, 1.7 also introduced _reader conditionals_, which are supported only in cljc files and at the default REPL. Reader conditionals should be used sparingly and only when necessary.
 
