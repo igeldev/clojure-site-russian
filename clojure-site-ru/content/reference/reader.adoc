@@ -130,26 +130,26 @@ Clojure является http://en.wikipedia.org/wiki/Homoiconicity[гомоик
 +
 На данный момент таблица чтения недоступна для пользовательских программ.
 
-=== extensible data notation (edn) 
-Clojure's reader supports a superset of https://github.com/edn-format/edn[extensible data notation (edn)]. The edn specification is under active development, and complements this document by defining a subset of Clojure data syntax in a language-neutral way.
+=== Расширяемое представление данных (edn - extensible data notation)
+Считыватель языка Clojure поддерживает часть https://github.com/edn-format/edn[extensible data notation (edn)]. Спецификация edn пока еще в разработке, но она дополняет этот документ и определяет часть синтксиса данных Clojure.
 
-=== Tagged Literals 
-Tagged literals are Clojure's implementation of edn https://github.com/edn-format/edn#tagged-elements[tagged elements].
+=== Маркированные литералы
+Маркированные литералы - это реализация https://github.com/edn-format/edn#tagged-elements[tagged elements] на Clojure.
 
-When Clojure starts, it searches for files named `data_readers.clj` at the root of the classpath. Each such file must contain a Clojure map of symbols, like this:
+При старте Clojure ищет файлы, называющиеся `data_readers.clj` в корне classpath. Каждый такой файл должен содержать ассоциативный массив из знаков, например:
 [source,clojure]
 ----
     {foo/bar my.project.foo/bar
      foo/baz my.project/baz}
 ----
-The key in each pair is a tag that will be recognized by the Clojure reader. The value in the pair is the fully-qualified name of a <<vars#,Var>> which will be invoked by the reader to parse the form following the tag. For example, given the data_readers.clj file above, the Clojure reader would parse this form:
+Ключем в каждой паре является тег, который распознается считывателем. Значение - обработчик, уточненное имя <<vars#,переменной>>, которая будет вызвана считывателем как функция для обработки формы, следующую за тегом. Например, для data_readers.clj из примера выше считыватель распознает такую форму:
 [source,clojure]
 ----
     #foo/bar [1 2 3]
 ----
-by invoking the Var `#'my.project.foo/bar` on the vector `[1 2 3]`. The data reader function is invoked on the form AFTER it has been read as a normal Clojure data structure by the reader.
+Вызвав `#'my.project.foo/bar` на векторе `[1 2 3]`. Функция вызывается в на форме ПОСЛЕ того, как она будет прочитана считывателем как любая другая обычная структура данных Clojure.
 
-Reader tags without namespace qualifiers are reserved for Clojure. Default reader tags are defined in http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/default-data-readers[default-data-readers] but may be overridden in `data_readers.clj` or by rebinding http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%2Adata-readers%2A[pass:[*data-readers*]]. If no data reader is found for a tag, the function bound in http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%2Adefault-data-reader-fn%2A[pass:[*default-data-reader-fn*]] will be invoked with the tag and value to produce a value. If pass:[*default-data-reader-fn*] is nil (the default), a RuntimeException will be thrown.
+Теги без уточнения пространства имен зарезервированы Clojure. Теги, зарегистрированные по-умолчанию определены в http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/default-data-readers[default-data-readers], но могут быть переопределены в `data_readers.clj` или с помощью переопределения http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%2Adata-readers%2A[pass:[*data-readers*]]. Если тег не зарегистрирован, будет вызвана функция http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%2Adefault-data-reader-fn%2A[pass:[*default-data-reader-fn*]], которой этот тег будет передан, чтобы получить нужный обработчик. Если pass:[*default-data-reader-fn*] возвратит nil (что является поведением по-умолчанию) - будет сгенерировано исключение RuntimeException.
 
 === Reader Conditionals
  
