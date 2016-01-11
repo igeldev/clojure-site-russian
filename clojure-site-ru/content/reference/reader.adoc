@@ -151,15 +151,15 @@ Clojure является http://en.wikipedia.org/wiki/Homoiconicity[гомоик
 
 Теги без уточнения пространства имен зарезервированы Clojure. Теги, зарегистрированные по-умолчанию определены в http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/default-data-readers[default-data-readers], но могут быть переопределены в `data_readers.clj` или с помощью переопределения http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%2Adata-readers%2A[pass:[*data-readers*]]. Если тег не зарегистрирован, будет вызвана функция http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%2Adefault-data-reader-fn%2A[pass:[*default-data-reader-fn*]], которой этот тег будет передан, чтобы получить нужный обработчик. Если pass:[*default-data-reader-fn*] возвратит nil (что является поведением по-умолчанию) - будет сгенерировано исключение RuntimeException.
 
-=== Условные выражения reader-а
+=== Ветвление считывателя
  
-Clojure 1.7 представила новое расширение (.cljc) для переносимых файлов, которые могут быть загружены несколькими платформама Clojure. Главный механизм управления специфичного для платформы кода - изолировать этот код в минимальное множество пространств имен и затем предоставить платформенно-зависимые версии этих пространств имен (.clj/.class или .clojs).
+Clojure 1.7 ввела новое расширение (.cljc) для переносимых файлов, которые могут быть загружены несколькими платформама Clojure. Главный механизм для управления кодом, зависящим от платформы, - изолировать этот код в минимальное множество пространств имен, а затем предоставить платформенно-зависимые версии этих пространств имен (.clj/.class или .cljs).
 
-In cases where is not feasible to isolate the varying parts of the code, or where the code is mostly portable with only small platform-specific parts, 1.7 also introduced _reader conditionals_, which are supported only in cljc files and at the default REPL. Reader conditionals should be used sparingly and only when necessary.
+В случаях, когда невозможно изолировать различные части кода или когда код портируется с небольшими изменениями от платформы к платформе, Clojure 1.7 предоставляет _ветвления считывателя_, которые поддерживаются только в cljc-файлах и в REPL. Ветвления должны использоваться редко и только по необходимости.
 
-Reader conditionals are a new reader dispatch form starting with `pass:[#?]` or `pass:[#?@]`. Both consist of a series of alternating features and expressions, similar to `cond`. Every Clojure platform has a well-known "platform feature" - `:clj`, `:cljs`, `:cljr`. Each condition in a reader conditional is checked in order until a feature matching the platform feature is found. The reader conditional will read and return that feature's expression. The expression on each non-selected branch will be read but skipped. A well-known `:default` feature will always match and can be used to provide a default. If no branches match, no form will be read (as if no reader conditional expression was present).
+Ветвления - это новый макрос управляющего символа, начинающийся с `pass:[#?]` или `pass:[#?@]`. Обе записи должны состоять из нескольких альтернативных характерстик и соответствующих им выражений, так же как и у функции `cond`. Каждая платформа Clojure имеет известную "характеристику платформы" - `:clj`, `:cljs`, `:cljr`. Каждое условие в ветвлении считыватель проверяет по порядку, пока не найдет подходящее под характеристику платформы. Тогда считыватель прочитает и возвратит выражение, соответствующее этой характеристике. Остальные выражения будут прочитаны и пропущены. Характеристика `:default` будет подходить под любую платформу и может быть использована для значений по-умолчанию. Если подходящих условий не будет найдено, то и форм не будет прочитано (как если бы условного выражения reader-а не было бы совсем).
 
-The following example will read as Double/NaN in Clojure, js/NaN in ClojureScript, and nil in any other platform:
+Следующий пример будет прочитан как Double/NaN в Clojure, js/NaN в ClojureScript и nil на всех других платформах.
 
 [source,clojure]
 ----
@@ -168,7 +168,7 @@ The following example will read as Double/NaN in Clojure, js/NaN in ClojureScrip
    :default nil)
 ----
 
-The syntax for `pass:[#?@]` is exactly the same but the expression is expected to return a collection that can be spliced into the surrounding context, similar to unquote-splicing in syntax quote. Use of reader conditional splicing at the top level is not supported and will throw an exception. An example:
+Синтаксис для `pass:[#?@]` такой же, но ожидается, что выражение возвращает коллекцию, которая может быть вставлена в окружение, также как подстановка-сращивание (см. макрос цитирования выше). Использование такого сращивания на верхнем уровне не поддерживается и будет генерировать исключение. Например:
 
 [source,clojure]
 ----
@@ -178,16 +178,16 @@ The syntax for `pass:[#?@]` is exactly the same but the expression is expected t
 ;; anywhere else => [1 2]
 ----
 
-The http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/read[read] and http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/read-string[read-string] functions optionally take a map of options as a first argument. The current feature set and reader conditional behavior can be set in the options map with these keys and values:
+Функции http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/read[read] и http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/read-string[read-string] принимают в качестве первого необязательного параметра ассоциативный массив настроек. Текущее множество характеристик и поведение ветвлений может быть установленов в этих настройках с помощью следующих пар ключ-значение:
 
 [source,clojure]
 ----
-  :read-cond - :allow to process reader conditionals, or
-               :preserve to keep all branches
-  :features - persistent set of feature keywords that are active
+  :read-cond - :allow чтобы обрабатывать ветвления считывателя, или
+               :preserve чтобы сохранять все выражения.
+  :features - множество активных характеристик, заданных как ключевые значения
 ----
 
-An example of how to test ClojureScript reader conditionals from Clojure:
+Например, так можно проверить ветвления для ClojureScript из Clojure:
 
 [source,clojure]
 ----
