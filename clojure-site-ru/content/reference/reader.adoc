@@ -151,7 +151,7 @@ Clojure является http://en.wikipedia.org/wiki/Homoiconicity[гомоик
 
 Теги без уточнения пространства имен зарезервированы Clojure. Теги, зарегистрированные по-умолчанию определены в http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/default-data-readers[default-data-readers], но могут быть переопределены в `data_readers.clj` или с помощью переопределения http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%2Adata-readers%2A[pass:[*data-readers*]]. Если тег не зарегистрирован, будет вызвана функция http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%2Adefault-data-reader-fn%2A[pass:[*default-data-reader-fn*]], которой этот тег будет передан, чтобы получить нужный обработчик. Если pass:[*default-data-reader-fn*] возвратит nil (что является поведением по-умолчанию) - будет сгенерировано исключение RuntimeException.
 
-=== Ветвление считывателя
+=== Ветвления считывателя
  
 Clojure 1.7 ввела новое расширение (.cljc) для переносимых файлов, которые могут быть загружены несколькими платформама Clojure. Главный механизм для управления кодом, зависящим от платформы, - изолировать этот код в минимальное множество пространств имен, а затем предоставить платформенно-зависимые версии этих пространств имен (.clj/.class или .cljs).
 
@@ -198,9 +198,9 @@ Clojure 1.7 ввела новое расширение (.cljc) для перен
 ;; :works!
 ----
 
-However, note that the Clojure reader will _always_ inject the platform feature :clj as well. For platform-agnostic reading, see https://github.com/clojure/tools.reader[tools.reader].
+Заметим, что считыватель Clojure _всегда_ как минимум будет добавлять характеристику :clj. Подробнее о выполнении чтения, не зависимо от платформы см. https://github.com/clojure/tools.reader[tools.reader].
 
-If the reader is invoked with `{:read-cond :preserve}`, the reader conditional and non-executed branches will be preserved, as data, in the returned form. The reader-conditional will be returned as a type that supports keyword retrieval for keys with `:form` and a `:splicing?` flag. Read but skipped tagged literals will be returned as a type that supports keyword retrieval for keys with `:form` and `:tag` keys.
+Если считыватель вызывается с `{:read-cond :preserve}` ветвления и их неисполняемые ветки будут преобразованы в специальную структуру данных. Ветвления будут преобразованы в структуру, содержащую значения, ассоциированные с ключевыми словами `:form` и `:splicing?`. Прочитанные, но пропущенные маркированные литералы будут возвращены как структуры, содержащие значения, ассоциированные с ключевыми словами `:form` и `:tag`.
 
 [source,clojure]
 ----
@@ -210,5 +210,5 @@ If the reader is invoked with `{:read-cond :preserve}`, the reader conditional a
 ;; [1 2 #?@(:clj [3 4] :cljs [5 6])]
 ----
 
-The following functions can also be used as predicates or constructors for these types: +
+Следующие функции также могут быть использованы для создания и работы с такими струкурами: +
 http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/reader-conditional%3F[reader-conditional?] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/reader-conditional[reader-conditional] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/tagged-literal%3F[tagged-literal?] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/tagged-literal[tagged-literal]
