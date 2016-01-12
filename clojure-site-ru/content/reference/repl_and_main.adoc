@@ -1,15 +1,16 @@
-= REPL and main
+= REPL и main
 Rich Hickey
 2015-01-01
 :jbake-type: page
 :toc: macro
+:toc-title: Содержание
 
 ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 
-== The REPL and main entry points 
+== REPL и точки входа main
 
-=== The clojure.main namespace 
-The `clojure.main` namespace provides functions that allow Clojure programs and interactive sessions to be launched via Java's application launcher tool `java`.
+=== Пространство имен clojure.main
+Пространство имен `clojure.main` предоставляет функции, которые позволяют запускать программы Clojure с помощью команды `java`, а также открывать сеансы взаимодействия.
 
 === clojure.main --help 
 
