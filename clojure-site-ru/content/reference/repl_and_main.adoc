@@ -14,40 +14,40 @@ ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 
 === clojure.main --help 
 
-The `clojure.main/main` entry point accepts a variety of arguments and flags as described in its usage message:
+Точка входа `clojure.main/main` принимает множество аргументов и флагов, как и описано в её справочном сообщении:
 
 [source,clojure]
 ----
-Usage: java -cp clojure.jar clojure.main [init-opt*] [main-opt] [arg*]
+Использование: java -cp clojure.jar clojure.main [init-opt*] [main-opt] [arg*]
 
-With no options or args, runs an interactive Read-Eval-Print Loop
+Без параметров или аргументов запускает интерактивный REPL (Read-Eval-Print Loop).
 
-init options:
--i, --init path Load a file or resource
--e, --eval string Evaluate expressions in string; print non-nil values
+init-opt:
+-i, --init path Загрузить файл или ресурс
+-e, --eval string Вычисляет выражение в строке; выводит значения не равные nil
 
-main options:
--r, --repl Run a repl
-path Run a script from from a file or resource
-- Run a script from standard input
--m, --main A namespace to find a -main function for execution
--h, -?, --help Print this help message and exit
+main-opt:
+-r, --repl Запустить REPL
+path Запустить скрипт из файла или ресурса
+- Запустить скрипт из стандартного ввода
+-m, --main Пространство имен, в котором следует искать -main функцию для исполнения
+-h, -?, --help Вывести это справочное сообщение и выйти
 
-operation:
+процесс работы:
 
-- Establishes thread-local bindings for commonly set!-able vars
-- Enters the user namespace
-- Binds *command-line-args* to a seq of strings containing command line
-args that appear after any main option
-- Runs all init options in order
-- Runs a repl or script if requested
+- (TODO) Establishes thread-local bindings for commonly set!-able vars
+- Входит в пространство имен user
+- Устанавливает в *command-line-args* последовательность содержащую аргументы
+командной строки после main-opt
+- Запускает все init-opt по порядку
+- Запускает REPL или скрипт если необходимо
 
-The init options may be repeated and mixed freely, but must appear before
-any main option. The appearance of any eval option before running a repl
-suppresses the usual repl greeting message: "Clojure ~(clojure-version)".
+Опции init-opt могут повторяться в произвольном количестве и порядке, но должны быть
+перечислены до опций main-opt. Появление опции eval перед запуском repl
+заглушает обычное приветствие REPL: "Clojure ~(clojure-version)".
 
-Paths may be absolute or relative in the filesystem or relative to
-classpath. Classpath-relative paths have prefix of @ or @/
+Пути до файлов могут быть абсолютными или относительными в файловой системе или же относительными
+к classpath. Classpath-относительные пути должны иметь префикс @ или @/
 ----
 
 === Launching a REPL 
