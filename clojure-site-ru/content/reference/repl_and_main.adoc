@@ -20,7 +20,7 @@ ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 ----
 Использование: java -cp clojure.jar clojure.main [init-opt*] [main-opt] [arg*]
 
-Без параметров или аргументов запускает интерактивный REPL (Read-Eval-Print Loop).
+Без параметров или аргументов запускает интерактивный REPL (Read-Eval-Print Loop) - цикл считывания выражений и выдачи результатов.
 
 init-opt:
 -i, --init path Загрузить файл или ресурс
@@ -50,49 +50,49 @@ path Запустить скрипт из файла или ресурса
 к classpath. Classpath-относительные пути должны иметь префикс @ или @/
 ----
 
-=== Launching a REPL 
+=== Запуск REPL
 
-The simplest way to launch a Clojure _repl_ is to use the following command line from within Clojure's home directory:
+Простейший способ запустить _repl_ - использование следующей команды в домашней директории Clojure:
 
 [source,clojure]
 ----
 java -cp clojure.jar clojure.main
 ----
 
-The REPL prompt shows the name of the current namespace (pass:[*ns*]), which defaults to _user_. 
+Подсказка REPL покажет текущее пространство имен (pass:[*ns*]), по-умолчанию - _user_.
 
-Several special vars are available when using the REPL:
+В REPL доступны несколько специальных переменных:
 
-* *1, *2, *3 - hold the result of the last three expressions that were evaluated
-* *e - holds the result of the last exception.
+* *1, *2, *3 - хранят результат последних трех вычисленных выражений
+* *e - хранит последнее исключение.
 
-The http://clojure.github.io/clojure/clojure.repl-api.html[clojure.repl] namespace has a number of useful functions for inspecting the source and documentation of available functions:
+Пространство имен http://clojure.github.io/clojure/clojure.repl-api.html[clojure.repl] содержит несколько полезных функций для изучения исходного кода и документации доступных функций:
 
-* http://clojure.github.io/clojure/clojure.repl-api.html#clojure.repl/doc[doc] - prints the docstring for a var given its name
-* http://clojure.github.io/clojure/clojure.repl-api.html#clojure.repl/find-doc[find-doc] - prints the docstring for any var whose doc or name matches the pattern
-* http://clojure.github.io/clojure/clojure.repl-api.html#clojure.repl/apropos[apropos] - returns a seq of definitions matching a regex
-* http://clojure.github.io/clojure/clojure.repl-api.html#clojure.repl/source[source] - prints the source for a symbol
-* http://clojure.github.io/clojure/clojure.repl-api.html#clojure.repl/pst[pst] - **p**rint **s**tack **t**race for a given exception or *e by default
+* http://clojure.github.io/clojure/clojure.repl-api.html#clojure.repl/doc[doc] - печатает информацию о переменной по её имени
+* http://clojure.github.io/clojure/clojure.repl-api.html#clojure.repl/find-doc[find-doc] - печатает информацию о переменных, чья документация или имя подходит под регулярное выражение
+* http://clojure.github.io/clojure/clojure.repl-api.html#clojure.repl/apropos[apropos] - возвращает последовательность определений, подходящих под регулярное выражение
+* http://clojure.github.io/clojure/clojure.repl-api.html#clojure.repl/source[source] - печатает исходный код для заданного знака
+* http://clojure.github.io/clojure/clojure.repl-api.html#clojure.repl/pst[pst] - печатает стек вызовов (**p**rint **s**tack **t**race) для данного исключения, по-умолчанию - *e 
 
-=== Launching a Script 
+=== Запуск скрипта
 
-To run a file full of Clojure code as a script, pass the path to the script to `clojure.main` as an argument:
+Чтобы выполнить скрипт-файл с Clojure кодом, нужно передать путь до скрипта в `clojure.main` как аргумент:
 
 [source,clojure]
 ----
 java -cp clojure.jar clojure.main /path/to/myscript.clj
 ----
 
-=== Passing arguments to a Script 
+=== Передача аргументов в скрипт
 
-To pass in arguments to a script, pass them in as further arguments when launching `clojure.main`:
+Чтобы передать аргументы в скрипт, их нужно записать как конечные аргументы при запуске `clojure.main`:
 
 [source,clojure]
 ----
 java -cp clojure.jar clojure.main /path/to/myscript.clj arg1 arg2 arg3
 ----
 
-The arguments will be provided to your program as a seq of strings bound to the var `pass:[*command-line-args*]`:
+Аргументы будут предоставлены в вашей программе как последовательность строк, привязанных к переменной `pass:[*command-line-args*]`:
 
 [source,clojure]
 ----
