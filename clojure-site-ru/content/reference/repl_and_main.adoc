@@ -99,32 +99,32 @@ java -cp clojure.jar clojure.main /path/to/myscript.clj arg1 arg2 arg3
 *command-line-args* => ("arg1" "arg2" "arg3")
 ----
 
-=== Launching a Socket Server
+=== Запуск сервера
 
-_**This feature was added in 1.8.0.**_
+_**Эта возможность была добавлена в 1.8.0.**_
 
-The Clojure runtime now has the ability to start a socket server at initialization based on system properties. One expected use for this is serving a socket-based REPL, but it also has many other potential uses for dynamically adding server capability to existing programs without code changes.
+Clojure теперь позволяет запускать сервер в зависимости от системных параметров Java. Одно из возможных применений этого - запуск серверного REPL. Также сервера могут быть использованы, чтобы добавлять новый функционал в программы Clojure без изменения исходного кода.
 
-A socket server will be started for each JVM system property like "clojure.server.<server-name>". The value for this property is an edn map representing the configuration of the socket server with the following properties:
+Отдельный сервер будет запущен для каждого системного параметра вида "clojure.server.<имя сервера>". Значением аргумента должен быть ассоциативный массив с настройками этого сервера:
 
-* `server-daemon` - defaults to true, socket server thread doesn't block exit
-* `address` - host or address, defaults to loopback
-* `port` - positive integer, required
-* `accept` - namespaced symbol of function to invoke on socket accept, required
-* `args` - sequential collection of args to pass to accept
-* `bind-err` - defaults to true, binds `pass:[*err*]` to socket out stream
-* `client-daemon` - defaults to true, socket client thread doesn't block exit
+* `server-daemon` - по-умолчанию true, соединения ожидаются в потоке-демоне или нет
+* `address` - хост или адрес, по-умолчанию - локальный
+* `port` - положительное целое число, обязательный параметр
+* `accept` - функция для обработки входящего соединения с указанием пространства имен, обязательный параметр
+* `args` - последовательность аргументов, которые нужно передать функции accept
+* `bind-err` - по-умолчанию true, привязывает поток ошибок `pass:[*err*]` к выходному потоку соединения
+* `client-daemon` - по-умолчанию true, соединения обрабатываются в потоке-демоне или нет
 
-Additionally, there is a repl function provided that is slightly customized for use with the socket server in http://clojure.github.io/clojure/clojure.repl-api.html#clojure.core.server/repl[clojure.core.server/repl].
+Кроме того, существует функция repl, предназначенная специально для использования с серверами: http://clojure.github.io/clojure/clojure.repl-api.html#clojure.core.server/repl[clojure.core.server/repl].
 
-Following is an example of starting a socket server with a repl listener. This can be added to any existing Clojure program to allow it to accept external REPL clients via a local connection to port 5555.
+Ниже приведен пример запуска сервера, обслуживаемого функцией repl. Этот параметр может быть добавлен при запуске к любой программе Clojure, чтобы она была способна принимать внешние соединения на порт 5555 и обрабатывать их с помощью REPL.
 
 [source,clojure]
 ----
 -Dclojure.server.repl="{:port 5555 :accept clojure.core.server/repl}"
 ----
 
-An example client you can use to connect to this socket repl is telnet:
+Например, с помощью telnet можно установить соединение с этим сервером:
 
 [source,clojure]
 ----
@@ -136,10 +136,10 @@ user=> (println "hello")
 hello
 ----
 
-Also see:
+Смотри также:
 
 * http://dev.clojure.org/jira/browse/CLJ-1671[CLJ-1671]
-* http://dev.clojure.org/display/design/Socket+Server+REPL[Socket REPL design page]
+* http://dev.clojure.org/display/design/Socket+Server+REPL[Серверный REPL]
 
 === Related functions 
 
