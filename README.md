@@ -3,6 +3,8 @@ clojure-site-russian
 
 Документация Clojure на русском языке.
 
+- [Справочник](clojure-site-ru/content/reference/documentation.adoc)
+
 Зачем?
 ------
 
