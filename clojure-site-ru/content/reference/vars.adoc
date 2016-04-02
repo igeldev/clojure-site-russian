@@ -9,9 +9,9 @@ ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 
 toc::[]
 
-== Vars and the Global Environment
+== Переменные и глобальное окружение
 
-Clojure is a practical language that recognizes the occasional need to maintain a persistent reference to a changing value and provides 4 distinct mechanisms for doing so in a controlled manner - Vars, <<refs#,Refs>>, <<agents#,Agents>> and <<atoms#,Atoms>>. Vars provide a mechanism to refer to a mutable storage location that can be dynamically rebound (to a new storage location) on a per-thread basis. Every Var can (but needn't) have a root binding, which is a binding that is shared by all threads that do not have a per-thread binding. Thus, the value of a Var is the value of its per-thread binding, or, if it is not bound in the thread requesting the value, the value of the root binding, if any.
+Clojure - прикладной язык программирования, который признает необходимость время от времени держать постоянные ссылки на изменяемые значения и предлагает для этого 4 различных механизма - переменные, <<refs#,ссылки>>, <<agents#,агенты>> и <<atoms#,атомы>>. Переменные позволяют ссылаться на изменяемое хранилище, которое может быть динамически заменено (на новое хранилище) для отдельного потока. Каждая переменная может (но не должна) быть связана с некоторым "главным" хранилищем, которое будет использоваться потоками, не имеющими своей отдельной связи для данной переменной. Таким образом, значение переменной - это значение в хранилище, с которым связана эта переменная в текущем потоке, либо значение в главном хранилище.
 
 The special form _**def**_ creates (and <<vars#interning,interns>>) a Var. If the Var did not already exist and no initial value is supplied, the var is unbound:
 
