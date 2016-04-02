@@ -13,7 +13,7 @@ toc::[]
 
 Clojure - прикладной язык программирования, который признает необходимость время от времени держать постоянные ссылки на изменяемые значения и предлагает для этого 4 различных механизма - переменные, <<refs#,ссылки>>, <<agents#,агенты>> и <<atoms#,атомы>>. Переменные позволяют ссылаться на изменяемое хранилище, которое может быть динамически заменено (на новое хранилище) для отдельного потока. Каждая переменная может (но не должна) быть связана с некоторым "главным" хранилищем, которое будет использоваться потоками, не имеющими своей отдельной связи для данной переменной. Таким образом, значение переменной - это значение в хранилище, с которым связана эта переменная в текущем потоке, либо значение в главном хранилище.
 
-The special form _**def**_ creates (and <<vars#interning,interns>>) a Var. If the Var did not already exist and no initial value is supplied, the var is unbound:
+Специальная форма _**def**_ создает (и <<vars#interning,помещает в пул>>) переменную. Если эта переменная не существовала и не было предоставлено начального значения - она будет несвязанной:
 
 [source,clojure]
 ----
@@ -23,7 +23,7 @@ user=> x
 java.lang.IllegalStateException: Var user/x is unbound.
 ----
 
-Supplying an initial value binds the root (even if it was already bound).
+Если начальное значение предоставлено - оно помещается в главное хранилище, связанное с переменной (даже если с переменная уже была связанна с некоторым хранилищем).
 
 [source,clojure]
 ----
@@ -34,7 +34,7 @@ user=> x
 1
 ----
 
-By default Vars are static, but Vars can be marked as dynamic to allow per-thread bindings via the macro http://clojure.github.com/clojure/clojure.core-api.html#clojure.core/binding[binding]. Within each thread they obey a stack discipline:
+По-умолчанию переменные являются статическими, но они могут быть помечены как динамические чтобы разрешить переопределение связанного хранилища для отдельного потока. Это осуществляется с помощью макроса http://clojure.github.com/clojure/clojure.core-api.html#clojure.core/binding[binding]. Внутри каждого потока динамические переменные подчиняются правилам стека:
 
 [source,clojure]
 ----
