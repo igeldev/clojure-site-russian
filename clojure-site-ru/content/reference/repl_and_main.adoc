@@ -141,7 +141,7 @@ hello
 * http://dev.clojure.org/jira/browse/CLJ-1671[CLJ-1671]
 * http://dev.clojure.org/display/design/Socket+Server+REPL[Серверный REPL]
 
-=== Related functions 
+=== Ссылки на функции
 
 Главная точка входа: `http://clojure.github.io/clojure/clojure.main-api.html#clojure.main/main[clojure.main/main]`
 
