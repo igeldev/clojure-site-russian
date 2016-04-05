@@ -58,13 +58,13 @@ user=> (+ x y)
 [[set]]
 === (*set!* var-symbol expr)
 
-Assignment special form.
+Специальная форма присвоения.
 
-When the first operand is a symbol, it must resolve to a global var. The value of the var's current thread binding is set to the value of expr. Currently, it is an error to attempt to set the root binding of a var using set!, i.e. var assignments are thread-local. In all cases the value of expr is returned.
+Если в качестве первого операнда передан символ - ожидается, что он является глобальной переменной. Тогда в текущем потоке для этой переменной будет установлена связь со значением выражения expr. Попытка установить значение в главном хранилище переменной с помощью set! является ошибкой в текущей версии языка. В любом случае возвращается значение выражения expr.
 
-Note - _you cannot assign to function params or local bindings. Only Java fields, Vars, Refs and Agents are mutable in Clojure_.
+Примечание - _вы не можете присвоить значение параметру функции или локальным связям. Только Java-поля, переменные, ссылки и агенты изменяемы в Clojure_.
 
-Using <<java_interop#set,set>> for Java fields is documented in <<java_interop#set,Java Interop>>.
+Использование <<java_interop#set,set>> для Java-полей описано в <<java_interop#set,Java Interop>>.
 
 [[Interning]]
 === Interning 
