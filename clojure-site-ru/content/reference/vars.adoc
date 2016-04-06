@@ -13,7 +13,7 @@ toc::[]
 
 Clojure - прикладной язык программирования, который признает необходимость время от времени держать постоянные ссылки на изменяемые значения и предлагает для этого 4 различных механизма - переменные, <<refs#,ссылки>>, <<agents#,агенты>> и <<atoms#,атомы>>. Переменные позволяют ссылаться на изменяемое хранилище, которое может быть динамически заменено (на новое хранилище) для отдельного потока. Каждая переменная может (но не должна) иметь некоторую "главную" связь, которая будет использоваться потоками, не имеющими своей отдельной связи для данной переменной. Таким образом, значение переменной - это значение в хранилище, с которым связана эта переменная в текущем потоке, либо значение в главном хранилище.
 
-Специальная форма _**def**_ создает (и <<vars#interning,помещает в пул>>) переменную. Если эта переменная не существовала и не было предоставлено начального значения - она будет несвязанной:
+Специальная форма _**def**_ осуществляет <<vars#interning,ленивое создание>> переменной. Если эта переменная не существовала и не было предоставлено начального значения - она будет несвязанной:
 
 [source,clojure]
 ----
@@ -67,10 +67,10 @@ user=> (+ x y)
 Использование <<java_interop#set,set>> для Java-полей описано в <<java_interop#set,Java Interop>>.
 
 [[Interning]]
-=== Interning 
-The Namespace system maintains global maps of symbols to Var objects _(see <<namespaces#,Namespaces>>)_. If a _**def**_ expression does not find an interned entry in the current namespace for the symbol being def-ed, it creates one, otherwise it uses the existing Var. This find-or-create process is called interning. This means that, unless they have been unmap-ed, Var objects are stable references and need not be looked up every time. It also means that namespaces constitute a global environment in which, as described in <<evaluation#,Evaluation>>, the compiler attempts to resolve all free symbols as Vars.
+=== Ленивое создание
+Система пространств имен поддерживает глобальные ассоциативные массивы, хранящие соответствие между знаками и переменными-объектами _(см. <<namespaces#,Пространства имен>>)_. Если выражение _**def**_ не находит запись, соответствующую определяемому знаку в текущем пространстве имен, оно создает такую запись. В противном случае _**def**_ использует существующую переменную-объект. Этот процесс поиска-создания называется ленивым созданием переменной. Это означает, что переменные-объекты являются неизменяемыми ссылками, пока не удалены из пространства имен. Это также означает, что пространства имен составляют глобальное окружение, в котором компилятор пытается разрешить все свободные знаки как переменные (см. <<evaluation#,Вычисление>>).
 
-The <<special_forms#var,var>> special form or the `pass:[#']` reader macro _(see <<reader#,Reader>>)_ can be used to get an interned Var object instead of its current value.
+Специальная форма <<special_forms#var,var>> или маркос считывателя `pass:[#']` _(см. <<reader#,Считыватель>>)_ могут быть использованы, чтобы получить переменную-объект, а не её значение.
 
 [[local-vars]]
 === Non-interned Vars
