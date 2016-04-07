@@ -19,7 +19,7 @@ toc::[]
 
 В текущем пространстве имен, _pass:[*ns*]_ может и должно устанавливаться только с помощью http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/in-ns[in-ns] или http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/ns[макроса ns]. В обоих случаях пространство имен будет создано, если таковое не существует.
 
-=== См. также
+=== Функции
 
 [%hardbreaks]
 Создание и переключение в пространство имен: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/in-ns[in-ns] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/ns[ns] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/create-ns[create-ns]
