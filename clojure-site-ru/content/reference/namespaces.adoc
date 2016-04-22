@@ -1,25 +1,28 @@
 = Пространства имен
 Rich Hickey
 2015-01-01
-:jbake-type: page
+:type: reference
 :toc: macro
 :toc-title: Содержание
+:icons: font
+:prevpagehref: metadata
+:prevpagetitle: Metadata
+:nextpagehref: libs
+:nextpagetitle: Libs
 
 ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 
 toc::[]
 
-== Пространства имен
-
-Пространства имен - это соответствие между простыми (неуточненными) знаками и переменными/классами. Переменные могут быть добавлены в пространство имен с помощью _**def**_, а также с помощью любого из вариантов _**def**_. В этом случае у переменной появится некоторый знак в качестве имени, а пространство имен будет содержать соответствие между этим знаком и переменной. Также пространство имен может заимствовать пары знак-переменная из других пространств имен с помощью http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/refer[refer], http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/use[use] или пары знак-класс с помощью http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/import[import]. Заметим, что пространства имен являются https://ru.wikipedia.org/wiki/Объект_первого_класса[объектами первого класса]. Они могут динамически создаваться, удаляться и модифицироваться во время исполнения и в REPL.
+Пространства имен - это соответствие между простыми (неуточненными) знаками и переменными/классами.Переменные могут быть добавлены в пространство имен с помощью _**def**_, а также с помощью любого из вариантов функции _**def**_. В этом случае у переменной появится некоторый знак в качестве имени, а также ссылка на пространство имен, в которое добавится соответствие между этим знаком и переменной.Также пространство имен может заимствовать пары знак-переменная из других пространств имен с помощью http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/refer[refer], http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/use[use] или пары знак-класс с помощью http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/import[import]. Заметим, что пространства имен являются https://ru.wikipedia.org/wiki/Объект_первого_класса[объектами первого класса]. Они могут динамически создаваться, удаляться и модифицироваться во время исполнения и в REPL.
 
 Лучший способ создать новое пространство имен в начале файла Clojure - использовать http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/ns[макрос ns]. По-умолчанию он создаст новое пространство имен, содержащее пары-соответствия для имен классов из +java.lang+, `clojure.lang.Compiler` а также функций `clojure.core`.
 
-В REPL лучше всего использовать http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/in-ns[in-ns], которая для нового пространства имен добавляет только соответствия для имен классов из +java.lang+. Чтобы получить доступ к именам из пространства имен `clojure.core`, вам нужно будет выполнить +(clojure.core/refer 'clojure.core)+. Для пространство имен `user` в REPL это уже сделано за вас.
+В REPL лучше всего использовать http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/in-ns[in-ns], которая для нового пространства имен добавляет только соответствия для имен классов из +java.lang+. Чтобы получить доступ к именам из пространства имен `clojure.core`, вам нужно будет выполнить +(clojure.core/refer 'clojure.core)+. Для пространства имен `user` в REPL это уже сделано за вас.
 
-В текущем пространстве имен, _pass:[*ns*]_ может и должно устанавливаться только с помощью http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/in-ns[in-ns] или http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/ns[макроса ns]. В обоих случаях пространство имен будет создано, если таковое не существует.
+Текущее пространство имен _pass:[*ns*]_ может и должно устанавливаться только с помощью http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/in-ns[in-ns] или http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/ns[макроса ns]. В обоих случаях пространство имен будет создано, если таковое не существует.
 
-=== Функции
+== Функции
 
 [%hardbreaks]
 Создание и переключение в пространство имен: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/in-ns[in-ns] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/ns[ns] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/create-ns[create-ns]

@@ -1,18 +1,25 @@
-= REPL и main
+= REPL и точки входа main
 Rich Hickey
 2015-01-01
-:jbake-type: page
+:type: reference
 :toc: macro
 :toc-title: Содержание
+:icons: font
+:navlinktext: REPL and main
+:prevpagehref: reader
+:prevpagetitle: Reader
+:nextpagehref: evaluation
+:nextpagetitle: Evaluation
 
 ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 
-== REPL и точки входа main
+toc::[]
 
-=== Пространство имен clojure.main
-Пространство имен `clojure.main` предоставляет функции, которые позволяют запускать программы Clojure с помощью команды `java`, а также открывать сеансы взаимодействия.
+== Пространство имен clojure.main
 
-=== clojure.main --help 
+Пространство имен `clojure.main` предоставляет функции, которые позволяют запускать программы Clojure и открывать сеансы взаимодействия с помощью команды `java`.
+
+== clojure.main --help
 
 Точка входа `clojure.main/main` принимает множество аргументов и флагов, как и описано в её справочном сообщении:
 
@@ -50,7 +57,7 @@ path Запустить скрипт из файла или ресурса
 к classpath. Classpath-относительные пути должны иметь префикс @ или @/
 ----
 
-=== Запуск REPL
+== Запуск REPL
 
 Простейший способ запустить _repl_ - использование следующей команды в домашней директории Clojure:
 
@@ -74,7 +81,7 @@ java -cp clojure.jar clojure.main
 * http://clojure.github.io/clojure/clojure.repl-api.html#clojure.repl/source[source] - печатает исходный код для заданного знака
 * http://clojure.github.io/clojure/clojure.repl-api.html#clojure.repl/pst[pst] - печатает стек вызовов (**p**rint **s**tack **t**race) для данного исключения, по-умолчанию - *e 
 
-=== Запуск скрипта
+== Запуск скрипта
 
 Чтобы выполнить скрипт-файл с Clojure кодом, нужно передать путь до скрипта в `clojure.main` как аргумент:
 
@@ -83,7 +90,7 @@ java -cp clojure.jar clojure.main
 java -cp clojure.jar clojure.main /path/to/myscript.clj
 ----
 
-=== Передача аргументов в скрипт
+== Передача аргументов в скрипт
 
 Чтобы передать аргументы в скрипт, их нужно записать как конечные аргументы при запуске `clojure.main`:
 
@@ -99,9 +106,10 @@ java -cp clojure.jar clojure.main /path/to/myscript.clj arg1 arg2 arg3
 *command-line-args* => ("arg1" "arg2" "arg3")
 ----
 
-=== Запуск сервера
+== Запуск сервера
 
-_**Эта возможность была добавлена в 1.8.0.**_
+[NOTE]
+Эта возможность была добавлена в 1.8.0.
 
 Clojure теперь позволяет запускать сервер в зависимости от системных параметров Java. Одно из возможных применений этого - запуск серверного REPL. Также сервера могут быть использованы, чтобы добавлять новый функционал в программы Clojure без изменения исходного кода.
 
@@ -136,15 +144,27 @@ user=> (println "hello")
 hello
 ----
 
+Вы можете приказать серверу закрыть клиентское соединение с помощью специальной команды `:repl/quit`:
+
+[source,clojure]
+----
+user=> :repl/quit
+Connection closed by foreign host.
+----
+
 Смотри также:
 
 * http://dev.clojure.org/jira/browse/CLJ-1671[CLJ-1671]
 * http://dev.clojure.org/display/design/Socket+Server+REPL[Серверный REPL]
 
-=== Функции
+== Функции
 
 Главная точка входа: `http://clojure.github.io/clojure/clojure.main-api.html#clojure.main/main[clojure.main/main]`
 
 Функция REPL: `http://clojure.github.io/clojure/clojure.main-api.html#clojure.main/repl[clojure.main/repl]`
 
 Функция, устанавливающая переменные REPL для выполнения: `http://clojure.github.io/clojure/clojure.main-api.html#clojure.main/with-bindings[clojure.main/with-bindings]`
+
+Контроль сервера: `http://clojure.github.io/clojure/clojure.core-api.html#clojure.core.server/start-server[clojure.core.server/start-server]` `http://clojure.github.io/clojure/clojure.core-api.html#clojure.core.server/stop-server[clojure.core.server/stop-server]` `http://clojure.github.io/clojure/clojure.core-api.html#clojure.core.server/stop-servers[clojure.core.server/stop-servers]` 
+
+Функция REPL, удобная для сервера: `http://clojure.github.io/clojure/clojure.core-api.html#clojure.core.server/repl[clojure.core.server/repl]`
