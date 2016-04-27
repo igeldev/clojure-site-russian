@@ -18,7 +18,7 @@ toc::[]
 
 Понять транзакции Clojure должно быть просто, если вы когда-нибудь использовали транзакции баз данных - они гарантируют, что все действия со ссылками атомарны, консистентны и изолированы. Атомарны означает, что каждое изменение ссылок сделанное внутри транзакции либо происходит целиком либо не происходит вовсе. Консистентны означает, что каждое новое значение может быть проверено с помощью функции перед выполнением транзакции. Изолированы означает, что пока транзакция не завершена, другие транзацкции не увидят результат её работы. Еще одно свойство общее с STM (программной трензакционной памятью) - если во время выполнения транзакции возникает конфликт - она автоматически повторяется.
 
-There are many ways to do STMs (locking/pessimistic, lock-free/optimistic and hybrids) and it is still a research problem. The Clojure STM uses http://en.wikipedia.org/wiki/Multiversion_concurrency_control[multiversion concurrency control] with adaptive history queues for http://en.wikipedia.org/wiki/Snapshot_isolation[snapshot isolation], and provides a distinct http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/commute[commute] operation.
+Существуют несколько способов реализации STM (программной транзакционной памяти) - блокирующая/пессимистичная, безблокировочная/оптимистическая, гибриды. В этом направлении разработки ведутся до сих пор. Для реализации STM Clojure использует http://en.wikipedia.org/wiki/Multiversion_concurrency_control[управление конкурентным доступом с помощью многоверсионности] с адаптивной историей для http://en.wikipedia.org/wiki/Snapshot_isolation[изоляции версий] и предоставляет отдельную функцию http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/commute[commute].
 
 In practice, this means:
 
