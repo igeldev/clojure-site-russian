@@ -20,14 +20,14 @@ toc::[]
 
 Существуют несколько способов реализации STM (программной транзакционной памяти) - блокирующая/пессимистичная, безблокировочная/оптимистическая, гибриды. В этом направлении разработки ведутся до сих пор. Для реализации STM Clojure использует http://en.wikipedia.org/wiki/Multiversion_concurrency_control[управление конкурентным доступом с помощью многоверсионности] с адаптивной историей для http://en.wikipedia.org/wiki/Snapshot_isolation[изоляции версий] и предоставляет отдельную функцию http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/commute[commute].
 
-In practice, this means:
+На практике это означает:
 
-. All reads of Refs will see a consistent snapshot of the 'Ref world' as of the starting point of the transaction (its 'read point'). The transaction _will_ see any changes it has made. This is called the _in-transaction-value_.
-. All changes made to Refs during a transaction (via http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/ref-set[ref-set], http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/alter[alter] or http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/commute[commute]) will appear to occur at a single point in the 'Ref world' timeline (its 'write point').
-. No changes will have been made by any other transactions to any Refs that have been *ref-set**_ / _**altered**_ / _**ensured**_ by this transaction.
-. Changes _may have_ been made by other transactions to any Refs that have been commuted by this transaction. That should be okay since the function applied by _**commute**_ should be commutative.
-. Readers and commuters will never block writers, commuters, or other readers.
-. Writers will never block commuters, or readers.
+. Все операции чтения ссылок будут производиться в версии "мира ссылок", соответствующей началу транзакции (её "точка чтения"). Транзакции _будут_ видеть все свои изменения, называемые _значение-внутри-транзакции_.
+. Все изменения, производимые со ссылками в течении транзакции (с помощью http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/ref-set[ref-set], http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/alter[alter] или http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/commute[commute]) будут применены в "мире ссылок" в один момент времени ("точке записи" транзакции).
+. Другие транзакции не смогут модифицировать ссылки, изменение которых было запрещено функциями _**ref-set**_ / _**alter**_ / _**ensure**_.
+. Другие транзакции _могут_ модифицировать любые ссылки, изменение которых было разрешено функцией _**commute**_. Это не должно вызывать проблем, так как функция, применяемая _**commute**_ должна быть коммутативна.
+. Операции чтения и объединения ссылок (с помощью _**commute**_) никогда не блокируют другие операции, а том числе и операции записи ссылок.
+. Операции записи не блокируют операции чтения и объединения.
 . I/O and other activities with side-effects should be avoided in transactions, since transactions _will_ be retried. The http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/io![io!] macro can be used to prevent the use of an impure function in a transaction.
 . If a constraint on the validity of a value of a Ref that is being changed depends upon the simultaneous value of a Ref that is _not being changed_, that second Ref can be protected from modification by calling http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/ensure[ensure]. Refs 'ensured' this way will be protected (item #3), but don't change the world (item #2).
 . The Clojure MVCC STM is designed to work with the persistent collections, and it is strongly recommended that you use the Clojure collections as the values of your Refs. Since all work done in an STM transaction is speculative, it is imperative that there be a low cost to making copies and modifications. Persistent collections have free copies (just use the original, it can't be changed), and 'modifications' share structure efficiently. In any case:
