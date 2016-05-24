@@ -33,8 +33,8 @@ toc::[]
 . Реализация MVCC STM, используемая в Clojure создана для работы с персистентными коллекциями. Настоятельно рекомендуется использовать коллекции Clojure в качестве значений ссылок. Так как высока вероятность повторного исполнения транзакций, крайне необходима как можно более низкая цена копий и модификаций. Персистентные коллекции имеют "бесплатные" копии (оригинал просто переиспользуется, так как все равно не может быть изменен) и модификации коллекций эффективно переиспользуют структуры данных. В любом случае:
 . Значения, хранящиеся с ссылках, _обязяны быть или рассматриваться как неизменяемые_!! Иначе Clojure не поможет вам.
 
-== Example
-In this example a vector of references to vectors is created, each containing (initially sequential) unique numbers. Then a set of threads are started that repeatedly select two random positions in two random vectors and swap them, in a transaction. No special effort is made to prevent the inevitable conflicts other than the use of transactions.
+== Пример
+В этом примере создается вектор ссылок на вектора, каждый из которых содержит изначально последовательный набор уникальных чисел. Затем запускается множество потоков, которые несколько раз выбирают две случайных позиции в двух случайных векторах и меняют содержимое местами внутри транзакции. При этом не предпринимается никаких дополнительных усилий по предотвращению неизбежных конфликтов, кроме использования транзакций.
 [source,clojure]
 ----
 (defn run [nvecs nitems nthreads niters]
@@ -57,7 +57,7 @@ In this example a vector of references to vectors is created, each containing (i
     (report)))
 
 ----
-When run, we see no values get lost or duplicated in the shuffle:
+При выполнении мы увидим, что ни одно значение не было потеряно или продублировано при перемешивании:
 [source,clojure]
 ----
 (run 100 10 10 100000)
