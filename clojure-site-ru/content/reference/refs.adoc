@@ -71,14 +71,14 @@ Distinct: 1000
 Distinct: 1000
 ----
 
-== Related functions
+== Функции
 
-Create a Ref: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/ref[ref]
+Создать ссылку: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/ref[ref]
 
-Examine a Ref: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/deref[deref] _(see also the +@+ <<reader#,reader>> macro)_
+Получить значение ссылки: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/deref[deref] _(см. также макрос <<reader#,считывателя>> +@+)_
 
-Transaction macros: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/dosync[dosync] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/io![io!]
+Макросы транзакций: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/dosync[dosync] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/io![io!]
 
-Allowed only in a transaction: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/ensure[ensure] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/ref-set[ref-set] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/alter[alter] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/commute[commute]
+Разрешены только внутри транзакций: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/ensure[ensure] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/ref-set[ref-set] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/alter[alter] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/commute[commute]
 
-Ref validators: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/set-validator![set-validator!] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/get-validator[get-validator]
+Валидаторы ссылок: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/set-validator![set-validator!] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/get-validator[get-validator]
