@@ -19,7 +19,7 @@ toc::[]
 
 Агенты Clojure _реактивны_, не автономны - нет никакого императивного цикла сообщений и нет блокировок. Состояние агента само должно быть неизменяемым (предпочтительно экземпляром одной из коллекций Clojure) и состояние агента всегда немедленно становится доступно для чтения любым другим потоком (при помощи функции http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/deref[deref] или макроса <<reader#,считывателя>> +@+) без каких бы то ни было сообщений, то есть отслеживание не требует согласования или координации.
 
-Agent action dispatches take the form +(send agent fn args*)+. http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/send[send] (and http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/send-off[send-off]) always returns immediately. At some point later, in another thread, the following will happen:
+Отправка действий агенту происходит в форме +(send agent fn args*)+. http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/send[send] (и http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/send-off[send-off]) всегда немедленно завершаются. В какой-то момент позже, в другом потоке, произойдет следующее:
 
 . The given +fn+ will be applied to the _state_ of the Agent and the args, if any were supplied.
 . The return value of +fn+ will be passed to the validator function, if one has been set on the Agent. See http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/set-validator![set-validator!] for details.
