@@ -21,11 +21,11 @@ toc::[]
 
 Отправка действий агенту происходит в форме +(send agent fn args*)+. http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/send[send] (и http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/send-off[send-off]) всегда немедленно завершаются. В какой-то момент позже, в другом потоке, произойдет следующее:
 
-. The given +fn+ will be applied to the _state_ of the Agent and the args, if any were supplied.
-. The return value of +fn+ will be passed to the validator function, if one has been set on the Agent. See http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/set-validator![set-validator!] for details.
-. If the validator succeeds or if no validator was given, the return value of the given +fn+ will become the new state of the Agent.
-. If any watchers were added to the Agent, they will be called. See http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/add-watch[add-watch] for details.
-. If during the function execution any other dispatches are made (directly or indirectly), they will be held until _after_ the state of the Agent has been changed.
+. Данная функция +fn+ будет применена к _состоянию_ агента и аргументам, если они предоставлены.
+. Значение, возвращенное +fn+ будет передано в функцию-валидатор, если она установлена для агента. Более подробно см. http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/set-validator![set-validator!].
+. Если валидатор завершится успешно или его не существует, возвращенное значение данной функции +fn+ станет новым состоянием агента.
+. Если какие-либо наблюдатели были зарегистрированы для агента, они будут вызваны. Болле подробно см. http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/add-watch[add-watch].
+. Если во время выполнения функции осуществлятся любые другие вызовы - напрямую или любым другим способом, они будут ждать, пока состояние агента не изменится.
 
 If any exceptions are thrown by an action function, no nested dispatches will occur, and the exception will be cached in the Agent itself. When an Agent has errors cached, any subsequent interactions will immediately throw an exception, until the agent's errors are cleared. Agent errors can be examined with http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/agent-error[agent-error] and the agent restarted with http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/restart-agent[restart-agent].
 
