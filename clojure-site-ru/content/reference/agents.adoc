@@ -31,11 +31,11 @@ toc::[]
 
 Действия всех агентов выполняются вперемешку в пуле потоков. В любой момент времени выполняется не более одного действия для каждого из агентов. Действия, переданные агенту из другого агента или потока будут обрабатываться в том порядке, в котором они были посланы. Эти действия могут быть перемешаны с другими действиями, посланными тому же агенту из других источников. Функция http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/send[send] должна использоваться для действий-вычислений. Функция http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/send-off[send-off] подходит для действий, которые связаны с блокирующими операциями ввода вывода.
 
-Agents are integrated with the STM - any dispatches made in a transaction are held until it commits, and are discarded if it is retried or aborted.
+Агенты интегрированы с STM (программной транзакционной памятью) - любые изменения, сделанные внутри транзакции, ожидают её окончания и отменяются, если транзакция отменяется или запускается заново.
 
-As with all of Clojure's concurrency support, no user-code locking is involved.
+При этом не требуется никакого пользовательского кода, как и везде при поддержке многопоточности в Clojure.
 
-Note that use of Agents starts a pool of non-daemon background threads that will prevent shutdown of the JVM. Use http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/shutdown-agents[shutdown-agents] to terminate these threads and allow shutdown.
+Заметим, что использование агентов запускает в фоне множество потоков не-демонов, которые будут предотвращать завершение работы JVM. Используйте http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/shutdown-agents[shutdown-agents] чтобы остановить работу таких потоков и позволить виртуальной машине отключиться.
 
 == Example
 
