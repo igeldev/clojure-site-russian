@@ -37,9 +37,9 @@ toc::[]
 
 Заметим, что использование агентов запускает в фоне множество потоков не-демонов, которые будут предотвращать завершение работы JVM. Используйте http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/shutdown-agents[shutdown-agents] чтобы остановить работу таких потоков и позволить виртуальной машине отключиться.
 
-== Example
+== Пример
 
-This example is an implementation of the send-a-message-around-a-ring test. A chain of n agents is created, then a sequence of m actions are dispatched to the head of the chain and relayed through it.
+Этот пример пересылает сообщение по кругу. Создается набор из N агентов, а затем последовательность из M действий посылается в первый агент и передается далее.
 [source,clojure]
 ----
 (defn relay [x i]
@@ -62,20 +62,20 @@ This example is an implementation of the send-a-message-around-a-ring test. A ch
 ->"Elapsed time: 2959.254 msecs"
 ----
 
-== Related functions
+== Функции
 
-Create an Agent: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/agent[agent]
+Создать агент: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/agent[agent]
 
-Examine an Agent: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/deref[deref] _(see also the +@+ <<reader#,reader>> macro)_ http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/agent-error[agent-error] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/error-handler[error-handler] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/error-mode[error-mode]
+Просмотреть агент: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/deref[deref] _(see also the +@+ <<reader#,reader>> macro)_ http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/agent-error[agent-error] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/error-handler[error-handler] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/error-mode[error-mode]
 
-Change Agent state: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/send[send] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/send-off[send-off] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/restart-agent[restart-agent]
+Изменить состояние агента: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/send[send] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/send-off[send-off] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/restart-agent[restart-agent]
 
-Block waiting for an Agent: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/await[await] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/await-for[await-for]
+Блокирующее ожидание на агенте: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/await[await] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/await-for[await-for]
 
-Ref validators: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/set-validator![set-validator!] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/get-validator[get-validator]
+Валидаторы: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/set-validator![set-validator!] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/get-validator[get-validator]
 
-Watchers: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/add-watch[add-watch] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/remove-watch[remove-watch]
+Наблюдатели: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/add-watch[add-watch] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/remove-watch[remove-watch]
 
-Agent thread management: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/shutdown-agents[shutdown-agents]
+Управление потоками: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/shutdown-agents[shutdown-agents]
 
-Agent error management: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/agent-error[agent-error] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/restart-agent[restart-agent] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/set-error-handler![set-error-handler!] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/error-handler[error-handler] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/set-error-mode![set-error-mode!] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/error-mode[error-mode]
+Обработка ошибок: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/agent-error[agent-error] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/restart-agent[restart-agent] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/set-error-handler![set-error-handler!] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/error-handler[error-handler] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/set-error-mode![set-error-mode!] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/error-mode[error-mode]
