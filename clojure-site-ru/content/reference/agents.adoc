@@ -66,7 +66,7 @@ toc::[]
 
 Создать агент: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/agent[agent]
 
-Просмотреть агент: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/deref[deref] _(see also the +@+ <<reader#,reader>> macro)_ http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/agent-error[agent-error] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/error-handler[error-handler] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/error-mode[error-mode]
+Просмотреть агент: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/deref[deref] _(см. также макрос <<reader#,считывателя>> +@+)_ http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/agent-error[agent-error] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/error-handler[error-handler] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/error-mode[error-mode]
 
 Изменить состояние агента: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/send[send] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/send-off[send-off] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/restart-agent[restart-agent]
 
