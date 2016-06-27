@@ -1,8 +1,9 @@
-= Atoms
+= Атомы
 Rich Hickey
 2015-01-01
 :type: reference
 :toc: macro
+:toc-title: Содержание
 :icons: font
 :prevpagehref: agents
 :prevpagetitle: Agents
