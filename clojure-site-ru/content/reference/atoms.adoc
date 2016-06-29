@@ -16,7 +16,7 @@ ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 
 Как и у всех ссылочных типов, предполагаемое использование атомов - это хранение одной из неизменяемых структур Clojure. Также вы можете изменять атом применяя к старому значению некоторую функцию. Это можно сделать с помощью http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/swap![swap!]. Внутри себя http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/swap![swap!] читает текущее значение, применяет функцию к нему и пытается выполнить http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/compare-and-set![compare-and-set!]. Так как другой поток может изменить значение в тоже самое время, возможно придется повторить попытку, а возможно и не один раз. В результате значение всегда будет равно результату применения предоставленной функции к текущему значению, в каждый момент времени. Заметим, что так как функция может быть вызвана несколько раз, она не должна иметь побочных эффектов.
 
-Atoms are an efficient way to represent some state that will never need to be coordinated with any other, and for which you wish to make synchronous changes (unlike agents, which are similarly independent but asynchronous). A typical usage might be for memoization:
+Атомы являются эффективным средством представления некоторого состояния, которое не координируется ни с каким другим состоянием и для которого вы хотите реализовать синхронные изменения (в отличие от агентов, которые также независимы, но асинхронны). Типичный пример использования атомов - мемоизация:
 
 [source,clojure]
 ----
