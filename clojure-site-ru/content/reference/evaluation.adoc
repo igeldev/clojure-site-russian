@@ -12,16 +12,16 @@ Rich Hickey
 
 ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 
-Evaluation can occur in many contexts:
+Вычисление может происходить в различных контекстах:
 
-* Interactively, in the REPL
-* On a sequence of forms read from a stream, via `load` / `load-file` / `load-reader` / `load-string`
-* Programmatically, via `eval`
+* Интерактивно, в REPL
+* На последовательности чтения форм из потока, с помощью `load` / `load-file` / `load-reader` / `load-string`
+* Программно, с помощью `eval`
 
-Clojure programs are composed of expressions. Every form not handled specially by a special form or macro is considered by the compiler to be an expression, which is evaluated to yield a value. There are no declarations or statements, although sometimes expressions may be evaluated for their side-effects and their values ignored.
-In all cases, evaluation is the same - a single object is considered by the compiler, evaluated, and its result returned. If an expression needs to be compiled, it will be. There is no separate compilation step, nor any need to worry that a function you have defined is being interpreted. _Clojure has no interpreter_.
+Программы Clojure состоят из выражений. Каждая форма, не обработанная специально какой-либо специальной формой или макросом, рассматривается компилятором как выражение, которое вычисляется чтобы получить значение. Нет объявлений или операторов, хотя иногда выражения могут быть вычилены из-за побочных эффектов и их значение игнорируется.
+В любом случае, при вычислении один объект рассматривается компилятором, вычисляется и его результат возвращается. Если нужно скомпилировать выражение, это будет сделано. Нет отдельных этапов компиляции и нет необходимости быспокоиться что функция, которую вы определили будет проинтерпретирована. _Clojure не имеет интерпретатора_.
 
-Strings, numbers, characters, `true`, `false`, `nil` and keywords evaluate to themselves.
+Строки, числа, символы, `true`, `false`, `nil` и ключевые значения вычисляются в самих себя.
 
 A Symbol is _resolved_:
 
