@@ -23,16 +23,16 @@ ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 
 Строки, числа, символы, `true`, `false`, `nil` и ключевые значения вычисляются в самих себя.
 
-A Symbol is _resolved_:
+Знаки _разрешаются_:
 
-* If it is namespace-qualified, the value is the value of the binding of the global var named by the symbol. It is an error if there is no global var named by the symbol, or if the reference is to a non-public var in a different namespace.
-* If it is package-qualified, the value is the Java class named by the symbol. It is an error if there is no Class named by the symbol.
-* Else, it is not qualified and the first of the following applies:
-. If it names a special form it is considered a special form, and must be utilized accordingly.
-. A lookup is done in the current namespace to see if there is a mapping from the symbol to a class. If so, the symbol is considered to name a Java class object. Note that class names normally denote class objects, but are treated specially in certain special forms, e.g. `.` and `new`.
-. If in a local scope (i.e. in a function definition), a lookup is done to see if it names a local binding (e.g. a function argument or let-bound name). If so, the value is the value of the local binding.
-. A lookup is done in the current namespace to see if there is a mapping from the symbol to a var. If so, the value is the value of the binding of the var referred-to by the symbol.
-. It is an error.
+* Если это знак с уточненным пространством имен, его значение - это значение глобальной переменной называемой этим символом. Если такой переменной не существует или она существует, но не является публичной или принадлежит к другому пространству имен - это ошибка.
+* Если это знак с уточненным пакетом, его значение - это Java класс назваемый символом. Если такого класса нет - это ошибка.
+* Иначе, если знак не уточнен и первое из следующего применимо:
+. Если он называет специальную форму, то он рассматривает специальную форму и должен быть соответственно использован.
+. Поиск выполняется в текущем пространстве имен чтобы найти есть ли соответствие от знака к классу. Если так, знак рассматривается как имя Java объект. Кстати, имена классов обычно обозначают объекты Class, но обрабатываются специальным образом в некоторой специальной форме, например `.` и `new`.
+. Если локально (т.е. в определении функции), поиск выполняется, чтобы найти если знак именует локальную переменную (например, аргумент функции). Если так, значение - это значение локальной переменной.
+. Поиск выполняется в текущем пространстве имен и ищется, есть ли соответствие знака и переменной. Если так, значение - это значение привязанное к этой переменной.
+. Иначе это ошибка.
 
 If a Symbol has metadata, it may be used by the compiler, but will not be part of the resulting value.
 
