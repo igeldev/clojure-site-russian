@@ -46,13 +46,13 @@ user=> ^{:x x} [x y 3]
 ^{:x 1} [1 2 3]
 ----
 
-An empty list `()` evaluates to an empty list.
+Пустой список `()` вычисляется в пустой список.
 
-Non-empty Lists are considered _calls_ to either special forms, macros, or functions. A call has the form +(operator operands*)+.
+Непустые списки рассматриваются как _вызовы_ к специальным формам, макросам или функциям. Вызов имеет форму +(оператор операнды*)+.
 
-Special forms are primitives built-in to Clojure that perform core operations. If the operator of a call is a symbol that resolves to the name of a special form, the call is to that special form. Each form discussed individually under <<special_forms#,Special Forms>>.
+Специальные формы - это примитивы встроенные в Clojure, которые осуществляют базовые операции. Если оператор вызова является знаком, который разрешается в имя специальной формы, вызов является вызовом специальной формы. Каждая форма обсуждается индивидуально в <<special_forms#,Специальных Формах>>.
 
-<<macros#,Macros>> are functions that manipulate forms, allowing for syntactic abstraction. If the operator of a call is a symbol that names a global var that is a macro function, that macro function is called and is passed the _unevaluated_ operand forms. The return value of the macro is then evaluated in its place.
+<<macros#,Макросы>> - это функции, которые воздействуют на формы, разрешая синтаксические абстракции. Если оператор вызова является знаком, который именует глобальную переменную, которая является функцией-макросом , эта макро-функция вызывается и передается _невычисленные_ формы операндов. Возвращаемое значение макроса затем вычисляется на его месте.
 
 If the operator is not a special form or macro, the call is considered a function call. Both the operator and the operands (if any) are evaluated, from left to right. The result of the evaluation of the operator is then cast to IFn (the interface representing Clojure functions), and invoke() is called on it, passing the evaluated arguments. The return value of invoke() is the value of the call expression. If the function call form has metadata, it may be used by the compiler, but will not be part of the resulting value.
 Note that special forms and macros might have other-than-normal evaluation of their arguments, as described in their entries under <<special_forms#,Special Forms>>.
