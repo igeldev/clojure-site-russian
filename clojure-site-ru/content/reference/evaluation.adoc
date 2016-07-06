@@ -54,10 +54,10 @@ user=> ^{:x x} [x y 3]
 
 <<macros#,Макросы>> - это функции, которые воздействуют на формы, разрешая синтаксические абстракции. Если оператор вызова является знаком, который именует глобальную переменную, которая является функцией-макросом , эта макро-функция вызывается и передается _невычисленные_ формы операндов. Возвращаемое значение макроса затем вычисляется на его месте.
 
-If the operator is not a special form or macro, the call is considered a function call. Both the operator and the operands (if any) are evaluated, from left to right. The result of the evaluation of the operator is then cast to IFn (the interface representing Clojure functions), and invoke() is called on it, passing the evaluated arguments. The return value of invoke() is the value of the call expression. If the function call form has metadata, it may be used by the compiler, but will not be part of the resulting value.
-Note that special forms and macros might have other-than-normal evaluation of their arguments, as described in their entries under <<special_forms#,Special Forms>>.
+Если оператор не является специальной формой или макросом, вызов рассматривается как вызов функции. И оператор и операнды, если они есть, вычисляются слева направо. Результат вычисления оператора затем приводится к IFn (интерфейс, представляющий функции Clojure), и на нем вызывается invoke(), которому передаются вычисленные аргументы. Возвращаемое значение invoke() - это значение выражения вызова. Если форма вызова функции имеет метаданные, они могут быть использованы компилятором, но не будут частью результата.
+Заметим, что специальные формы и макросы могут иметь отличающееся от нормального вычисление их аргументов, как описано в соответствующих разделах в <<special_forms#,Специальных Формах>>.
 
-Any object other than those discussed above will evaluate to itself.
+Любой объект, отличающийся от описаных будет вычисляться в самого себя.
 
 ''''
 
