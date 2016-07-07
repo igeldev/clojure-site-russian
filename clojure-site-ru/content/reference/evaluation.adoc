@@ -66,15 +66,15 @@ user=> ^{:x x} [x y 3]
 *(_load-reader_ reader)* +
 *(_load-string_ string)*
 
-The above describes the evaluation of a single form. The various load forms will sequentially read and evaluate the set of forms contained in the source. Such sets of forms usually have side effects, often on the global environment, defining functions etc.
+Выше описано вычисление одной формыю Различные load формы будут последовательно прочитаны и вычислены в множество форм содержащихся в исходном коде. Такие множества форм обычно имеют побочные эффекты, часто в глобальном окружении, определений функций и т.д.
 
-The loading functions occur in a temporary context, in which +*ns*+ has a fresh binding. That means that, should any form have an effect on that var (e.g. +in-namespace+), the effect will unwind at the completion of the load. load et al return the value produced by the last expression.
+Функции загрузки возникают во временном контексте, в котором +*ns*+ имеет свежую привязку. Это означает, что любая форма должна иметь эффект на эту переменную (например +in-namespace+), эффект будет снят после завершения загрузки. load и иже с ним возвращают значение, произведенное последним выражением.
 
 ''''
 
 *(_eval_ form)*
 
-Evaluates the form _data structure_ (not text!) and returns the result.
+Вычисляет форму _структур данных_ (не текст!) и возвращает результат.
 
 [source,clojure]
 ----
