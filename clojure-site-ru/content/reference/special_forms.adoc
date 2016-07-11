@@ -1,8 +1,9 @@
-= Special Forms
+= Специальные Формы
 Rich Hickey
 2016-02-09
 :type: reference
 :toc: macro
+:toc-title: Содержание
 :icons: font
 :prevpagehref: evaluation
 :prevpagetitle: Evaluation
@@ -16,7 +17,7 @@ toc::[]
 [[def]]
 == (_def_ symbol init?)
 
-Creates and interns or locates a global var with the name of symbol and a namespace of the value of the current namespace (_**pass:[*ns*]**_). If init is supplied, it is evaluated, and the root binding of the var is set to the resulting value. If init is not supplied, the root binding of the var is unaffected. _**def**_ always applies to the root binding, even if the var is thread-bound at the point where _**def**_ is called. _**def**_ yields the var itself _(not its value)_. Throws an exception if symbol is already in the namespace and not mapped to an interned var. Since 1.3, _**def**_ has allowed an optional doc-string: (_def_ symbol doc-string? init?).
+Создает и размещает или распологает глобальную переменную с именем symbol в пространстве имен, находаемся в (_**pass:[*ns*]**_) текущего пространства имен. Если init предоставлен, он вычисляется, и начальная привязка переменной устанавливается в результат. Если init нет, начальная привязка не изменяется. _**def**_ всегда применяется к начальной привязке, даже если переменная привязана к потоку в момент когда _**def**_ вызывается. _**def**_ производит переменную саму по себе _(не её значение)_. Выбрасывает исключение если знак уже существует в пространстве имен и не соответствует переменной. С версии 1.3, _**def**_ имеет необязательный переметр doc-string: (_def_ symbol doc-string? init?).
 
 Any metadata on the symbol will be evaluated, and become metadata on the var itself. There are several metadata keys that have special interpretation:
 
