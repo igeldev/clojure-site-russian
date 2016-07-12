@@ -19,20 +19,20 @@ toc::[]
 
 Создает и размещает или распологает глобальную переменную с именем symbol в пространстве имен, находаемся в (_**pass:[*ns*]**_) текущего пространства имен. Если init предоставлен, он вычисляется, и начальная привязка переменной устанавливается в результат. Если init нет, начальная привязка не изменяется. _**def**_ всегда применяется к начальной привязке, даже если переменная привязана к потоку в момент когда _**def**_ вызывается. _**def**_ производит переменную саму по себе _(не её значение)_. Выбрасывает исключение если знак уже существует в пространстве имен и не соответствует переменной. С версии 1.3, _**def**_ имеет необязательный переметр doc-string: (_def_ symbol doc-string? init?).
 
-Any metadata on the symbol will be evaluated, and become metadata on the var itself. There are several metadata keys that have special interpretation:
+Любые метаданные знака будут вычислены и станут метаданными переменной. Есть несколько ключей метаданных, имеющих специальное значение:
 
 * _**:private**_
 +
-a boolean indicating the access control for the var. If this key is not present, the default access is public (e.g. as if :private false).
+логическое значение, обозначающее контроль доступа к переменной. Если этого ключа нет, по-умолчанию будет применен доступ public (также, если бы было :private false).
 * _**:doc**_
 +
-a string containing short (1-3 line) documentation for the var contents
+строка, содержащая короткую документацию для содержимого переменной
 * _**:test**_
 +
-a fn of no args that uses assert to check various operations. The var itself will be accessible during evaluation of a literal fn in the metadata map.
+функция без аргументов которая использует assert чтобы проверить различные операции. Переменная будет доступна во время вычисления литерала fn в метаданных.
 * _**:tag**_
 +
-a symbol naming a class or a Class object that indicates the Java type of the object in the var, or its return value if the object is a fn.
+знка именующий класс или объект Class который обозначает Java-тип объекта в переменной, или возвращаемого значения, если объект является функцией.
 
 In addition the compiler will place the following metadata keys on the var:
 
