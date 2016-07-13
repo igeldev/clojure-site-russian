@@ -34,16 +34,16 @@ toc::[]
 +
 знка именующий класс или объект Class который обозначает Java-тип объекта в переменной, или возвращаемого значения, если объект является функцией.
 
-In addition the compiler will place the following metadata keys on the var:
+Также компилятор будет распологать следующие метаданные в переменной:
 
-* _**:file**_ string
-* _**:line**_ int
-* _**:name**_ simple symbol
-* _**:ns**_ namespace in which var is interned
-* _**:macro**_ true if var names a macro
-* _**:arglists**_ a list of vector(s) of argument forms, as were supplied to defn
+* _**:file**_ строка
+* _**:line**_ целое число
+* _**:name**_ простой знак
+* _**:ns**_ пространство имен в которое переменная была включена
+* _**:macro**_ true если переменная именует макрос
+* _**:arglists**_ список векторов форм аргументов, так как они были переданы в defn
 
-The var metadata can be used for application-specific purposes as well. Consider using namespace-qualified keys (e.g. :myns/foo) to avoid clashes.
+Метаданные переменной могут быть использованы для различных целей. Рассмотрим использование ключей с уточненным пространством имен (например :myns/foo) чтобы избежать конфликтов.
 
 [source,clojure]
 ----
