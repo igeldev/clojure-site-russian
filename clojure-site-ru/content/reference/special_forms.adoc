@@ -69,9 +69,9 @@ user=> (meta #'mymax)
    :test #<user$fn__289 user$fn__289@20f443 >}
 ----
 
-Many macros expand into _**def**_ (e.g. _**defn**_, _**defmacro**_), and thus also convey metadata for the resulting var from the symbol used as the name.
+Многие макросы расширяют в _**def**_ (например _**defn**_, _**defmarco**_) и таким образом также используют метаданные для получаемого значения из знака использованного как имя.
 
-Using def to modify the root value of a var at other than the top level is usually an indication that you are using the var as a mutable global, and is considered bad style. Consider either using binding to provide a thread-local value for the var, or putting a ref or agent in the var and using transactions or actions for mutation.
+Использование def для модификации корневого значения переменной не на верхнем уровне обычно означает, что вы используете переменную как изменяемую глобальную и рассматривается как плохой стиль. Рассмотрите использование привязки чтобы предоставить потоково-локальное значение для переменной или передачу ссылки или агента в переменную и использование транзакций или действий для изменения.
 
 [[if]]
 == (_if_ test then else?)
