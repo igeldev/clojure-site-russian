@@ -76,12 +76,12 @@ user=> (meta #'mymax)
 [[if]]
 == (_if_ test then else?)
 
-Evaluates test. If not the singular values *nil* or *false*, evaluates and yields then, otherwise, evaluates and yields else. If else is not supplied it defaults to *nil*. All of the other conditionals in Clojure are based upon the same logic, that is, *nil* and *false* constitute logical falsity, and everything else constitutes logical truth, and those meanings apply throughout. _**if**_ performs conditional tests of boolean Java method return values without conversion to Boolean. Note that _**if**_ does not test for arbitrary values of java.lang.Boolean, only the singular value *false* (Java's Boolean.FALSE), so if you are creating your own boxed Booleans make sure to use Boolean/valueOf and not the Boolean constructors.
+Вычисляет test. Если получается не *nil* или *false*, вычисляет и возвращает then, иначе вычисляет и возвращает else. Если else не предоставлен, вместо него возвращается *nil*. Все другие условные выражения в Clojure основаны на той же логике, т.е. *nil* и *false* представляют логическую ЛОЖЬ, остальное - логическую ИСТИНУ. _**if**_ выполняет проверку условия, представленного в виде Java-метода, возвращающего значение без преобзразования в Boolean. Заметим, что _**if**_ не проверяет произвольные значения java.lang.Boolean, только *false* (Java Boolean.FALSE) т.е. если вы создали свои обертки Boolean удостовертесь, что используете Bolean/valueOf, а не Boolean конструктуры.
 
 [[do]]
 == (_do_ exprs*)
 
-Evaluates the expressions in order and returns the value of the last. If no expressions are supplied, returns nil.
+Вычисляет выражения по порядку и возвращает последнее значение. Если выражений нет, возвращает nil.
 
 [[let]]
 == (_let_ [bindings* ] exprs*)
