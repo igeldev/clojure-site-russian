@@ -88,7 +88,7 @@ user=> (meta #'mymax)
 
 binding => binding-form init-expr
 
-Evaluates the exprs in a lexical context in which the symbols in the binding-forms are bound to their respective init-exprs or parts therein. The bindings are sequential, so each binding can see the prior bindings. The exprs are contained in an implicit do. If a binding symbol is annotated with a metadata tag, the compiler will try to resolve the tag to a class name and presume that type in subsequent references to the binding. The simplest binding-form is a symbol, which is bound to the entire init-expr:
+Вычисляет выражения в лексическом контексте, в котором знаки из binding-form привязаны к их соответствующим значениям init-expr. Привязки последовательны и следующая может видеть предыдущие. Выражения содержатся неявно. Если знак привязки аннотирован тегом метаданных, компилятор будет пытаться разрешить тег в имя класса и предположить, что тип в последующих ссылках к привязке. Простейшая форма привязки - это знак которй привязывается к целому init-expr:
 
 [source,clojure]
 ----
@@ -98,9 +98,9 @@ Evaluates the exprs in a lexical context in which the symbols in the binding-for
 -> 1
 ----
 
-See <<special_forms#binding-forms#,Binding Forms>> for more information about binding forms.
+См. <<special_forms#binding-forms#,Формы привязки>> чтобы узнать больше о формах привязки.
 
-*Locals created with let are not variables. Once created their values never change!*
+*Локальные привязки, созданные с помощью let не являются переменными. Однажды созданные, их значения никогда не меняются!*
 
 [[quote]]
 == (_quote_ form)
