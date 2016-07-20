@@ -105,7 +105,7 @@ binding => binding-form init-expr
 [[quote]]
 == (_quote_ form)
 
-Yields the unevaluated form.
+Порождает невычисленную форму.
 
 [source,clojure-repl]
 ----
@@ -113,12 +113,12 @@ user=> '(a b c)
 (a b c)
 ----
 
-Note there is no attempt made to call the function a. The return value is a list of 3 symbols.
+Заметим, что не будет сделано попыток вызвать функцию a. Возвратится список из 3 знаков.
 
 [[var]]
 == (_var_ symbol)
 
-The symbol must resolve to a var, and the Var object itself _(not its value)_ is returned. The reader macro #'x expands to (var x).
+symbol должен разрешаться в переменную и тогда объект переменная _(не её значение)_ будет возвращен. Макрос #'x разворачивается в (var x).
 
 [[fn]]
 == (_fn_ name? [params* ] exprs*)
