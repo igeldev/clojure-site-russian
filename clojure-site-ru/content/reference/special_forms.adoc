@@ -124,14 +124,14 @@ symbol должен разрешаться в переменную и тогда
 == (_fn_ name? [params* ] exprs*)
 == (_fn_ name? ([params* ] exprs*)+)
 
-params => positional-params* , or positional-params* & rest-param +
+params => positional-params* , или positional-params* & rest-param +
 positional-param => binding-form +
 rest-param => binding-form +
 name => symbol
 
-Defines a function (fn). Fns are first-class objects that implement the IFn interface. The IFn interface defines an invoke() function that is overloaded with arity ranging from 0-20. A single fn object can implement one or more invoke methods, and thus be overloaded on arity. One and only one overload can itself be variadic, by specifying the ampersand followed by a single rest-param. Such a variadic entry point, when called with arguments that exceed the positional params, will find them in a seq contained in the rest param. If the supplied args do not exceed the positional params, the rest param will be nil.
+Определяет функцию (fn). Функции объекты, реализующие интерфейс IFn. Этот интерфейс определяет функцию invoke(), которая перегружается с арностью от 0 до 20. Один объект fn может реализовывать один или более метод invoke() и быть таким образом перегруженным по арности. Одна и только одна перегрузка может принимать множество параметров, если через амперсанд объявлены rest-param. Когда такая точка входа со множеством параметров вызывается с большим количеством параметров, они будут собраны в последовательность rest-param. Если количество аргументов не превышает positional params, rest-params будут равны nil.
 
-The first form defines a fn with a single invoke method. The second defines a fn with one or more overloaded invoke methods. The arities of the overloads must be distinct. In either case, the result of the expression is a single fn object.
+Первая форма, определяет fn с одним invoke методом. Вторая определяет fn с одним или более перегруженными invoke методами. Арность перегрузок должна быть ясна. Иначе результатом выражения будет один fn объет.
 
 The exprs are compiled in an environment in which the params are bound to the actual arguments. The exprs are enclosed in an implicit do. If a name symbol is provided, it is bound within the function definition to the function object itself, allowing for self-calling, even in anonymous functions. If a param symbol is annotated with a metadata tag, the compiler will try to resolve the tag to a class name and presume that type in subsequent references to the binding.
 [source,clojure]
