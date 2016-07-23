@@ -133,7 +133,8 @@ name => symbol
 
 Первая форма, определяет fn с одним invoke методом. Вторая определяет fn с одним или более перегруженными invoke методами. Арность перегрузок должна быть ясна. Иначе результатом выражения будет один fn объет.
 
-The exprs are compiled in an environment in which the params are bound to the actual arguments. The exprs are enclosed in an implicit do. If a name symbol is provided, it is bound within the function definition to the function object itself, allowing for self-calling, even in anonymous functions. If a param symbol is annotated with a metadata tag, the compiler will try to resolve the tag to a class name and presume that type in subsequent references to the binding.
+Выражения вычисляются в окружении, в котором параметры привязываются к аргументам. Выражения exprs оборачиваются в неявный do. Если предоставлен знак name, он привязывается внутри объявления функции к объекту функции, позволяя самовызов, даже в анонимной функции. Если знак param аннотирован метаданными, компилятор будет пытаться разрешить тег в имя класса и предположить этот тип в последующих ссылок на связывание.
+
 [source,clojure]
 ----
 (def mult
