@@ -145,11 +145,11 @@ name => symbol
       ([x y & more]
           (apply this (this x y) more))))
 ----
-Note that named fns such as mult are normally defined with defn, which expands into something such as the above.
+Заметим, что именованные функции, такие как mult обычно определяются с помощью defn, который раскрывается в конструкцию, похожую на представленную выше.
 
-A fn (overload) defines a recursion point at the top of the function, with arity equal to the number of params _including the rest param, if present_. See recur.
+Функции определяют точку рекурсии вверху функции, с арностью равной количеству параметров _включая rest param, если он есть_. См. recur.
 
-fns implement the Java Callable, Runnable and Comparator interfaces.
+Функции реализуют Java-интерфейсы Callable, Runnable и Comparator.
 
 *__Since 1.1__*
 
