@@ -151,30 +151,30 @@ name => symbol
 
 Функции реализуют Java-интерфейсы Callable, Runnable и Comparator.
 
-*__Since 1.1__*
+*__После 1.1__*
 
-Functions support specifying runtime pre- and postconditions.
+Функции поддерживают определение пред- и постустовия времени выполенения.
 
-The syntax for function definitions becomes the following:
+Синтаксис для определения функции следующий:
 
 == (_fn_ name? [params* ] condition-map? exprs*)
 == (_fn_ name? ([params* ] condition-map? exprs*)+)
 
-The syntax extension also applies to defn and other macros which expand to fn forms.
+Расширение синтаксиса также применяется к defn и другим макросам, которые разворачиваются в fn формы.
 
-Note: If the sole form following the parameter vector is a map, it is treated as the function body, and not the condition map.
+Заметим: если единственная форма после вектора параметров - соответствие, оно рассматривается как тело функции, а не как соответствие условий.
 
-The condition-map parameter may be used to specify pre- and postconditions for a function. It is of the following form:
+Соответствие условий (condition-map) может быть использовано для определения перд- и постусловие для функции. Это одна из следующих форм:
 
 [%hardbreaks]
 {:pre [pre-expr*]
 :post [post-expr*]}
 
-where either key is optional. The condition map may also be provided as metadata of the arglist.
+Где ключ опционален. Условия также могут быть предоставлены как метаданные списка аргументов.
 
-**pre-expr** and **post-expr** are boolean expressions that may refer to the parameters of the function. In addition, **%** may be used in a post-expr to refer to the function's return value. If any of the conditions evaluate to false and **pass:[*assert*]** is true, an assertion failure exception is thrown.
+**pre-expr** и **post-expr** - это логические выражения, которые могут ссылаться на параметры функции. В дополнении, **%** может быть использовано в post-expr чтобы сослаться на возвращенное значение. Если любое из условий вычисляется в false и **pass:[*assert*]** - true, бросается assertion failure исключение.
 
-Example:
+Пример:
 [source,clojure]
 ----
 (defn constrained-sqr [x]
@@ -183,7 +183,7 @@ Example:
     (* x x))
 ----
 
-See <<special_forms#binding-forms#,Binding Forms>> for more information about binding forms.
+См. <<special_forms#binding-forms#,Формы привязки>> чтобы получить больше информации о формах привязки.
 
 [[loop]]
 == (_loop_ [bindings* ] exprs*)
