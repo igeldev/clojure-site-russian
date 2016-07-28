@@ -188,14 +188,14 @@ name => symbol
 [[loop]]
 == (_loop_ [bindings* ] exprs*)
 
-loop is exactly like let, except that it establishes a recursion point at the top of the loop, with arity equal to the number of bindings. See recur.
+loop - это тоже, что и let, но он устанавливает точку рекурсии на вершину цикла, с арностью равной количеству binding-ов. См. recur.
 
 [[recur]]
 == (_recur_ exprs*)
 
-Evaluates the exprs in order, then, in parallel, rebinds the bindings of the recursion point to the values of the exprs. If the recursion point was a fn method, then it rebinds the params. If the recursion point was a loop, then it rebinds the loop bindings. Execution then jumps back to the recursion point. The recur expression must match the arity of the recursion point exactly. In particular, if the recursion point was the top of a variadic fn method, there is no gathering of rest args - a single seq (or null) should be passed. recur in other than a tail position is an error.
+Вычисляет выражения по порядку, затем паралельно переопределяет привязки точки рекурсии в значение выражений. Если точкой рекурсии был fn, то перепривязываются параметры. Если точкрй рекурсии был цикл, переопределяются привязки цикла. Затем выполнение продолжается с точки рекурсии. Выражение recur должно соответствовать по арности точке рекурсии. В частности, если точкой рекурсии был fn с изменяемым количеством параметров, не происходит сбор оставшихся аргументов - должен быть передан просто seq (или null), иначе будет ошибка.
 
-Note that recur is the only non-stack-consuming looping construct in Clojure. There is no tail-call optimization and the use of self-calls for looping of unknown bounds is discouraged. recur is functional and its use in tail-position is verified by the compiler.
+Заметим, что recur - единственная конструкция-цикл без затрат стека в Clojure. Оптимизация хвостовой рекурсии не поддерживается и использование самовызовов для реализации цикла неизвестной длины является нехорошей практикой. Использование recur для хвостой рекурсии проверяется компилятором.
 
 [source,clojure]
 ----
