@@ -210,7 +210,7 @@ loop - это тоже, что и let, но он устанавливает то
 [[throw]]
 == (_throw_ expr)
 
-The expr is evaluated and thrown, therefore it should yield an instance of some derivee of Throwable.
+Выражение вычисляется и выбрасывается, соответственно оно должно породить объект-наследник Throwable.
 
 [[try]]
 == (_try_ expr* catch-clause* finally-clause?)
@@ -218,7 +218,7 @@ The expr is evaluated and thrown, therefore it should yield an instance of some 
 catch-clause -> (_catch_ classname name expr*) +
 finally-clause -> (_finally_ expr*)
 
-The exprs are evaluated and, if no exceptions occur, the value of the last is returned. If an exception occurs and catch clauses are provided, each is examined in turn and the first for which the thrown exception is an instance of the named class is considered a matching catch clause. If there is a matching catch clause, its exprs are evaluated in a context in which name is bound to the thrown exception, and the value of the last is the return value of the function. If there is no matching catch clause, the exception propagates out of the function. Before returning, normally or abnormally, any finally exprs will be evaluated for their side effects.
+Выражения вычисляются и, если не произошло исключений, возвращается значение последнего выражения. Если произошло исключение и предоставлены формы catch-clause, то каждое из них проверяется по порядку в поиске формы, у которой в качестве classname указан класс, к которому может быть приведено выброшенное исключение. Эта форма catch-clause рассматривается как "подходящая". Если подходящая форма catch-clause найдена, то её выражения expr вычисляются в контексте, в котором к имени name привязано исключение, и значение последнего выражение будет являться возвращаемым значением всей формы try. Если нет подходящих catch-clause, исключение выбрасывается наружу. Перед завершением, нормальным или нет, будет вычислено финальное выражение finally-clause.
 
 [[monitor-enter]]
 == (_monitor-enter_ x)
