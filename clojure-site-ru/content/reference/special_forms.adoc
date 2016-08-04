@@ -238,11 +238,11 @@ anchor:set![]
 Форма <<vars#set%21,set!>> переменных описана в разделе <<vars#,Переменные>>.
 
 [[binding-forms]]
-== Binding Forms (Destructuring)
+== Формы реструктуризирующего присваивания
 
-Clojure supports abstract structural binding, often called destructuring, in let binding lists, fn parameter lists, and any macro that expands into a let or fn. The basic idea is that a binding-form can be a data structure literal containing symbols that get bound to the respective parts of the init-expr. The binding is abstract in that a vector literal can bind to anything that is sequential, while a map literal can bind to anything that is associative.
+Clojure поддерживает астрактное структурное присваивание, часто называющееся реструктуризирующим, в списках присваивания, списках параметров fn и в любом макросе, который раскрывается в let или fn. Основная идея - форма присваивания может быть литералом структуры данных, содержащим символы, которые нужно привязать к соответствующим частям начального значения. При присваивании литерал вектор может быть привязан к любой последовательности, а ассоциативный массив - к любой ассоциативной структуре.
 
-=== Vector binding destructuring
+=== Реструктуризирующее присваивание векторов
 
 Vector binding-exprs allow you to bind names to parts of _sequential_ things (not just vectors), like vectors, lists, seqs, strings, arrays, and anything that supports nth. The basic sequential form is a vector of binding-forms, which will be bound to successive elements from the init-expr, looked up via nth. In addition, and optionally, & followed by a binding-forms will cause that binding-form to be bound to the remainder of the sequence, i.e. that part not yet bound, looked up via http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/nthnext[nthnext] .
 
