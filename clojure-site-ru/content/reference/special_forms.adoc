@@ -244,9 +244,9 @@ Clojure поддерживает астрактное структурное п�
 
 === Реструктуризирующее присваивание векторов
 
-Vector binding-exprs allow you to bind names to parts of _sequential_ things (not just vectors), like vectors, lists, seqs, strings, arrays, and anything that supports nth. The basic sequential form is a vector of binding-forms, which will be bound to successive elements from the init-expr, looked up via nth. In addition, and optionally, & followed by a binding-forms will cause that binding-form to be bound to the remainder of the sequence, i.e. that part not yet bound, looked up via http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/nthnext[nthnext] .
+Реструктуризирующее присваивание векторов позволяет вам присваивать имена элементам упорядоченных множеств: векторов, списков, последовательностей, строк, массивов и всего, что поддерживает функцию nth. Реструктуризирующее присваивание векторов состоит из вектора символов, которые нужно присвоить элементам последующего упорядоченного множества начальных значений, получаемым с помощью функции nth. Также в списке символов может присутствовать &, что означает что следующему за ним символу должен быть присвоен в качестве значения список всех оставшихся начальных значений, получаемых с помощью http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/nthnext[nthnext] .
 
-Finally, also optional, :as followed by a symbol will cause that symbol to be bound to the entire init-expr:
+Наконец, можно использовать :as с последующим символом. Данному символу будет присвоен в качестве значения весь список начальных значений.
 
 [source,clojure]
 ----
@@ -256,7 +256,7 @@ Finally, also optional, :as followed by a symbol will cause that symbol to be bo
 ->[1 2 3 (4 5 6 7) [1 2 3 4 5 6 7]]
 ----
 
-These forms can be nested:
+Эти формы могут быть вложенными:
 
 [source,clojure]
 ----
@@ -266,7 +266,7 @@ These forms can be nested:
 ->[1 2 3 4]
 ----
 
-Strings work too:
+Также работает со строками:
 
 [source,clojure]
 ----
