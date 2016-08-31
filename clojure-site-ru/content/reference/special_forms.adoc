@@ -276,9 +276,9 @@ Clojure поддерживает астрактное структурное п�
 ->[\a \s (\d \j \h \h \f \d \a \s) "asdjhhfdas"]
 ----
 
-=== Map binding destructuring
+=== Реструктуризирующее присваивание ассоциативных массивов
 
-Map binding-forms allow you to bind names to parts of _associative_ things (not just maps), like maps, vectors, string and arrays (the latter three have integer keys). It consists of a map of binding-form-key pairs, each symbol being bound to the value in the init-expr at the key. In addition, and optionally, an _**:as**_ key in the binding form followed by a symbol will cause that symbol to be bound to the entire init-expr. Also optionally, an _**:or**_ key in the binding form followed by another map may be used to supply default values for some or all of the keys if they are not found in the init-expr:
+Формы присваивания ассоциативных массивов позволяют присваивать имена к элементам _соответствий_ (не обязательно ассоциативных массивов), таких как ассоциативные массивы, векторы, строки или массивы (у последних трёх ключами будут являться целочисленные индексы). Формы присваивания состоят из пар соответствий ключ - присваиваемая форма, каждому символу будет присвоено значение соответствующего начального выражения. Можно использовать в форме присваивания ключ _**:as**_, за которым указать символ, которому затем будет присовено все начальное значение. Также можно использовать ключ _**:or**_, за которым указать другой ассоциативные массив, в котором будет производится поиск значений, не присутствующих в первом массиве начальных значений.
 
 [source,clojure]
 ----
@@ -288,21 +288,21 @@ Map binding-forms allow you to bind names to parts of _associative_ things (not 
 ->[5 3 6 {:c 6, :a 5}]
 ----
 
-It is often the case that you will want to bind same-named symbols to the map keys. The _**:keys**_ directive allows you to avoid the redundancy:
+Часто, если вы хотите присвоить одноименные символы ключам. Директива _**:keys**_ позволит избежать избыточности.
 
 [source,clojure]
 ----
 (let [{fred :fred ethel :ethel lucy :lucy} m] ...
 ----
 
-can be written:
+может быть записано:
 
 [source,clojure]
 ----
 (let [{:keys [fred ethel lucy]} m] ...
 ----
 
-As of Clojure 1.6, you can also use prefixed map keys in the map destructuring form:
+Как в Clojure 1.6, вы можете использовать ключи с префиксами в реструктуризирующем присваивании ассоциативных массивов:
 
 [source,clojure]
 ----
@@ -313,7 +313,7 @@ As of Clojure 1.6, you can also use prefixed map keys in the map destructuring f
 -> 3
 ----
 
-As shown above, in the case of using prefixed keys, the bound symbol name will be the same as the right-hand side of the prefixed key. You can also use auto-resolved keyword forms in the _**:keys**_ directive:
+Как показано выше, в случае использования ключей с префиксами, имя присваиваемого символа будет таким же, как в правой части ключа. Вы также можете использовать авторазрешение форм в директиве _**:keys**_:
 
 [source,clojure]
 ----
@@ -324,7 +324,7 @@ As shown above, in the case of using prefixed keys, the bound symbol name will b
 -> 42
 ----
 
-There are similar _**:strs**_ and _**:syms**_ directives for matching string and symbol keys, the latter also allowing prefixed symbol keys since Clojure 1.6.
+Есть аналогичные директивы _**:strs**_ и _**:syms**_, чтобы работать со строками и ключами-символами. последний также позволяет рабобатть с символами с префиксами начиная с Clojure 1.6.
 
 === Nested destructuring
 
