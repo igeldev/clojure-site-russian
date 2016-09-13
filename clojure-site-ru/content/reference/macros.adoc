@@ -14,9 +14,9 @@ ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 
 toc::[]
 
-Clojure has a programmatic macro system which allows the compiler to be extended by user code. Macros can be used to define syntactic constructs which would require primitives or built-in support in other languages. Many core constructs of Clojure are not, in fact, primitives, but are normal macros.
+У Clojure есть программная система макросов, которая позволяется компилятору расширять пользовательский код. Макросы могут быть использованы для определения синтаксических конструкций, которые требовали бы примитивов или втроенной поддержки в других языках программирования. Многие ключевые конструкции в Clojure на самом деле являются не примитивами, а макросами.
 
-Some macros produce simple combinations of primitive forms. For example, http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/when[`when`] combines <<special_forms#if#,`if`>> and <<special_forms#do#,`do`>>:
+Некоторые макросы производят простые комбинации форм-примитивов. Например, http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/when[`when`] соединяет <<special_forms#if#,`if`>> и <<special_forms#do#,`do`>>:
 
 [source,clojure-repl]
 ----
@@ -24,7 +24,7 @@ user=> (macroexpand '(when (pos? a) (println "positive") (/ b a)))
 (if (pos? a) (do (println "positive") (/ b a)))
 ----
 
-Other macros re-arrange forms in useful ways, like the `pass:[->]` macro, which recursively inserts each expression as the first argument of the next expression:
+Другие макросы переставляют формы в удобном порядке, например макрос `pass:[->]`, который рекурсивно вставляет каждое выражение как первый аргумент следующего выражения.
 
 [source,clojure-repl]
 ----
