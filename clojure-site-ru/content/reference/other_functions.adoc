@@ -1,8 +1,9 @@
-= Other Useful Functions and Macros
+= Другие полезные функции и макросы
 Rich Hickey
 2015-01-01
 :type: reference
 :toc: macro
+:toc-title: Содержание
 :toclevels: 1
 :icons: font
 :navlinktext: Other Functions
