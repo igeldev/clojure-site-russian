@@ -39,16 +39,16 @@ toc::[]
 
 Существуют несколько функций, чтобы печатать объекты в поток вывода - текущее значение *out*. Версии с суффиксом -str привязывают *out* к StringWriter, печатают в него и возвращают полученную строку. http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/pr[pr] печатает объект(ы), разделенные пробелами, если их более одного. http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/prn[prn] делает то же самое и в конце печатает символ новой строки http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/newline[newline]. http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/print[print] и http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/println[println] вызывают http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/pr[pr] и http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/prn[prn] соответственно, c `pass:[*print-readably*]` (которая по-умолчанию равен true) привязанной к nil, из-за чего строки печатаются без кавычек и без экранирования, а символы без начального '\' и также без экранирования. По-умолчанию, http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/pr[pr] и http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/prn[prn] печатают объекты так, чтобы они могли быть прочитаны считавателем, а http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/print[print] и http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/println[println] выводят объекты в удобном для чтения человеком виде. Когда `pass:[*print-readably*]` не nil, вывод метаданных регулируется `pass:[*print-meta*]`, который равен nil по-умолчанию.
 
-=== Related functions
+=== Функции
 
 [%hardbreaks]
-Print to pass:[*out*]: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/pr[pr] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/prn[prn] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/print[print] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/println[println] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/newline[newline]
-Print to string: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/pr-str[pr-str] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/prn-str[prn-str] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/print-str[print-str] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/println-str[println-str] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/with-out-str[with-out-str]
+Печать в pass:[*out*]: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/pr[pr] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/prn[prn] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/print[print] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/println[println] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/newline[newline]
+Печать в строку: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/pr-str[pr-str] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/prn-str[prn-str] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/print-str[print-str] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/println-str[println-str] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/with-out-str[with-out-str]
 
 [[regex]]
-== Regex Support
+== Поддержка регулярных выражений
 
-Regex patterns can be compiled at read-time via the `#"pattern"` reader macro, or at run time with http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/re-pattern[re-pattern]. Both forms produce http://java.sun.com/j2se/1.5.0/docs/api/java/util/regex/Pattern.html[java.util.regex.Pattern] objects.
+Регулярные выражения могут быть скомпилированы во время чтения с помощью макроса считывателя `#"pattern"` или во время исполнения с помощью http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/re-pattern[re-pattern]. Обе формы производят объекты класса http://java.sun.com/j2se/1.5.0/docs/api/java/util/regex/Pattern.html[java.util.regex.Pattern].
 
 [source,clojure-repl]
 ----
@@ -63,5 +63,5 @@ user=> (re-seq #"(?i)[fq].." "foo bar BAZ QUX quux")
 ("foo" "QUX" "quu")
 ----
 
-=== Related functions
+=== Функции
 http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/re-matcher[re-matcher] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/re-find[re-find] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/re-matches[re-matches] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/re-groups[re-groups] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/re-seq[re-seq]
