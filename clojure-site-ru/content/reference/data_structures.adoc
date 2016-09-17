@@ -1,8 +1,9 @@
-= Data Structures
+= Структуры данных
 Rich Hickey
 2015-01-01
 :type: reference
 :toc: macro
+:toc-title: Содержание
 :toclevels: 1
 :icons: font
 :prevpagehref: other_functions
