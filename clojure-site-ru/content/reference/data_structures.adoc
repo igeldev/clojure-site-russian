@@ -15,24 +15,24 @@ ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 
 toc::[]
 
-Clojure has a rich set of data structures. They share a set of properties:
+Clojure имеет богатый набор структур данных, которые объединяют следующие свойства:
 
-* They are immutable
-* They are read-able
-* They support proper value equality semantics in their implementation of equals
-* They provide good hash values
-* In addition, the collections:
-** Are manipulated via interfaces.
-** Support sequencing
-** Support persistent manipulation.
-** Support metadata
-** Implement java.lang.Iterable
-** Implement the non-optional (read-only) portion of java.util.Collection
+* Они неизменяемы
+* Они предназначены для чтения
+* Они правльно поддерживают метод equals
+* Они предоставляют качественные hash-значения
+* Также, коллекции:
+** Управляются через интерфейсы.
+** Поддерживают итерирование
+** Поддерживают сохраняемые манипуляции.
+** Поддерживают метаданные
+** Реализуют java.lang.Iterable
+** Реализуют обязательные методы (для чтения) класса java.util.Collection
 
 [[nil]]
 == nil
 
-nil is a possible value of any data type in Clojure. nil has the same value as Java null. The Clojure conditional system is based around nil and false, with nil and false representing the values of logical falsity in conditional tests - anything else is logical truth. In addition, nil is used as the end-of-sequence sentinel value in the sequence protocol.
+nil - это возможное значение любого типа данных в Clojure. nil имеет то же самое значение, что и null в Java. Система проверки условий Clojure основана на nil и false, которые представляют логическую ложь, когда любое другое значение представляет логическую истину. Также, nil используется как маркер конца последовательности в протоколе последовательностей.
 
 [[Numbers]]
 == Numbers
