@@ -35,15 +35,15 @@ Clojure имеет богатый набор структур данных, ко
 nil - это возможное значение любого типа данных в Clojure. nil имеет то же самое значение, что и null в Java. Система проверки условий Clojure основана на nil и false, которые представляют логическую ложь, когда любое другое значение представляет логическую истину. Также, nil используется как маркер конца последовательности в протоколе последовательностей.
 
 [[Numbers]]
-== Numbers
+== Числа
 
-Clojure provides full support for JVM primitive values by default, allowing high performance, idiomatic Clojure code for numeric applications.
+Clojure по-умолчанию предоставляет полную поддержку значений-примитивов JVM, что позволяет реализовывать высокопроизводительный код для вычислительных приложений.
 
-Clojure also supports the Java boxed number types derived from java.lang.Number, including BigInteger and BigDecimal, plus its own Ratio type. There is some special handling:
+Также Clojure поддерживает классы-обертки Java, наследованные от java.lang.Number, включая BigInteger и BigDecimal, плюс свой собственный класс Ratio. Существуют следующие особенности:
 
-=== Longs
+=== Long
 
-By default Clojure operates with natural numbers as instances of Java's long primitive type. When a primitive integer operation results in a value that too large to be contained in a primitive value, a java.lang.ArithmeticException is thrown. Clojure provides a set of alternative math operators suffixed with an apostrophe: +', -', *', inc', and dec'. These operators auto-promote to BigInt upon overflow, but are less efficient than the regular math operators.
+По-умолчанию Clojure оперирует натуральными числами как экземплярами примитивного типа long. Когда примитивные операции возвращают значение, которое не вмещается в long генерируется java.lang.ArithmeticException. Clojure предоставляет множество альтернативных операторов, заканчивающися апострофом: +', -', *', inc', и dec'. Эти операторы автоматически преобразуют число в BigInt при переполнении, но работают медленнее, чем обычные операторы.
 
 === Ratio
 
