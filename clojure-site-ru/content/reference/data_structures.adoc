@@ -47,19 +47,19 @@ Clojure по-умолчанию предоставляет полную подд
 
 === Ratio
 
-Represents a ratio between integers. Division of integers that can't be reduced to an integer yields a ratio, i.e. 22/7 = 22/7, rather than a floating point or truncated value.
+Представляет отношение между целыми числами. Результат деления целых чисел, который сам не является целым числом порождает дробь, т.е. 22/7 = 22/7, а не число с плавающей точкой и не число, обрезанное до целого.
 
-=== Contagion
+=== Заражение
 
-BigInts and floating point types are "contagious" across operations. That is, any integer operation involving a BigInt will result in a BigInt, and any operation involving a double or float will result in a double.
+Объекты BigInt и типы чисел с плавающей точкой "заражают драгих" при операциях. Например, любые целочисленные операции, включающие BigInt будут в результате давать BigInt, а любые операции включающие double или float будут в результате давать double.
 
-=== BigInt and BigDecimal literals
+=== Литералы BigInt и BigDecimal
 
-Numeric literals for BigInt and BigDecimal are specified using a postfix N and M respectively.
+Целочисленные литералы для BigInt и BigDecimal определяются при помощи суффиксов N и M соответственно.
 
 [cols="<*,", options="header", role="table"]
 |===
-| Example expression | Return value
+| Выражение | Возвращаемое значение
 | `(== 1 1.0 1M)` | `true`
 | `(/ 2 3)` | `2/3`
 | `(/ 2.0 3)` | `0.6666666666666666`
@@ -68,15 +68,15 @@ Numeric literals for BigInt and BigDecimal are specified using a postfix N and M
 | `(class 3.14159265358M)` | `clojure.lang.BigDecimal`
 |===
 
-=== Related functions
+=== Функции
 
 [%hardbreaks]
-Computation: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%2B[\+] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%2D[-] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%2A[\*]  http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%2F[/]  http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/inc[inc] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/dec[dec]  http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/quot[quot] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/rem[rem] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/min[min] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/max[max]
-Auto-promoting computation: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%2B%27[+'] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%2D%27[-'] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%2A%27[*'] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/inc%27[inc'] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/dec%27[dec']
-Comparison: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%3D%3D[==] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%3C[<] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%3C%3D[<=] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%3E[>] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%3E%3D[>=] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/zero%3F[zero?] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/pos%3F[pos?] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/neg%3F[neg?]
-Bitwise operations: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/bit-and[bit-and] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/bit-or[bit-or] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/bit-xor[bit-xor] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/bit-not[bit-not] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/bit-shift-right[bit-shift-right] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/bit-shift-left[bit-shift-left]
-Ratios: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/numerator[numerator] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/denominator[denominator]
-Coercions: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/int[int] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/bigdec[bigdec] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/bigint[bigint] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/double[double] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/float[float] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/long[long] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/num[num] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/short[short]
+Вычисление: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%2B[\+] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%2D[-] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%2A[\*]  http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%2F[/]  http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/inc[inc] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/dec[dec]  http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/quot[quot] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/rem[rem] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/min[min] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/max[max]
+Автоматически расширяющие вычисления: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%2B%27[+'] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%2D%27[-'] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%2A%27[*'] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/inc%27[inc'] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/dec%27[dec']
+Сравнение: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%3D%3D[==] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%3C[<] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%3C%3D[<=] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%3E[>] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%3E%3D[>=] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/zero%3F[zero?] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/pos%3F[pos?] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/neg%3F[neg?]
+Битовые операции: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/bit-and[bit-and] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/bit-or[bit-or] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/bit-xor[bit-xor] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/bit-not[bit-not] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/bit-shift-right[bit-shift-right] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/bit-shift-left[bit-shift-left]
+Соотношения: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/numerator[numerator] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/denominator[denominator]
+Приведение: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/int[int] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/bigdec[bigdec] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/bigint[bigint] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/double[double] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/float[float] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/long[long] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/num[num] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/short[short]
 
 [[Strings]]
 == Strings
