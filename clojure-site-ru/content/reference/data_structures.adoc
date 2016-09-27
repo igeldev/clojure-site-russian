@@ -79,33 +79,33 @@ Clojure по-умолчанию предоставляет полную подд
 Приведение: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/int[int] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/bigdec[bigdec] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/bigint[bigint] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/double[double] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/float[float] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/long[long] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/num[num] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/short[short]
 
 [[Strings]]
-== Strings
+== Строки
 
-Clojure strings are Java Strings. See also <<other_functions#printing#,Printing>>.
+Строки в Clojure являются объектами-строками Java. См. также <<other_functions#printing#,Печать>>.
 [source,clojure-repl]
 ----
 user=> (map (fn [x] (.toUpperCase x)) (.split "Dasher Dancer Prancer" " "))
 ("DASHER" "DANCER" "PRANCER")
 ----
 
-=== Related functions
+=== Функции
 
 http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/str[str] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/string?[string?] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/pr-str[pr-str] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/prn-str[prn-str] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/print-str[print-str] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/println-str[println-str] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/with-out-str[with-out-str]
 
 [[Characters]]
-== Characters
-Clojure characters are Java Characters.
+== Символы
+Символы в Clojure такие же как в Java.
 
-=== Related functions
+=== Функции
 http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/char[char] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/char-name-string[char-name-string] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/char-escape-string[char-escape-string]
 
 [[Keywords]]
-== Keywords
-Keywords are symbolic identifiers that evaluate to themselves. They provide very fast equality tests. Like Symbols, they have names and optional <<namespaces#,namespaces>>, both of which are strings. The leading ':' is not part of the namespace or name.
+== Ключевые слова
+Ключевые слова - символические идентификаторы, которые разрешаются сами в себя. Они позволяют значительно быстрее производить проверку на равенство. Как символы, они имеют имена и необязательное <<namespaces#,пространство имен>>, оба из которых являются строками. Начальный ':' не является частью пространства имен или имени.
 
-Keywords implement IFn for invoke() of one argument (a map) with an optional second argument (a default value). For example `(:mykey my-hash-map :none)` means the same as `(get my-hash-map :mykey :none)`. See http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/get[get].
+Ключевые слова реализуют интерфейс IFn, чтобы вызывать invoke() с одним аргументом (ассоциативным массивом) и необязательным вторым аргументом (значение по-умолчанию). Например `(:mykey my-hash-map :none)` означает тоже самое, что `(get my-hash-map :mykey :none)`. См. http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/get[get].
 
-=== Related functions
+=== Функции
 http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/keyword[keyword] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/keyword?[keyword?]
 [[Symbols]]
 
