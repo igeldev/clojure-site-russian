@@ -109,13 +109,13 @@ http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/char[char] h
 http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/keyword[keyword] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/keyword?[keyword?]
 [[Symbols]]
 
-== Symbols
-Symbols are identifiers that are normally used to refer to something else. They can be used in program forms to refer to function parameters, let bindings, class names and global vars. They have names and optional <<namespaces#,namespaces>>, both of which are strings. Symbols can have metadata (see http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/with-meta[with-meta]).
+== Символы
+Символы - это идентификаторы, которые обычно используются, чтобы на что-то ссылаться. Они моугт быть использованы в формах программы, чтобы ссылаться на параметры функции, устанавливать связи, имена классов и глобальные переменные. У них есть имена и необязательное <<namespaces#,пространство имён>>, оба - строки. Символы могут иметь метаданные (см. http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/with-meta[with-meta]).
 
-Symbols, just like Keywords, implement IFn for invoke() of one argument (a map) with an optional second argument (a default value). For example `('mysym my-hash-map :none)` means the same as `(get my-hash-map 'mysym :none)`. See http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/get[get].
+Символы, как и ключевые слова, реализуют интерфейс IFn, чтобы вызывать invoke() с одним аргументом(ассоциативным массивом) и необязательным вторым аргументом (значение по-умолчанию). Например `('mysym my-hash-map :none)` означает то же самое что `(get my-hash-map 'mysym :none)`. См. http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/get[get].
 
-=== Related functions
-http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/symbol[symbol] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/symbol?[symbol?] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/genysm[gensym] (see also the \#-suffix <<reader#,reader>> macro)
+=== Функции
+http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/symbol[symbol] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/symbol?[symbol?] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/genysm[gensym] (см. также макрос <<reader#,считывателя>> с суффиксом \#)
 
 [[Collections]]
 == Collections
