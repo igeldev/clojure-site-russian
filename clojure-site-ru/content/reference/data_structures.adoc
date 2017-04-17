@@ -118,13 +118,13 @@ http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/keyword[keyw
 http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/symbol[symbol] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/symbol?[symbol?] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/genysm[gensym] (см. также макрос <<reader#,считывателя>> с суффиксом \#)
 
 [[Collections]]
-== Collections
+== Коллекции
 
-All of the Clojure collections are immutable and http://en.wikipedia.org/wiki/Persistent_data_structure[persistent]. In particular, the Clojure collections support efficient creation of 'modified' versions, by utilizing structural sharing, and make all of their performance bound guarantees for persistent use. The collections are efficient and inherently thread-safe. Collections are represented by abstractions, and there may be one or more concrete realizations. In particular, since 'modification' operations yield new collections, the new collection might not have the same concrete type as the source collection, but will have the same logical (interface) type.
+Все коллекции Clojure являются неизменяемыми и https://en.wikipedia.org/wiki/Persistent_data_structure[стойкие]. В частности, коллекции Clojure поддерживают эффективное создание 'модифицированных' версий, с использованием структурного обмена. Коллекции эффективны и потоконезависимы. Коллекции представлены в виде абстракций, и у них может быть одна или несколько конекретных реализаций. В частности, так как операции 'модификации' порождают новую коллекцию, эта новая коллекция может не иметь тот же самый тип, что исходная, но будет реализовывать тот же логический тип (интерфейс).
 
-All the collections support http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/count[count] for getting the size of the collection, http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/conj[conj] for 'adding' to the collection, and http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/seq[seq] to get a sequence that can walk the entire collection, though their specific behavior is slightly different for different types of collections.
+Все коллекции поддерживают http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/count[count] чтобы узнать размер коллекции, http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/conj[conj] для 'добавления' элементов и http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/seq[seq] чтобы получать последовательность, которая поможет пройти по всей коллекции, хотя их конкретное поведение немного отличается для различных типов коллекций.
 
-Because collections support the http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/seq[seq] function, all of the <<sequences#,sequence functions>> can be used with any collection.
+Так как коллекции поддерживают функцию http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/seq[seq], все <<sequences#,функции обработки последовательностей>> могут быть использованы с любой коллекцией.
 
 [[hash]]
 === Java collection hashes
