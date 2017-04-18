@@ -127,15 +127,15 @@ http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/symbol[symbo
 Так как коллекции поддерживают функцию http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/seq[seq], все <<sequences#,функции обработки последовательностей>> могут быть использованы с любой коллекцией.
 
 [[hash]]
-=== Java collection hashes
-The Java collection interfaces specify algorithms for http://docs.oracle.com/javase/7/docs/api/java/util/List.html#hashCode()[Lists], http://docs.oracle.com/javase/7/docs/api/java/util/Set.html#hashCode()[Sets], and http://docs.oracle.com/javase/7/docs/api/java/util/Map.html#hashCode()[Maps] in calculating hashCode() values. All Clojure collections conform to these specifications in their hashCode() implementations.
+=== Хеш-суммы коллекций Java
+Интерфейсы коллекций Java определяют алгоритмы вычисления hashCode() для классов http://docs.oracle.com/javase/7/docs/api/java/util/List.html#hashCode()[List], http://docs.oracle.com/javase/7/docs/api/java/util/Set.html#hashCode()[Set], and http://docs.oracle.com/javase/7/docs/api/java/util/Map.html#hashCode()[Map]. Все алгоритмы вычисления hashCode() коллекций Clojure соответствуют этим определениям.
 
-=== Clojure collection hashes
-Clojure provides its own hash computations that provide better hash properties for collections (and other types), known as the _hasheq_ value.
+=== Хеш-суммы коллекций Clojure
+Clojure предоставляет свой алгоритм вычисления хеш-суммы, немного лучше работающий с коллекциями и другими типами, известный как _hasheq_.
 
-The `IHashEq` interface marks collections that provide the `hasheq()` function to obtain the hasheq value. In Clojure, the http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/hash[hash] function can be used to compute the hasheq value.
+Интерфейс `IHashEq` помечает коллекции, которые предоставляют функцию `hasheq()` - для вычисления значения hasheq. Также, в Clojure функция http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/hash[hash] может быть использована, чтобы вычислить значение hasheq.
 
-Ordered collections (vector, list, seq, etc) must use the following algorithm for calculating hasheq (where hash computes hasheq). Note that unchecked-add-int and unchecked-multiply-int are used to get integer overflow calculations.
+Упорядоченные коллекции (векторы, списки, последовательности и т.д.) обязаны использовать следующий алгоритм для вычисления haseq (где hash вычисляет hasheq). Заметим, что unchecked-add-int и unchecked-multiply-int используются для выполнения операций над целыми числами с переполнением.
 [source,clojure]
 ----
 (defn hash-ordered [collection]
@@ -146,14 +146,14 @@ Ordered collections (vector, list, seq, etc) must use the following algorithm fo
               collection)
       (mix-collection-hash (count collection))))
 ----
-Unordered collections (maps, sets) must use the following algorithm for calculating hasheq. A map entry is treated as an ordered collection of key and value. Note that unchecked-add-int is used to get integer overflow calculations.
+Неупорядоченные коллекции (ассоциативные массивы, множества) обязаны использовать следующий алгоритм для вычисления hasheq. Элемент ассоциативного массива рассматривается как упорядоченная коллекция, состоящая из ключа и значения. Заметим, что unchecked-add-int используется для выполнения операций над целыми числами с переполнением.
 [source,clojure]
 ----
 (defn hash-unordered [collection]
   (-> (reduce unchecked-add-int 0 (map hash collection))
       (mix-collection-hash (count collection))))
 ----
-The http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/mix-collection-hash[mix-collection-hash] algorithm is an implementation detail subject to change.
+Алгоритм работы http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/mix-collection-hash[mix-collection-hash] - это деталь реализации и может изменяться.
 
 [[Lists]]
 == Lists (IPersistentList)
