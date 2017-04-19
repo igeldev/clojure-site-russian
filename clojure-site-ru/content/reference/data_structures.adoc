@@ -156,16 +156,16 @@ Clojure предоставляет свой алгоритм вычислени�
 Алгоритм работы http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/mix-collection-hash[mix-collection-hash] - это деталь реализации и может изменяться.
 
 [[Lists]]
-== Lists (IPersistentList)
+== Списки (IPersistentList)
 
-Lists are collections. They implement the ISeq interface directly (except for the empty list, which is not a valid seq). http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/count[count] is O(1). http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/conj[conj] puts the item at the front of the list.
+Списки являются коллекциями. Они реализуют интерфейс ISeq напрямую (кроме пустых списков, которые не являются корректной последовательностью). Функция http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/count[count] имеет сложность O(1). Функция http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/conj[conj] добавляет элементы в начало списка.
 
-=== Related functions
+=== Функции
 
 [%hardbreaks]
-Create a list: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/list[list] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/list*[list*]
-Treat a list like a stack: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/peek[peek] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/pop[pop]
-Examine a list: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/list?[list?]
+Создать список: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/list[list] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/list*[list*]
+Работать со списком как со стеком: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/peek[peek] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/pop[pop]
+Проверить, является ли объект списком: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/list?[list?]
 
 [[Vectors]]
 == Vectors (IPersistentVector)
