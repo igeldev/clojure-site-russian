@@ -168,18 +168,18 @@ Clojure предоставляет свой алгоритм вычислени�
 Проверить, является ли объект списком: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/list?[list?]
 
 [[Vectors]]
-== Vectors (IPersistentVector)
+== Вектора (IPersistentVector)
 
-A Vector is a collection of values indexed by contiguous integers. Vectors support access to items by index in log32N hops. http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/count[count] is O(1). http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/conj[conj] puts the item at the end of the vector. Vectors also support http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/rseq[rseq], which returns the items in reverse order. Vectors implement IFn, for invoke() of one argument, which they presume is an index and look up in themselves as if by nth, i.e. vectors are functions of their indices. Vectors are compared first by length, then each element is compared in order.
+Вектор - это пронумерованная коллекция значений. Вектора поддерживают доступ к элементу по его номеру за log32N шагов. http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/count[count] - за время O(1). http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/conj[conj] помещает элемент в конец вектора. Вектора также поддеживают http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/rseq[rseq], которая возвращает элементы в обратном порядке. Вектора реализуют IFn, для invoke() с одним аргументом, который рассматривается как номер. В качестве результата возвращается элемент, соответствующий этому номеру. Таким образом, вектора - это функции, переводящая номер в элемент. Вектора сначала сравниваются по длине, потом поочередно сравниваются элементы.
 
-=== Related functions
+=== Функции
 
 [%hardbreaks]
-Create a vector: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/vector[vector] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/vec[vec] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/vector-of[vector-of]
-Examine a vector: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/get[get] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/nth[nth] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/peek[peek] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/rseq[rseq] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/vector?[vector?]
-'change' a vector: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/assoc[assoc] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/pop[pop] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/subvec[subvec] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/replace[replace]
+Создать вектор: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/vector[vector] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/vec[vec] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/vector-of[vector-of]
+Проверить вектор: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/get[get] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/nth[nth] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/peek[peek] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/rseq[rseq] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/vector?[vector?]
+'Изменить' вектор: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/assoc[assoc] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/pop[pop] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/subvec[subvec] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/replace[replace]
 
-See also <<other_libraries#,zippers>>
+Также смотри <<other_libraries#,zipper-ы>>
 
 [[Maps]]
 == Maps (IPersistentMap)
