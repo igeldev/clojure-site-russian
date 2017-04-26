@@ -195,14 +195,14 @@ Clojure предоставляет свой алгоритм вычислени�
 Просмотреть элемент массива: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/key[key] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/val[val]
 
 [[StructMaps]]
-== StructMaps
+== StructMap-ы
 
-[NOTE]
-Most uses of StructMaps would now be better served by <<datatypes#,records>>.
+[ВНИМАНИЕ]
+В большинстве случаев, вместо использования StructMap лучше использовать <<datatypes#,records>>.
 
-Often many map instances have the same base set of keys, for instance when maps are used as structs or objects would be in other languages. StructMaps support this use case by efficiently sharing the key information, while also providing optional enhanced-performance accessors to those keys. StructMaps are in all ways maps, supporting the same set of functions, are interoperable with all other maps, and are persistently extensible (i.e. struct maps are not limited to their base keys). The only restriction is that you cannot dissociate a struct map from one of its base keys. A struct map will retain its base keys in order.
+Часто несколько экземпляров ассоциативных массивов имеют один и тот же набор ключей, например когда они используются также, как струкутры или объекты в других языках программирования. StructMap поддерживают этот вариант использования, эффективно переиспользуя информацию о ключах, а также предоставляя опциональные методы доступа к этим ключам с повышенной производительностью. StructMap во всех отношениях являются ассоциативными массивами, поддерживающими тот же набор функций, совместимыми с другими ассоциативными массивами, и являются расширяемыми (т.е. они не ограничены своими базовыми ключами). Единственное ограничение - вы не можете отделить StructMap от одного из его базовых ключей. StructMap будет по прежнему хранить свои базовые ключи.
 
-StructMaps are created by first creating a structure basis object using http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/create-struct[create-struct] or http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/defstruct[defstruct], then creating instances with http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/struct-map[struct-map] or http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/struct[struct].
+Чтобы создать StructMap нужно сначала создать базовый объект структуры с помощью http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/create-struct[create-struct] или http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/defstruct[defstruct], затем создать экземпляры с помощью http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/struct-map[struct-map] или http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/struct[struct].
 
 [source,clojure]
 ----
@@ -221,11 +221,11 @@ StructMaps are created by first creating a structure basis object using http://c
  -> 4999950000
 ----
 
-=== Related functions
+=== Функции
 
 [%hardbreaks]
-StructMap setup: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/create-struct[create-struct] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/defstruct[defstruct] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/accessor[accessor]
-Create individual struct: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/struct-map[struct-map] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/struct[struct]
+Объявление StructMap: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/create-struct[create-struct] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/defstruct[defstruct] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/accessor[accessor]
+Создать отдельную структуру: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/struct-map[struct-map] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/struct[struct]
 
 [[ArrayMaps]]
 == ArrayMaps
