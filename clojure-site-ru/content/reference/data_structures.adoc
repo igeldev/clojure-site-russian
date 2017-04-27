@@ -228,9 +228,9 @@ Clojure предоставляет свой алгоритм вычислени�
 Создать отдельную структуру: http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/struct-map[struct-map] http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/struct[struct]
 
 [[ArrayMaps]]
-== ArrayMaps
+== ArrayMap-ы
 
-When doing code form manipulation it is often desirable to have a map which maintains key order. An array map is such a map - it is simply implemented as an array of key val key val... As such, it has linear lookup performance, and is only suitable for _very small_ maps. It implements the full map interface. New ArrayMaps can be created with the http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/array-map[array-map] function. Note that an array map will only maintain sort order when un-'modified'. Subsequent assoc-ing will eventually cause it to 'become' a hash-map.
+При выполнении манипуляций с кодом часто хочется иметь ассоциативный массив поддерживающий упорядоченные ключи. ArrayMap это как раз такой ассоциативный массив - он просто реализован как массив пар ключ-значение. Скорость поиска в нем возрастает по линейному закону и он подходит только для _очень маленьких_ ассоциативных массивов. Он реализует интерфейс ассоциативных массивов целиком. Новый ArrayMap может быть создан с помощью функции http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/array-map[array-map]. Также ArrayMap будет поддерживать порядок пока не 'модифицирован'. Последующее изменение заставит его 'превратиться' в хэшированный ассоциативный массив.
 
 [[Sets]]
 == Sets
