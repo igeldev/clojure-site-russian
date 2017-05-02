@@ -233,10 +233,10 @@ Clojure предоставляет свой алгоритм вычислени�
 При выполнении манипуляций с кодом часто хочется иметь ассоциативный массив поддерживающий упорядоченные ключи. ArrayMap это как раз такой ассоциативный массив - он просто реализован как массив пар ключ-значение. Скорость поиска в нем возрастает по линейному закону и он подходит только для _очень маленьких_ ассоциативных массивов. Он реализует интерфейс ассоциативных массивов целиком. Новый ArrayMap может быть создан с помощью функции http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/array-map[array-map]. Также ArrayMap будет поддерживать порядок пока не 'модифицирован'. Последующее изменение заставит его 'превратиться' в хэшированный ассоциативный массив.
 
 [[Sets]]
-== Sets
-Sets are collections of unique values.
+== Множества
+Множества - это коллекции уникальных значений.
 
-There is literal support for hash-sets:
+Существует поддержка множества с помощью литералов:
 
 [source,clojure]
 ----
@@ -244,7 +244,7 @@ There is literal support for hash-sets:
 -> #{:d :a :b :c}
 ----
 
-You can create sets with the http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/hash-set[hash-set] and http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/sorted-set[sorted-set] functions:
+Вы можете создать множество с помощью функций http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/hash-set[hash-set] и http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/sorted-set[sorted-set]:
 
 [source,clojure]
 ----
@@ -255,7 +255,7 @@ You can create sets with the http://clojure.github.io/clojure/clojure.core-api.h
 -> #{:a :b :c :d}
 ----
 
-You can also get a set of the values in a collection using the http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/set[set] function:
+Вы также можете получить множество значений коллеции с помощью функции http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/set[set]:
 
 [source,clojure]
 ----
@@ -263,7 +263,7 @@ You can also get a set of the values in a collection using the http://clojure.gi
 -> #{1 2 3}
 ----
 
-Sets are collections:
+Множества - это коллекции:
 [source,clojure]
 ----
 (def s #{:a :b :c :d})
@@ -280,7 +280,7 @@ Sets are collections:
 -> true
 ----
 
-Sets support 'removal' with http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/disj[disj], as well as _**contains?**_ and _**get**_, the latter returning the object that is held in the set which compares equal to the key, if found:
+Множества поддерживают 'удаление' с помощью http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/disj[disj], а также _**contains?**_ и _**get**_, последний возвращает объект, который содержится внутри множества и равен ключу, если таковой имеется:
 
 [source,clojure]
 ----
@@ -294,7 +294,7 @@ Sets support 'removal' with http://clojure.github.io/clojure/clojure.core-api.ht
 -> :a
 ----
 
-Sets are functions of their members, using _**get**_:
+Множества - это функции своих членов, что реализовано с помощью _**get**_:
 [source,clojure]
 ----
 (s :b)
@@ -304,4 +304,4 @@ Sets are functions of their members, using _**get**_:
 -> nil
 ----
 
-Clojure provides basic set operations like http://clojure.github.io/clojure/clojure.set-api.html#clojure.set/union[union] / http://clojure.github.io/clojure/clojure.set-api.html#clojure.set/difference[difference] / http://clojure.github.io/clojure/clojure.set-api.html#clojure.set/intersection[intersection], as well as some pseudo-relational algebra support for 'relations', which are simply sets of maps - http://clojure.github.io/clojure/clojure.set-api.html#clojure.set/select[select] / http://clojure.github.io/clojure/clojure.set-api.html#clojure.set/index[index] / http://clojure.github.io/clojure/clojure.set-api.html#clojure.set/rename[rename] / http://clojure.github.io/clojure/clojure.set-api.html#clojure.set/join[join].
+Clojure предоставляет базовый набор операция типа http://clojure.github.io/clojure/clojure.set-api.html#clojure.set/union[union] / http://clojure.github.io/clojure/clojure.set-api.html#clojure.set/difference[difference] / http://clojure.github.io/clojure/clojure.set-api.html#clojure.set/intersection[intersection], также как поддержку некоторый псевдо-реляционной алгебры для 'отношений', которые являются просто множетсвом ассоциативных массивов - http://clojure.github.io/clojure/clojure.set-api.html#clojure.set/select[select] / http://clojure.github.io/clojure/clojure.set-api.html#clojure.set/index[index] / http://clojure.github.io/clojure/clojure.set-api.html#clojure.set/rename[rename] / http://clojure.github.io/clojure/clojure.set-api.html#clojure.set/join[join].
