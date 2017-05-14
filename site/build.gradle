@@ -1,0 +1,45 @@
+import groovy.io.FileType
+
+
+File enDir = file('../clojure-site-en/')
+File ruDir = file('../clojure-site-ru/')
+
+
+def printStat(File enDir, File ruDir, String path) {
+    File enFile = new File(enDir, path)
+    File ruFile = new File(ruDir, path)
+
+    int countEn = 0, countRu = 0
+    List<String> lines = []
+    if (enFile.isDirectory()) {
+        Set<File> dirs = enFile.listFiles().findAll { it.isDirectory() }
+        Set<File> files = enFile.listFiles().findAll { it.isFile() }
+        (dirs.toSorted() + files.toSorted()).each {
+            def report = printStat(enDir, ruDir, "$path/$it.name")
+            countEn += report.countEn
+            countRu += report.countRu
+            lines.addAll(report.lines)
+        }
+    } else {
+        if (path ==~ /.*\.adoc/) {
+            countEn = enFile.readLines().size()
+            countRu = ruFile.exists() ? countEn : 0
+        }
+    }
+    if (countEn > 0) {
+        int percent = 100 * countRu / countEn
+        lines.add(0, String.format("%d\t%d%%\t%s", countEn, percent, path))
+    }
+    return [
+        countEn: countEn,
+        countRu: countRu,
+        lines: lines,
+    ]
+}
+
+
+task('stat').doLast {
+    def report = printStat(enDir, ruDir, '.')
+    project.logger.lifecycle 'Lines\tTranslated\tPath'
+    report.lines.each { project.logger.lifecycle it }
+}
