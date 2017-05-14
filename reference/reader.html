@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<!-- This site was created in Webflow. http://www.webflow.com-->
+<!-- Last Published: Fri Nov 13 2015 01:48:45 GMT+0000 (UTC) -->
+<html data-wf-site="56414d6fc8c27cad0f4e12e7" data-wf-page="5643ac587b1f28dc58ed6b89">
+<head>
+  <meta charset="utf-8">
+  <title>Clojure - Считыватель</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Webflow">
+  <link rel="stylesheet" type="text/css" href="../css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="../css/webflow.css">
+  <link rel="stylesheet" type="text/css" href="../css/clojureorg.webflow.css">
+  <link rel="stylesheet" type="text/css" href="../css/asciidoctor-mod.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ["Open Sans:300,300italic,400,400italic,600,600italic","PT Serif:400,400italic,700,700italic","Source Code Pro:regular,500"]
+      }
+    });
+  </script>
+  <script type="text/javascript" src="../js/modernizr.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="../images/clojure-logo-icon-32.png">
+  <link rel="apple-touch-icon" href="../images/clojure-logo-icon-256.png">
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4857754-16'], ['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script');
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+<body>
+  <div data-collapse="none" data-animation="default" data-duration="400" data-contain="1" class="w-nav clj-navbar">
+    <div class="w-container">
+      <a href="http://igeldev.github.io/clojure-site-russian/index" class="w-nav-brand w-clearfix clj-logo-container"><img width="60" src="../images/clojure-logo-120b.png" class="clj-logo">
+        <div class="clj-logo-text">Clojure</div>
+      </a>
+      <nav role="navigation" class="w-nav-menu clj-nav-menu"><a href="http://igeldev.github.io/clojure-site-russian/about/rationale" class="w-nav-link clj-nav-link">Overview</a><a href="http://igeldev.github.io/clojure-site-russian/reference/documentation" class="w-nav-link clj-nav-link">Reference‍</a><a href="http://igeldev.github.io/clojure-site-russian/api/api" class="w-nav-link clj-nav-link">API</a><a href="http://igeldev.github.io/clojure-site-russian/community/downloads" class="w-nav-link clj-nav-link">Releases</a><a href="http://igeldev.github.io/clojure-site-russian/guides/guides" class="w-nav-link clj-nav-link">Guides</a><a href="http://igeldev.github.io/clojure-site-russian/community/resources" class="w-nav-link clj-nav-link">Community</a><a href="http://igeldev.github.io/clojure-site-russian/news/news" class="w-nav-link clj-nav-link">News</a><a href="#" data-ix="search-click-trigger" class="w-nav-link clj-nav-link clj-nav-search"></a>
+      </nav>
+      <div class="w-nav-button clj-menu-button">
+        <div class="w-icon-nav-menu"></div>
+      </div>
+    </div>
+  </div>
+  <div data-ix="hide-search" class="w-section clj-search-section">
+    <div class="w-container">
+      <div class="w-form clj-search-form-wrapper">
+        <form id="wf-form-Search-Form" name="wf-form-Search-Form" data-name="Search Form" action="http://igeldev.github.io/clojure-site-russian/search" method="get">
+          <div class="w-row">
+            <div class="w-col w-col-9 w-col-small-9">
+              <input id="q" type="text" placeholder="Search clojure.org reference, guides, and API" name="q" data-name="q" autofocus="autofocus" class="w-input clj-search-input">
+            </div>
+            <div class="w-col w-col-3 w-col-small-3">
+              <input type="submit" value="Search" data-wait="Please wait..." class="w-button clj-search-submit">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+<div class="w-section clj-content-section">
+  <div class="w-container">
+    <div class="clj-section-nav-container">
+      <div data-collapse="small" data-animation="default" data-duration="200" data-contain="1" class="w-nav clj-section-navbar">
+        <div class="w-container">
+          <nav role="navigation" class="w-nav-menu clj-section-nav-menu"><a href="reader" class="w-nav-link clj-section-nav-item-link">The Reader</a><a href="repl_and_main" class="w-nav-link clj-section-nav-item-link">The REPL and main</a><a href="evaluation" class="w-nav-link clj-section-nav-item-link">Evaluation</a><a href="special_forms" class="w-nav-link clj-section-nav-item-link">Special Forms</a><a href="macros" class="w-nav-link clj-section-nav-item-link">Macros</a><a href="other_functions" class="w-nav-link clj-section-nav-item-link">Other Functions</a><a href="data_structures" class="w-nav-link clj-section-nav-item-link">Data Structures</a><a href="datatypes" class="w-nav-link clj-section-nav-item-link">Datatypes</a><a href="sequences" class="w-nav-link clj-section-nav-item-link">Sequences</a><a href="transients" class="w-nav-link clj-section-nav-item-link">Transients</a><a href="transducers" class="w-nav-link clj-section-nav-item-link">Transducers</a><a href="multimethods" class="w-nav-link clj-section-nav-item-link">Multimethods and Hierarchies</a><a href="protocols" class="w-nav-link clj-section-nav-item-link">Protocols</a><a href="metadata" class="w-nav-link clj-section-nav-item-link">Metadata</a><a href="namespaces" class="w-nav-link clj-section-nav-item-link">Namespaces</a><a href="libs" class="w-nav-link clj-section-nav-item-link">Libs</a><a href="vars" class="w-nav-link clj-section-nav-item-link">Vars and Environments</a><a href="refs" class="w-nav-link clj-section-nav-item-link">Refs and Transactions</a><a href="agents" class="w-nav-link clj-section-nav-item-link">Agents</a><a href="atoms" class="w-nav-link clj-section-nav-item-link">Atoms</a><a href="reducers" class="w-nav-link clj-section-nav-item-link">Reducers</a><a href="java_interop" class="w-nav-link clj-section-nav-item-link">Java Interop</a><a href="compilation" class="w-nav-link clj-section-nav-item-link">Compilation and Class Generation</a><a href="other_libraries" class="w-nav-link clj-section-nav-item-link">Other Libraries</a><a href="lisps" class="w-nav-link clj-section-nav-item-link">Differences with Lisps</a>
+          </nav>
+          <div data-ix="toggle-section-nav-icon" class="w-nav-button w-clearfix clj-section-nav-toggle">
+            <div class="clj-section-nav-text">Считыватель</div>
+            <div class="clj-section-nav-icon-closed"></div>
+            <div data-ix="init-hide-section-nav-icon-open" class="clj-section-nav-icon-open"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clj-content-container">
+
+      <h1>Считыватель</h1>
+
+      <div id="preamble">
+<div class="sectionbody">
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Содержание</div>
+<ul class="sectlevel1">
+<li><a href="#_Формы_считывателя">Формы считывателя</a>
+<ul class="sectlevel2">
+<li><a href="#_Знаки">Знаки</a></li>
+<li><a href="#_Литералы">Литералы</a></li>
+<li><a href="#_Списки">Списки</a></li>
+<li><a href="#_Вектора">Вектора</a></li>
+<li><a href="#_Ассоциативные_массивы">Ассоциативные массивы</a></li>
+<li><a href="#_Множества">Множества</a></li>
+<li><a href="#_deftype_defrecord_и_вызовы_конструкторов_версия_1_3_и_выше">deftype, defrecord и вызовы конструкторов (версия 1.3 и выше):</a></li>
+</ul>
+</li>
+<li><a href="#macrochars">Макросимволы</a>
+<ul class="sectlevel2">
+<li><a href="#_Апостроф">Апостроф (')</a></li>
+<li><a href="#_Символ">Символ (\)</a></li>
+<li><a href="#_Комментарий">Комментарий (;)</a></li>
+<li><a href="#_Оператор_deref">Оператор deref (@)</a></li>
+<li><a href="#_Метаданные">Метаданные (^)</a></li>
+<li><a href="#_Управляющий_символ">Управляющий символ (#)</a></li>
+<li><a href="#__a_id_syntax_quote_a_Цитирование_обратный_апостроф_подстановка_и_подстановка_сращивание"><a id="syntax-quote"></a> Цитирование (` - обратный апостроф), подстановка (~) и подстановка-сращивание (~@)</a></li>
+</ul>
+</li>
+<li><a href="#_Расширяемое_представление_данных_edn_extensible_data_notation">Расширяемое представление данных (edn - extensible data notation)</a></li>
+<li><a href="#_Маркированные_литералы">Маркированные литералы</a></li>
+<li><a href="#_Ветвления_считывателя">Ветвления считывателя</a></li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Clojure является <a href="http://en.wikipedia.org/wiki/Homoiconicity">гомоиконным</a> языком. Этот причудливый термин означает, что программы на Clojure представлены в виде структур данных Clojure. Это очень важное отличие между Clojure (и Common Lisp) и большинством других языков программирования - Clojure определена в терминах вычисления структур данных, а <strong>не</strong> с точки зрения синтаксиса потоков символов или файлов. Для Clojure-программ довольно распространено и просто оперировать, модифицировать и генерировать другие Clojure-программы.</p>
+</div>
+<div class="paragraph">
+<p>Тем не менее, большинство Clojure-программ создаются в виде текстовых файлов, и задачей <em>считывателя</em> является преобразование текста в структуры данных, которые уже увидит компилятор. То есть это не просто фаза компиляции. И считыватель, и представление данных Clojure, полезны сами по себе для решения многих задач, где можно использовать XML, JSON и т.п.</p>
+</div>
+<div class="paragraph">
+<p>Можно сказать, что у считывателя есть синтаксис, определенный в терминах символов, а синтаксис языка Clojure определяется в терминах знаков, списков, векторов, ассоциативных массивов и т.д. Считыватель представлен функцией <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/read">read</a>, которая считывает следующую форму (не символ) из потока и возвращает объект представляемый этой формой.</p>
+</div>
+<div class="paragraph">
+<p>Так как нужно с чего-то начать, этот справочник начинается там же, где начинается вычисление - с форм считывателя. Это неизбежно повлечет за собой разговор о структурах данных, а затем об их описательных способностях и интерпретации компилятором.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_Формы_считывателя">Формы считывателя</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_Знаки">Знаки</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Знаки состоят из букв, цифр, а также символов *, +, !, -, _, ' и ? (со временем могут быть разрешены и другие символы) и не могут начинаться с цифры.</p>
+</li>
+<li>
+<p>'/' имеет специальное значение - он может быть использован только однажды в середине знака для того, чтобы отделить <a href="namespaces">пространство имен</a> от имени, например: <code>my-namespace/foo</code>. '/' сам по себе также является именем функции деления.</p>
+</li>
+<li>
+<p>'.' имеет специальное значение - он может быть использован один или более раз в середине знака, чтобы указать полное имя класса, например: <code>java.util.BitSet</code>, или в пространстве имен. Знаки, начинающиеся с '.' зарезервированы Clojure. Знаки, содержащие '/' или '.', именуются 'уточненными'.</p>
+</li>
+<li>
+<p>Знаки, начинающиеся или заканчивающиеся ':' зарезервированы Clojure. Знак может содержать один или более не повторяющихся ':'.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_Литералы">Литералы</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Строки - обрамлены в "двойные кавычки". Могут охватывать несколько строк. Поддерживаются стандартные символы экранирования Java.</p>
+</li>
+<li>
+<p>Числа - представляются почти как в Java</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Целые числа могут быть неограничено длинными и будут прочитаны как Long или как clojure.lang.BigInt в зависимости от размера. Целые числа с суффиксом N всегда прочитываются как BigInt. Когда возможно, они могут быть заданы в любой системе счисления от 2 до 36 (см. <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Long.html#parseLong(java.lang.String,%20int)">Long.parseLong()</a>); например 2r101010, 8r52, 36r16 и 42 - все являются Long.</p>
+</li>
+<li>
+<p>Числа с плавающей запятой прочитываются как Double; с суффиксом M - как BigDecimal.</p>
+</li>
+<li>
+<p>Поддерживаются дроби, например: 22/7.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Символы - начинаются с обратной косой черты: \c. \newline, \space, \tab, \formfeed, \backspace и \return производят соответствующие символы. Символы Юникода записываются \uNNNN, как в Java. Окталы записываются \oNNN.</p>
+</li>
+<li>
+<p>nil означает "ничего", "нет значения" - соответствует null в Java и логическому false.</p>
+</li>
+<li>
+<p>Логические - true и false.</p>
+</li>
+<li>
+<p>Ключевые слова - как знаки, за изключением:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Они могут и должны начинаться с ':', например :fred.</p>
+</li>
+<li>
+<p>Они не могут содержать '.' или имена классов.</p>
+</li>
+<li>
+<p>Как и знаки, они могут содержать пространство имен: <code>:person/name</code></p>
+</li>
+<li>
+<p>Ключевое слово, начинающееся с двух двоеточий соответствует текущему пространству имен:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>В пространстве имен user, '::rect' прочитывается как <code>:user/rect</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_Списки">Списки</h3>
+<div class="paragraph">
+<p>Списки - ноль или более форм, заключенных в скобки: <code>(a b c)</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_Вектора">Вектора</h3>
+<div class="paragraph">
+<p>Вектора - ноль или более форм, заключенных в квадратные скобки: <code>[1 2 3]</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_Ассоциативные_массивы">Ассоциативные массивы</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Ассоциативный массив - ноль или более пар ключ-значение, заключенных в фигурные скобки: <code>{:a 1 :b 2}</code><br></p>
+</li>
+<li>
+<p>Запятые рассматриваются как пробельный символ и могут быть использованы для огранизации пар: <code>{:a 1, :b 2}</code><br></p>
+</li>
+<li>
+<p>В качестве ключей и значений могут выступать любые формы.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_Множества">Множества</h3>
+<div class="paragraph">
+<p>Множества - ноль или более форм, заключенных в фигурные скобки и начинающиеся с <code>#</code>: <code>#{:a :b :c}</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_deftype_defrecord_и_вызовы_конструкторов_версия_1_3_и_выше">deftype, defrecord и вызовы конструкторов (версия 1.3 и выше):</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Вызовы конструкторов Java классов, deftype и defrecord могут быть выполнены с использованием полного имени класса с # перед ним и вектором после: <code>#my.klass_or_type_or_record[:a :b :c]</code><br></p>
+</li>
+<li>
+<p>Элементы в векторе передаются "невычисленными" в соответствующий конструктор. Экземпляры defrecord также могут быть созданы похожим образом, с использованием ассоциативного массива вместо вектора: <code>#my.record{:a 1, :b 2}</code><br></p>
+</li>
+<li>
+<p>Значения, ассоциированные с ключами, передаются "невычисленными" в соответствующие поля defrecord. Всем полям defrecord, которым не соответствует пара ключ-значение, будет присвоено значение nil. Дополнительные пары ключ-значение будут добавлены в конструируемый экземпляр defrecord.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="macrochars">Макросимволы</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Поведение считывателя управляется с помощью комбинации встроеных конструкций и системы расширений, называемой таблицей чтения. Ячейки таблицы чтения содержат соответствия между особенными символами, называемыми макросимволами, и конкретными действиями при их чтении, называемыми макросами. Если не заявлено обратное, макросимволы не могут быть использованы внутри пользовательских знаков.</p>
+</div>
+<div class="sect2">
+<h3 id="_Апостроф">Апостроф (')</h3>
+<div class="paragraph">
+<p><code>'form</code> &#8658; <code>(quote form)</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_Символ">Символ (\)</h3>
+<div class="paragraph">
+<p>Как указано выше, производят символьный литерал. Примеры символьных литералов: <code>\a \b \c</code>.</p>
+</div>
+<div class="paragraph">
+<p>Следующие специальные символьные литералы могут быть использованы в качестве символов: <code>\newline</code>, <code>\space</code>, <code>\tab</code>, <code>\formfeed</code>, <code>\backspace</code>, and <code>\return</code>.</p>
+</div>
+<div class="paragraph">
+<p>Поддержка Unicode зависит от особенностей поддержки Unicode внутренней версией Java. Литералы Unicode записываются формой <code>\uNNNN</code>, например <code>\u03A9</code> - литерал для Ω.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_Комментарий">Комментарий (;)</h3>
+<div class="paragraph">
+<p>Однострочный комментарий, заставляющий считыватель игнорировать все, начиная с текущей позиции до конца строки.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_Оператор_deref">Оператор deref (@)</h3>
+<div class="paragraph">
+<p><code>@form &#8658; (deref form)</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_Метаданные">Метаданные (^)</h3>
+<div class="paragraph">
+<p>Метаданные - это ассоциативный массив, связанный с некоторыми объектами: знаками, списками, векторами, множествами, другими ассоциативными массивами, маркированными литералами производящими значение IMeta, а также с записями, типами и вызовами конструкторов. Этот макрос считывателя сначала считывает метаданные и прикрепляет их к следующей прочитанной форме (см. <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/with-meta">with-meta</a> чтобы привязать метаданные к объекту):<br>
+<code>^{:a 1 :b 2} [1 2 3]</code> производит вектор <code>[1 2 3]</code> с метаданными <code>{:a 1 :b 2}</code>.<br></p>
+</div>
+<div class="paragraph">
+<p>Сокращенная версия позволяет передавать в качестве метаданных простой знак или строку. В этом случае это рассматривается как ассоциативный массив с одной парой ключ-значение, где ключ - :tag, а значение - знак или строка, например:<br>
+<code>^String x</code> - то же самое, что <code>^{:tag java.lang.String} x</code><br></p>
+</div>
+<div class="paragraph">
+<p>Такие теги могут быть использованы для передачи компилятору информации о типах.<br></p>
+</div>
+<div class="paragraph">
+<p>Другая сокращенная версия позволяет метаданным быть ключевым словом, в этом случае это рассматривается как ассоциативный массив с одной парой, где ключ - это ключевое слово, а значение - true, например:<br>
+<code>^:dynamic x</code> - то же самое, что <code>^{:dynamic true} x</code><br></p>
+</div>
+<div class="paragraph">
+<p>Метаданные могут быть сцеплены. В этом случае они объединяются как ассоциативные массивы в направлении справа налево.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_Управляющий_символ">Управляющий символ (#)</h3>
+<div class="paragraph">
+<p>Управляющий символ заставляет считыватель использовать макрос из другой таблицы, содержащей следующие записи:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>#{} - используется для объявления множеств, как было упомянуто выше</p>
+</li>
+<li>
+<p>Регулярные выражения (#"pattern")</p>
+<div class="paragraph">
+<p>Регулярные выражения прочитываются и <em>компилируются во время чтения</em>. В результате получается экземпляр класса java.util.regex.Pattern. Регулярные выражения не поддерживают те же правила экранирования что и обычные строки, а именно: обратная косая черта в регулярных выражениях обрабатывается сама по себе (и не должна экранироваться с помощью дополнительной черты). Например, <code>(re-pattern "\\s*\\d+")</code> может быть записано более кратко как <code>#"\s*\d+"</code>.</p>
+</div>
+</li>
+<li>
+<p>Апостроф var (#')</p>
+<div class="paragraph">
+<p><code>#'x</code> &#8658; <code>(var x)</code> - возвращает переменную как объект, а нее её значение.</p>
+</div>
+</li>
+<li>
+<p>Анонимная функция (#())</p>
+<div class="paragraph">
+<p><code>#(&#8230;&#8203;)</code> &#8658; <code>(fn [args] (&#8230;&#8203;))</code><br>
+где args определяются по наличию литералов аргументов вида %, %n или %&amp;. % - синоним для %1, %n обозначает n-тый аргумент (отсчет начинается с 1-го) и %&amp; обозначает остальные аргументы. Это не замена для <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/fn">fn</a> - корректно использовать их для очень короткоживующих функций для сопоставления/фильтрации и т.п. Формы #() не могут быть вложенными.</p>
+</div>
+</li>
+<li>
+<p>Игнорировать следующую форму (#_)</p>
+<div class="paragraph">
+<p>Форма, следующая за #_ полностью пропускается считывателем. (Это даже более полное удаление чем макрос <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/comment">comment</a>, который порождает nil).</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__a_id_syntax_quote_a_Цитирование_обратный_апостроф_подстановка_и_подстановка_сращивание"><a id="syntax-quote"></a> Цитирование (` - обратный апостроф), подстановка (~) и подстановка-сращивание (~@)</h3>
+<div class="paragraph">
+<p>Для всех форм кроме знаков, списков, векторов, множеств и ассоциативных массивов, `x - это же самое что 'x.<br></p>
+</div>
+<div class="paragraph">
+<p>Для знаков, цитирование <em>разрешает</em> знак в текущем контексте, порождая уточненный знак (т.е. namespace/name или fully.qualitied.Classname). Если знак не принадлежит пространству имен и заканчивается на '#' он разрешается в сгенерированный знак с тем же именем, но с уникальным id добавленным в конец через '_'. То есть x# будет разрешен в x_123. Все ссылки на этот знак внутри выражения, помеченного цитированием, разрешаются в этот сгенерированный символ.<br></p>
+</div>
+<div class="paragraph">
+<p>Для списков, векторов, множеств и ассоциативных массивов цитирование создает соответствующую структуру данных. Внутри нее все формы ведут себя как рекурсивно помеченные цитированием, кроме помеченных подстановкой или подстановкой-сращиванием. В этом случае они будут обработаны как выражения и будут заменены в созданной структуре данных своими значениями или последовательностями значений, соответственно.<br></p>
+</div>
+<div class="paragraph">
+<p>Например:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">user=&gt; (def x 5)
+user=&gt; (def lst '(a b c))
+user=&gt; `(fred x ~x lst ~@lst 7 8 :nine)
+(user/fred user/x 5 user/lst a b c 7 8 :nine)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>На данный момент таблица чтения недоступна для пользовательских программ.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_Расширяемое_представление_данных_edn_extensible_data_notation">Расширяемое представление данных (edn - extensible data notation)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Считыватель языка Clojure поддерживает часть <a href="https://github.com/edn-format/edn">extensible data notation (edn)</a>. Спецификация edn пока еще в разработке, но она дополняет этот документ и определяет часть синтксиса данных Clojure.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_Маркированные_литералы">Маркированные литералы</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Маркированные литералы - это реализация <a href="https://github.com/edn-format/edn#tagged-elements">tagged elements</a> на Clojure.</p>
+</div>
+<div class="paragraph">
+<p>При старте Clojure ищет файлы, называющиеся <code>data_readers.clj</code> в корне classpath. Каждый такой файл должен содержать ассоциативный массив из знаков, например:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">{foo/bar my.project.foo/bar
+ foo/baz my.project/baz}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ключем в каждой паре является тег, который распознается считывателем. Значение - обработчик, уточненное имя <a href="vars">переменной</a>, которая будет вызвана считывателем как функция для обработки формы, следующую за тегом. Например, для data_readers.clj из примера выше считыватель распознает такую форму:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">#foo/bar [1 2 3]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Вызвав <code>#'my.project.foo/bar</code> на векторе <code>[1 2 3]</code>. Функция вызывается в на форме ПОСЛЕ того, как она будет прочитана считывателем как любая другая обычная структура данных Clojure.</p>
+</div>
+<div class="paragraph">
+<p>Теги без уточнения пространства имен зарезервированы Clojure. Теги, зарегистрированные по-умолчанию определены в <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/default-data-readers">default-data-readers</a>, но могут быть переопределены в <code>data_readers.clj</code> или с помощью переопределения <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%2Adata-readers%2A">*data-readers*</a>. Если тег не зарегистрирован, будет вызвана функция <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/%2Adefault-data-reader-fn%2A">*default-data-reader-fn*</a>, которой этот тег будет передан, чтобы получить нужный обработчик. Если *default-data-reader-fn* возвратит nil (что является поведением по-умолчанию) - будет сгенерировано исключение RuntimeException.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_Ветвления_считывателя">Ветвления считывателя</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Clojure 1.7 ввела новое расширение (.cljc) для переносимых файлов, которые могут быть загружены несколькими платформама Clojure. Главный механизм для управления кодом, зависящим от платформы, - изолировать этот код в минимальное множество пространств имен, а затем предоставить платформенно-зависимые версии этих пространств имен (.clj/.class или .cljs).</p>
+</div>
+<div class="paragraph">
+<p>В случаях, когда невозможно изолировать различные части кода или когда код портируется с небольшими изменениями от платформы к платформе, Clojure 1.7 предоставляет <em>ветвления считывателя</em>, которые поддерживаются только в cljc-файлах и в REPL. Ветвления должны использоваться редко и только по необходимости.</p>
+</div>
+<div class="paragraph">
+<p>Ветвления - это новый макрос управляющего символа, начинающийся с <code>#?</code> или <code>#?@</code>. Обе записи должны состоять из нескольких альтернативных характерстик и соответствующих им выражений, так же как и у функции <code>cond</code>. Каждая платформа Clojure имеет известную "характеристику платформы" - <code>:clj</code>, <code>:cljs</code>, <code>:cljr</code>. Каждое условие в ветвлении считыватель проверяет по порядку, пока не найдет подходящее под характеристику платформы. Тогда считыватель прочитает и возвратит выражение, соответствующее этой характеристике. Остальные выражения будут прочитаны и пропущены. Характеристика <code>:default</code> будет подходить под любую платформу и может быть использована для значений по-умолчанию. Если подходящих условий не будет найдено, то и форм не будет прочитано (как если бы условного выражения reader-а не было бы совсем).</p>
+</div>
+<div class="paragraph">
+<p>Следующий пример будет прочитан как Double/NaN в Clojure, js/NaN в ClojureScript и nil на всех других платформах:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">#?(:clj     Double/NaN
+   :cljs    js/NaN
+   :default nil)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Синтаксис для <code>#?@</code> такой же, но ожидается, что выражение возвращает коллекцию, которая может быть вставлена в окружение, также как подстановка-сращивание (см. макрос цитирования выше). Использование такого сращивания на верхнем уровне не поддерживается и будет генерировать исключение. Например:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">[1 2 #?@(:clj [3 4] :cljs [5 6])]
+;; in clj =&gt;        [1 2 3 4]
+;; in cljs =&gt;       [1 2 5 6]
+;; anywhere else =&gt; [1 2]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Функции <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/read">read</a> и <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/read-string">read-string</a> принимают в качестве первого необязательного параметра ассоциативный массив настроек. Текущее множество характеристик и поведение ветвлений может быть установленов в этих настройках с помощью следующих пар ключ-значение:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">  :read-cond - :allow чтобы обрабатывать ветвления считывателя, или
+               :preserve чтобы сохранять все выражения
+  :features - множество активных характеристик, заданных как ключевые значения</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Например, так можно проверить ветвления для ClojureScript из Clojure:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">(read-string
+  {:read-cond :allow
+   :features #{:cljs}}
+  "#?(:cljs :works! :default :boo)")
+;; :works!</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Заметим, что считыватель Clojure <em>всегда</em> как минимум будет добавлять характеристику :clj. Подробнее о выполнении чтения, не зависимо от платформы см. <a href="https://github.com/clojure/tools.reader">tools.reader</a>.</p>
+</div>
+<div class="paragraph">
+<p>Если считыватель вызывается с <code>{:read-cond :preserve}</code> ветвления и их неисполняемые ветки будут преобразованы в специальную структуру данных. Ветвления будут преобразованы в структуру, содержащую значения, ассоциированные с ключевыми словами <code>:form</code> и <code>:splicing?</code>. Прочитанные, но пропущенные маркированные литералы будут возвращены как структуры, содержащие значения, ассоциированные с ключевыми словами <code>:form</code> и <code>:tag</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">(read-string
+  {:read-cond :preserve}
+  "[1 2 #?@(:clj [3 4] :cljs [5 6])]")
+;; [1 2 #?@(:clj [3 4] :cljs [5 6])]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Следующие функции также могут быть использованы для создания и работы с такими струкурами:<br>
+<a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/reader-conditional%3F">reader-conditional?</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/reader-conditional">reader-conditional</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/tagged-literal%3F">tagged-literal?</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/tagged-literal">tagged-literal</a></p>
+</div>
+</div>
+</div>
+
+
+<div class="clj-prev-next-container">
+  
+  <a href="repl_and_main" class="clj-next-link">REPL and main&nbsp;<span class="clj-prevnext-link-icon"></span></a>
+</div>
+
+    </div>
+  </div>
+</div>
+
+  <div class="w-section clj-footer">
+    <div class="w-container clj-footer-links-container">
+      <div class="w-row">
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Community</h6><a href="http://igeldev.github.io/clojure-site-russian/community/resources" class="clj-footer-link">Resources</a><a href="http://igeldev.github.io/clojure-site-russian/community/contributing" class="clj-footer-link">Contributing</a><a href="http://igeldev.github.io/clojure-site-russian/community/companies" class="clj-footer-link">Companies</a>
+          <h6 class="clj-footer-heading">Legal</h6><a href="http://igeldev.github.io/clojure-site-russian/community/license" class="clj-footer-link">License</a><a href="http://igeldev.github.io/clojure-site-russian/privacy" class="clj-footer-link">Privacy Policy</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Documentation</h6><a href="http://igeldev.github.io/clojure-site-russian/about/rationale" class="clj-footer-link">Overview</a><a href="http://igeldev.github.io/clojure-site-russian/reference/documentation" class="clj-footer-link">Reference</a><a href="http://igeldev.github.io/clojure-site-russian/api/api" class="clj-footer-link">API</a><a href="http://igeldev.github.io/clojure-site-russian/guides/guides" class="clj-footer-link">Guides</a><a href="http://igeldev.github.io/clojure-site-russian/community/libraries" class="clj-footer-link">Libraries &amp; Tools</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Updates</h6><a href="http://igeldev.github.io/clojure-site-russian/news/news" class="clj-footer-link">News</a><a href="http://igeldev.github.io/clojure-site-russian/community/events" class="clj-footer-link">Events</a>
+          <h6 class="clj-footer-heading">ETC</h6><a href="https://www.youtube.com/user/ClojureTV" class="clj-footer-link">Video</a><a href="http://igeldev.github.io/clojure-site-russian/community/books" class="clj-footer-link">Books</a><a href="http://igeldev.github.io/clojure-site-russian/community/swag" class="clj-footer-link">Swag</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Code</h6><a href="http://igeldev.github.io/clojure-site-russian/community/downloads" class="clj-footer-link">Releases</a><a href="https://github.com/clojure/clojure/" class="clj-footer-link">Source</a><a href="http://igeldev.github.io/clojure-site-russian/about/clojurescript" class="clj-footer-link">ClojureScript</a><a href="http://igeldev.github.io/clojure-site-russian/about/clojureclr" class="clj-footer-link">ClojureCLR</a>
+        </div>
+      </div>
+    </div>
+    <div class="w-container clj-footer-legal-container">
+      <div class="w-clearfix clj-footer-legal">
+        <div class="clj-footer-logo">&nbsp;</div>
+        <div class="clj-footer-legal-links">
+          <div class="clj-footer-copyright">Copyright 2008-2016 Rich Hickey | <a class="clj-footer-sub-link" href="http://igeldev.github.io/clojure-site-russian/privacy">Privacy Policy</a><br/>Published 2017-05-17
+          </div>
+          <div class="clj-footer-designed-by">Logo &amp; site design by <a class="clj-footer-sub-link" href="http://tomhickey.com/">Tom Hickey</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/webflow.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+</body>
+</html>

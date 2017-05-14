@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<!-- This site was created in Webflow. http://www.webflow.com-->
+<!-- Last Published: Fri Nov 13 2015 01:48:45 GMT+0000 (UTC) -->
+<html data-wf-site="56414d6fc8c27cad0f4e12e7" data-wf-page="5643ac587b1f28dc58ed6b89">
+<head>
+  <meta charset="utf-8">
+  <title>Clojure - Специальные Формы</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Webflow">
+  <link rel="stylesheet" type="text/css" href="../css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="../css/webflow.css">
+  <link rel="stylesheet" type="text/css" href="../css/clojureorg.webflow.css">
+  <link rel="stylesheet" type="text/css" href="../css/asciidoctor-mod.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ["Open Sans:300,300italic,400,400italic,600,600italic","PT Serif:400,400italic,700,700italic","Source Code Pro:regular,500"]
+      }
+    });
+  </script>
+  <script type="text/javascript" src="../js/modernizr.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="../images/clojure-logo-icon-32.png">
+  <link rel="apple-touch-icon" href="../images/clojure-logo-icon-256.png">
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4857754-16'], ['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script');
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+<body>
+  <div data-collapse="none" data-animation="default" data-duration="400" data-contain="1" class="w-nav clj-navbar">
+    <div class="w-container">
+      <a href="http://igeldev.github.io/clojure-site-russian/index" class="w-nav-brand w-clearfix clj-logo-container"><img width="60" src="../images/clojure-logo-120b.png" class="clj-logo">
+        <div class="clj-logo-text">Clojure</div>
+      </a>
+      <nav role="navigation" class="w-nav-menu clj-nav-menu"><a href="http://igeldev.github.io/clojure-site-russian/about/rationale" class="w-nav-link clj-nav-link">Overview</a><a href="http://igeldev.github.io/clojure-site-russian/reference/documentation" class="w-nav-link clj-nav-link">Reference‍</a><a href="http://igeldev.github.io/clojure-site-russian/api/api" class="w-nav-link clj-nav-link">API</a><a href="http://igeldev.github.io/clojure-site-russian/community/downloads" class="w-nav-link clj-nav-link">Releases</a><a href="http://igeldev.github.io/clojure-site-russian/guides/guides" class="w-nav-link clj-nav-link">Guides</a><a href="http://igeldev.github.io/clojure-site-russian/community/resources" class="w-nav-link clj-nav-link">Community</a><a href="http://igeldev.github.io/clojure-site-russian/news/news" class="w-nav-link clj-nav-link">News</a><a href="#" data-ix="search-click-trigger" class="w-nav-link clj-nav-link clj-nav-search"></a>
+      </nav>
+      <div class="w-nav-button clj-menu-button">
+        <div class="w-icon-nav-menu"></div>
+      </div>
+    </div>
+  </div>
+  <div data-ix="hide-search" class="w-section clj-search-section">
+    <div class="w-container">
+      <div class="w-form clj-search-form-wrapper">
+        <form id="wf-form-Search-Form" name="wf-form-Search-Form" data-name="Search Form" action="http://igeldev.github.io/clojure-site-russian/search" method="get">
+          <div class="w-row">
+            <div class="w-col w-col-9 w-col-small-9">
+              <input id="q" type="text" placeholder="Search clojure.org reference, guides, and API" name="q" data-name="q" autofocus="autofocus" class="w-input clj-search-input">
+            </div>
+            <div class="w-col w-col-3 w-col-small-3">
+              <input type="submit" value="Search" data-wait="Please wait..." class="w-button clj-search-submit">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+<div class="w-section clj-content-section">
+  <div class="w-container">
+    <div class="clj-section-nav-container">
+      <div data-collapse="small" data-animation="default" data-duration="200" data-contain="1" class="w-nav clj-section-navbar">
+        <div class="w-container">
+          <nav role="navigation" class="w-nav-menu clj-section-nav-menu"><a href="reader" class="w-nav-link clj-section-nav-item-link">The Reader</a><a href="repl_and_main" class="w-nav-link clj-section-nav-item-link">The REPL and main</a><a href="evaluation" class="w-nav-link clj-section-nav-item-link">Evaluation</a><a href="special_forms" class="w-nav-link clj-section-nav-item-link">Special Forms</a><a href="macros" class="w-nav-link clj-section-nav-item-link">Macros</a><a href="other_functions" class="w-nav-link clj-section-nav-item-link">Other Functions</a><a href="data_structures" class="w-nav-link clj-section-nav-item-link">Data Structures</a><a href="datatypes" class="w-nav-link clj-section-nav-item-link">Datatypes</a><a href="sequences" class="w-nav-link clj-section-nav-item-link">Sequences</a><a href="transients" class="w-nav-link clj-section-nav-item-link">Transients</a><a href="transducers" class="w-nav-link clj-section-nav-item-link">Transducers</a><a href="multimethods" class="w-nav-link clj-section-nav-item-link">Multimethods and Hierarchies</a><a href="protocols" class="w-nav-link clj-section-nav-item-link">Protocols</a><a href="metadata" class="w-nav-link clj-section-nav-item-link">Metadata</a><a href="namespaces" class="w-nav-link clj-section-nav-item-link">Namespaces</a><a href="libs" class="w-nav-link clj-section-nav-item-link">Libs</a><a href="vars" class="w-nav-link clj-section-nav-item-link">Vars and Environments</a><a href="refs" class="w-nav-link clj-section-nav-item-link">Refs and Transactions</a><a href="agents" class="w-nav-link clj-section-nav-item-link">Agents</a><a href="atoms" class="w-nav-link clj-section-nav-item-link">Atoms</a><a href="reducers" class="w-nav-link clj-section-nav-item-link">Reducers</a><a href="java_interop" class="w-nav-link clj-section-nav-item-link">Java Interop</a><a href="compilation" class="w-nav-link clj-section-nav-item-link">Compilation and Class Generation</a><a href="other_libraries" class="w-nav-link clj-section-nav-item-link">Other Libraries</a><a href="lisps" class="w-nav-link clj-section-nav-item-link">Differences with Lisps</a>
+          </nav>
+          <div data-ix="toggle-section-nav-icon" class="w-nav-button w-clearfix clj-section-nav-toggle">
+            <div class="clj-section-nav-text">Специальные Формы</div>
+            <div class="clj-section-nav-icon-closed"></div>
+            <div data-ix="init-hide-section-nav-icon-open" class="clj-section-nav-icon-open"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clj-content-container">
+
+      <h1>Специальные Формы</h1>
+
+      <div id="preamble">
+<div class="sectionbody">
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Содержание</div>
+<ul class="sectlevel1">
+<li><a href="#def">(<em>def</em> symbol init?)</a></li>
+<li><a href="#if">(<em>if</em> test then else?)</a></li>
+<li><a href="#do">(<em>do</em> exprs*)</a></li>
+<li><a href="#let">(<em>let</em> [bindings* ] exprs*)</a></li>
+<li><a href="#quote">(<em>quote</em> form)</a></li>
+<li><a href="#var">(<em>var</em> symbol)</a></li>
+<li><a href="#fn">(<em>fn</em> name? [params* ] exprs*)</a></li>
+<li><a href="#__em_fn_em_name_params_exprs">(<em>fn</em> name? ([params* ] exprs*)+)</a></li>
+<li><a href="#__em_fn_em_name_params_condition_map_exprs">(<em>fn</em> name? [params* ] condition-map? exprs*)</a></li>
+<li><a href="#__em_fn_em_name_params_condition_map_exprs_2">(<em>fn</em> name? ([params* ] condition-map? exprs*)+)</a></li>
+<li><a href="#loop">(<em>loop</em> [bindings* ] exprs*)</a></li>
+<li><a href="#recur">(<em>recur</em> exprs*)</a></li>
+<li><a href="#throw">(<em>throw</em> expr)</a></li>
+<li><a href="#try">(<em>try</em> expr* catch-clause* finally-clause?)</a></li>
+<li><a href="#monitor-enter">(<em>monitor-enter</em> x)</a></li>
+<li><a href="#monitor-exit">(<em>monitor-exit</em> x)</a></li>
+<li><a href="#_Другие_специальные_формы">Другие специальные формы</a></li>
+<li><a href="#binding-forms">Формы реструктуризирующего присваивания</a>
+<ul class="sectlevel2">
+<li><a href="#_Реструктуризирующее_присваивание_векторов">Реструктуризирующее присваивание векторов</a></li>
+<li><a href="#_Реструктуризирующее_присваивание_ассоциативных_массивов">Реструктуризирующее присваивание ассоциативных массивов</a></li>
+<li><a href="#_Вложенное_реструктуризирующее_присваивание">Вложенное реструктуризирующее присваивание</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="def">(<em>def</em> symbol init?)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Создает и размещает или распологает глобальную переменную с именем symbol в пространстве имен, находаемся в (<em><strong>*ns*</strong></em>) текущего пространства имен. Если init предоставлен, он вычисляется, и начальная привязка переменной устанавливается в результат. Если init нет, начальная привязка не изменяется. <em><strong>def</strong></em> всегда применяется к начальной привязке, даже если переменная привязана к потоку в момент когда <em><strong>def</strong></em> вызывается. <em><strong>def</strong></em> производит переменную саму по себе <em>(не её значение)</em>. Выбрасывает исключение если знак уже существует в пространстве имен и не соответствует переменной. С версии 1.3, <em><strong>def</strong></em> имеет необязательный переметр doc-string: (<em>def</em> symbol doc-string? init?).</p>
+</div>
+<div class="paragraph">
+<p>Любые метаданные знака будут вычислены и станут метаданными переменной. Есть несколько ключей метаданных, имеющих специальное значение:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em><strong>:private</strong></em></p>
+<div class="paragraph">
+<p>логическое значение, обозначающее контроль доступа к переменной. Если этого ключа нет, по-умолчанию будет применен доступ public (также, если бы было :private false).</p>
+</div>
+</li>
+<li>
+<p><em><strong>:doc</strong></em></p>
+<div class="paragraph">
+<p>строка, содержащая короткую документацию для содержимого переменной</p>
+</div>
+</li>
+<li>
+<p><em><strong>:test</strong></em></p>
+<div class="paragraph">
+<p>функция без аргументов которая использует assert чтобы проверить различные операции. Переменная будет доступна во время вычисления литерала fn в метаданных.</p>
+</div>
+</li>
+<li>
+<p><em><strong>:tag</strong></em></p>
+<div class="paragraph">
+<p>знка именующий класс или объект Class который обозначает Java-тип объекта в переменной, или возвращаемого значения, если объект является функцией.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Также компилятор будет распологать следующие метаданные в переменной:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em><strong>:file</strong></em> строка</p>
+</li>
+<li>
+<p><em><strong>:line</strong></em> целое число</p>
+</li>
+<li>
+<p><em><strong>:name</strong></em> простой знак</p>
+</li>
+<li>
+<p><em><strong>:ns</strong></em> пространство имен в которое переменная была включена</p>
+</li>
+<li>
+<p><em><strong>:macro</strong></em> true если переменная именует макрос</p>
+</li>
+<li>
+<p><em><strong>:arglists</strong></em> список векторов форм аргументов, так как они были переданы в defn</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Метаданные переменной могут быть использованы для различных целей. Рассмотрим использование ключей с уточненным пространством имен (например :myns/foo) чтобы избежать конфликтов.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">(defn
+ ^{:doc "mymax [xs+] gets the maximum value in xs using &gt; "
+   :test (fn []
+             (assert (= 42  (mymax 2 42 5 4))))
+   :user/comment "this is the best fn ever!"}
+  mymax
+  ([x] x)
+  ([x y] (if (&gt; x y) x y))
+  ([x y &amp; more]
+   (reduce mymax (mymax x y) more)))
+
+user=&gt; (meta #'mymax)
+  {:name mymax,
+   :user/comment "this is the best fn ever!",
+   :doc "mymax [xs+] gets the maximum value in xs using &gt; ",
+   :arglists ([x] [x y] [x y &amp; more])
+   :file "repl-1",
+   :line 126,
+   :ns #&lt;Namespace user &gt;,
+   :test #&lt;user$fn__289 user$fn__289@20f443 &gt;}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Многие макросы расширяют в <em><strong>def</strong></em> (например <em><strong>defn</strong></em>, <em><strong>defmarco</strong></em>) и таким образом также используют метаданные для получаемого значения из знака использованного как имя.</p>
+</div>
+<div class="paragraph">
+<p>Использование def для модификации корневого значения переменной не на верхнем уровне обычно означает, что вы используете переменную как изменяемую глобальную и рассматривается как плохой стиль. Рассмотрите использование привязки чтобы предоставить потоково-локальное значение для переменной или передачу ссылки или агента в переменную и использование транзакций или действий для изменения.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="if">(<em>if</em> test then else?)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Вычисляет test. Если получается не <strong>nil</strong> или <strong>false</strong>, вычисляет и возвращает then, иначе вычисляет и возвращает else. Если else не предоставлен, вместо него возвращается <strong>nil</strong>. Все другие условные выражения в Clojure основаны на той же логике, т.е. <strong>nil</strong> и <strong>false</strong> представляют логическую ЛОЖЬ, остальное - логическую ИСТИНУ. <em><strong>if</strong></em> выполняет проверку условия, представленного в виде Java-метода, возвращающего значение без преобзразования в Boolean. Заметим, что <em><strong>if</strong></em> не проверяет произвольные значения java.lang.Boolean, только <strong>false</strong> (Java Boolean.FALSE) т.е. если вы создали свои обертки Boolean удостовертесь, что используете Bolean/valueOf, а не Boolean конструктуры.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="do">(<em>do</em> exprs*)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Вычисляет выражения по порядку и возвращает последнее значение. Если выражений нет, возвращает nil.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="let">(<em>let</em> [bindings* ] exprs*)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>binding &#8658; binding-form init-expr</p>
+</div>
+<div class="paragraph">
+<p>Вычисляет выражения в лексическом контексте, в котором знаки из binding-form привязаны к их соответствующим значениям init-expr. Привязки последовательны и следующая может видеть предыдущие. Выражения содержатся неявно. Если знак привязки аннотирован тегом метаданных, компилятор будет пытаться разрешить тег в имя класса и предположить, что тип в последующих ссылках к привязке. Простейшая форма привязки - это знак которй привязывается к целому init-expr:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">(let [x 1
+      y x]
+  y)
+-&gt; 1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>См. <a href="special_forms#binding-forms">Формы привязки</a> чтобы узнать больше о формах привязки.</p>
+</div>
+<div class="paragraph">
+<p><strong>Локальные привязки, созданные с помощью let не являются переменными. Однажды созданные, их значения никогда не меняются!</strong></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="quote">(<em>quote</em> form)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Порождает невычисленную форму.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure-repl" data-lang="clojure-repl">user=&gt; '(a b c)
+(a b c)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Заметим, что не будет сделано попыток вызвать функцию a. Возвратится список из 3 знаков.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="var">(<em>var</em> symbol)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>symbol должен разрешаться в переменную и тогда объект переменная <em>(не её значение)</em> будет возвращен. Макрос #'x разворачивается в (var x).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="fn">(<em>fn</em> name? [params* ] exprs*)</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="__em_fn_em_name_params_exprs">(<em>fn</em> name? ([params* ] exprs*)+)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>params &#8658; positional-params* , или positional-params* &amp; rest-param<br>
+positional-param &#8658; binding-form<br>
+rest-param &#8658; binding-form<br>
+name &#8658; symbol</p>
+</div>
+<div class="paragraph">
+<p>Определяет функцию (fn). Функции объекты, реализующие интерфейс IFn. Этот интерфейс определяет функцию invoke(), которая перегружается с арностью от 0 до 20. Один объект fn может реализовывать один или более метод invoke() и быть таким образом перегруженным по арности. Одна и только одна перегрузка может принимать множество параметров, если через амперсанд объявлены rest-param. Когда такая точка входа со множеством параметров вызывается с большим количеством параметров, они будут собраны в последовательность rest-param. Если количество аргументов не превышает positional params, rest-params будут равны nil.</p>
+</div>
+<div class="paragraph">
+<p>Первая форма, определяет fn с одним invoke методом. Вторая определяет fn с одним или более перегруженными invoke методами. Арность перегрузок должна быть ясна. Иначе результатом выражения будет один fn объет.</p>
+</div>
+<div class="paragraph">
+<p>Выражения вычисляются в окружении, в котором параметры привязываются к аргументам. Выражения exprs оборачиваются в неявный do. Если предоставлен знак name, он привязывается внутри объявления функции к объекту функции, позволяя самовызов, даже в анонимной функции. Если знак param аннотирован метаданными, компилятор будет пытаться разрешить тег в имя класса и предположить этот тип в последующих ссылок на связывание.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">(def mult
+  (fn this
+      ([] 1)
+      ([x] x)
+      ([x y] (* x y))
+      ([x y &amp; more]
+          (apply this (this x y) more))))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Заметим, что именованные функции, такие как mult обычно определяются с помощью defn, который раскрывается в конструкцию, похожую на представленную выше.</p>
+</div>
+<div class="paragraph">
+<p>Функции определяют точку рекурсии вверху функции, с арностью равной количеству параметров <em>включая rest param, если он есть</em>. См. recur.</p>
+</div>
+<div class="paragraph">
+<p>Функции реализуют Java-интерфейсы Callable, Runnable и Comparator.</p>
+</div>
+<div class="paragraph">
+<p><strong><em>После 1.1</em></strong></p>
+</div>
+<div class="paragraph">
+<p>Функции поддерживают определение пред- и постустовия времени выполенения.</p>
+</div>
+<div class="paragraph">
+<p>Синтаксис для определения функции следующий:</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="__em_fn_em_name_params_condition_map_exprs">(<em>fn</em> name? [params* ] condition-map? exprs*)</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="__em_fn_em_name_params_condition_map_exprs_2">(<em>fn</em> name? ([params* ] condition-map? exprs*)+)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Расширение синтаксиса также применяется к defn и другим макросам, которые разворачиваются в fn формы.</p>
+</div>
+<div class="paragraph">
+<p>Заметим: если единственная форма после вектора параметров - соответствие, оно рассматривается как тело функции, а не как соответствие условий.</p>
+</div>
+<div class="paragraph">
+<p>Соответствие условий (condition-map) может быть использовано для определения перд- и постусловие для функции. Это одна из следующих форм:</p>
+</div>
+<div class="paragraph">
+<p>{:pre [pre-expr*]<br>
+:post [post-expr*]}</p>
+</div>
+<div class="paragraph">
+<p>Где ключ опционален. Условия также могут быть предоставлены как метаданные списка аргументов.</p>
+</div>
+<div class="paragraph">
+<p><strong>pre-expr</strong> и <strong>post-expr</strong> - это логические выражения, которые могут ссылаться на параметры функции. В дополнении, <strong>%</strong> может быть использовано в post-expr чтобы сослаться на возвращенное значение. Если любое из условий вычисляется в false и <strong>*assert*</strong> - true, бросается assertion failure исключение.</p>
+</div>
+<div class="paragraph">
+<p>Пример:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">(defn constrained-sqr [x]
+    {:pre  [(pos? x)]
+     :post [(&gt; % 16), (&lt; % 225)]}
+    (* x x))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>См. <a href="special_forms#binding-forms">Формы привязки</a> чтобы получить больше информации о формах привязки.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="loop">(<em>loop</em> [bindings* ] exprs*)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>loop - это тоже, что и let, но он устанавливает точку рекурсии на вершину цикла, с арностью равной количеству binding-ов. См. recur.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="recur">(<em>recur</em> exprs*)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Вычисляет выражения по порядку, затем паралельно переопределяет привязки точки рекурсии в значение выражений. Если точкой рекурсии был fn, то перепривязываются параметры. Если точкрй рекурсии был цикл, переопределяются привязки цикла. Затем выполнение продолжается с точки рекурсии. Выражение recur должно соответствовать по арности точке рекурсии. В частности, если точкой рекурсии был fn с изменяемым количеством параметров, не происходит сбор оставшихся аргументов - должен быть передан просто seq (или null), иначе будет ошибка.</p>
+</div>
+<div class="paragraph">
+<p>Заметим, что recur - единственная конструкция-цикл без затрат стека в Clojure. Оптимизация хвостовой рекурсии не поддерживается и использование самовызовов для реализации цикла неизвестной длины является нехорошей практикой. Использование recur для хвостой рекурсии проверяется компилятором.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">(def factorial
+  (fn [n]
+    (loop [cnt n acc 1]
+       (if (zero? cnt)
+            acc
+          (recur (dec cnt) (* acc cnt))))))</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="throw">(<em>throw</em> expr)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Выражение вычисляется и выбрасывается, соответственно оно должно породить объект-наследник Throwable.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="try">(<em>try</em> expr* catch-clause* finally-clause?)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>catch-clause &#8594; (<em>catch</em> classname name expr*)<br>
+finally-clause &#8594; (<em>finally</em> expr*)</p>
+</div>
+<div class="paragraph">
+<p>Выражения вычисляются и, если не произошло исключений, возвращается значение последнего выражения. Если произошло исключение и предоставлены формы catch-clause, то каждое из них проверяется по порядку в поиске формы, у которой в качестве classname указан класс, к которому может быть приведено выброшенное исключение. Эта форма catch-clause рассматривается как "подходящая". Если подходящая форма catch-clause найдена, то её выражения expr вычисляются в контексте, в котором к имени name привязано исключение, и значение последнего выражение будет являться возвращаемым значением всей формы try. Если нет подходящих catch-clause, исключение выбрасывается наружу. Перед завершением, нормальным или нет, будет вычислено финальное выражение finally-clause.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="monitor-enter">(<em>monitor-enter</em> x)</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="monitor-exit">(<em>monitor-exit</em> x)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Это примитивы для синхронизации, применения которых в пользовательском коде следует избегать. Используйте макрос <em><strong>locking</strong></em>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_Другие_специальные_формы">Другие специальные формы</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a id="."></a>
+<a id="new"></a>
+Специальные формы <a href="java_interop#dot">dot ('.')</a>, <a href="java_interop#new">new</a>, и <a href="java_interop#set">set!</a> полей описаны в разделе <a href="java_interop">Java Interop</a>.</p>
+</div>
+<div class="paragraph">
+<p><a id="set!"></a>
+Форма <a href="vars#set%21">set!</a> переменных описана в разделе <a href="vars">Переменные</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="binding-forms">Формы реструктуризирующего присваивания</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Clojure поддерживает астрактное структурное присваивание, часто называющееся реструктуризирующим, в списках присваивания, списках параметров fn и в любом макросе, который раскрывается в let или fn. Основная идея - форма присваивания может быть литералом структуры данных, содержащим символы, которые нужно привязать к соответствующим частям начального значения. При присваивании литерал вектор может быть привязан к любой последовательности, а ассоциативный массив - к любой ассоциативной структуре.</p>
+</div>
+<div class="sect2">
+<h3 id="_Реструктуризирующее_присваивание_векторов">Реструктуризирующее присваивание векторов</h3>
+<div class="paragraph">
+<p>Реструктуризирующее присваивание векторов позволяет вам присваивать имена элементам упорядоченных множеств: векторов, списков, последовательностей, строк, массивов и всего, что поддерживает функцию nth. Реструктуризирующее присваивание векторов состоит из вектора символов, которые нужно присвоить элементам последующего упорядоченного множества начальных значений, получаемым с помощью функции nth. Также в списке символов может присутствовать &amp;, что означает что следующему за ним символу должен быть присвоен в качестве значения список всех оставшихся начальных значений, получаемых с помощью <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/nthnext">nthnext</a> .</p>
+</div>
+<div class="paragraph">
+<p>Наконец, можно использовать :as с последующим символом. Данному символу будет присвоен в качестве значения весь список начальных значений.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">(let [[a b c &amp; d :as e] [1 2 3 4 5 6 7]]
+  [a b c d e])
+
+-&gt;[1 2 3 (4 5 6 7) [1 2 3 4 5 6 7]]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Эти формы могут быть вложенными:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">(let [[[x1 y1][x2 y2]] [[1 2] [3 4]]]
+  [x1 y1 x2 y2])
+
+-&gt;[1 2 3 4]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Также работает со строками:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">(let [[a b &amp; c :as str] "asdjhhfdas"]
+  [a b c str])
+
+-&gt;[\a \s (\d \j \h \h \f \d \a \s) "asdjhhfdas"]</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_Реструктуризирующее_присваивание_ассоциативных_массивов">Реструктуризирующее присваивание ассоциативных массивов</h3>
+<div class="paragraph">
+<p>Формы присваивания ассоциативных массивов позволяют присваивать имена к элементам <em>соответствий</em> (не обязательно ассоциативных массивов), таких как ассоциативные массивы, векторы, строки или массивы (у последних трёх ключами будут являться целочисленные индексы). Формы присваивания состоят из пар соответствий ключ - присваиваемая форма, каждому символу будет присвоено значение соответствующего начального выражения. Можно использовать в форме присваивания ключ <em><strong>:as</strong></em>, за которым указать символ, которому затем будет присовено все начальное значение. Также можно использовать ключ <em><strong>:or</strong></em>, за которым указать другой ассоциативные массив, в котором будет производится поиск значений, не присутствующих в первом массиве начальных значений.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">(let [{a :a, b :b, c :c, :as m :or {a 2 b 3}}  {:a 5 :c 6}]
+  [a b c m])
+
+-&gt;[5 3 6 {:c 6, :a 5}]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Часто, если вы хотите присвоить одноименные символы ключам. Директива <em><strong>:keys</strong></em> позволит избежать избыточности.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">(let [{fred :fred ethel :ethel lucy :lucy} m] ...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>может быть записано:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">(let [{:keys [fred ethel lucy]} m] ...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Как в Clojure 1.6, вы можете использовать ключи с префиксами в реструктуризирующем присваивании ассоциативных массивов:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">(let [m {:x/a 1, :y/b 2}
+      {:keys [x/a y/b]} m]
+  (+ a b))
+
+-&gt; 3</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Как показано выше, в случае использования ключей с префиксами, имя присваиваемого символа будет таким же, как в правой части ключа. Вы также можете использовать авторазрешение форм в директиве <em><strong>:keys</strong></em>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">(let [m {::x 42}
+      {:keys [::x]} m]
+  x)
+
+-&gt; 42</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Есть аналогичные директивы <em><strong>:strs</strong></em> и <em><strong>:syms</strong></em>, чтобы работать со строками и ключами-символами. последний также позволяет рабобатть с символами с префиксами начиная с Clojure 1.6.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_Вложенное_реструктуризирующее_присваивание">Вложенное реструктуризирующее присваивание</h3>
+<div class="paragraph">
+<p>Так как формы присваивания могут быть произвольно вложенными друг в друга, вы можете делать что угодно:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">(let [{j :j, k :k, i :i, [r s &amp; t :as v] :ivec, :or {i 12 j 13}}
+      {:j 15 :k 16 :ivec [22 23 24 25]}]
+  [i j k r s t v])
+
+-&gt; [12 15 16 22 23 (24 25) [22 23 24 25]]</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="clj-prev-next-container">
+  <a href="evaluation" class="clj-prev-link"><span class="clj-prevnext-link-icon"></span>&nbsp;Evaluation</a>
+  <a href="macros" class="clj-next-link">Macros&nbsp;<span class="clj-prevnext-link-icon"></span></a>
+</div>
+
+    </div>
+  </div>
+</div>
+
+  <div class="w-section clj-footer">
+    <div class="w-container clj-footer-links-container">
+      <div class="w-row">
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Community</h6><a href="http://igeldev.github.io/clojure-site-russian/community/resources" class="clj-footer-link">Resources</a><a href="http://igeldev.github.io/clojure-site-russian/community/contributing" class="clj-footer-link">Contributing</a><a href="http://igeldev.github.io/clojure-site-russian/community/companies" class="clj-footer-link">Companies</a>
+          <h6 class="clj-footer-heading">Legal</h6><a href="http://igeldev.github.io/clojure-site-russian/community/license" class="clj-footer-link">License</a><a href="http://igeldev.github.io/clojure-site-russian/privacy" class="clj-footer-link">Privacy Policy</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Documentation</h6><a href="http://igeldev.github.io/clojure-site-russian/about/rationale" class="clj-footer-link">Overview</a><a href="http://igeldev.github.io/clojure-site-russian/reference/documentation" class="clj-footer-link">Reference</a><a href="http://igeldev.github.io/clojure-site-russian/api/api" class="clj-footer-link">API</a><a href="http://igeldev.github.io/clojure-site-russian/guides/guides" class="clj-footer-link">Guides</a><a href="http://igeldev.github.io/clojure-site-russian/community/libraries" class="clj-footer-link">Libraries &amp; Tools</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Updates</h6><a href="http://igeldev.github.io/clojure-site-russian/news/news" class="clj-footer-link">News</a><a href="http://igeldev.github.io/clojure-site-russian/community/events" class="clj-footer-link">Events</a>
+          <h6 class="clj-footer-heading">ETC</h6><a href="https://www.youtube.com/user/ClojureTV" class="clj-footer-link">Video</a><a href="http://igeldev.github.io/clojure-site-russian/community/books" class="clj-footer-link">Books</a><a href="http://igeldev.github.io/clojure-site-russian/community/swag" class="clj-footer-link">Swag</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Code</h6><a href="http://igeldev.github.io/clojure-site-russian/community/downloads" class="clj-footer-link">Releases</a><a href="https://github.com/clojure/clojure/" class="clj-footer-link">Source</a><a href="http://igeldev.github.io/clojure-site-russian/about/clojurescript" class="clj-footer-link">ClojureScript</a><a href="http://igeldev.github.io/clojure-site-russian/about/clojureclr" class="clj-footer-link">ClojureCLR</a>
+        </div>
+      </div>
+    </div>
+    <div class="w-container clj-footer-legal-container">
+      <div class="w-clearfix clj-footer-legal">
+        <div class="clj-footer-logo">&nbsp;</div>
+        <div class="clj-footer-legal-links">
+          <div class="clj-footer-copyright">Copyright 2008-2016 Rich Hickey | <a class="clj-footer-sub-link" href="http://igeldev.github.io/clojure-site-russian/privacy">Privacy Policy</a><br/>Published 2017-05-17
+          </div>
+          <div class="clj-footer-designed-by">Logo &amp; site design by <a class="clj-footer-sub-link" href="http://tomhickey.com/">Tom Hickey</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/webflow.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+</body>
+</html>

@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<!-- This site was created in Webflow. http://www.webflow.com-->
+<!-- Last Published: Fri Nov 13 2015 01:48:45 GMT+0000 (UTC) -->
+<html data-wf-site="56414d6fc8c27cad0f4e12e7" data-wf-page="5643ac587b1f28dc58ed6b89">
+<head>
+  <meta charset="utf-8">
+  <title>Clojure - Editing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Webflow">
+  <link rel="stylesheet" type="text/css" href="../css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="../css/webflow.css">
+  <link rel="stylesheet" type="text/css" href="../css/clojureorg.webflow.css">
+  <link rel="stylesheet" type="text/css" href="../css/asciidoctor-mod.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ["Open Sans:300,300italic,400,400italic,600,600italic","PT Serif:400,400italic,700,700italic","Source Code Pro:regular,500"]
+      }
+    });
+  </script>
+  <script type="text/javascript" src="../js/modernizr.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="../images/clojure-logo-icon-32.png">
+  <link rel="apple-touch-icon" href="../images/clojure-logo-icon-256.png">
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4857754-16'], ['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script');
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+<body>
+  <div data-collapse="none" data-animation="default" data-duration="400" data-contain="1" class="w-nav clj-navbar">
+    <div class="w-container">
+      <a href="http://igeldev.github.io/clojure-site-russian/index" class="w-nav-brand w-clearfix clj-logo-container"><img width="60" src="../images/clojure-logo-120b.png" class="clj-logo">
+        <div class="clj-logo-text">Clojure</div>
+      </a>
+      <nav role="navigation" class="w-nav-menu clj-nav-menu"><a href="http://igeldev.github.io/clojure-site-russian/about/rationale" class="w-nav-link clj-nav-link">Overview</a><a href="http://igeldev.github.io/clojure-site-russian/reference/documentation" class="w-nav-link clj-nav-link">Reference‍</a><a href="http://igeldev.github.io/clojure-site-russian/api/api" class="w-nav-link clj-nav-link">API</a><a href="http://igeldev.github.io/clojure-site-russian/community/downloads" class="w-nav-link clj-nav-link">Releases</a><a href="http://igeldev.github.io/clojure-site-russian/guides/guides" class="w-nav-link clj-nav-link">Guides</a><a href="http://igeldev.github.io/clojure-site-russian/community/resources" class="w-nav-link clj-nav-link">Community</a><a href="http://igeldev.github.io/clojure-site-russian/news/news" class="w-nav-link clj-nav-link">News</a><a href="#" data-ix="search-click-trigger" class="w-nav-link clj-nav-link clj-nav-search"></a>
+      </nav>
+      <div class="w-nav-button clj-menu-button">
+        <div class="w-icon-nav-menu"></div>
+      </div>
+    </div>
+  </div>
+  <div data-ix="hide-search" class="w-section clj-search-section">
+    <div class="w-container">
+      <div class="w-form clj-search-form-wrapper">
+        <form id="wf-form-Search-Form" name="wf-form-Search-Form" data-name="Search Form" action="http://igeldev.github.io/clojure-site-russian/search" method="get">
+          <div class="w-row">
+            <div class="w-col w-col-9 w-col-small-9">
+              <input id="q" type="text" placeholder="Search clojure.org reference, guides, and API" name="q" data-name="q" autofocus="autofocus" class="w-input clj-search-input">
+            </div>
+            <div class="w-col w-col-3 w-col-small-3">
+              <input type="submit" value="Search" data-wait="Please wait..." class="w-button clj-search-submit">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+<div class="w-section clj-content-section">
+  <div class="w-container">
+
+    <h1>Editing</h1>
+
+    <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This page covers helpful Asciidoc editing tips for writing content on this site. It does not cover every feature of Asciidoc, just the ones that have come up most commonly while writing content on this site.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_file_metadata">File metadata</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Every file should start with a metadata block that looks like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>= Mechanical Computing
+Ada Lovelace
+2015-12-31
+:jbake-type: page
+:toc: macro</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The first lines indicate the title, author, and creation date. The last two lines are necessary boilerplate metadata attributes.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_headers">Headers</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_h2">h2</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre>== h2</pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_h3">h3</h3>
+<div class="listingblock">
+<div class="content">
+<pre>=== h3</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_h4">h4</h4>
+<div class="listingblock">
+<div class="content">
+<pre>==== h4</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_text_markup">Text markup</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">markup</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">effect</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">_italic_</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>italic</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">*bold*</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>bold</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">_**italic and bold**_</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><strong>italic and bold</strong></em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">`inline code`</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>inline code</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(C) (R) (TM)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#169; &#174; &#8482;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-- ...</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8201;&#8212;&#8201;&#8230;&#8203;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-> <- => <=</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8594; &#8592; &#8658; &#8656;</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>To get a line break without a paragraph change, append + to the end of the line:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>force +
+line break</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>force<br>
+line break</p>
+</div>
+<hr>
+<div class="paragraph">
+<p>If you have many lines in a row that will need breaks you can prefix them with [%hardbreaks]:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[%hardbreaks]
+first line
+second line</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>first line<br>
+second line</p>
+</div>
+<hr>
+<div class="paragraph">
+<p>There are a number of ways to handle escaping in Asciidoc but one of the most helpful is to omit all formatting by using:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>pass:[*ns*]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>*ns*</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_links">Links</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Create an anchor in a page:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[[dot]]</pre>
+</div>
+</div>
+<hr>
+<div class="paragraph">
+<p>Link to another internal page (note the trailing # after the page - this is required in our generator!):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;&lt;resources#,Resources&gt;&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a href="resources">Resources</a></p>
+</div>
+<div class="paragraph">
+<p>There is a bug in the parser used in the current version of JBake for links to a page in a parent directory. For example, to link to a page at ../reference/java_interop.adoc, you can use a link like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;&lt;xref/../../reference/java_interop#,Java Interop&gt;&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This goes to a (fictitious) subdirectory xref, then back a directory, and then finally the path you wish to follow. While the choice of "xref" here is arbitrary, please use only this string so that we can more easily find and update these upward cross references later when there is a version that fixes this issue.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p>Link to an anchor in an internal page:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;&lt;resources#books,Books&gt;&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a href="resources#books">Books</a></p>
+</div>
+<hr>
+<div class="paragraph">
+<p>Link to an external page:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/defn[defn]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/defn">defn</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_images">Images</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Images should be placed in the assets/images/content directory in a subdirectory corresponding to the page location.</p>
+</div>
+<div class="paragraph">
+<p>Reference the image in a page as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>image::/images/content/reference/transducers/xf.png[Nested transformations]</pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="/images/content/reference/transducers/xf.png" alt="Nested transformations">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_blocks">Code blocks</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can insert a Clojure formatted code block as follows:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>[source,clojure]
+----
+(defn hey
+  []
+  (println "hey"))
+----</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">(defn hey
+  []
+  (println "hey"))</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_lists">Lists</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There are a lot of options for creating lists. Only the most common ones are shown here:</p>
+</div>
+<div class="paragraph">
+<p>Bulleted lists:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>* first
+* second
+** nested
+*** more nested</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>first</p>
+</li>
+<li>
+<p>second</p>
+<div class="ulist">
+<ul>
+<li>
+<p>nested</p>
+<div class="ulist">
+<ul>
+<li>
+<p>more nested</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Ordered lists:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>. a
+. b
+.. b.1
+... b.1.a</pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>a</p>
+</li>
+<li>
+<p>b</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>b.1</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>b.1.a</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Mixed lists:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>* a
+. a.1
+. a.2
+* b
+. b.1
+. b.2</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>a.1</p>
+</li>
+<li>
+<p>a.2</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>b</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>b.1</p>
+</li>
+<li>
+<p>b.2</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Use the line break advice from the text formatting section to create lists with multi-line items.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tables">Tables</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Tables are another large Asciidoc topic with extensive formatting options. This is a basic table example however:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[options="header"]
+|===
+| col1 | col2
+| a | b
+| b | c
+|===</pre>
+</div>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">col1</th>
+<th class="tableblock halign-left valign-top">col2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">a</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">b</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">b</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">c</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_other">Other</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Horizontal rule:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>''''</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Insert table of contents, which should generally be done at the top of your file (the page template will position this appropriately):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>toc::[]</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_more_resources">More resources</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Asciidoc is an extensive language and there is likely some way to do anything you want to do. Below are some more Asciidoc resources to answer more advanced questions.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://powerman.name/doc/asciidoc">Asciidoc cheat sheet</a></p>
+</li>
+<li>
+<p><a href="http://asciidoctor.org/docs/user-manual">Asciidoctor user manual</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+  </div>
+</div>
+
+  <div class="w-section clj-footer">
+    <div class="w-container clj-footer-links-container">
+      <div class="w-row">
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Community</h6><a href="http://igeldev.github.io/clojure-site-russian/community/resources" class="clj-footer-link">Resources</a><a href="http://igeldev.github.io/clojure-site-russian/community/contributing" class="clj-footer-link">Contributing</a><a href="http://igeldev.github.io/clojure-site-russian/community/companies" class="clj-footer-link">Companies</a>
+          <h6 class="clj-footer-heading">Legal</h6><a href="http://igeldev.github.io/clojure-site-russian/community/license" class="clj-footer-link">License</a><a href="http://igeldev.github.io/clojure-site-russian/privacy" class="clj-footer-link">Privacy Policy</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Documentation</h6><a href="http://igeldev.github.io/clojure-site-russian/about/rationale" class="clj-footer-link">Overview</a><a href="http://igeldev.github.io/clojure-site-russian/reference/documentation" class="clj-footer-link">Reference</a><a href="http://igeldev.github.io/clojure-site-russian/api/api" class="clj-footer-link">API</a><a href="http://igeldev.github.io/clojure-site-russian/guides/guides" class="clj-footer-link">Guides</a><a href="http://igeldev.github.io/clojure-site-russian/community/libraries" class="clj-footer-link">Libraries &amp; Tools</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Updates</h6><a href="http://igeldev.github.io/clojure-site-russian/news/news" class="clj-footer-link">News</a><a href="http://igeldev.github.io/clojure-site-russian/community/events" class="clj-footer-link">Events</a>
+          <h6 class="clj-footer-heading">ETC</h6><a href="https://www.youtube.com/user/ClojureTV" class="clj-footer-link">Video</a><a href="http://igeldev.github.io/clojure-site-russian/community/books" class="clj-footer-link">Books</a><a href="http://igeldev.github.io/clojure-site-russian/community/swag" class="clj-footer-link">Swag</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Code</h6><a href="http://igeldev.github.io/clojure-site-russian/community/downloads" class="clj-footer-link">Releases</a><a href="https://github.com/clojure/clojure/" class="clj-footer-link">Source</a><a href="http://igeldev.github.io/clojure-site-russian/about/clojurescript" class="clj-footer-link">ClojureScript</a><a href="http://igeldev.github.io/clojure-site-russian/about/clojureclr" class="clj-footer-link">ClojureCLR</a>
+        </div>
+      </div>
+    </div>
+    <div class="w-container clj-footer-legal-container">
+      <div class="w-clearfix clj-footer-legal">
+        <div class="clj-footer-logo">&nbsp;</div>
+        <div class="clj-footer-legal-links">
+          <div class="clj-footer-copyright">Copyright 2008-2016 Rich Hickey | <a class="clj-footer-sub-link" href="http://igeldev.github.io/clojure-site-russian/privacy">Privacy Policy</a><br/>Published 2017-05-17
+          </div>
+          <div class="clj-footer-designed-by">Logo &amp; site design by <a class="clj-footer-sub-link" href="http://tomhickey.com/">Tom Hickey</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/webflow.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+</body>
+</html>

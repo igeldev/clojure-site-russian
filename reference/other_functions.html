@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<!-- This site was created in Webflow. http://www.webflow.com-->
+<!-- Last Published: Fri Nov 13 2015 01:48:45 GMT+0000 (UTC) -->
+<html data-wf-site="56414d6fc8c27cad0f4e12e7" data-wf-page="5643ac587b1f28dc58ed6b89">
+<head>
+  <meta charset="utf-8">
+  <title>Clojure - Другие полезные функции и макросы</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Webflow">
+  <link rel="stylesheet" type="text/css" href="../css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="../css/webflow.css">
+  <link rel="stylesheet" type="text/css" href="../css/clojureorg.webflow.css">
+  <link rel="stylesheet" type="text/css" href="../css/asciidoctor-mod.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ["Open Sans:300,300italic,400,400italic,600,600italic","PT Serif:400,400italic,700,700italic","Source Code Pro:regular,500"]
+      }
+    });
+  </script>
+  <script type="text/javascript" src="../js/modernizr.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="../images/clojure-logo-icon-32.png">
+  <link rel="apple-touch-icon" href="../images/clojure-logo-icon-256.png">
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4857754-16'], ['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script');
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+<body>
+  <div data-collapse="none" data-animation="default" data-duration="400" data-contain="1" class="w-nav clj-navbar">
+    <div class="w-container">
+      <a href="http://igeldev.github.io/clojure-site-russian/index" class="w-nav-brand w-clearfix clj-logo-container"><img width="60" src="../images/clojure-logo-120b.png" class="clj-logo">
+        <div class="clj-logo-text">Clojure</div>
+      </a>
+      <nav role="navigation" class="w-nav-menu clj-nav-menu"><a href="http://igeldev.github.io/clojure-site-russian/about/rationale" class="w-nav-link clj-nav-link">Overview</a><a href="http://igeldev.github.io/clojure-site-russian/reference/documentation" class="w-nav-link clj-nav-link">Reference‍</a><a href="http://igeldev.github.io/clojure-site-russian/api/api" class="w-nav-link clj-nav-link">API</a><a href="http://igeldev.github.io/clojure-site-russian/community/downloads" class="w-nav-link clj-nav-link">Releases</a><a href="http://igeldev.github.io/clojure-site-russian/guides/guides" class="w-nav-link clj-nav-link">Guides</a><a href="http://igeldev.github.io/clojure-site-russian/community/resources" class="w-nav-link clj-nav-link">Community</a><a href="http://igeldev.github.io/clojure-site-russian/news/news" class="w-nav-link clj-nav-link">News</a><a href="#" data-ix="search-click-trigger" class="w-nav-link clj-nav-link clj-nav-search"></a>
+      </nav>
+      <div class="w-nav-button clj-menu-button">
+        <div class="w-icon-nav-menu"></div>
+      </div>
+    </div>
+  </div>
+  <div data-ix="hide-search" class="w-section clj-search-section">
+    <div class="w-container">
+      <div class="w-form clj-search-form-wrapper">
+        <form id="wf-form-Search-Form" name="wf-form-Search-Form" data-name="Search Form" action="http://igeldev.github.io/clojure-site-russian/search" method="get">
+          <div class="w-row">
+            <div class="w-col w-col-9 w-col-small-9">
+              <input id="q" type="text" placeholder="Search clojure.org reference, guides, and API" name="q" data-name="q" autofocus="autofocus" class="w-input clj-search-input">
+            </div>
+            <div class="w-col w-col-3 w-col-small-3">
+              <input type="submit" value="Search" data-wait="Please wait..." class="w-button clj-search-submit">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+<div class="w-section clj-content-section">
+  <div class="w-container">
+    <div class="clj-section-nav-container">
+      <div data-collapse="small" data-animation="default" data-duration="200" data-contain="1" class="w-nav clj-section-navbar">
+        <div class="w-container">
+          <nav role="navigation" class="w-nav-menu clj-section-nav-menu"><a href="reader" class="w-nav-link clj-section-nav-item-link">The Reader</a><a href="repl_and_main" class="w-nav-link clj-section-nav-item-link">The REPL and main</a><a href="evaluation" class="w-nav-link clj-section-nav-item-link">Evaluation</a><a href="special_forms" class="w-nav-link clj-section-nav-item-link">Special Forms</a><a href="macros" class="w-nav-link clj-section-nav-item-link">Macros</a><a href="other_functions" class="w-nav-link clj-section-nav-item-link">Other Functions</a><a href="data_structures" class="w-nav-link clj-section-nav-item-link">Data Structures</a><a href="datatypes" class="w-nav-link clj-section-nav-item-link">Datatypes</a><a href="sequences" class="w-nav-link clj-section-nav-item-link">Sequences</a><a href="transients" class="w-nav-link clj-section-nav-item-link">Transients</a><a href="transducers" class="w-nav-link clj-section-nav-item-link">Transducers</a><a href="multimethods" class="w-nav-link clj-section-nav-item-link">Multimethods and Hierarchies</a><a href="protocols" class="w-nav-link clj-section-nav-item-link">Protocols</a><a href="metadata" class="w-nav-link clj-section-nav-item-link">Metadata</a><a href="namespaces" class="w-nav-link clj-section-nav-item-link">Namespaces</a><a href="libs" class="w-nav-link clj-section-nav-item-link">Libs</a><a href="vars" class="w-nav-link clj-section-nav-item-link">Vars and Environments</a><a href="refs" class="w-nav-link clj-section-nav-item-link">Refs and Transactions</a><a href="agents" class="w-nav-link clj-section-nav-item-link">Agents</a><a href="atoms" class="w-nav-link clj-section-nav-item-link">Atoms</a><a href="reducers" class="w-nav-link clj-section-nav-item-link">Reducers</a><a href="java_interop" class="w-nav-link clj-section-nav-item-link">Java Interop</a><a href="compilation" class="w-nav-link clj-section-nav-item-link">Compilation and Class Generation</a><a href="other_libraries" class="w-nav-link clj-section-nav-item-link">Other Libraries</a><a href="lisps" class="w-nav-link clj-section-nav-item-link">Differences with Lisps</a>
+          </nav>
+          <div data-ix="toggle-section-nav-icon" class="w-nav-button w-clearfix clj-section-nav-toggle">
+            <div class="clj-section-nav-text">Other Functions</div>
+            <div class="clj-section-nav-icon-closed"></div>
+            <div data-ix="init-hide-section-nav-icon-open" class="clj-section-nav-icon-open"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clj-content-container">
+
+      <h1>Другие полезные функции и макросы</h1>
+
+      <div id="preamble">
+<div class="sectionbody">
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Содержание</div>
+<ul class="sectlevel1">
+<li><a href="#creating-functions">Функции создания</a></li>
+<li><a href="#printing">Печать</a></li>
+<li><a href="#regex">Поддержка регулярных выражений</a></li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Булевы функции и функции проверки: <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/=">=</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/==">==</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/identical?">identical?</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/not=">not=</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/not">not</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/true?">true?</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/false?">false?</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/nil?">nil?</a><br>
+Разное: <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/identity">identity</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/dotimes">dotimes</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/time">time</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/assert">assert</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/with-open">with-open</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="creating-functions">Функции создания</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread table">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Функция</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Пример выражения</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Возвращаемое значение</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="special_forms#fn">fn</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>(map (fn [x] (+ 2 x)) [1 2 3])</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>(3 4 5)</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">#() <a href="reader">reader</a> macro</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>(map #(+ 2 %) [1 2 3])</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>(3 4 5)</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/partial">partial</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>(map (partial + 2) [1 2 3])</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>(3 4 5)</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/comp">comp</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>(map (comp - *) [2 4 6] [1 2 3])</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>(-2 -8 -18)</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/complement">complement</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>(map (complement zero?) [3 2 1 0])</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>(true true true false)</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/constantly">constantly</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>(map (constantly 9) [1 2 3])</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>(9 9 9)</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="printing">Печать</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Существуют несколько функций, чтобы печатать объекты в поток вывода - текущее значение <strong>out</strong>. Версии с суффиксом -str привязывают <strong>out</strong> к StringWriter, печатают в него и возвращают полученную строку. <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/pr">pr</a> печатает объект(ы), разделенные пробелами, если их более одного. <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/prn">prn</a> делает то же самое и в конце печатает символ новой строки <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/newline">newline</a>. <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/print">print</a> и <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/println">println</a> вызывают <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/pr">pr</a> и <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/prn">prn</a> соответственно, c <code>*print-readably*</code> (которая по-умолчанию равен true) привязанной к nil, из-за чего строки печатаются без кавычек и без экранирования, а символы без начального '\' и также без экранирования. По-умолчанию, <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/pr">pr</a> и <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/prn">prn</a> печатают объекты так, чтобы они могли быть прочитаны считавателем, а <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/print">print</a> и <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/println">println</a> выводят объекты в удобном для чтения человеком виде. Когда <code>*print-readably*</code> не nil, вывод метаданных регулируется <code>*print-meta*</code>, который равен nil по-умолчанию.</p>
+</div>
+<div class="sect2">
+<h3 id="_Функции">Функции</h3>
+<div class="paragraph">
+<p>Печать в *out*: <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/pr">pr</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/prn">prn</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/print">print</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/println">println</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/newline">newline</a><br>
+Печать в строку: <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/pr-str">pr-str</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/prn-str">prn-str</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/print-str">print-str</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/println-str">println-str</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/with-out-str">with-out-str</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="regex">Поддержка регулярных выражений</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Регулярные выражения могут быть скомпилированы во время чтения с помощью макроса считывателя <code>#"pattern"</code> или во время исполнения с помощью <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/re-pattern">re-pattern</a>. Обе формы производят объекты класса <a href="http://java.sun.com/j2se/1.5.0/docs/api/java/util/regex/Pattern.html">java.util.regex.Pattern</a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure-repl" data-lang="clojure-repl">user=&gt; (re-seq #"[0-9]+" "abs123def345ghi567")
+("123" "345" "567")
+user=&gt; (re-find #"([-+]?[0-9]+)/([0-9]+)" "22/7")
+["22/7" "22" "7"]
+user=&gt; (let [[a b c] (re-matches #"([-+]?[0-9]+)/([0-9]+)" "22/7")]
+         [a b c])
+["22/7" "22" "7"]
+user=&gt; (re-seq #"(?i)[fq].." "foo bar BAZ QUX quux")
+("foo" "QUX" "quu")</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_Функции_2">Функции</h3>
+<div class="paragraph">
+<p><a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/re-matcher">re-matcher</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/re-find">re-find</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/re-matches">re-matches</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/re-groups">re-groups</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/re-seq">re-seq</a></p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="clj-prev-next-container">
+  <a href="macros" class="clj-prev-link"><span class="clj-prevnext-link-icon"></span>&nbsp;Macros</a>
+  <a href="data_structures" class="clj-next-link">Data Structures&nbsp;<span class="clj-prevnext-link-icon"></span></a>
+</div>
+
+    </div>
+  </div>
+</div>
+
+  <div class="w-section clj-footer">
+    <div class="w-container clj-footer-links-container">
+      <div class="w-row">
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Community</h6><a href="http://igeldev.github.io/clojure-site-russian/community/resources" class="clj-footer-link">Resources</a><a href="http://igeldev.github.io/clojure-site-russian/community/contributing" class="clj-footer-link">Contributing</a><a href="http://igeldev.github.io/clojure-site-russian/community/companies" class="clj-footer-link">Companies</a>
+          <h6 class="clj-footer-heading">Legal</h6><a href="http://igeldev.github.io/clojure-site-russian/community/license" class="clj-footer-link">License</a><a href="http://igeldev.github.io/clojure-site-russian/privacy" class="clj-footer-link">Privacy Policy</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Documentation</h6><a href="http://igeldev.github.io/clojure-site-russian/about/rationale" class="clj-footer-link">Overview</a><a href="http://igeldev.github.io/clojure-site-russian/reference/documentation" class="clj-footer-link">Reference</a><a href="http://igeldev.github.io/clojure-site-russian/api/api" class="clj-footer-link">API</a><a href="http://igeldev.github.io/clojure-site-russian/guides/guides" class="clj-footer-link">Guides</a><a href="http://igeldev.github.io/clojure-site-russian/community/libraries" class="clj-footer-link">Libraries &amp; Tools</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Updates</h6><a href="http://igeldev.github.io/clojure-site-russian/news/news" class="clj-footer-link">News</a><a href="http://igeldev.github.io/clojure-site-russian/community/events" class="clj-footer-link">Events</a>
+          <h6 class="clj-footer-heading">ETC</h6><a href="https://www.youtube.com/user/ClojureTV" class="clj-footer-link">Video</a><a href="http://igeldev.github.io/clojure-site-russian/community/books" class="clj-footer-link">Books</a><a href="http://igeldev.github.io/clojure-site-russian/community/swag" class="clj-footer-link">Swag</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Code</h6><a href="http://igeldev.github.io/clojure-site-russian/community/downloads" class="clj-footer-link">Releases</a><a href="https://github.com/clojure/clojure/" class="clj-footer-link">Source</a><a href="http://igeldev.github.io/clojure-site-russian/about/clojurescript" class="clj-footer-link">ClojureScript</a><a href="http://igeldev.github.io/clojure-site-russian/about/clojureclr" class="clj-footer-link">ClojureCLR</a>
+        </div>
+      </div>
+    </div>
+    <div class="w-container clj-footer-legal-container">
+      <div class="w-clearfix clj-footer-legal">
+        <div class="clj-footer-logo">&nbsp;</div>
+        <div class="clj-footer-legal-links">
+          <div class="clj-footer-copyright">Copyright 2008-2016 Rich Hickey | <a class="clj-footer-sub-link" href="http://igeldev.github.io/clojure-site-russian/privacy">Privacy Policy</a><br/>Published 2017-05-17
+          </div>
+          <div class="clj-footer-designed-by">Logo &amp; site design by <a class="clj-footer-sub-link" href="http://tomhickey.com/">Tom Hickey</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/webflow.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+</body>
+</html>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<!-- This site was created in Webflow. http://www.webflow.com-->
+<!-- Last Published: Fri Nov 13 2015 01:48:45 GMT+0000 (UTC) -->
+<html data-wf-site="56414d6fc8c27cad0f4e12e7" data-wf-page="5643ac587b1f28dc58ed6b89">
+<head>
+  <meta charset="utf-8">
+  <title>Clojure - Books</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Webflow">
+  <link rel="stylesheet" type="text/css" href="../css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="../css/webflow.css">
+  <link rel="stylesheet" type="text/css" href="../css/clojureorg.webflow.css">
+  <link rel="stylesheet" type="text/css" href="../css/asciidoctor-mod.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ["Open Sans:300,300italic,400,400italic,600,600italic","PT Serif:400,400italic,700,700italic","Source Code Pro:regular,500"]
+      }
+    });
+  </script>
+  <script type="text/javascript" src="../js/modernizr.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="../images/clojure-logo-icon-32.png">
+  <link rel="apple-touch-icon" href="../images/clojure-logo-icon-256.png">
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4857754-16'], ['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script');
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+<body>
+  <div data-collapse="none" data-animation="default" data-duration="400" data-contain="1" class="w-nav clj-navbar">
+    <div class="w-container">
+      <a href="http://igeldev.github.io/clojure-site-russian/index" class="w-nav-brand w-clearfix clj-logo-container"><img width="60" src="../images/clojure-logo-120b.png" class="clj-logo">
+        <div class="clj-logo-text">Clojure</div>
+      </a>
+      <nav role="navigation" class="w-nav-menu clj-nav-menu"><a href="http://igeldev.github.io/clojure-site-russian/about/rationale" class="w-nav-link clj-nav-link">Overview</a><a href="http://igeldev.github.io/clojure-site-russian/reference/documentation" class="w-nav-link clj-nav-link">Reference‍</a><a href="http://igeldev.github.io/clojure-site-russian/api/api" class="w-nav-link clj-nav-link">API</a><a href="http://igeldev.github.io/clojure-site-russian/community/downloads" class="w-nav-link clj-nav-link">Releases</a><a href="http://igeldev.github.io/clojure-site-russian/guides/guides" class="w-nav-link clj-nav-link">Guides</a><a href="http://igeldev.github.io/clojure-site-russian/community/resources" class="w-nav-link clj-nav-link">Community</a><a href="http://igeldev.github.io/clojure-site-russian/news/news" class="w-nav-link clj-nav-link">News</a><a href="#" data-ix="search-click-trigger" class="w-nav-link clj-nav-link clj-nav-search"></a>
+      </nav>
+      <div class="w-nav-button clj-menu-button">
+        <div class="w-icon-nav-menu"></div>
+      </div>
+    </div>
+  </div>
+  <div data-ix="hide-search" class="w-section clj-search-section">
+    <div class="w-container">
+      <div class="w-form clj-search-form-wrapper">
+        <form id="wf-form-Search-Form" name="wf-form-Search-Form" data-name="Search Form" action="http://igeldev.github.io/clojure-site-russian/search" method="get">
+          <div class="w-row">
+            <div class="w-col w-col-9 w-col-small-9">
+              <input id="q" type="text" placeholder="Search clojure.org reference, guides, and API" name="q" data-name="q" autofocus="autofocus" class="w-input clj-search-input">
+            </div>
+            <div class="w-col w-col-3 w-col-small-3">
+              <input type="submit" value="Search" data-wait="Please wait..." class="w-button clj-search-submit">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+<div class="w-section clj-content-section">
+  <div class="w-container">
+    <div class="clj-section-nav-container">
+      <div data-collapse="small" data-animation="default" data-duration="200" data-contain="1" class="w-nav clj-section-navbar">
+        <div class="w-container">
+          <nav role="navigation" class="w-nav-menu clj-section-nav-menu">
+            <div class="w-nav-link clj-section-nav-heading">Community</div>
+            <a href="resources" class="w-nav-link clj-section-nav-item-link">Resources</a>
+            <a href="contributing" class="w-nav-link clj-section-nav-item-link">Contributing</a>
+            <a href="contributors" class="w-nav-link clj-section-nav-item-link">Contributors</a>
+            <a href="companies" class="w-nav-link clj-section-nav-item-link">Companies</a>
+            <a href="events" class="w-nav-link clj-section-nav-item-link">Events</a>
+            <div class="w-nav-link clj-section-nav-heading">Legal</div>
+            <a href="license" class="w-nav-link clj-section-nav-item-link">License</a>
+            <a href="http://igeldev.github.io/clojure-site-russian/privacy" class="w-nav-link clj-section-nav-item-link">Privacy Policy</a>
+            <div class="w-nav-link clj-section-nav-heading">Help</div>
+            <a href="books" class="w-nav-link clj-section-nav-item-link">Books</a>
+            <a href="libraries" class="w-nav-link clj-section-nav-item-link">Libraries</a>
+            <a href="start_group" class="w-nav-link clj-section-nav-item-link">Starting a User Group</a>
+            <a href="contributing_site" class="w-nav-link clj-section-nav-item-link">Site Contributions</a>
+            <div class="w-nav-link clj-section-nav-heading">Etc</div>
+            <a href="swag" class="w-nav-link clj-section-nav-item-link">Swag</a>
+          </nav>
+          <div data-ix="toggle-section-nav-icon" class="w-nav-button w-clearfix clj-section-nav-toggle">
+            <div class="clj-section-nav-text">Books</div>
+            <div class="clj-section-nav-icon-closed"></div>
+            <div data-ix="init-hide-section-nav-icon-open" class="clj-section-nav-icon-open"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clj-content-container">
+
+      <h1>Books</h1>
+
+      <div class="paragraph">
+<p>Please support these fine books about Clojure.</p>
+</div>
+<div class="paragraph">
+<p><em>Listed in order of descending release date of newest edition.</em></p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 80%;">
+<colgroup>
+<col style="width: 30%;">
+<col style="width: 70%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="imageblock">
+<div class="content">
+<a class="image" href="http://amzn.com/B017XSFL4Q"><img src="http://ecx.images-amazon.com/images/I/61TJZjnjO0L._SL160.jpg" alt="Mastering Clojure"></a>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="http://amzn.com/B017XSFL4Q">Mastering Clojure</a><br>
+by Akhil Wali<br>
+Mar 28, 2016</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="imageblock">
+<div class="content">
+<a class="image" href="http://amzn.com/B019OP7JIW"><img src="http://ecx.images-amazon.com/images/I/61p47dd81cL._SL160.jpg" alt="Clojure for Java Developers"></a>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="http://amzn.com/B019OP7JIW">Clojure for Java Developers</a><br>
+by Eduardo Diaz<br>
+Feb 23, 2016</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="imageblock">
+<div class="content">
+<a class="image" href="http://amzn.com/1785289284"><img src="http://ecx.images-amazon.com/images/I/51ofF2ckdkL._SL160.jpg" alt="Clojure for Finance"></a>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="http://amzn.com/1785289284">Clojure for Finance</a><br>
+by Timothy Washington<br>
+Jan 11, 2016</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="imageblock">
+<div class="content">
+<a class="image" href="http://amzn.com/1617291528"><img src="http://ecx.images-amazon.com/images/I/51QWOEjmtIL._SL160.jpg" alt="Clojure In Action"></a>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="http://amzn.com/1617291528">Clojure In Action</a><br>
+by Amit Rathore<br>
+Jan 1, 2016</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="imageblock">
+<div class="content">
+<a class="image" href="http://amzn.com/1593275919"><img src="http://ecx.images-amazon.com/images/I/6112vbQYDLL._SL160.jpg" alt="Clojure for the Brave and True"></a>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="http://amzn.com/1593275919">Clojure for the Brave and True</a><br>
+by Daniel Higginbotham<br>
+Oct 23, 2015</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="imageblock">
+<div class="content">
+<a class="image" href="http://amzn.com/0321927737"><img src="http://ecx.images-amazon.com/images/I/51aMgNS%2BK7L._SL160.jpg" alt="Clojure Recipes"></a>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="http://amzn.com/0321927737">Clojure Recipes</a><br>
+by Julian Gamble<br>
+Oct 23, 2015</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="imageblock">
+<div class="content">
+<a class="image" href="http://amzn.com/1680500740"><img src="http://ecx.images-amazon.com/images/I/41iH5aTHB3L._SL160.jpg" alt="Clojure Applied"></a>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="http://amzn.com/1680500740">Clojure Applied: From Practice to Practitioner</a><br>
+by Ben Vandgrift, Alex Miller<br>
+Sept 6, 2015</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="imageblock">
+<div class="content">
+<a class="image" href="http://amzn.com/1784397180"><img src="http://ecx.images-amazon.com/images/I/51ki-47i6bL._SL160.jpg" alt="Clojure for Data Science"></a>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="http://amzn.com/1784397180">Clojure for Data Science</a><br>
+by Henry Garner<br>
+Sept 3, 2015</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="imageblock">
+<div class="content">
+<a class="image" href="http://amzn.com/1785283642"><img src="http://ecx.images-amazon.com/images/I/51Nym1wJXVL._SL160.jpg" alt="Clojure High Performance Programming"></a>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="http://amzn.com/1785283642">Clojure High Performance Programming</a><br>
+by Shantanu Kumar<br>
+Sept 1, 2015</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="imageblock">
+<div class="content">
+<a class="image" href="http://amzn.com/1785281453"><img src="http://ecx.images-amazon.com/images/I/515vh5czqnL._SL160.jpg" alt="Clojure Data Structures and Algorithms"></a>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="http://amzn.com/1785281453">Clojure Data Structures and Algorithms</a><br>
+by Rafik Naccache<br>
+Aug 19, 2015</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="imageblock">
+<div class="content">
+<a class="image" href="http://amzn.com/1491909048"><img src="http://ecx.images-amazon.com/images/I/5122uV93jfL._SL160.jpg" alt="Living Clojure"></a>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="http://amzn.com/1491909048">Living Clojure</a><br>
+by Carin Meier<br>
+Apr 30, 2015</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="imageblock">
+<div class="content">
+<a class="image" href="http://amzn.com/1783986662"><img src="http://ecx.images-amazon.com/images/I/51l1oGz9N7L._SL160.jpg" alt="Clojure Reactive Programming"></a>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="http://amzn.com/1783986662">Clojure Reactive Programming</a><br>
+by Leonardo Borges<br>
+Mar 24, 2015</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="imageblock">
+<div class="content">
+<a class="image" href="http://amzn.com/1784392227"><img src="http://ecx.images-amazon.com/images/I/51XnilmUaIL._SL160.jpg" alt="Clojure Web Development Essentials"></a>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="http://amzn.com/1784392227">Clojure Web Development Essentials</a><br>
+by Ryan Baldwin<br>
+Feb 16, 2015</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="imageblock">
+<div class="content">
+<a class="image" href="http://amzn.com/1784390291"><img src="http://ecx.images-amazon.com/images/I/51-B3kElSiL._SL160.jpg" alt="Clojure Data Analysis Cookbook"></a>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="http://amzn.com/1784390291">Clojure Data Analysis Cookbook</a><br>
+by Eric Rochester<br>
+Jan 22, 2015</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="imageblock">
+<div class="content">
+<a class="image" href="http://amzn.com/1941222226"><img src="http://ecx.images-amazon.com/images/I/51nhUEYSLhL._SL160.jpg" alt="Mastering Clojure Macros"></a>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="http://amzn.com/1941222226">Mastering Clojure Macros</a><br>
+by Colin Jones<br>
+Sept 5, 2014</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="imageblock">
+<div class="content">
+<a class="image" href="http://amzn.com/1617291412"><img src="http://ecx.images-amazon.com/images/I/518RxlXpXsL._SL160.jpg" alt="The Joy of Clojure"></a>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="http://amzn.com/1617291412">The Joy of Clojure</a><br>
+by Michael Fogus, Chris Houser<br>
+Jun 13, 2014</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="imageblock">
+<div class="content">
+<a class="image" href="http://amzn.com/1783284137"><img src="http://ecx.images-amazon.com/images/I/51gyxyvmX3L._SL160.jpg" alt="Mastering Clojure Data Analysis"></a>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="http://amzn.com/1783284137">Mastering Clojure Data Analysis</a><br>
+by Eric Rochester<br>
+May 26, 2014</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="imageblock">
+<div class="content">
+<a class="image" href="http://amzn.com/1783284358"><img src="http://ecx.images-amazon.com/images/I/51Af%2B5qKOeL._SL160.jpg" alt="Clojure for Machine Learning"></a>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="http://amzn.com/1783284358">Clojure for Machine Learning</a><br>
+by Akhil Wali<br>
+Apr 24, 2014</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="imageblock">
+<div class="content">
+<a class="image" href="http://amzn.com/1449366171"><img src="http://ecx.images-amazon.com/images/I/51NPZu-5PiL._SL160.jpg" alt="Clojure Cookbook"></a>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="http://amzn.com/1449366171">Clojure Cookbook</a><br>
+by Luke VanderHart and Ryan Neufeld<br>
+Mar 24, 2014</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="imageblock">
+<div class="content">
+<a class="image" href="http://amzn.com/1680500821"><img src="http://ecx.images-amazon.com/images/I/51t6UhYc%2BCL._SL160.jpg" alt="Web Development with Clojure"></a>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="http://amzn.com/1680500821">Web Development with Clojure</a><br>
+by Dmitri Sotnikov<br>
+Jan 12, 2014</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="imageblock">
+<div class="content">
+<a class="image" href="http://amzn.com/1782166505"><img src="http://ecx.images-amazon.com/images/I/515hwMhZELL._SL160.jpg" alt="Clojure for Domain-specific Languages"></a>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="http://amzn.com/1782166505">Clojure for Domain-specific Languages</a><br>
+by Ryan Kelker<br>
+Dec 18, 2013</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="imageblock">
+<div class="content">
+<a class="image" href="http://amzn.com/B00BSY20HS"><img src="http://ecx.images-amazon.com/images/I/41FPAAxXDhL._SL160.jpg" alt="Clojure Made Simple"></a>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="http://amzn.com/B00BSY20HS">Clojure Made Simple</a><br>
+by John Stevenson<br>
+Nov 18, 2013</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="imageblock">
+<div class="content">
+<a class="image" href="http://amzn.com/1937785475"><img src="http://ecx.images-amazon.com/images/I/51i1Cn-IqdL._SL160.jpg" alt="Functional Programming Patterns in Scala and Clojure"></a>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="http://amzn.com/1937785475">Functional Programming Patterns in Scala and Clojure</a><br>
+by Michael Bevilacqua-Linn<br>
+Nov 2, 2013</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="imageblock">
+<div class="content">
+<a class="image" href="http://amzn.com/1449327435"><img src="http://ecx.images-amazon.com/images/I/51KgF%2B-38WL._SL160.jpg" alt="ClojureScript: Up and Running"></a>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="http://amzn.com/1449327435">ClojureScript: Up and Running</a><br>
+by Stuart Sierra, Luke VanderHart<br>
+Nov 10, 2012</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="imageblock">
+<div class="content">
+<a class="image" href="http://amzn.com/1449394701"><img src="http://ecx.images-amazon.com/images/I/41sY2b6MKiL._SL160.jpg" alt="Clojure Programming"></a>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="http://amzn.com/1449394701">Clojure Programming</a><br>
+by Chas Emerick, Brian Carper, Christophe Grand<br>
+Apr 22, 2012</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="imageblock">
+<div class="content">
+<a class="image" href="http://amzn.com/1934356867"><img src="http://ecx.images-amazon.com/images/I/41aJY7x54bL._SL160.jpg" alt="Programming Clojure"></a>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="http://amzn.com/1934356867">Programming Clojure</a><br>
+by Stuart Halloway, Aaron Bedra<br>
+Apr 20, 2012</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="imageblock">
+<div class="content">
+<a class="image" href="http://amzn.com/1430272317"><img src="http://ecx.images-amazon.com/images/I/51dWGdAPwUL._SL160.jpg" alt="Practical Clojure"></a>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="http://amzn.com/1430272317">Practical Clojure</a><br>
+by Luke VanderHart, Stuart Sierra<br>
+Jun 1, 2010</p></td>
+</tr>
+</tbody>
+</table>
+
+
+<div class="clj-prev-next-container">
+  
+  
+</div>
+
+    </div>
+  </div>
+</div>
+
+  <div class="w-section clj-footer">
+    <div class="w-container clj-footer-links-container">
+      <div class="w-row">
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Community</h6><a href="http://igeldev.github.io/clojure-site-russian/community/resources" class="clj-footer-link">Resources</a><a href="http://igeldev.github.io/clojure-site-russian/community/contributing" class="clj-footer-link">Contributing</a><a href="http://igeldev.github.io/clojure-site-russian/community/companies" class="clj-footer-link">Companies</a>
+          <h6 class="clj-footer-heading">Legal</h6><a href="http://igeldev.github.io/clojure-site-russian/community/license" class="clj-footer-link">License</a><a href="http://igeldev.github.io/clojure-site-russian/privacy" class="clj-footer-link">Privacy Policy</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Documentation</h6><a href="http://igeldev.github.io/clojure-site-russian/about/rationale" class="clj-footer-link">Overview</a><a href="http://igeldev.github.io/clojure-site-russian/reference/documentation" class="clj-footer-link">Reference</a><a href="http://igeldev.github.io/clojure-site-russian/api/api" class="clj-footer-link">API</a><a href="http://igeldev.github.io/clojure-site-russian/guides/guides" class="clj-footer-link">Guides</a><a href="http://igeldev.github.io/clojure-site-russian/community/libraries" class="clj-footer-link">Libraries &amp; Tools</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Updates</h6><a href="http://igeldev.github.io/clojure-site-russian/news/news" class="clj-footer-link">News</a><a href="http://igeldev.github.io/clojure-site-russian/community/events" class="clj-footer-link">Events</a>
+          <h6 class="clj-footer-heading">ETC</h6><a href="https://www.youtube.com/user/ClojureTV" class="clj-footer-link">Video</a><a href="http://igeldev.github.io/clojure-site-russian/community/books" class="clj-footer-link">Books</a><a href="http://igeldev.github.io/clojure-site-russian/community/swag" class="clj-footer-link">Swag</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Code</h6><a href="http://igeldev.github.io/clojure-site-russian/community/downloads" class="clj-footer-link">Releases</a><a href="https://github.com/clojure/clojure/" class="clj-footer-link">Source</a><a href="http://igeldev.github.io/clojure-site-russian/about/clojurescript" class="clj-footer-link">ClojureScript</a><a href="http://igeldev.github.io/clojure-site-russian/about/clojureclr" class="clj-footer-link">ClojureCLR</a>
+        </div>
+      </div>
+    </div>
+    <div class="w-container clj-footer-legal-container">
+      <div class="w-clearfix clj-footer-legal">
+        <div class="clj-footer-logo">&nbsp;</div>
+        <div class="clj-footer-legal-links">
+          <div class="clj-footer-copyright">Copyright 2008-2016 Rich Hickey | <a class="clj-footer-sub-link" href="http://igeldev.github.io/clojure-site-russian/privacy">Privacy Policy</a><br/>Published 2017-05-17
+          </div>
+          <div class="clj-footer-designed-by">Logo &amp; site design by <a class="clj-footer-sub-link" href="http://tomhickey.com/">Tom Hickey</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/webflow.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<!-- This site was created in Webflow. http://www.webflow.com-->
+<!-- Last Published: Fri Nov 13 2015 01:48:45 GMT+0000 (UTC) -->
+<html data-wf-site="56414d6fc8c27cad0f4e12e7" data-wf-page="5643ac587b1f28dc58ed6b89">
+<head>
+  <meta charset="utf-8">
+  <title>Clojure - Переменные и глобальное окружение</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Webflow">
+  <link rel="stylesheet" type="text/css" href="../css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="../css/webflow.css">
+  <link rel="stylesheet" type="text/css" href="../css/clojureorg.webflow.css">
+  <link rel="stylesheet" type="text/css" href="../css/asciidoctor-mod.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ["Open Sans:300,300italic,400,400italic,600,600italic","PT Serif:400,400italic,700,700italic","Source Code Pro:regular,500"]
+      }
+    });
+  </script>
+  <script type="text/javascript" src="../js/modernizr.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="../images/clojure-logo-icon-32.png">
+  <link rel="apple-touch-icon" href="../images/clojure-logo-icon-256.png">
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4857754-16'], ['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script');
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+<body>
+  <div data-collapse="none" data-animation="default" data-duration="400" data-contain="1" class="w-nav clj-navbar">
+    <div class="w-container">
+      <a href="http://igeldev.github.io/clojure-site-russian/index" class="w-nav-brand w-clearfix clj-logo-container"><img width="60" src="../images/clojure-logo-120b.png" class="clj-logo">
+        <div class="clj-logo-text">Clojure</div>
+      </a>
+      <nav role="navigation" class="w-nav-menu clj-nav-menu"><a href="http://igeldev.github.io/clojure-site-russian/about/rationale" class="w-nav-link clj-nav-link">Overview</a><a href="http://igeldev.github.io/clojure-site-russian/reference/documentation" class="w-nav-link clj-nav-link">Reference‍</a><a href="http://igeldev.github.io/clojure-site-russian/api/api" class="w-nav-link clj-nav-link">API</a><a href="http://igeldev.github.io/clojure-site-russian/community/downloads" class="w-nav-link clj-nav-link">Releases</a><a href="http://igeldev.github.io/clojure-site-russian/guides/guides" class="w-nav-link clj-nav-link">Guides</a><a href="http://igeldev.github.io/clojure-site-russian/community/resources" class="w-nav-link clj-nav-link">Community</a><a href="http://igeldev.github.io/clojure-site-russian/news/news" class="w-nav-link clj-nav-link">News</a><a href="#" data-ix="search-click-trigger" class="w-nav-link clj-nav-link clj-nav-search"></a>
+      </nav>
+      <div class="w-nav-button clj-menu-button">
+        <div class="w-icon-nav-menu"></div>
+      </div>
+    </div>
+  </div>
+  <div data-ix="hide-search" class="w-section clj-search-section">
+    <div class="w-container">
+      <div class="w-form clj-search-form-wrapper">
+        <form id="wf-form-Search-Form" name="wf-form-Search-Form" data-name="Search Form" action="http://igeldev.github.io/clojure-site-russian/search" method="get">
+          <div class="w-row">
+            <div class="w-col w-col-9 w-col-small-9">
+              <input id="q" type="text" placeholder="Search clojure.org reference, guides, and API" name="q" data-name="q" autofocus="autofocus" class="w-input clj-search-input">
+            </div>
+            <div class="w-col w-col-3 w-col-small-3">
+              <input type="submit" value="Search" data-wait="Please wait..." class="w-button clj-search-submit">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+<div class="w-section clj-content-section">
+  <div class="w-container">
+    <div class="clj-section-nav-container">
+      <div data-collapse="small" data-animation="default" data-duration="200" data-contain="1" class="w-nav clj-section-navbar">
+        <div class="w-container">
+          <nav role="navigation" class="w-nav-menu clj-section-nav-menu"><a href="reader" class="w-nav-link clj-section-nav-item-link">The Reader</a><a href="repl_and_main" class="w-nav-link clj-section-nav-item-link">The REPL and main</a><a href="evaluation" class="w-nav-link clj-section-nav-item-link">Evaluation</a><a href="special_forms" class="w-nav-link clj-section-nav-item-link">Special Forms</a><a href="macros" class="w-nav-link clj-section-nav-item-link">Macros</a><a href="other_functions" class="w-nav-link clj-section-nav-item-link">Other Functions</a><a href="data_structures" class="w-nav-link clj-section-nav-item-link">Data Structures</a><a href="datatypes" class="w-nav-link clj-section-nav-item-link">Datatypes</a><a href="sequences" class="w-nav-link clj-section-nav-item-link">Sequences</a><a href="transients" class="w-nav-link clj-section-nav-item-link">Transients</a><a href="transducers" class="w-nav-link clj-section-nav-item-link">Transducers</a><a href="multimethods" class="w-nav-link clj-section-nav-item-link">Multimethods and Hierarchies</a><a href="protocols" class="w-nav-link clj-section-nav-item-link">Protocols</a><a href="metadata" class="w-nav-link clj-section-nav-item-link">Metadata</a><a href="namespaces" class="w-nav-link clj-section-nav-item-link">Namespaces</a><a href="libs" class="w-nav-link clj-section-nav-item-link">Libs</a><a href="vars" class="w-nav-link clj-section-nav-item-link">Vars and Environments</a><a href="refs" class="w-nav-link clj-section-nav-item-link">Refs and Transactions</a><a href="agents" class="w-nav-link clj-section-nav-item-link">Agents</a><a href="atoms" class="w-nav-link clj-section-nav-item-link">Atoms</a><a href="reducers" class="w-nav-link clj-section-nav-item-link">Reducers</a><a href="java_interop" class="w-nav-link clj-section-nav-item-link">Java Interop</a><a href="compilation" class="w-nav-link clj-section-nav-item-link">Compilation and Class Generation</a><a href="other_libraries" class="w-nav-link clj-section-nav-item-link">Other Libraries</a><a href="lisps" class="w-nav-link clj-section-nav-item-link">Differences with Lisps</a>
+          </nav>
+          <div data-ix="toggle-section-nav-icon" class="w-nav-button w-clearfix clj-section-nav-toggle">
+            <div class="clj-section-nav-text">Vars and Environments</div>
+            <div class="clj-section-nav-icon-closed"></div>
+            <div data-ix="init-hide-section-nav-icon-open" class="clj-section-nav-icon-open"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clj-content-container">
+
+      <h1>Переменные и глобальное окружение</h1>
+
+      <div id="preamble">
+<div class="sectionbody">
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Содержание</div>
+<ul class="sectlevel1">
+<li><a href="#set">(<strong>set!</strong> var-symbol expr)</a></li>
+<li><a href="#Interning">Ленивое создание</a></li>
+<li><a href="#local-vars">Локальные переменные</a></li>
+<li><a href="#related">Функции</a></li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Clojure - прикладной язык программирования, который признает необходимость время от времени держать постоянные ссылки на изменяемые значения и предлагает для этого 4 различных механизма - переменные, <a href="refs">ссылки</a>, <a href="agents">агенты</a> и <a href="atoms">атомы</a>. Переменные позволяют ссылаться на изменяемое хранилище, которое может быть динамически заменено (на новое хранилище) для отдельного потока. Каждая переменная может (но не должна) иметь некоторую "главную" связь, которая будет использоваться потоками, не имеющими своей отдельной связи для данной переменной. Таким образом, значение переменной - это значение в хранилище, с которым связана эта переменная в текущем потоке, либо значение в главном хранилище.</p>
+</div>
+<div class="paragraph">
+<p>Специальная форма <em><strong>def</strong></em> осуществляет <a href="vars#Interning">ленивое создание</a> переменной. Если эта переменная не существовала и не было предоставлено начального значения - она будет несвязанной:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">user=&gt; (def x)
+.'user/x
+user=&gt; x
+java.lang.IllegalStateException: Var user/x is unbound.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Если начальное значение предоставлено - оно помещается в главное хранилище, связанное с переменной (даже если с переменная уже была связанна с некоторым хранилищем).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">user=&gt; (def x 1)
+.'user/x
+
+user=&gt; x
+1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>По-умолчанию переменные являются статическими, но они могут быть помечены как динамические чтобы разрешить переопределение связанного хранилища для отдельного потока. Это осуществляется с помощью макроса <a href="http://clojure.github.com/clojure/clojure.core-api.html#clojure.core/binding">binding</a>. Внутри каждого потока динамические переменные подчиняются правилам стека:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">user=&gt; (def ^:dynamic x 1)
+user=&gt; (def ^:dynamic y 1)
+user=&gt; (+ x y)
+2
+
+user=&gt; (binding [x 2 y 3]
+         (+ x y))
+5
+
+user=&gt; (+ x y)
+2</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Связи, созданные с помощью <em><strong>binding</strong></em> не будут видны другим потокам. Также эти связи могут быть переопределены, что позволяет вложенным контекстам общаться с кодом, находящимся выше в стеке вызовов. Эта возможность доступна только после того, как для переменной установлен мета-тег <em><strong>dynamic</strong></em>, как в примере выше. Если необходимо переопределить статические переменные в некотором контексте - для этого Clojure (начиная с версии 1.3) предоставляет функции <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/with-redefs">with-redefs</a> и <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/with-redefs-fn">with-redefs-fn</a>.</p>
+</div>
+<div class="paragraph">
+<p>Функции определенные с помощью <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/defn">defn</a> хранятся в переменных, что позволяет переопределять функции при исполнении программы. Также это позволяет применять подходы аспектно-ориентированного и контекстно-ориентированного программирования. Например, вы можете добавить в функцию журналирование только для некоторых контекстов или потоков.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="set">(<strong>set!</strong> var-symbol expr)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Специальная форма присвоения.</p>
+</div>
+<div class="paragraph">
+<p>Если в качестве первого операнда передан символ - ожидается, что он является глобальной переменной. Тогда в текущем потоке для этой переменной будет установлена связь со значением выражения expr. Попытка установить значение в главном хранилище переменной с помощью set! является ошибкой в текущей версии языка. В любом случае возвращается значение выражения expr.</p>
+</div>
+<div class="paragraph">
+<p>Примечание - <em>вы не можете присвоить значение параметру функции или локальным связям. Только Java-поля, переменные, ссылки и агенты изменяемы в Clojure</em>.</p>
+</div>
+<div class="paragraph">
+<p>Использование <a href="java_interop#set">set</a> для Java-полей описано в <a href="java_interop#set">Java Interop</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Interning">Ленивое создание</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Система пространств имен поддерживает глобальные ассоциативные массивы, хранящие соответствие между знаками и переменными-объектами <em>(см. <a href="namespaces">Пространства имен</a>)</em>. Если выражение <em><strong>def</strong></em> не находит запись, соответствующую определяемому знаку в текущем пространстве имен, оно создает такую запись. В противном случае <em><strong>def</strong></em> использует существующую переменную-объект. Этот процесс поиска-создания называется ленивым созданием переменной. Это означает, что переменные-объекты являются неизменяемыми ссылками, пока не удалены из пространства имен. Это также означает, что пространства имен составляют глобальное окружение, в котором компилятор пытается разрешить все свободные знаки как переменные (см. <a href="evaluation">Вычисление</a>).</p>
+</div>
+<div class="paragraph">
+<p>Специальная форма <a href="special_forms#var">var</a> или маркос считывателя <code>#'</code> <em>(см. <a href="reader">Считыватель</a>)</em> могут быть использованы, чтобы получить переменную-объект, а не её значение.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="local-vars">Локальные переменные</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Можно создавать переменные, которые не будут сохранены в глобальном окружении с помощью <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/with-local-vars">with-local-vars</a>. Такие переменные не будут автоматически обрабатываться при разрешении свободных знаков и их значения необходимо будет получать вручную. Тем не менее локальные переменные могут быть использованы как изменяемые ячейки-храниища, принадлежащие отдельному потоку.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="related">Функции</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Варианты <em><strong>def</strong></em>: <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/defn">defn</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/defn-">defn-</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/definline">definline</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/defmacro">defmacro</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/defmethod">defmethod</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/defmulti">defmulti</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/defonce">defonce</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/defstruct">defstruct</a><br>
+Работа с глобальными переменными: <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/declare">declare</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/intern">intern</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/binding">binding</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/find-var">find-var</a> <a href="special_forms#var">var</a><br>
+Работа с переменными-объеками: <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/with-local-vars">with-local-vars</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/var-get">var-get</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/var-set">var-set</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/alter-var-root">alter-var-root</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/var?">var?</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/with-redefs">with-redefs</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/with-redefs-fn">with-redefs-fn</a><br>
+Валидаторы переменных: <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/set-validator">set-validator</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/get-validator">get-validator</a><br>
+Общие метаданные переменных: <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/doc">doc</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/find-doc">find-doc</a> <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/test">test</a></p>
+</div>
+</div>
+</div>
+
+
+<div class="clj-prev-next-container">
+  <a href="libs" class="clj-prev-link"><span class="clj-prevnext-link-icon"></span>&nbsp;Libs</a>
+  <a href="refs" class="clj-next-link">Refs and Transactions&nbsp;<span class="clj-prevnext-link-icon"></span></a>
+</div>
+
+    </div>
+  </div>
+</div>
+
+  <div class="w-section clj-footer">
+    <div class="w-container clj-footer-links-container">
+      <div class="w-row">
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Community</h6><a href="http://igeldev.github.io/clojure-site-russian/community/resources" class="clj-footer-link">Resources</a><a href="http://igeldev.github.io/clojure-site-russian/community/contributing" class="clj-footer-link">Contributing</a><a href="http://igeldev.github.io/clojure-site-russian/community/companies" class="clj-footer-link">Companies</a>
+          <h6 class="clj-footer-heading">Legal</h6><a href="http://igeldev.github.io/clojure-site-russian/community/license" class="clj-footer-link">License</a><a href="http://igeldev.github.io/clojure-site-russian/privacy" class="clj-footer-link">Privacy Policy</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Documentation</h6><a href="http://igeldev.github.io/clojure-site-russian/about/rationale" class="clj-footer-link">Overview</a><a href="http://igeldev.github.io/clojure-site-russian/reference/documentation" class="clj-footer-link">Reference</a><a href="http://igeldev.github.io/clojure-site-russian/api/api" class="clj-footer-link">API</a><a href="http://igeldev.github.io/clojure-site-russian/guides/guides" class="clj-footer-link">Guides</a><a href="http://igeldev.github.io/clojure-site-russian/community/libraries" class="clj-footer-link">Libraries &amp; Tools</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Updates</h6><a href="http://igeldev.github.io/clojure-site-russian/news/news" class="clj-footer-link">News</a><a href="http://igeldev.github.io/clojure-site-russian/community/events" class="clj-footer-link">Events</a>
+          <h6 class="clj-footer-heading">ETC</h6><a href="https://www.youtube.com/user/ClojureTV" class="clj-footer-link">Video</a><a href="http://igeldev.github.io/clojure-site-russian/community/books" class="clj-footer-link">Books</a><a href="http://igeldev.github.io/clojure-site-russian/community/swag" class="clj-footer-link">Swag</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Code</h6><a href="http://igeldev.github.io/clojure-site-russian/community/downloads" class="clj-footer-link">Releases</a><a href="https://github.com/clojure/clojure/" class="clj-footer-link">Source</a><a href="http://igeldev.github.io/clojure-site-russian/about/clojurescript" class="clj-footer-link">ClojureScript</a><a href="http://igeldev.github.io/clojure-site-russian/about/clojureclr" class="clj-footer-link">ClojureCLR</a>
+        </div>
+      </div>
+    </div>
+    <div class="w-container clj-footer-legal-container">
+      <div class="w-clearfix clj-footer-legal">
+        <div class="clj-footer-logo">&nbsp;</div>
+        <div class="clj-footer-legal-links">
+          <div class="clj-footer-copyright">Copyright 2008-2016 Rich Hickey | <a class="clj-footer-sub-link" href="http://igeldev.github.io/clojure-site-russian/privacy">Privacy Policy</a><br/>Published 2017-05-17
+          </div>
+          <div class="clj-footer-designed-by">Logo &amp; site design by <a class="clj-footer-sub-link" href="http://tomhickey.com/">Tom Hickey</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/webflow.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+</body>
+</html>

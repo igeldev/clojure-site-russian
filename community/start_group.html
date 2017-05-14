@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<!-- This site was created in Webflow. http://www.webflow.com-->
+<!-- Last Published: Fri Nov 13 2015 01:48:45 GMT+0000 (UTC) -->
+<html data-wf-site="56414d6fc8c27cad0f4e12e7" data-wf-page="5643ac587b1f28dc58ed6b89">
+<head>
+  <meta charset="utf-8">
+  <title>Clojure - Start Group</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Webflow">
+  <link rel="stylesheet" type="text/css" href="../css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="../css/webflow.css">
+  <link rel="stylesheet" type="text/css" href="../css/clojureorg.webflow.css">
+  <link rel="stylesheet" type="text/css" href="../css/asciidoctor-mod.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ["Open Sans:300,300italic,400,400italic,600,600italic","PT Serif:400,400italic,700,700italic","Source Code Pro:regular,500"]
+      }
+    });
+  </script>
+  <script type="text/javascript" src="../js/modernizr.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="../images/clojure-logo-icon-32.png">
+  <link rel="apple-touch-icon" href="../images/clojure-logo-icon-256.png">
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4857754-16'], ['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script');
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+<body>
+  <div data-collapse="none" data-animation="default" data-duration="400" data-contain="1" class="w-nav clj-navbar">
+    <div class="w-container">
+      <a href="http://igeldev.github.io/clojure-site-russian/index" class="w-nav-brand w-clearfix clj-logo-container"><img width="60" src="../images/clojure-logo-120b.png" class="clj-logo">
+        <div class="clj-logo-text">Clojure</div>
+      </a>
+      <nav role="navigation" class="w-nav-menu clj-nav-menu"><a href="http://igeldev.github.io/clojure-site-russian/about/rationale" class="w-nav-link clj-nav-link">Overview</a><a href="http://igeldev.github.io/clojure-site-russian/reference/documentation" class="w-nav-link clj-nav-link">Reference‍</a><a href="http://igeldev.github.io/clojure-site-russian/api/api" class="w-nav-link clj-nav-link">API</a><a href="http://igeldev.github.io/clojure-site-russian/community/downloads" class="w-nav-link clj-nav-link">Releases</a><a href="http://igeldev.github.io/clojure-site-russian/guides/guides" class="w-nav-link clj-nav-link">Guides</a><a href="http://igeldev.github.io/clojure-site-russian/community/resources" class="w-nav-link clj-nav-link">Community</a><a href="http://igeldev.github.io/clojure-site-russian/news/news" class="w-nav-link clj-nav-link">News</a><a href="#" data-ix="search-click-trigger" class="w-nav-link clj-nav-link clj-nav-search"></a>
+      </nav>
+      <div class="w-nav-button clj-menu-button">
+        <div class="w-icon-nav-menu"></div>
+      </div>
+    </div>
+  </div>
+  <div data-ix="hide-search" class="w-section clj-search-section">
+    <div class="w-container">
+      <div class="w-form clj-search-form-wrapper">
+        <form id="wf-form-Search-Form" name="wf-form-Search-Form" data-name="Search Form" action="http://igeldev.github.io/clojure-site-russian/search" method="get">
+          <div class="w-row">
+            <div class="w-col w-col-9 w-col-small-9">
+              <input id="q" type="text" placeholder="Search clojure.org reference, guides, and API" name="q" data-name="q" autofocus="autofocus" class="w-input clj-search-input">
+            </div>
+            <div class="w-col w-col-3 w-col-small-3">
+              <input type="submit" value="Search" data-wait="Please wait..." class="w-button clj-search-submit">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+<div class="w-section clj-content-section">
+  <div class="w-container">
+    <div class="clj-section-nav-container">
+      <div data-collapse="small" data-animation="default" data-duration="200" data-contain="1" class="w-nav clj-section-navbar">
+        <div class="w-container">
+          <nav role="navigation" class="w-nav-menu clj-section-nav-menu">
+            <div class="w-nav-link clj-section-nav-heading">Community</div>
+            <a href="resources" class="w-nav-link clj-section-nav-item-link">Resources</a>
+            <a href="contributing" class="w-nav-link clj-section-nav-item-link">Contributing</a>
+            <a href="contributors" class="w-nav-link clj-section-nav-item-link">Contributors</a>
+            <a href="companies" class="w-nav-link clj-section-nav-item-link">Companies</a>
+            <a href="events" class="w-nav-link clj-section-nav-item-link">Events</a>
+            <div class="w-nav-link clj-section-nav-heading">Legal</div>
+            <a href="license" class="w-nav-link clj-section-nav-item-link">License</a>
+            <a href="http://igeldev.github.io/clojure-site-russian/privacy" class="w-nav-link clj-section-nav-item-link">Privacy Policy</a>
+            <div class="w-nav-link clj-section-nav-heading">Help</div>
+            <a href="books" class="w-nav-link clj-section-nav-item-link">Books</a>
+            <a href="libraries" class="w-nav-link clj-section-nav-item-link">Libraries</a>
+            <a href="start_group" class="w-nav-link clj-section-nav-item-link">Starting a User Group</a>
+            <a href="contributing_site" class="w-nav-link clj-section-nav-item-link">Site Contributions</a>
+            <div class="w-nav-link clj-section-nav-heading">Etc</div>
+            <a href="swag" class="w-nav-link clj-section-nav-item-link">Swag</a>
+          </nav>
+          <div data-ix="toggle-section-nav-icon" class="w-nav-button w-clearfix clj-section-nav-toggle">
+            <div class="clj-section-nav-text">Start Group</div>
+            <div class="clj-section-nav-icon-closed"></div>
+            <div data-ix="init-hide-section-nav-icon-open" class="clj-section-nav-icon-open"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clj-content-container">
+
+      <h1>Start Group</h1>
+
+      <div class="sect1">
+<h2 id="_tips_on_starting_a_clojure_user_group">Tips on Starting a Clojure User Group</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Starting a user group is a great way to improve your Clojure skills and find others interested in Clojure in your area. If you&#8217;ve never run a user group before, that&#8217;s ok! Anyone can do it.</p>
+</div>
+<div class="paragraph">
+<p>A user group needs the following elements:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>A meeting place.</strong> Finding a regular meeting place is sometimes the biggest hurdle a group faces when getting off the ground. Often the ideal option is finding a company that can host a group after-hours. If that&#8217;s not an option, some other choices include libraries, churches, or coffee shops.</p>
+</li>
+<li>
+<p><strong>A meeting time.</strong> It&#8217;s important to establish a rhythm to keep a group going. Pick a night (like the 2nd Tuesday of the month) and try as much as possible to have your meeting on that same night every month.</p>
+</li>
+<li>
+<p><strong>A home on the web.</strong> It&#8217;s important to have an address on the web that can be found by a search engine. There are lots of ways to put together a web page for free or cheap - see below for some tools you can use.</p>
+</li>
+<li>
+<p><strong>People!</strong> You can&#8217;t have a meeting without people. Ask around at other mailing lists or user groups in your area for people that might be interested.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tools">Tools</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Google Calendar - <a href="http://www.google.com/calendar">http://www.google.com/calendar</a></p>
+</li>
+<li>
+<p>Wordpress - <a href="http://wordpress.com">http://wordpress.com</a> - free blog and web site</p>
+</li>
+<li>
+<p>Meetup - <a href="http://meetup.com/">http://meetup.com</a> - meeting discovery, calendar, user network (75% discount available)</p>
+</li>
+<li>
+<p>Google Groups - <a href="http://groups.google.com">http://groups.google.com</a> - free mailing list</p>
+</li>
+<li>
+<p>Yahoo Groups - <a href="http://groups.yahoo.com">http://groups.yahoo.com</a> - free mailing list</p>
+</li>
+<li>
+<p>Wikispaces - <a href="http://wikispaces.com/">http://wikispaces.com</a> - free wiki</p>
+</li>
+<li>
+<p>YouTube - <a href="http://youtube.com">http://youtube.com</a> - video hosting</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_common_problems">Common problems</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>"We have a group but it&#8217;s hard to find enough speakers."</em> or <em>"The same people always give talks."</em></p>
+</div>
+<div class="paragraph">
+<p>Not every meeting has to have a speaker that gives a prepared talk. Think creatively about other ways to have a meeting that gives value. Some ideas:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Lightning talks</strong> - do 5 or 10 minute talks on small subjects. Paradoxically, doing more shorter talks at a meeting is sometimes easier than scheduling one big talk. Each presenter has to prepare less material and meetings have a smaller risk of a bad meeting due to one inexperienced speaker. Try doing two or three talks per meeting.</p>
+</li>
+<li>
+<p><strong>Live coding session</strong> - start with a small problem (it&#8217;s hard to start too small for this) and let the group drive the evolution of the solution.</p>
+</li>
+<li>
+<p><strong>Code review</strong> - bring some code and walk through it. Explain the code, take comments on style, performance, etc. Rewrite parts of it to make it better.</p>
+</li>
+<li>
+<p><strong>Contribute</strong> - pick a bug from the Clojure bug tracker and work on it together. Or review the documentation and figure out some improvements. Even providing a list of things confusing to newcomers is useful.</p>
+</li>
+<li>
+<p><strong>Review a paper</strong> - there are tons of great books and papers on Lisp, Clojure, functional programming, persistent data structures, etc. Pick one and lead a discussion about the merits or flaws of the paper.</p>
+</li>
+<li>
+<p><strong>Book study group</strong> - review a classic book like <em>Structure and Interpretation of Computer Programs</em> (<a href="http://mitpress.mit.edu/sicp/">SICP</a>) or some other <a href="http://www.amazon.com/Clojure-Bookshelf/lm/R3LG3ZBZS4GCTH">classic</a></p>
+</li>
+<li>
+<p><strong>Competition</strong> - have everyone bring a solution to the same problem in Clojure or other languages and compare the result.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><em>"We have a mailing list but no one ever uses it."</em></p>
+</div>
+<div class="paragraph">
+<p>The best way to get people talking on a mailing list is to talk on it yourself. Post your meeting announcements, meeting recaps, articles of interest, code snippets, etc. Ask people to introduce themselves on the list - people love to talk about themselves. Mailing lists require some bootstrapping. Eventually, the mailing list will become self-maintaining but it takes some work at the beginning or if there is a lull.</p>
+</div>
+<div class="paragraph">
+<p><em>"Recruiters have joined our mailing list and keep posting job ads."</em></p>
+</div>
+<div class="paragraph">
+<p>It&#8217;s important to have a policy for recruiters and job postings. Decide on your policy, document it, and refer people to it. Some common policies are: "job postings are allowed", "only job postings pertinent to the group are allowed", "only approved job postings are allowed", etc. Some groups have a separate mailing list only for jobs and recruiting.</p>
+</div>
+<div class="paragraph">
+<p><em>"I can&#8217;t find enough people to have a meeting."</em></p>
+</div>
+<div class="paragraph">
+<p>If you can&#8217;t find enough people to start a Clojure group, perhaps you can broaden the scope to find others that might like to talk about Clojure some of the time. Are there people interested in a functional programming group? A programming languages group? A JVM-based languages group? A programmer&#8217;s club?</p>
+</div>
+</div>
+</div>
+
+
+<div class="clj-prev-next-container">
+  
+  
+</div>
+
+    </div>
+  </div>
+</div>
+
+  <div class="w-section clj-footer">
+    <div class="w-container clj-footer-links-container">
+      <div class="w-row">
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Community</h6><a href="http://igeldev.github.io/clojure-site-russian/community/resources" class="clj-footer-link">Resources</a><a href="http://igeldev.github.io/clojure-site-russian/community/contributing" class="clj-footer-link">Contributing</a><a href="http://igeldev.github.io/clojure-site-russian/community/companies" class="clj-footer-link">Companies</a>
+          <h6 class="clj-footer-heading">Legal</h6><a href="http://igeldev.github.io/clojure-site-russian/community/license" class="clj-footer-link">License</a><a href="http://igeldev.github.io/clojure-site-russian/privacy" class="clj-footer-link">Privacy Policy</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Documentation</h6><a href="http://igeldev.github.io/clojure-site-russian/about/rationale" class="clj-footer-link">Overview</a><a href="http://igeldev.github.io/clojure-site-russian/reference/documentation" class="clj-footer-link">Reference</a><a href="http://igeldev.github.io/clojure-site-russian/api/api" class="clj-footer-link">API</a><a href="http://igeldev.github.io/clojure-site-russian/guides/guides" class="clj-footer-link">Guides</a><a href="http://igeldev.github.io/clojure-site-russian/community/libraries" class="clj-footer-link">Libraries &amp; Tools</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Updates</h6><a href="http://igeldev.github.io/clojure-site-russian/news/news" class="clj-footer-link">News</a><a href="http://igeldev.github.io/clojure-site-russian/community/events" class="clj-footer-link">Events</a>
+          <h6 class="clj-footer-heading">ETC</h6><a href="https://www.youtube.com/user/ClojureTV" class="clj-footer-link">Video</a><a href="http://igeldev.github.io/clojure-site-russian/community/books" class="clj-footer-link">Books</a><a href="http://igeldev.github.io/clojure-site-russian/community/swag" class="clj-footer-link">Swag</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Code</h6><a href="http://igeldev.github.io/clojure-site-russian/community/downloads" class="clj-footer-link">Releases</a><a href="https://github.com/clojure/clojure/" class="clj-footer-link">Source</a><a href="http://igeldev.github.io/clojure-site-russian/about/clojurescript" class="clj-footer-link">ClojureScript</a><a href="http://igeldev.github.io/clojure-site-russian/about/clojureclr" class="clj-footer-link">ClojureCLR</a>
+        </div>
+      </div>
+    </div>
+    <div class="w-container clj-footer-legal-container">
+      <div class="w-clearfix clj-footer-legal">
+        <div class="clj-footer-logo">&nbsp;</div>
+        <div class="clj-footer-legal-links">
+          <div class="clj-footer-copyright">Copyright 2008-2016 Rich Hickey | <a class="clj-footer-sub-link" href="http://igeldev.github.io/clojure-site-russian/privacy">Privacy Policy</a><br/>Published 2017-05-17
+          </div>
+          <div class="clj-footer-designed-by">Logo &amp; site design by <a class="clj-footer-sub-link" href="http://tomhickey.com/">Tom Hickey</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/webflow.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+</body>
+</html>

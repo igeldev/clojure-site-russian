@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<!-- This site was created in Webflow. http://www.webflow.com-->
+<!-- Last Published: Fri Nov 13 2015 01:48:45 GMT+0000 (UTC) -->
+<html data-wf-site="56414d6fc8c27cad0f4e12e7" data-wf-page="5643ac587b1f28dc58ed6b89">
+<head>
+  <meta charset="utf-8">
+  <title>Clojure - Values and Change: Clojure&amp;#8217;s approach to Identity and State</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Webflow">
+  <link rel="stylesheet" type="text/css" href="../css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="../css/webflow.css">
+  <link rel="stylesheet" type="text/css" href="../css/clojureorg.webflow.css">
+  <link rel="stylesheet" type="text/css" href="../css/asciidoctor-mod.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ["Open Sans:300,300italic,400,400italic,600,600italic","PT Serif:400,400italic,700,700italic","Source Code Pro:regular,500"]
+      }
+    });
+  </script>
+  <script type="text/javascript" src="../js/modernizr.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="../images/clojure-logo-icon-32.png">
+  <link rel="apple-touch-icon" href="../images/clojure-logo-icon-256.png">
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4857754-16'], ['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script');
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+<body>
+  <div data-collapse="none" data-animation="default" data-duration="400" data-contain="1" class="w-nav clj-navbar">
+    <div class="w-container">
+      <a href="http://igeldev.github.io/clojure-site-russian/index" class="w-nav-brand w-clearfix clj-logo-container"><img width="60" src="../images/clojure-logo-120b.png" class="clj-logo">
+        <div class="clj-logo-text">Clojure</div>
+      </a>
+      <nav role="navigation" class="w-nav-menu clj-nav-menu"><a href="http://igeldev.github.io/clojure-site-russian/about/rationale" class="w-nav-link clj-nav-link">Overview</a><a href="http://igeldev.github.io/clojure-site-russian/reference/documentation" class="w-nav-link clj-nav-link">Reference‍</a><a href="http://igeldev.github.io/clojure-site-russian/api/api" class="w-nav-link clj-nav-link">API</a><a href="http://igeldev.github.io/clojure-site-russian/community/downloads" class="w-nav-link clj-nav-link">Releases</a><a href="http://igeldev.github.io/clojure-site-russian/guides/guides" class="w-nav-link clj-nav-link">Guides</a><a href="http://igeldev.github.io/clojure-site-russian/community/resources" class="w-nav-link clj-nav-link">Community</a><a href="http://igeldev.github.io/clojure-site-russian/news/news" class="w-nav-link clj-nav-link">News</a><a href="#" data-ix="search-click-trigger" class="w-nav-link clj-nav-link clj-nav-search"></a>
+      </nav>
+      <div class="w-nav-button clj-menu-button">
+        <div class="w-icon-nav-menu"></div>
+      </div>
+    </div>
+  </div>
+  <div data-ix="hide-search" class="w-section clj-search-section">
+    <div class="w-container">
+      <div class="w-form clj-search-form-wrapper">
+        <form id="wf-form-Search-Form" name="wf-form-Search-Form" data-name="Search Form" action="http://igeldev.github.io/clojure-site-russian/search" method="get">
+          <div class="w-row">
+            <div class="w-col w-col-9 w-col-small-9">
+              <input id="q" type="text" placeholder="Search clojure.org reference, guides, and API" name="q" data-name="q" autofocus="autofocus" class="w-input clj-search-input">
+            </div>
+            <div class="w-col w-col-3 w-col-small-3">
+              <input type="submit" value="Search" data-wait="Please wait..." class="w-button clj-search-submit">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+<div class="w-section clj-content-section">
+  <div class="w-container">
+    <div class="clj-section-nav-container">
+      <div data-collapse="small" data-animation="default" data-duration="200" data-contain="1" class="w-nav clj-section-navbar">
+        <div class="w-container">
+          <nav role="navigation" class="w-nav-menu clj-section-nav-menu"><a href="rationale" class="w-nav-link clj-section-nav-item-link">Rationale</a><a href="state" class="w-nav-link clj-section-nav-item-link">State</a><div class="w-nav-link clj-section-nav-heading">Features</div><a href="dynamic" class="w-nav-link clj-section-nav-item-link">Dynamic Development</a><a href="functional_programming" class="w-nav-link clj-section-nav-item-link">Functional Programming</a><a href="lisp" class="w-nav-link clj-section-nav-item-link">Lisp</a><a href="runtime_polymorphism" class="w-nav-link clj-section-nav-item-link">Runtime Polymorphism</a><a href="concurrent_programming" class="w-nav-link clj-section-nav-item-link">Concurrent Programming</a><a href="jvm_hosted" class="w-nav-link clj-section-nav-item-link">JVM Hosted</a><div class="w-nav-link clj-section-nav-heading">Other Hosts</div><a href="clojurescript" class="w-nav-link clj-section-nav-item-link">ClojureScript</a><a href="clojureclr" class="w-nav-link clj-section-nav-item-link">ClojureCLR</a>
+          </nav>
+          <div data-ix="toggle-section-nav-icon" class="w-nav-button w-clearfix clj-section-nav-toggle">
+            <div class="clj-section-nav-text">State</div>
+            <div class="clj-section-nav-icon-closed"></div>
+            <div data-ix="init-hide-section-nav-icon-open" class="clj-section-nav-icon-open"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clj-content-container">
+
+      <h1>Values and Change: Clojure&#8217;s approach to Identity and State</h1>
+
+      <div id="preamble">
+<div class="sectionbody">
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_imperative_programming">Imperative programming</a></li>
+<li><a href="#_functional_programming">Functional programming</a></li>
+<li><a href="#_working_models_and_identity">Working Models and Identity</a></li>
+<li><a href="#_object_oriented_programming_oo">Object Oriented programming (OO)</a></li>
+<li><a href="#_clojure_programming">Clojure programming</a>
+<ul class="sectlevel2">
+<li><a href="#_concurrency">Concurrency</a></li>
+</ul>
+</li>
+<li><a href="#actors">Message Passing and Actors</a></li>
+<li><a href="#_summary">Summary</a></li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Many people come to Clojure from an imperative language and find themselves out of their element when faced with Clojure&#8217;s approach to doing things, while others are coming from a more functional background and assume that once they leave Clojure&#8217;s functional subset, they will be faced with the same story re: state as is found in Java. This essay intends to illuminate Clojure&#8217;s approach to the problems faced by imperative and functional programs in modeling the world.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_imperative_programming">Imperative programming</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>An imperative program manipulates its world (e.g. memory) directly. It is founded on a now-unsustainable single-threaded premise - that the world is stopped while you look at or change it. You say "do this" and it happens, "change that" and it changes. Imperative programming languages are oriented around saying do this/do that, and changing memory locations.</p>
+</div>
+<div class="paragraph">
+<p>This was never a great idea, even before multithreading. Add concurrency and you have a real problem, because "the world is stopped" premise is simply no longer true, and restoring that illusion is extremely difficult and error-prone. Multiple participants, each of which acts as though they were omnipotent, must somehow avoid destroying the presumptions and effects of the others. This requires mutexes and locks, to cordon off areas for each participant to manipulate, and a lot of overhead to propagate changes to shared memory so they are seen by other cores. It doesn&#8217;t work very well.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_functional_programming">Functional programming</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Functional programming takes a more mathematical view of the world, and sees programs as functions that take certain values and produce others. Functional programs eschew the external 'effects' of imperative programs, and thus become easier to understand, reason about, and test, since the activity of functions is completely local. To the extent a portion of a program is purely functional, concurrency is a non-issue, as there is simply no change to coordinate.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_working_models_and_identity">Working Models and Identity</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>While some programs are merely large functions, e.g. compilers or theorem provers, many others are not - they are more like working models, and as such need to support what I&#8217;ll refer to in this discussion as <strong><em>identity</em>.</strong> By identity I mean <strong><em>a stable logical entity associated with a series of different values over time</em></strong>. Models need identity for the same reasons humans need identity - to represent the world. How could it work if identities like 'today' or 'America' had to represent a single constant value for all time? Note that by identities I don&#8217;t mean names (I call my mother Mom, but you wouldn&#8217;t).</p>
+</div>
+<div class="paragraph">
+<p>So, for this discussion, an identity is an entity that has a state, which is its value at a point in time. And <strong><em>a value is something that doesn&#8217;t change</em></strong>. 42 doesn&#8217;t change. June 29th 2008 doesn&#8217;t change. Points don&#8217;t move, dates don&#8217;t change, no matter what some bad class libraries may cause you to believe. Even aggregates are values. The set of my favorite foods doesn&#8217;t change, i.e. if I prefer different foods in the future, that will be a different set.</p>
+</div>
+<div class="paragraph">
+<p>Identities are mental tools we use to superimpose continuity on a world which is constantly, functionally, creating new values of itself.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_object_oriented_programming_oo">Object Oriented programming (OO)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>OO is, among other things, an attempt to provide tools for modeling identity and state in programs (as well as associating behavior with state, and hierarchical classification, both ignored here). OO typically unifies identity and state, i.e. an object (identity) is a pointer to the memory that contains the value of its state. There is no way to obtain the state independent of the identity other than copying it. There is no way to observe a stable state (even to copy it) without blocking others from changing it. There is no way to associate the identity&#8217;s state with a different value other than in-place memory mutation. In other words, <strong><em>typical OO has imperative programming baked into it!</em></strong> OO doesn&#8217;t have to be this way, but, usually, it is (Java/C++/Python/Ruby etc).</p>
+</div>
+<div class="paragraph">
+<p>People accustomed to OO conceive of their programs as mutating the values of objects. They understand the true notion of a value, say, 42, as something that would never change, but usually don&#8217;t extend that notion of value to their object&#8217;s state. That is a failure of their programming language. These languages use the same constructs for modeling values as they do for identities, objects, and default to mutability, causing all but the most disciplined programmers to create many more identities than they should, creating identities out of things that should be values etc.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_clojure_programming">Clojure programming</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There is another way, and that is to separate identity and state (once again, indirection saves the day in programming). We need to move away from a notion of state as "the content of this memory block" to one of "the <strong><em>value</em></strong> currently associated with this identity". Thus an identity can be in different states at different times, but <em>the state itself doesn&#8217;t change</em>. That is, an identity is not a state, an identity <strong><em>has</em></strong> a state. Exactly one state at any point in time. And that state is a true value, i.e. it never changes. If an identity appears to change, it is because it becomes associated with different state values over time. This is the Clojure model.</p>
+</div>
+<div class="paragraph">
+<p>In Clojure&#8217;s model, value calculation is purely functional. Values never change. New values are functions of old, not mutations. But logical identity is well supported, via atomic references to values (<a href="xref/../../reference/refs">Refs</a> and <a href="xref/../../reference/agents">Agents</a>). Changes to references are controlled/coordinated by the system - i.e. cooperation is not optional and not manual. The world moves forward due to the cooperative efforts of its participants and the programming language/system, Clojure, is in charge of world consistency management. The value of a reference (state of an identity) is always observable without coordination, and freely shareable between threads.</p>
+</div>
+<div class="paragraph">
+<p>It is worth constructing programs this way even when there is only one participant (thread). Programs are easier to understand/test when functional value calculation is independent of identity/value association. And it&#8217;s easy to add other participants when they are (inevitably) needed.</p>
+</div>
+<div class="sect2">
+<h3 id="_concurrency">Concurrency</h3>
+<div class="paragraph">
+<p>Dealing with concurrency means giving up the illusion of omnipotence. A program must recognize there will be other participants, and the world will keep changing. So a program must understand that if it observes the values of the states of some identities, the best it can get is a snapshot, as they can subsequently acquire new states. But often that is good enough for decision making or reporting purposes. We humans do quite well with the snapshots provided by our sensory systems. The nice thing is any such state value won&#8217;t change in hand during the processing, as it is immutable.</p>
+</div>
+<div class="paragraph">
+<p>On the other hand, changing state to a new value requires access to the 'current' value and the identity. Clojure&#8217;s Refs and Agents handle this automatically. In the case of Refs, any interaction you do must occur within a transaction (else Clojure will throw an exception), all such interaction will see a consistent view of the world as of a point in time, and no changes will proceed unless the states to be changed haven&#8217;t been changed by other participants in the meantime. Transactions support synchronous change to multiple Refs. Agents, OTOH, offer asynchronous change to a single reference. You pass a function and values, and, at some point in the future, that function will be passed the current state of the Agent and the return value of the function will become the Agent&#8217;s new state.</p>
+</div>
+<div class="paragraph">
+<p>In all cases the program will see stable views of the values in the world, as those values can&#8217;t change, and sharing them among cores is fine. The trick is, "values never change" means that making new values from old ones must be efficient, and it is in Clojure, due to its persistent data structures. They allow you to finally follow the oft-proffered advice to favor immutability. So you set the state of an identity to a new state by reading its current value, calling a pure function on that value to create a new value, and setting that value as the new state. These composite operations are made easy and atomic by the <a href="http://clojure.github.com/clojure/clojure.core-api.html#clojure.core/alter">alter</a>, <a href="http://clojure.github.com/clojure/clojure.core-api.html#clojure.core/commute">commute</a> and <a href="http://clojure.github.com/clojure/clojure.core-api.html#clojure.core/send">send</a> functions.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="actors">Message Passing and Actors</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There are other ways to model identity and state, one of the more popular of which is the message-passing <a href="http://en.wikipedia.org/wiki/Actor_model">actor model</a>, best exemplified by the quite impressive <a href="http://en.wikipedia.org/wiki/Erlang_%28programming_language%29">Erlang</a>. In an actor model, state is encapsulated in an actor (identity) and can only be affected/seen via the passing of messages (values). In an asynchronous system like Erlang&#8217;s, reading some aspect of an actor&#8217;s state requires sending a request message, waiting for a response, and the actor sending a response. It is important to understand that <em>the actor model was designed to address the problems of <strong>distributed</strong> programs</em>. And the problems of distributed programs are much harder - there are multiple worlds (address spaces), direct observation is not possible, interaction occurs over possibly unreliable channels, etc. The actor model supports transparent distribution. If you write all of your code this way, you are not bound to the actual location of the other actors, allowing a system to be spread over multiple processes/machines without changing the code.</p>
+</div>
+<div class="paragraph">
+<p>I chose not to use the Erlang-style actor model for same-process state management in Clojure for several reasons:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>It is a much more complex programming model, requiring 2-message conversations for the simplest data reads, and forcing the use of blocking message receives, which introduce the potential for deadlock. Programming for the failure modes of distribution means utilizing timeouts etc. It causes a bifurcation of the program protocols, some of which are represented by functions and others by the values of messages.</p>
+</li>
+<li>
+<p>It doesn&#8217;t let you fully leverage the efficiencies of being in the same process. It is quite possible to efficiently directly share a large immutable data structure between threads, but the actor model forces intervening conversations and, potentially, copying. Reads and writes get serialized and block each other, etc.</p>
+</li>
+<li>
+<p>It reduces your flexibility in modeling - this is a world in which everyone sits in a windowless room and communicates only by mail. Programs are decomposed as piles of blocking switch statements. You can only handle messages you anticipated receiving. Coordinating activities involving multiple actors is very difficult. You can&#8217;t observe anything without its cooperation/coordination - making ad-hoc reporting or analysis impossible, instead forcing every actor to participate in each protocol.</p>
+</li>
+<li>
+<p>It is often the case that taking something that works well locally and transparently distributing it doesn&#8217;t work out - the conversation granularity is too chatty or the message payloads are too large or the failure modes change the optimal work partitioning, i.e. transparent distribution isn&#8217;t transparent and the code has to change anyway.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Clojure may eventually support the actor model for distributed programming, paying the price only when distribution is required, but I think it is quite cumbersome for same-process programming. YMMV of course.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_summary">Summary</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Clojure is a functional language that explicitly supports programs as models and provides robust and easy-to-use facilities for managing identity and state in a single process in the face of concurrency.</p>
+</div>
+<div class="paragraph">
+<p>In coming to Clojure from an OO language, you can use one of its <a href="xref/../../reference/data_structures">persistent collections</a>, e.g. maps, instead of objects. Use values as much as possible. And for those cases where your objects are truly modeling identities (far fewer cases than you might realize until you start thinking about it this way), you can use a Ref or Agent with e.g. a map as its state in order to model an identity with changing state. If you want to encapsulate or abstract away the details of your values, a good idea if they are non-trivial, write a set of functions for viewing and manipulating them. If you want polymorphism, use Clojure&#8217;s multimethods.</p>
+</div>
+<div class="paragraph">
+<p>In the local case, since Clojure does not have mutable local variables, instead of building up values in a mutating loop, you can instead do it functionally with <a href="xref/../../reference/special_forms#recur">recur</a> or <a href="http://clojure.github.com/clojure/clojure.core-api.html#clojure.core/reduce">reduce</a>.</p>
+</div>
+</div>
+</div>
+
+
+<div class="clj-prev-next-container">
+  <a href="rationale" class="clj-prev-link"><span class="clj-prevnext-link-icon"></span>&nbsp;Rationale</a>
+  <a href="dynamic" class="clj-next-link">Dynamic Development&nbsp;<span class="clj-prevnext-link-icon"></span></a>
+</div>
+
+    </div>
+  </div>
+</div>
+
+  <div class="w-section clj-footer">
+    <div class="w-container clj-footer-links-container">
+      <div class="w-row">
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Community</h6><a href="http://igeldev.github.io/clojure-site-russian/community/resources" class="clj-footer-link">Resources</a><a href="http://igeldev.github.io/clojure-site-russian/community/contributing" class="clj-footer-link">Contributing</a><a href="http://igeldev.github.io/clojure-site-russian/community/companies" class="clj-footer-link">Companies</a>
+          <h6 class="clj-footer-heading">Legal</h6><a href="http://igeldev.github.io/clojure-site-russian/community/license" class="clj-footer-link">License</a><a href="http://igeldev.github.io/clojure-site-russian/privacy" class="clj-footer-link">Privacy Policy</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Documentation</h6><a href="http://igeldev.github.io/clojure-site-russian/about/rationale" class="clj-footer-link">Overview</a><a href="http://igeldev.github.io/clojure-site-russian/reference/documentation" class="clj-footer-link">Reference</a><a href="http://igeldev.github.io/clojure-site-russian/api/api" class="clj-footer-link">API</a><a href="http://igeldev.github.io/clojure-site-russian/guides/guides" class="clj-footer-link">Guides</a><a href="http://igeldev.github.io/clojure-site-russian/community/libraries" class="clj-footer-link">Libraries &amp; Tools</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Updates</h6><a href="http://igeldev.github.io/clojure-site-russian/news/news" class="clj-footer-link">News</a><a href="http://igeldev.github.io/clojure-site-russian/community/events" class="clj-footer-link">Events</a>
+          <h6 class="clj-footer-heading">ETC</h6><a href="https://www.youtube.com/user/ClojureTV" class="clj-footer-link">Video</a><a href="http://igeldev.github.io/clojure-site-russian/community/books" class="clj-footer-link">Books</a><a href="http://igeldev.github.io/clojure-site-russian/community/swag" class="clj-footer-link">Swag</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Code</h6><a href="http://igeldev.github.io/clojure-site-russian/community/downloads" class="clj-footer-link">Releases</a><a href="https://github.com/clojure/clojure/" class="clj-footer-link">Source</a><a href="http://igeldev.github.io/clojure-site-russian/about/clojurescript" class="clj-footer-link">ClojureScript</a><a href="http://igeldev.github.io/clojure-site-russian/about/clojureclr" class="clj-footer-link">ClojureCLR</a>
+        </div>
+      </div>
+    </div>
+    <div class="w-container clj-footer-legal-container">
+      <div class="w-clearfix clj-footer-legal">
+        <div class="clj-footer-logo">&nbsp;</div>
+        <div class="clj-footer-legal-links">
+          <div class="clj-footer-copyright">Copyright 2008-2016 Rich Hickey | <a class="clj-footer-sub-link" href="http://igeldev.github.io/clojure-site-russian/privacy">Privacy Policy</a><br/>Published 2017-05-17
+          </div>
+          <div class="clj-footer-designed-by">Logo &amp; site design by <a class="clj-footer-sub-link" href="http://tomhickey.com/">Tom Hickey</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/webflow.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+</body>
+</html>

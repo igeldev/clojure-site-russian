@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<!-- This site was created in Webflow. http://www.webflow.com-->
+<!-- Last Published: Fri Nov 13 2015 01:48:45 GMT+0000 (UTC) -->
+<html data-wf-site="56414d6fc8c27cad0f4e12e7" data-wf-page="5643ac587b1f28dc58ed6b89">
+<head>
+  <meta charset="utf-8">
+  <title>Clojure - Contributing to Clojure</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Webflow">
+  <link rel="stylesheet" type="text/css" href="../css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="../css/webflow.css">
+  <link rel="stylesheet" type="text/css" href="../css/clojureorg.webflow.css">
+  <link rel="stylesheet" type="text/css" href="../css/asciidoctor-mod.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ["Open Sans:300,300italic,400,400italic,600,600italic","PT Serif:400,400italic,700,700italic","Source Code Pro:regular,500"]
+      }
+    });
+  </script>
+  <script type="text/javascript" src="../js/modernizr.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="../images/clojure-logo-icon-32.png">
+  <link rel="apple-touch-icon" href="../images/clojure-logo-icon-256.png">
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4857754-16'], ['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script');
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+<body>
+  <div data-collapse="none" data-animation="default" data-duration="400" data-contain="1" class="w-nav clj-navbar">
+    <div class="w-container">
+      <a href="http://igeldev.github.io/clojure-site-russian/index" class="w-nav-brand w-clearfix clj-logo-container"><img width="60" src="../images/clojure-logo-120b.png" class="clj-logo">
+        <div class="clj-logo-text">Clojure</div>
+      </a>
+      <nav role="navigation" class="w-nav-menu clj-nav-menu"><a href="http://igeldev.github.io/clojure-site-russian/about/rationale" class="w-nav-link clj-nav-link">Overview</a><a href="http://igeldev.github.io/clojure-site-russian/reference/documentation" class="w-nav-link clj-nav-link">Reference‍</a><a href="http://igeldev.github.io/clojure-site-russian/api/api" class="w-nav-link clj-nav-link">API</a><a href="http://igeldev.github.io/clojure-site-russian/community/downloads" class="w-nav-link clj-nav-link">Releases</a><a href="http://igeldev.github.io/clojure-site-russian/guides/guides" class="w-nav-link clj-nav-link">Guides</a><a href="http://igeldev.github.io/clojure-site-russian/community/resources" class="w-nav-link clj-nav-link">Community</a><a href="http://igeldev.github.io/clojure-site-russian/news/news" class="w-nav-link clj-nav-link">News</a><a href="#" data-ix="search-click-trigger" class="w-nav-link clj-nav-link clj-nav-search"></a>
+      </nav>
+      <div class="w-nav-button clj-menu-button">
+        <div class="w-icon-nav-menu"></div>
+      </div>
+    </div>
+  </div>
+  <div data-ix="hide-search" class="w-section clj-search-section">
+    <div class="w-container">
+      <div class="w-form clj-search-form-wrapper">
+        <form id="wf-form-Search-Form" name="wf-form-Search-Form" data-name="Search Form" action="http://igeldev.github.io/clojure-site-russian/search" method="get">
+          <div class="w-row">
+            <div class="w-col w-col-9 w-col-small-9">
+              <input id="q" type="text" placeholder="Search clojure.org reference, guides, and API" name="q" data-name="q" autofocus="autofocus" class="w-input clj-search-input">
+            </div>
+            <div class="w-col w-col-3 w-col-small-3">
+              <input type="submit" value="Search" data-wait="Please wait..." class="w-button clj-search-submit">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+<div class="w-section clj-content-section">
+  <div class="w-container">
+    <div class="clj-section-nav-container">
+      <div data-collapse="small" data-animation="default" data-duration="200" data-contain="1" class="w-nav clj-section-navbar">
+        <div class="w-container">
+          <nav role="navigation" class="w-nav-menu clj-section-nav-menu">
+            <div class="w-nav-link clj-section-nav-heading">Community</div>
+            <a href="resources" class="w-nav-link clj-section-nav-item-link">Resources</a>
+            <a href="contributing" class="w-nav-link clj-section-nav-item-link">Contributing</a>
+            <a href="contributors" class="w-nav-link clj-section-nav-item-link">Contributors</a>
+            <a href="companies" class="w-nav-link clj-section-nav-item-link">Companies</a>
+            <a href="events" class="w-nav-link clj-section-nav-item-link">Events</a>
+            <div class="w-nav-link clj-section-nav-heading">Legal</div>
+            <a href="license" class="w-nav-link clj-section-nav-item-link">License</a>
+            <a href="http://igeldev.github.io/clojure-site-russian/privacy" class="w-nav-link clj-section-nav-item-link">Privacy Policy</a>
+            <div class="w-nav-link clj-section-nav-heading">Help</div>
+            <a href="books" class="w-nav-link clj-section-nav-item-link">Books</a>
+            <a href="libraries" class="w-nav-link clj-section-nav-item-link">Libraries</a>
+            <a href="start_group" class="w-nav-link clj-section-nav-item-link">Starting a User Group</a>
+            <a href="contributing_site" class="w-nav-link clj-section-nav-item-link">Site Contributions</a>
+            <div class="w-nav-link clj-section-nav-heading">Etc</div>
+            <a href="swag" class="w-nav-link clj-section-nav-item-link">Swag</a>
+          </nav>
+          <div data-ix="toggle-section-nav-icon" class="w-nav-button w-clearfix clj-section-nav-toggle">
+            <div class="clj-section-nav-text">Contributing to Clojure</div>
+            <div class="clj-section-nav-icon-closed"></div>
+            <div data-ix="init-hide-section-nav-icon-open" class="clj-section-nav-icon-open"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clj-content-container">
+
+      <h1>Contributing to Clojure</h1>
+
+      <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Following the lead of other open source projects, the Clojure project requires contributors to jointly assign their copyright on contributed code. The <a href="https://secure.echosign.com/public/hostedForm?formid=95YMDL576B336E">Contributor Agreement</a> (CA) gives Rich Hickey and the contributor joint copyright interests in the code: the contributor retains copyrights while also granting those rights to Rich Hickey as the open source project sponsor.</p>
+</div>
+<div class="paragraph">
+<p>The CA is derived from the Oracle Contributor Agreement (OCA), used for OpenJDK, Netbeans and OpenSolaris projects and others. There is a good <a href="http://www.oracle.com/technetwork/oca-faq-405384.pdf">OCA FAQ</a> answering many questions.</p>
+</div>
+<div class="paragraph">
+<p>The CA does not change the rights or responsibilities of the Clojure community under the <a href="http://opensource.org/licenses/eclipse-1.0.php">Eclipse Public License (EPL)</a>. By executing the CA, contributors protect the Clojure code base, enable alternative licensing models, and protect the flexibility to adapt the project to the changing demands of the community. In order for the CA to be effective, the Clojure project must obtain an assignment for all contributions. Please review the CA for a complete understanding of its terms and conditions. By contributing source code or other material to Clojure, you represent that you have a CA with Rich Hickey for such contributions. In order to track contributors, you understand that your full name and username may be posted on a web page listing authorized contributors that is accessible via a public URL.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_instructions_for_submitting_the_agreement">Instructions for submitting the agreement</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Fill out and submit the <a href="https://secure.echosign.com/public/hostedForm?formid=95YMDL576B336E">Contributor Agreement</a> (an online e-form)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_making_a_contribution">Making a contribution</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Before you invest time working on a change, discuss what you&#8217;re trying to do with others on the <a href="http://groups.google.com/group/clojure-dev">Clojure Dev Google group</a>. They&#8217;re likely to be able to offer comments and suggestions that will result in a higher-quality change and a smoother submission process. Announcing that you&#8217;re working on a particular item can also help to avoid wasted effort in case someone else is already working on it. Once you&#8217;ve submitted the CA, you can <a href="http://dev.clojure.org/jira/browse/CLJ">submit patches via JIRA</a>. Frequent and trusted contributors of more substantial libraries may be granted committer membership in the Clojure contrib projects.</p>
+</div>
+<div class="paragraph">
+<p>Please see the <a href="http://dev.clojure.org/display/community/Contributing">Contributing</a> wiki for a collection of resources on tickets, builds, patches, source, and more. If you&#8217;d like to submit a patch, please follow these guidelines on the <a href="http://dev.clojure.org/display/community/JIRA+workflow">preferred process for submitting</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributors">Contributors</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>See the full <a href="contributors">list of contributors</a> that have signed the Clojure Contributor Agreement.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="patches">Contributed patches to Clojure:</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Aaron Bedra</p>
+</li>
+<li>
+<p>Aaron Cohen</p>
+</li>
+<li>
+<p>Achim Passen</p>
+</li>
+<li>
+<p>Alan Dipert</p>
+</li>
+<li>
+<p>Alan Malloy</p>
+</li>
+<li>
+<p>Alexander Yakushev</p>
+</li>
+<li>
+<p>Alex Miller</p>
+</li>
+<li>
+<p>Alex Osborne</p>
+</li>
+<li>
+<p>Alex Ott</p>
+</li>
+<li>
+<p>Alex Redington</p>
+</li>
+<li>
+<p>Alexander Taggart</p>
+</li>
+<li>
+<p>Alexander Yakushev</p>
+</li>
+<li>
+<p>Alf Kristian Stoyle</p>
+</li>
+<li>
+<p>Allen Rohner</p>
+</li>
+<li>
+<p>Ambrose Bonnaire-Sergeant</p>
+</li>
+<li>
+<p>Andrei Kleschinski</p>
+</li>
+<li>
+<p>Andrew Rosa</p>
+</li>
+<li>
+<p>Andy Fingerhut</p>
+</li>
+<li>
+<p>Andy Sheldon</p>
+</li>
+<li>
+<p>Anthony Grimes</p>
+</li>
+<li>
+<p>Aspasia Beneti</p>
+</li>
+<li>
+<p>Baishampayan Ghose</p>
+</li>
+<li>
+<p>Ben Smith-Mannschott</p>
+</li>
+<li>
+<p>Benjamin Teuber</p>
+</li>
+<li>
+<p>Blake West</p>
+</li>
+<li>
+<p>Bozhidar Batsov</p>
+</li>
+<li>
+<p>Brandon Bloom</p>
+</li>
+<li>
+<p>Brenton Ashworth</p>
+</li>
+<li>
+<p>Brian Hurt</p>
+</li>
+<li>
+<p>Brian Taylor</p>
+</li>
+<li>
+<p>Bruce Adams</p>
+</li>
+<li>
+<p>Chas Emerick</p>
+</li>
+<li>
+<p>Chris Gray</p>
+</li>
+<li>
+<p>Chris Houser</p>
+</li>
+<li>
+<p>Chris Perkins</p>
+</li>
+<li>
+<p>Christoffer Sawicki</p>
+</li>
+<li>
+<p>Christophe Grand</p>
+</li>
+<li>
+<p>Christopher Redinger</p>
+</li>
+<li>
+<p>Clinton R. Nixon</p>
+</li>
+<li>
+<p>Colin Jones</p>
+</li>
+<li>
+<p>Cosmin Stejerean</p>
+</li>
+<li>
+<p>Daniel Compton</p>
+</li>
+<li>
+<p>Daniel Solano Gómez</p>
+</li>
+<li>
+<p>David Liebke</p>
+</li>
+<li>
+<p>David McNeil</p>
+</li>
+<li>
+<p>David Miller</p>
+</li>
+<li>
+<p>David Powell</p>
+</li>
+<li>
+<p>David Rupp</p>
+</li>
+<li>
+<p>David Santiago</p>
+</li>
+<li>
+<p>Devender Gollapally</p>
+</li>
+<li>
+<p>Devin Walters</p>
+</li>
+<li>
+<p>Dimitry Gashinsky</p>
+</li>
+<li>
+<p>Drew Raines</p>
+</li>
+<li>
+<p>Ed Bowler</p>
+</li>
+<li>
+<p>Eric Schoonover</p>
+</li>
+<li>
+<p>Erik Assum</p>
+</li>
+<li>
+<p>Federico Brubacher</p>
+</li>
+<li>
+<p>Frantisek Sodomka</p>
+</li>
+<li>
+<p>Gabriel Horner</p>
+</li>
+<li>
+<p>Gary Fredericks</p>
+</li>
+<li>
+<p>George Jahad</p>
+</li>
+<li>
+<p>Ghadi Shayban</p>
+</li>
+<li>
+<p>Gordon Syme</p>
+</li>
+<li>
+<p>Herwig Hochleitner</p>
+</li>
+<li>
+<p>Howard Lewis Ship</p>
+</li>
+<li>
+<p>Hubert Iwaniuk</p>
+</li>
+<li>
+<p>Hugo Duncan</p>
+</li>
+<li>
+<p>Immo Heikkinen</p>
+</li>
+<li>
+<p>James Reeves</p>
+</li>
+<li>
+<p>Jarkko Oranen</p>
+</li>
+<li>
+<p>Jason Wolfe</p>
+</li>
+<li>
+<p>Jean Niklas L&#8217;orange</p>
+</li>
+<li>
+<p>Jeremy Heiler</p>
+</li>
+<li>
+<p>Joe Gallo</p>
+</li>
+<li>
+<p>John Szakmeister</p>
+</li>
+<li>
+<p>Jonas Enlund</p>
+</li>
+<li>
+<p>Jozef Wagner</p>
+</li>
+<li>
+<p>Juha Arpiainen</p>
+</li>
+<li>
+<p>Justin Balthrop</p>
+</li>
+<li>
+<p>Justin Kramer</p>
+</li>
+<li>
+<p>Karsten Schmidt</p>
+</li>
+<li>
+<p>Kevin Downey</p>
+</li>
+<li>
+<p>Konrad Hinsen</p>
+</li>
+<li>
+<p>Kurt Harriger</p>
+</li>
+<li>
+<p>Laurent Petit</p>
+</li>
+<li>
+<p>Lauri Pesonen</p>
+</li>
+<li>
+<p>Luke VanderHart</p>
+</li>
+<li>
+<p>Mark Simpson</p>
+</li>
+<li>
+<p>Matt Revelle</p>
+</li>
+<li>
+<p>Max Penet</p>
+</li>
+<li>
+<p>Meikel Brandmeyer</p>
+</li>
+<li>
+<p>Micah Martin</p>
+</li>
+<li>
+<p>Michael Blume</p>
+</li>
+<li>
+<p>Michael Fogus</p>
+</li>
+<li>
+<p>Michał Marczyk</p>
+</li>
+<li>
+<p>Michel Alexandre Salim</p>
+</li>
+<li>
+<p>Mike Anderson</p>
+</li>
+<li>
+<p>Mike Hinchey</p>
+</li>
+<li>
+<p>Nahuel Greco</p>
+</li>
+<li>
+<p>Nicola Mometto</p>
+</li>
+<li>
+<p>Nicolas Buduroi</p>
+</li>
+<li>
+<p>Nikita Prokopov</p>
+</li>
+<li>
+<p>Nola Stowe</p>
+</li>
+<li>
+<p>Paul M Bauer</p>
+</li>
+<li>
+<p>Paul Stadig</p>
+</li>
+<li>
+<p>Pepijn de Vos</p>
+</li>
+<li>
+<p>Phil Hagelberg</p>
+</li>
+<li>
+<p>Philip Aston</p>
+</li>
+<li>
+<p>Philip Potter</p>
+</li>
+<li>
+<p>Ragnar Dahlén</p>
+</li>
+<li>
+<p>Ralf Schmitt</p>
+</li>
+<li>
+<p>Rasmus Svensson</p>
+</li>
+<li>
+<p>Rich Hickey</p>
+</li>
+<li>
+<p>Richard Newman</p>
+</li>
+<li>
+<p>Robert Lachlan</p>
+</li>
+<li>
+<p>Russ Olsen</p>
+</li>
+<li>
+<p>Scott Lowe</p>
+</li>
+<li>
+<p>Sean Devlin</p>
+</li>
+<li>
+<p>Shogo Ohta</p>
+</li>
+<li>
+<p>Stefan Kamphausen</p>
+</li>
+<li>
+<p>Stephen C. Gilardi</p>
+</li>
+<li>
+<p>Steve Miner</p>
+</li>
+<li>
+<p>Steven Yi</p>
+</li>
+<li>
+<p>Stuart Halloway</p>
+</li>
+<li>
+<p>Stuart Sierra</p>
+</li>
+<li>
+<p>Tassilo Horn</p>
+</li>
+<li>
+<p>Tim Dysinger</p>
+</li>
+<li>
+<p>Tim McCormack</p>
+</li>
+<li>
+<p>Timothy Baldridge</p>
+</li>
+<li>
+<p>Timothy Pratley</p>
+</li>
+<li>
+<p>Toby Crawley</p>
+</li>
+<li>
+<p>Tom Faulhaber</p>
+</li>
+<li>
+<p>Tomasz Nurkiewicz</p>
+</li>
+<li>
+<p>Tsutomu Yano</p>
+</li>
+<li>
+<p>Vipul Amler</p>
+</li>
+<li>
+<p>Yanxiang Lou</p>
+</li>
+<li>
+<p>Zach Tellman</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><em><strong>Many thanks for your contributions to Clojure!</strong></em></p>
+</div>
+</div>
+</div>
+
+
+<div class="clj-prev-next-container">
+  
+  
+</div>
+
+    </div>
+  </div>
+</div>
+
+  <div class="w-section clj-footer">
+    <div class="w-container clj-footer-links-container">
+      <div class="w-row">
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Community</h6><a href="http://igeldev.github.io/clojure-site-russian/community/resources" class="clj-footer-link">Resources</a><a href="http://igeldev.github.io/clojure-site-russian/community/contributing" class="clj-footer-link">Contributing</a><a href="http://igeldev.github.io/clojure-site-russian/community/companies" class="clj-footer-link">Companies</a>
+          <h6 class="clj-footer-heading">Legal</h6><a href="http://igeldev.github.io/clojure-site-russian/community/license" class="clj-footer-link">License</a><a href="http://igeldev.github.io/clojure-site-russian/privacy" class="clj-footer-link">Privacy Policy</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Documentation</h6><a href="http://igeldev.github.io/clojure-site-russian/about/rationale" class="clj-footer-link">Overview</a><a href="http://igeldev.github.io/clojure-site-russian/reference/documentation" class="clj-footer-link">Reference</a><a href="http://igeldev.github.io/clojure-site-russian/api/api" class="clj-footer-link">API</a><a href="http://igeldev.github.io/clojure-site-russian/guides/guides" class="clj-footer-link">Guides</a><a href="http://igeldev.github.io/clojure-site-russian/community/libraries" class="clj-footer-link">Libraries &amp; Tools</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Updates</h6><a href="http://igeldev.github.io/clojure-site-russian/news/news" class="clj-footer-link">News</a><a href="http://igeldev.github.io/clojure-site-russian/community/events" class="clj-footer-link">Events</a>
+          <h6 class="clj-footer-heading">ETC</h6><a href="https://www.youtube.com/user/ClojureTV" class="clj-footer-link">Video</a><a href="http://igeldev.github.io/clojure-site-russian/community/books" class="clj-footer-link">Books</a><a href="http://igeldev.github.io/clojure-site-russian/community/swag" class="clj-footer-link">Swag</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Code</h6><a href="http://igeldev.github.io/clojure-site-russian/community/downloads" class="clj-footer-link">Releases</a><a href="https://github.com/clojure/clojure/" class="clj-footer-link">Source</a><a href="http://igeldev.github.io/clojure-site-russian/about/clojurescript" class="clj-footer-link">ClojureScript</a><a href="http://igeldev.github.io/clojure-site-russian/about/clojureclr" class="clj-footer-link">ClojureCLR</a>
+        </div>
+      </div>
+    </div>
+    <div class="w-container clj-footer-legal-container">
+      <div class="w-clearfix clj-footer-legal">
+        <div class="clj-footer-logo">&nbsp;</div>
+        <div class="clj-footer-legal-links">
+          <div class="clj-footer-copyright">Copyright 2008-2016 Rich Hickey | <a class="clj-footer-sub-link" href="http://igeldev.github.io/clojure-site-russian/privacy">Privacy Policy</a><br/>Published 2017-05-17
+          </div>
+          <div class="clj-footer-designed-by">Logo &amp; site design by <a class="clj-footer-sub-link" href="http://tomhickey.com/">Tom Hickey</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/webflow.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!-- This site was created in Webflow. http://www.webflow.com-->
+<!-- Last Published: Fri Nov 13 2015 01:48:45 GMT+0000 (UTC) -->
+<html data-wf-site="56414d6fc8c27cad0f4e12e7" data-wf-page="5643ac587b1f28dc58ed6b89">
+<head>
+  <meta charset="utf-8">
+  <title>Clojure - Concurrent Programming</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Webflow">
+  <link rel="stylesheet" type="text/css" href="../css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="../css/webflow.css">
+  <link rel="stylesheet" type="text/css" href="../css/clojureorg.webflow.css">
+  <link rel="stylesheet" type="text/css" href="../css/asciidoctor-mod.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ["Open Sans:300,300italic,400,400italic,600,600italic","PT Serif:400,400italic,700,700italic","Source Code Pro:regular,500"]
+      }
+    });
+  </script>
+  <script type="text/javascript" src="../js/modernizr.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="../images/clojure-logo-icon-32.png">
+  <link rel="apple-touch-icon" href="../images/clojure-logo-icon-256.png">
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4857754-16'], ['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script');
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+<body>
+  <div data-collapse="none" data-animation="default" data-duration="400" data-contain="1" class="w-nav clj-navbar">
+    <div class="w-container">
+      <a href="http://igeldev.github.io/clojure-site-russian/index" class="w-nav-brand w-clearfix clj-logo-container"><img width="60" src="../images/clojure-logo-120b.png" class="clj-logo">
+        <div class="clj-logo-text">Clojure</div>
+      </a>
+      <nav role="navigation" class="w-nav-menu clj-nav-menu"><a href="http://igeldev.github.io/clojure-site-russian/about/rationale" class="w-nav-link clj-nav-link">Overview</a><a href="http://igeldev.github.io/clojure-site-russian/reference/documentation" class="w-nav-link clj-nav-link">Reference‍</a><a href="http://igeldev.github.io/clojure-site-russian/api/api" class="w-nav-link clj-nav-link">API</a><a href="http://igeldev.github.io/clojure-site-russian/community/downloads" class="w-nav-link clj-nav-link">Releases</a><a href="http://igeldev.github.io/clojure-site-russian/guides/guides" class="w-nav-link clj-nav-link">Guides</a><a href="http://igeldev.github.io/clojure-site-russian/community/resources" class="w-nav-link clj-nav-link">Community</a><a href="http://igeldev.github.io/clojure-site-russian/news/news" class="w-nav-link clj-nav-link">News</a><a href="#" data-ix="search-click-trigger" class="w-nav-link clj-nav-link clj-nav-search"></a>
+      </nav>
+      <div class="w-nav-button clj-menu-button">
+        <div class="w-icon-nav-menu"></div>
+      </div>
+    </div>
+  </div>
+  <div data-ix="hide-search" class="w-section clj-search-section">
+    <div class="w-container">
+      <div class="w-form clj-search-form-wrapper">
+        <form id="wf-form-Search-Form" name="wf-form-Search-Form" data-name="Search Form" action="http://igeldev.github.io/clojure-site-russian/search" method="get">
+          <div class="w-row">
+            <div class="w-col w-col-9 w-col-small-9">
+              <input id="q" type="text" placeholder="Search clojure.org reference, guides, and API" name="q" data-name="q" autofocus="autofocus" class="w-input clj-search-input">
+            </div>
+            <div class="w-col w-col-3 w-col-small-3">
+              <input type="submit" value="Search" data-wait="Please wait..." class="w-button clj-search-submit">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+<div class="w-section clj-content-section">
+  <div class="w-container">
+    <div class="clj-section-nav-container">
+      <div data-collapse="small" data-animation="default" data-duration="200" data-contain="1" class="w-nav clj-section-navbar">
+        <div class="w-container">
+          <nav role="navigation" class="w-nav-menu clj-section-nav-menu"><a href="rationale" class="w-nav-link clj-section-nav-item-link">Rationale</a><a href="state" class="w-nav-link clj-section-nav-item-link">State</a><div class="w-nav-link clj-section-nav-heading">Features</div><a href="dynamic" class="w-nav-link clj-section-nav-item-link">Dynamic Development</a><a href="functional_programming" class="w-nav-link clj-section-nav-item-link">Functional Programming</a><a href="lisp" class="w-nav-link clj-section-nav-item-link">Lisp</a><a href="runtime_polymorphism" class="w-nav-link clj-section-nav-item-link">Runtime Polymorphism</a><a href="concurrent_programming" class="w-nav-link clj-section-nav-item-link">Concurrent Programming</a><a href="jvm_hosted" class="w-nav-link clj-section-nav-item-link">JVM Hosted</a><div class="w-nav-link clj-section-nav-heading">Other Hosts</div><a href="clojurescript" class="w-nav-link clj-section-nav-item-link">ClojureScript</a><a href="clojureclr" class="w-nav-link clj-section-nav-item-link">ClojureCLR</a>
+          </nav>
+          <div data-ix="toggle-section-nav-icon" class="w-nav-button w-clearfix clj-section-nav-toggle">
+            <div class="clj-section-nav-text">Concurrent Programming</div>
+            <div class="clj-section-nav-icon-closed"></div>
+            <div data-ix="init-hide-section-nav-icon-open" class="clj-section-nav-icon-open"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clj-content-container">
+
+      <h1>Concurrent Programming</h1>
+
+      <div class="paragraph">
+<p>Today&#8217;s systems have to deal with many simultaneous tasks and leverage the power of multi-core CPUs. Doing so with threads can be very difficult due to the complexities of synchronization. Clojure simplifies multi-threaded programming in several ways. Because the core data structures are immutable, they can be shared readily between threads. However, it is often necessary to have state change in a program. Clojure, being a practical language, allows state to change but provides mechanism to ensure that, when it does so, it remains consistent, while alleviating developers from having to avoid conflicts manually using locks etc. The <a href="xref/../../reference/refs">software transactional memory system</a> (STM), exposed through <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/dosync">dosync</a>, <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/ref">ref</a>, <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/set">set</a>, <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/alter">alter</a>, et al, supports <em>sharing</em> changing state between threads in a <em>synchronous</em> and <em>coordinated</em> manner. The <a href="xref/../../reference/agents">agent</a> system supports sharing changing state between threads in an <em>asynchronous</em> and <em>independent</em> manner. The <a href="xref/../../reference/atoms">atoms</a> system supports sharing changing state between threads in a <em>synchronous</em> and <em>independent</em> manner. The <a href="xref/../../reference/vars">dynamic var system</a>, exposed through <a href="xref/../../reference/special_forms#def">def</a>, <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/binding">binding</a>, et al, supports isolating changing state within threads.</p>
+</div>
+<div class="paragraph">
+<p>In all cases, Clojure does not replace the Java thread system, rather it works with it. Clojure functions are java.util.concurrent.Callable, therefore they work with the Executor framework etc.</p>
+</div>
+<div class="paragraph">
+<p>Most of this is covered in more detail in the <a href="http://www.youtube.com/watch?v=dGVqrGmwOAw">concurrency screencast</a>.</p>
+</div>
+<div class="paragraph">
+<p><a href="xref/../../reference/refs">Refs</a> are mutable references to objects. They can be <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/ref-set">ref-set</a> or <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/alter">alter</a>ed to refer to different objects during transactions, which are delimited by <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/dosync">dosync</a> blocks. All ref modifications within a transaction happen or none do. Also, reads of refs within a transaction reflect a snapshot of the reference world at a particular point in time, i.e. each transaction is isolated from other transactions. If a conflict occurs between 2 transactions trying to modify the same reference, one of them will be retried. All of this occurs without explicit locking.</p>
+</div>
+<div class="paragraph">
+<p>In this example a vector of Refs containing integers is created <em>(refs)</em>, then a set of threads are set up <em>(pool)</em> to run a number of iterations of incrementing every Ref <em>(tasks)</em>. This creates extreme contention, but yields the correct result. No locks!</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">(import '(java.util.concurrent Executors))
+
+(defn test-stm [nitems nthreads niters]
+  (let [refs  (map ref (repeat nitems 0))
+        pool  (Executors/newFixedThreadPool nthreads)
+        tasks (map (fn [t]
+                      (fn []
+                        (dotimes [n niters]
+                          (dosync
+                            (doseq [r refs]
+                              (alter r + 1 t))))))
+                   (range nthreads))]
+    (doseq [future (.invokeAll pool tasks)]
+      (.get future))
+    (.shutdown pool)
+    (map deref refs)))
+
+(test-stm 10 10 10000)
+-&gt; (550000 550000 550000 550000 550000 550000 550000 550000 550000 550000)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In typical use refs can refer to Clojure collections, which, being persistent and immutable, efficiently support simultaneous speculative 'modifications' by multiple transactions. Mutable objects should not be put in refs.</p>
+</div>
+<div class="paragraph">
+<p>By default Vars are static, but per-thread bindings for Vars defined with <a href="xref/../../reference/metadata">metadata</a> mark them as dynamic. <a href="xref/../../reference/vars">Dynamic vars</a> are also mutable references to objects. They have a (thread-shared) root binding which can be established by <a href="xref/../../reference/special_forms#def">def</a>, and can be set using <em>*set!*</em>, but only if they have been bound to a new storage location thread-locally using <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/binding">binding</a>. Those bindings and any subsequent modifications to those bindings will only be seen <em>within</em> the thread by code in the dynamic scope of the binding block. Nested bindings obey a stack protocol and unwind as control exits the binding block.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">(def ^:dynamic *v*)
+
+(defn incv [n] (set! *v* (+ *v* n)))
+
+(defn test-vars [nthreads niters]
+  (let [pool (Executors/newFixedThreadPool nthreads)
+        tasks (map (fn [t]
+                     #(binding [*v* 0]
+                        (dotimes [n niters]
+                          (incv t))
+                        *v*))
+                   (range nthreads))]
+      (let [ret (.invokeAll pool tasks)]
+        (.shutdown pool)
+        (map #(.get %) ret))))
+
+(test-vars 10 1000000)
+-&gt; (0 1000000 2000000 3000000 4000000 5000000 6000000 7000000 8000000 9000000)
+(set! *v* 4)
+-&gt; java.lang.IllegalStateException: Can't change/establish root binding of: *v* with set</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dynamic vars provide a way to communicate between different points on the call stack without polluting the argument lists and return values of the intervening calls. In addition, dynamic vars support a flavor of context-oriented programming. Because fns defined with <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/defn">defn</a> are stored in vars, they too can be dynamically rebound:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">(defn ^:dynamic say [&amp; args]
+  (apply str args))
+
+(defn loves [x y]
+  (say x " loves " y))
+
+(defn test-rebind []
+  (println (loves "ricky" "lucy"))
+  (let [say-orig say]
+    (binding [say (fn [&amp; args]
+                      (println "Logging say")
+                      (apply say-orig args))]
+      (println (loves "fred" "ethel")))))
+
+(test-rebind)
+
+ricky loves lucy
+Logging say
+fred loves ethel</code></pre>
+</div>
+</div>
+
+
+<div class="clj-prev-next-container">
+  <a href="runtime_polymorphism" class="clj-prev-link"><span class="clj-prevnext-link-icon"></span>&nbsp;Runtime Polymorphism</a>
+  <a href="jvm_hosted" class="clj-next-link">JVM Hosted&nbsp;<span class="clj-prevnext-link-icon"></span></a>
+</div>
+
+    </div>
+  </div>
+</div>
+
+  <div class="w-section clj-footer">
+    <div class="w-container clj-footer-links-container">
+      <div class="w-row">
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Community</h6><a href="http://igeldev.github.io/clojure-site-russian/community/resources" class="clj-footer-link">Resources</a><a href="http://igeldev.github.io/clojure-site-russian/community/contributing" class="clj-footer-link">Contributing</a><a href="http://igeldev.github.io/clojure-site-russian/community/companies" class="clj-footer-link">Companies</a>
+          <h6 class="clj-footer-heading">Legal</h6><a href="http://igeldev.github.io/clojure-site-russian/community/license" class="clj-footer-link">License</a><a href="http://igeldev.github.io/clojure-site-russian/privacy" class="clj-footer-link">Privacy Policy</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Documentation</h6><a href="http://igeldev.github.io/clojure-site-russian/about/rationale" class="clj-footer-link">Overview</a><a href="http://igeldev.github.io/clojure-site-russian/reference/documentation" class="clj-footer-link">Reference</a><a href="http://igeldev.github.io/clojure-site-russian/api/api" class="clj-footer-link">API</a><a href="http://igeldev.github.io/clojure-site-russian/guides/guides" class="clj-footer-link">Guides</a><a href="http://igeldev.github.io/clojure-site-russian/community/libraries" class="clj-footer-link">Libraries &amp; Tools</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Updates</h6><a href="http://igeldev.github.io/clojure-site-russian/news/news" class="clj-footer-link">News</a><a href="http://igeldev.github.io/clojure-site-russian/community/events" class="clj-footer-link">Events</a>
+          <h6 class="clj-footer-heading">ETC</h6><a href="https://www.youtube.com/user/ClojureTV" class="clj-footer-link">Video</a><a href="http://igeldev.github.io/clojure-site-russian/community/books" class="clj-footer-link">Books</a><a href="http://igeldev.github.io/clojure-site-russian/community/swag" class="clj-footer-link">Swag</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Code</h6><a href="http://igeldev.github.io/clojure-site-russian/community/downloads" class="clj-footer-link">Releases</a><a href="https://github.com/clojure/clojure/" class="clj-footer-link">Source</a><a href="http://igeldev.github.io/clojure-site-russian/about/clojurescript" class="clj-footer-link">ClojureScript</a><a href="http://igeldev.github.io/clojure-site-russian/about/clojureclr" class="clj-footer-link">ClojureCLR</a>
+        </div>
+      </div>
+    </div>
+    <div class="w-container clj-footer-legal-container">
+      <div class="w-clearfix clj-footer-legal">
+        <div class="clj-footer-logo">&nbsp;</div>
+        <div class="clj-footer-legal-links">
+          <div class="clj-footer-copyright">Copyright 2008-2016 Rich Hickey | <a class="clj-footer-sub-link" href="http://igeldev.github.io/clojure-site-russian/privacy">Privacy Policy</a><br/>Published 2017-05-17
+          </div>
+          <div class="clj-footer-designed-by">Logo &amp; site design by <a class="clj-footer-sub-link" href="http://tomhickey.com/">Tom Hickey</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/webflow.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+</body>
+</html>

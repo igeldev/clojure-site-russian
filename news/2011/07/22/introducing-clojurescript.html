@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<!-- This site was created in Webflow. http://www.webflow.com-->
+<!-- Last Published: Fri Nov 13 2015 01:48:45 GMT+0000 (UTC) -->
+<html data-wf-site="56414d6fc8c27cad0f4e12e7" data-wf-page="5643ac587b1f28dc58ed6b89">
+<head>
+  <meta charset="utf-8">
+  <title>Clojure - Introducing ClojureScript</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Webflow">
+  <link rel="stylesheet" type="text/css" href="../../../../css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="../../../../css/webflow.css">
+  <link rel="stylesheet" type="text/css" href="../../../../css/clojureorg.webflow.css">
+  <link rel="stylesheet" type="text/css" href="../../../../css/asciidoctor-mod.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ["Open Sans:300,300italic,400,400italic,600,600italic","PT Serif:400,400italic,700,700italic","Source Code Pro:regular,500"]
+      }
+    });
+  </script>
+  <script type="text/javascript" src="../../../../js/modernizr.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="../../../../images/clojure-logo-icon-32.png">
+  <link rel="apple-touch-icon" href="../../../../images/clojure-logo-icon-256.png">
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4857754-16'], ['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script');
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+<body>
+  <div data-collapse="none" data-animation="default" data-duration="400" data-contain="1" class="w-nav clj-navbar">
+    <div class="w-container">
+      <a href="http://igeldev.github.io/clojure-site-russian/index" class="w-nav-brand w-clearfix clj-logo-container"><img width="60" src="../../../../images/clojure-logo-120b.png" class="clj-logo">
+        <div class="clj-logo-text">Clojure</div>
+      </a>
+      <nav role="navigation" class="w-nav-menu clj-nav-menu"><a href="http://igeldev.github.io/clojure-site-russian/about/rationale" class="w-nav-link clj-nav-link">Overview</a><a href="http://igeldev.github.io/clojure-site-russian/reference/documentation" class="w-nav-link clj-nav-link">Reference‍</a><a href="http://igeldev.github.io/clojure-site-russian/api/api" class="w-nav-link clj-nav-link">API</a><a href="http://igeldev.github.io/clojure-site-russian/community/downloads" class="w-nav-link clj-nav-link">Releases</a><a href="http://igeldev.github.io/clojure-site-russian/guides/guides" class="w-nav-link clj-nav-link">Guides</a><a href="http://igeldev.github.io/clojure-site-russian/community/resources" class="w-nav-link clj-nav-link">Community</a><a href="http://igeldev.github.io/clojure-site-russian/news/news" class="w-nav-link clj-nav-link">News</a><a href="#" data-ix="search-click-trigger" class="w-nav-link clj-nav-link clj-nav-search"></a>
+      </nav>
+      <div class="w-nav-button clj-menu-button">
+        <div class="w-icon-nav-menu"></div>
+      </div>
+    </div>
+  </div>
+  <div data-ix="hide-search" class="w-section clj-search-section">
+    <div class="w-container">
+      <div class="w-form clj-search-form-wrapper">
+        <form id="wf-form-Search-Form" name="wf-form-Search-Form" data-name="Search Form" action="http://igeldev.github.io/clojure-site-russian/search" method="get">
+          <div class="w-row">
+            <div class="w-col w-col-9 w-col-small-9">
+              <input id="q" type="text" placeholder="Search clojure.org reference, guides, and API" name="q" data-name="q" autofocus="autofocus" class="w-input clj-search-input">
+            </div>
+            <div class="w-col w-col-3 w-col-small-3">
+              <input type="submit" value="Search" data-wait="Please wait..." class="w-button clj-search-submit">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+<div class="w-section clj-content-section">
+  <div class="w-container">
+    <div class="clj-section-nav-container">
+      <div data-collapse="small" data-animation="default" data-duration="200" data-contain="1" class="w-nav clj-section-navbar">
+        <div class="w-container">
+          <nav role="navigation" class="w-nav-menu clj-section-nav-menu">
+                <a href="http://igeldev.github.io/clojure-site-russian/news/2016/01/28/state-of-clojure-2015.html" class="w-nav-link clj-section-nav-item-link">State of Clojure 2015 survey results</a>
+                <a href="http://igeldev.github.io/clojure-site-russian/news/2016/01/19/clojure18.html" class="w-nav-link clj-section-nav-item-link">Clojure 1.8 is now available</a>
+                <a href="http://igeldev.github.io/clojure-site-russian/news/2016/01/14/clojure-org-live.html" class="w-nav-link clj-section-nav-item-link">Welcome to the new clojure.org!</a>
+                <a href="http://igeldev.github.io/clojure-site-russian/news/2015/06/30/clojure-17.html" class="w-nav-link clj-section-nav-item-link">Clojure 1.7 is now available</a>
+                <a href="http://igeldev.github.io/clojure-site-russian/news/2014/08/06/transducers-are-coming.html" class="w-nav-link clj-section-nav-item-link">Transducers are Coming</a>
+                <a href="http://igeldev.github.io/clojure-site-russian/news/2013/06/28/clojure-clore-async-channels.html" class="w-nav-link clj-section-nav-item-link">Clojure core.async Channels</a>
+                <a href="http://igeldev.github.io/clojure-site-russian/news/2012/02/17/clojure-governance.html" class="w-nav-link clj-section-nav-item-link">Clojure Governance and How It Got That Way</a>
+                <a href="http://igeldev.github.io/clojure-site-russian/news/2011/07/22/introducing-clojurescript.html" class="w-nav-link clj-section-nav-item-link">Introducing ClojureScript</a>
+          </nav>
+          <div data-ix="toggle-section-nav-icon" class="w-nav-button w-clearfix clj-section-nav-toggle">
+            <div class="clj-section-nav-text">Introducing ClojureScript</div>
+            <div class="clj-section-nav-icon-closed"></div>
+            <div data-ix="init-hide-section-nav-icon-open" class="clj-section-nav-icon-open"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="clj-content-container">
+      <h1>Introducing ClojureScript</h1>
+      <p><em>22 July 2011</em><br/>
+         <em>Stuart Sierra</em></p>
+
+      <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Clojure team is proud to introduce an important addition to the Clojure language ecosystem. <a href="https://github.com/clojure/clojurescript">ClojureScript</a> is a new compiler for Clojure that targets JavaScript.</p>
+</div>
+<div class="paragraph">
+<p>A <a href="https://www.youtube.com/watch?v=tVooR-dF_Ag">video recording of the ClojureScript announcement</a> is available, along with <a href="http://cloud.github.com/downloads/clojure/clojurescript/clojurescript%20slides.pdf">slides (PDF) from the presentation</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_why_javascript">Why JavaScript</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Clojure language was first <a href="xref/../../../../../about/rationale#Rationale-Languages%20and%20Platforms">built on the Java Virtual Machine</a> because of its reach and power on server platforms. For non-server platforms, nothing has greater reach than JavaScript. It&#8217;s been called the <a href="http://www.hanselman.com/blog/JavaScriptisAssemblyLanguagefortheWebPart2MadnessorjustInsanity.aspx">assembly language of the Web</a>. But beyond Web browsers, JavaScript can be found in <a href="http://arstechnica.com/apple/news/2011/06/ios-5-brings-nitro-speed-to-home-screen-web-apps.ars">mobile devices</a>, <a href="http://developer.boxee.tv/JavaScript_API#Preface">set-top boxes</a>, and <a href="http://wiki.services.openoffice.org/wiki/Documentation/DevGuide/Scripting/Scripting_Framework">desktop applications</a>. JavaScript has even made inroads on the server in <a href="http://couchdb.apache.org/">databases</a> and <a href="http://nodejs.org/">Web servers</a>. As a result of this reach, a lot of work has gone into making JavaScript engines performant, including JIT-compilation into native code.</p>
+</div>
+<div class="paragraph">
+<p>But JavaScript&#8217;s weakness remains the language itself. Although it has some powerful features such as first-class functions, JavaScript is noted more for its flaws than for its strengths. It was never designed to be a language for large applications.</p>
+</div>
+<div class="paragraph">
+<p>What if we had a modern, robust, powerful language that could reach to all the places that JavaScript does? This is the goal of ClojureScript.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_where_we_are">Where We Are</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Try it out!  Follow the Quick Start instructions on the <a href="https://github.com/clojure/clojurescript/wiki">ClojureScript wiki</a>.</p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s a partial list of what has been implemented so far:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Protocols and <code>deftype</code></p>
+</li>
+<li>
+<p>Namespaces</p>
+</li>
+<li>
+<p>Functions: <code>fn</code>, <code>defn</code>, multiple-arities, variadics</p>
+</li>
+<li>
+<p>Destructuring</p>
+</li>
+<li>
+<p>Higher-order functions: <code>map</code>, <code>reduce</code>, <code>filter</code>, &#8230;&#8203;</p>
+</li>
+<li>
+<p>Data structures: lists, maps, vectors, sets</p>
+</li>
+<li>
+<p>Data manipulation functions: <code>conj</code>, <code>assoc</code>, <code>update-in</code>,&#8230;&#8203;</p>
+</li>
+<li>
+<p>Sequences and sequence functions: <code>first</code>, <code>rest</code>, &#8230;&#8203;</p>
+</li>
+<li>
+<p>Macros: <code>assert</code>, <code>cond</code>, <code>doto</code>, <code>loop</code>, <code>-&gt;</code> and <code>-&gt;&gt;</code>, &#8230;&#8203;</p>
+</li>
+<li>
+<p>Metadata</p>
+</li>
+<li>
+<p>Reader in ClojureScript (think JSON but better)</p>
+</li>
+<li>
+<p>Regular expressions</p>
+</li>
+<li>
+<p>Atoms</p>
+</li>
+<li>
+<p>Core libraries: <code>clojure.string</code>, <code>clojure.set</code>, <code>clojure.zip</code>, &#8230;&#8203;</p>
+</li>
+<li>
+<p>REPL using JDK-embedded JavaScript (Rhino)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>ClojureScript is currently in Alpha status. The compiler and core libraries are usable for developing applications, but expect to find bugs and missing pieces of functionality. ClojureScript aims to be a complete implementation of the Clojure language, but some parts aren&#8217;t finished yet.</p>
+</div>
+<div class="paragraph">
+<p>Some parts of the Clojure language have no direct analog in ClojureScript, in particular the concurrency primitives, since JavaScript is single-threaded. There may also be edge cases where the requirements of the JavaScript environment force ClojureScript to have slightly different semantics from Clojure. We will document these differences as we find them.</p>
+</div>
+<div class="paragraph">
+<p>Obviously, any code making interop calls to Java, as most existing Clojure libraries do, will not work in ClojureScript. Code written in pure Clojure will <strong>probably</strong> work in ClojureScript with minor adjustments. For example, <a href="https://github.com/clojure/clojure/blob/master/src/clj/clojure/zip.clj">clojure.zip in Clojure</a> and <a href="https://github.com/clojure/clojurescript/blob/master/src/cljs/clojure/zip.cljs">clojure.zip in ClojureScript</a> are nearly identical. With a little effort, purely algorithmic code can be made portable between implementations. However, trying to abstract over all the differences among host platforms has never been a goal of Clojure, nor will it be a goal of ClojureScript.</p>
+</div>
+<div class="paragraph">
+<p>We have a <a href="http://dev.clojure.org/jira/browse/CLJS">ClojureScript JIRA instance</a> set up to track bugs. As with Clojure itself, submitting patches requires signing the <a href="xref/../../../../../community/contributing">Clojure Contributor Agreement</a>. We can only accept patches through JIRA, not GitHub pull requests.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_relationship_to_google_closure">The Relationship to Google Closure</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Google has led the way in developing rich client-side applications in JavaScript. Because Google needs the Web to succeed as an application-delivery platform, they have released some of their JavaScript tools as open source under the name <strong>Closure</strong>. The homophonic name clash is unfortunate, but not something we can do anything about.</p>
+</div>
+<div class="paragraph">
+<p><a href="http://code.google.com/closure/">Google Closure</a> is a suite of tools for delivering complex JavaScript applications to memory-constrained devices over slow connections. It consists of three parts: a large library of JavaScript classes and functions, a client-side templating system, and an optimizing JavaScript compiler. These parts are designed to work in symbiosis.</p>
+</div>
+<div class="paragraph">
+<p>The Google Closure compiler is a sophisticated JavaScript-to-JavaScript compiler that performs whole-program analysis to inline and rearrange code for optimal performance on modern JavaScript runtimes. Most importantly, it eliminates unused or unreachable code. The Google Closure compiler makes it possible to have a large library of JavaScript functions written in a straightforward manner without concern for code size, and to deliver minified versions of only the code your application needs. However, taking full advantage of the Google Closure compiler requires adherence to strict conventions for JavaScript source code.</p>
+</div>
+<div class="paragraph">
+<p>The ClojureScript compiler emits JavaScript which follows Google Closure&#8217;s code conventions, and then invokes the Google Closure compiler to generate compact, optimized JavaScript for delivery to clients. ClojureScript also makes use of the Google Closure library for capabilities such as event handling, DOM manipulation, and user interface widgets.</p>
+</div>
+<div class="paragraph">
+<p>It is possible to use ClojureScript with JavaScript libraries other than Google Closure, but those libraries typically do not follow the conventions of the Google Closure compiler and therefore will not be able to take full advantage of its optimizations.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_clojurescript_is_not">What ClojureScript is Not</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>ClojureScript is not Clojure implemented in JavaScript.</strong></p>
+</div>
+<div class="paragraph">
+<p>The Clojure community has tried various ways of generating JavaScript from Clojure in the past. One <a href="https://github.com/clojure/clojure-contrib/tree/master/clojurescript">early attempt by Chris Houser</a>, also called ClojureScript, used JavaScript as a implementation language for the core data structures and compiler, the way the current version of Clojure uses Java.</p>
+</div>
+<div class="paragraph">
+<p>The new ClojureScript does not take this approach. Instead, ClojureScript is written entirely in <strong>Clojure</strong>, as a compiler which emits JavaScript and a large library of functions. Therefore, ClojureScript does not aim to provide a complete development environment in JavaScript. There is no <code>eval</code> and no runtime access to the ClojureScript compiler from within ClojureScript.</p>
+</div>
+<div class="paragraph">
+<p><strong>ClojureScript is not JavaScript with Clojure syntax.</strong></p>
+</div>
+<div class="paragraph">
+<p>Another approach sometimes used to overcome JavaScript&#8217;s syntactic shortcomings is to layer another syntax on top of it while keeping all of the JavaScript language semantics. <a href="http://common-lisp.net/project/parenscript/">Parenscript</a> and <a href="http://jashkenas.github.com/coffee-script/">CoffeeScript</a> are examples of this approach.</p>
+</div>
+<div class="paragraph">
+<p>ClojureScript has the same language semantics as Clojure, not JavaScript. The ClojureScript compiler emits JavaScript, similar to the way the Clojure compiler emits Java bytecode.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_how_we_got_here">How We Got Here</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>ClojureScript was initially developed by Rich Hickey, creator of Clojure. Members of the Clojure/core team, along with others invited from the Clojure community, have participated in the development of the compiler.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_where_to_learn_more">Where to Learn More</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/clojure/clojurescript/wiki">ClojureScript Wiki</a></p>
+</li>
+<li>
+<p><a href="http://groups.google.com/group/clojure">Clojure Mailing List</a></p>
+</li>
+<li>
+<p>\#clojure IRC on <a href="http://freenode.net/">Freenode</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+    </div>
+  </div>
+</div>
+
+  <div class="w-section clj-footer">
+    <div class="w-container clj-footer-links-container">
+      <div class="w-row">
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Community</h6><a href="http://igeldev.github.io/clojure-site-russian/community/resources" class="clj-footer-link">Resources</a><a href="http://igeldev.github.io/clojure-site-russian/community/contributing" class="clj-footer-link">Contributing</a><a href="http://igeldev.github.io/clojure-site-russian/community/companies" class="clj-footer-link">Companies</a>
+          <h6 class="clj-footer-heading">Legal</h6><a href="http://igeldev.github.io/clojure-site-russian/community/license" class="clj-footer-link">License</a><a href="http://igeldev.github.io/clojure-site-russian/privacy" class="clj-footer-link">Privacy Policy</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Documentation</h6><a href="http://igeldev.github.io/clojure-site-russian/about/rationale" class="clj-footer-link">Overview</a><a href="http://igeldev.github.io/clojure-site-russian/reference/documentation" class="clj-footer-link">Reference</a><a href="http://igeldev.github.io/clojure-site-russian/api/api" class="clj-footer-link">API</a><a href="http://igeldev.github.io/clojure-site-russian/guides/guides" class="clj-footer-link">Guides</a><a href="http://igeldev.github.io/clojure-site-russian/community/libraries" class="clj-footer-link">Libraries &amp; Tools</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Updates</h6><a href="http://igeldev.github.io/clojure-site-russian/news/news" class="clj-footer-link">News</a><a href="http://igeldev.github.io/clojure-site-russian/community/events" class="clj-footer-link">Events</a>
+          <h6 class="clj-footer-heading">ETC</h6><a href="https://www.youtube.com/user/ClojureTV" class="clj-footer-link">Video</a><a href="http://igeldev.github.io/clojure-site-russian/community/books" class="clj-footer-link">Books</a><a href="http://igeldev.github.io/clojure-site-russian/community/swag" class="clj-footer-link">Swag</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Code</h6><a href="http://igeldev.github.io/clojure-site-russian/community/downloads" class="clj-footer-link">Releases</a><a href="https://github.com/clojure/clojure/" class="clj-footer-link">Source</a><a href="http://igeldev.github.io/clojure-site-russian/about/clojurescript" class="clj-footer-link">ClojureScript</a><a href="http://igeldev.github.io/clojure-site-russian/about/clojureclr" class="clj-footer-link">ClojureCLR</a>
+        </div>
+      </div>
+    </div>
+    <div class="w-container clj-footer-legal-container">
+      <div class="w-clearfix clj-footer-legal">
+        <div class="clj-footer-logo">&nbsp;</div>
+        <div class="clj-footer-legal-links">
+          <div class="clj-footer-copyright">Copyright 2008-2016 Rich Hickey | <a class="clj-footer-sub-link" href="http://igeldev.github.io/clojure-site-russian/privacy">Privacy Policy</a><br/>Published 2017-05-17
+          </div>
+          <div class="clj-footer-designed-by">Logo &amp; site design by <a class="clj-footer-sub-link" href="http://tomhickey.com/">Tom Hickey</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../../../../js/webflow.js"></script>
+  <script type="text/javascript" src="../../../../js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+</body>
+</html>

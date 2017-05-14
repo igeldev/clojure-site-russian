@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<!-- This site was created in Webflow. http://www.webflow.com-->
+<!-- Last Published: Fri Nov 13 2015 01:48:45 GMT+0000 (UTC) -->
+<html data-wf-site="56414d6fc8c27cad0f4e12e7" data-wf-page="5643ac587b1f28dc58ed6b89">
+<head>
+  <meta charset="utf-8">
+  <title>Clojure - Companies</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Webflow">
+  <link rel="stylesheet" type="text/css" href="../css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="../css/webflow.css">
+  <link rel="stylesheet" type="text/css" href="../css/clojureorg.webflow.css">
+  <link rel="stylesheet" type="text/css" href="../css/asciidoctor-mod.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ["Open Sans:300,300italic,400,400italic,600,600italic","PT Serif:400,400italic,700,700italic","Source Code Pro:regular,500"]
+      }
+    });
+  </script>
+  <script type="text/javascript" src="../js/modernizr.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="../images/clojure-logo-icon-32.png">
+  <link rel="apple-touch-icon" href="../images/clojure-logo-icon-256.png">
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4857754-16'], ['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script');
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+<body>
+  <div data-collapse="none" data-animation="default" data-duration="400" data-contain="1" class="w-nav clj-navbar">
+    <div class="w-container">
+      <a href="http://igeldev.github.io/clojure-site-russian/index" class="w-nav-brand w-clearfix clj-logo-container"><img width="60" src="../images/clojure-logo-120b.png" class="clj-logo">
+        <div class="clj-logo-text">Clojure</div>
+      </a>
+      <nav role="navigation" class="w-nav-menu clj-nav-menu"><a href="http://igeldev.github.io/clojure-site-russian/about/rationale" class="w-nav-link clj-nav-link">Overview</a><a href="http://igeldev.github.io/clojure-site-russian/reference/documentation" class="w-nav-link clj-nav-link">Reference‍</a><a href="http://igeldev.github.io/clojure-site-russian/api/api" class="w-nav-link clj-nav-link">API</a><a href="http://igeldev.github.io/clojure-site-russian/community/downloads" class="w-nav-link clj-nav-link">Releases</a><a href="http://igeldev.github.io/clojure-site-russian/guides/guides" class="w-nav-link clj-nav-link">Guides</a><a href="http://igeldev.github.io/clojure-site-russian/community/resources" class="w-nav-link clj-nav-link">Community</a><a href="http://igeldev.github.io/clojure-site-russian/news/news" class="w-nav-link clj-nav-link">News</a><a href="#" data-ix="search-click-trigger" class="w-nav-link clj-nav-link clj-nav-search"></a>
+      </nav>
+      <div class="w-nav-button clj-menu-button">
+        <div class="w-icon-nav-menu"></div>
+      </div>
+    </div>
+  </div>
+  <div data-ix="hide-search" class="w-section clj-search-section">
+    <div class="w-container">
+      <div class="w-form clj-search-form-wrapper">
+        <form id="wf-form-Search-Form" name="wf-form-Search-Form" data-name="Search Form" action="http://igeldev.github.io/clojure-site-russian/search" method="get">
+          <div class="w-row">
+            <div class="w-col w-col-9 w-col-small-9">
+              <input id="q" type="text" placeholder="Search clojure.org reference, guides, and API" name="q" data-name="q" autofocus="autofocus" class="w-input clj-search-input">
+            </div>
+            <div class="w-col w-col-3 w-col-small-3">
+              <input type="submit" value="Search" data-wait="Please wait..." class="w-button clj-search-submit">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+<div class="w-section clj-content-section">
+  <div class="w-container">
+    <div class="clj-section-nav-container">
+      <div data-collapse="small" data-animation="default" data-duration="200" data-contain="1" class="w-nav clj-section-navbar">
+        <div class="w-container">
+          <nav role="navigation" class="w-nav-menu clj-section-nav-menu">
+            <div class="w-nav-link clj-section-nav-heading">Community</div>
+            <a href="resources" class="w-nav-link clj-section-nav-item-link">Resources</a>
+            <a href="contributing" class="w-nav-link clj-section-nav-item-link">Contributing</a>
+            <a href="contributors" class="w-nav-link clj-section-nav-item-link">Contributors</a>
+            <a href="companies" class="w-nav-link clj-section-nav-item-link">Companies</a>
+            <a href="events" class="w-nav-link clj-section-nav-item-link">Events</a>
+            <div class="w-nav-link clj-section-nav-heading">Legal</div>
+            <a href="license" class="w-nav-link clj-section-nav-item-link">License</a>
+            <a href="http://igeldev.github.io/clojure-site-russian/privacy" class="w-nav-link clj-section-nav-item-link">Privacy Policy</a>
+            <div class="w-nav-link clj-section-nav-heading">Help</div>
+            <a href="books" class="w-nav-link clj-section-nav-item-link">Books</a>
+            <a href="libraries" class="w-nav-link clj-section-nav-item-link">Libraries</a>
+            <a href="start_group" class="w-nav-link clj-section-nav-item-link">Starting a User Group</a>
+            <a href="contributing_site" class="w-nav-link clj-section-nav-item-link">Site Contributions</a>
+            <div class="w-nav-link clj-section-nav-heading">Etc</div>
+            <a href="swag" class="w-nav-link clj-section-nav-item-link">Swag</a>
+          </nav>
+          <div data-ix="toggle-section-nav-icon" class="w-nav-button w-clearfix clj-section-nav-toggle">
+            <div class="clj-section-nav-text">Companies</div>
+            <div class="clj-section-nav-icon-closed"></div>
+            <div data-ix="init-hide-section-nav-icon-open" class="clj-section-nav-icon-open"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clj-content-container">
+
+      <h1>Companies</h1>
+
+      <div class="paragraph">
+<p>Below is a partial list of some companies using Clojure or ClojureScript. Most of this information comes from direct contacts, presentations, or other online resources. If you would like to be added or removed from this list, please contact <em>alex.miller@cognitect.com</em>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://8thlight.com/">8th Light</a></p>
+</li>
+<li>
+<p><a href="http://www.adaptly.com/">Adaptly</a></p>
+</li>
+<li>
+<p><a href="http://www.adgoji.com/">AdGoji</a></p>
+</li>
+<li>
+<p><a href="http://adzerk.com/">Adzerk</a></p>
+</li>
+<li>
+<p><a href="http://www.onthemarket.com/">Agents' Mutual</a></p>
+</li>
+<li>
+<p><a href="http://www.airloyal.com">Airloyal</a></p>
+</li>
+<li>
+<p><a href="http://akvo.org/">akvo.org</a></p>
+</li>
+<li>
+<p><a href="http://altometrics.com/">Altometrics</a></p>
+</li>
+<li>
+<p><a href="http://www.amazon.com">Amazon</a></p>
+</li>
+<li>
+<p><a href="http://annadaletech.com/">Annadale Technologies</a></p>
+</li>
+<li>
+<p><a href="http://www.answers.com">Answers.com</a></p>
+</li>
+<li>
+<p><a href="http://www.anywhere.com/">Anywhere.com</a></p>
+</li>
+<li>
+<p><a href="http://www.appsflyer.com/">AppsFlyer</a></p>
+</li>
+<li>
+<p><a href="http://www.appsnsites.com/">Appsnsites</a></p>
+</li>
+<li>
+<p><a href="http://ardoq.com/">Ardoq</a></p>
+</li>
+<li>
+<p><a href="http://auspost.com.au/">Australia Post</a></p>
+</li>
+<li>
+<p><a href="http://www.aviso.io/">Aviso</a></p>
+</li>
+<li>
+<p><a href="http://beanstalkapp.com/">Beanstalk</a></p>
+</li>
+<li>
+<p><a href="http://BearyInnovative.com">BearyInnovative</a></p>
+</li>
+<li>
+<p><a href="http://bevuta.com/">bevuta</a></p>
+</li>
+<li>
+<p><a href="https://www.braintreepayments.com/">Braintree Payments</a> (acquired by PayPal)</p>
+</li>
+<li>
+<p><a href="http://brickalloy.com/">BrickAlloy</a></p>
+</li>
+<li>
+<p><a href="https://www.brightin.nl/">Brightin</a></p>
+</li>
+<li>
+<p><a href="http://www.brightnorth.co.uk/">Bright North</a></p>
+</li>
+<li>
+<p><a href="http://broadpeakpartners.com">BroadPeak</a></p>
+</li>
+<li>
+<p><a href="http://bugsbio.org/">BUGS Bioscience</a></p>
+</li>
+<li>
+<p><a href="http://buyhappy.co/">Buy Happy</a></p>
+</li>
+<li>
+<p><a href="https://www.capitalone.com/">CapitalOne</a></p>
+</li>
+<li>
+<p><a href="https://cardforcoin.com/">cardforcoin</a> and <a href="https://foldapp.com/">Fold</a></p>
+</li>
+<li>
+<p><a href="https://carouselapps.com/">Carousel Apps</a></p>
+</li>
+<li>
+<p><a href="http://www.cerner.com/">Cerner</a></p>
+</li>
+<li>
+<p><a href="http://chariotsolutions.com/">Chariot Solutions</a></p>
+</li>
+<li>
+<p><a href="http://chartbeat.com">Chartbeat</a></p>
+</li>
+<li>
+<p><a href="http://www.cicayda.com/">Cicayda</a></p>
+</li>
+<li>
+<p><a href="https://circleci.com/">CircleCI</a></p>
+</li>
+<li>
+<p><a href="http://www.citi.com">Citi</a></p>
+</li>
+<li>
+<p><a href="http://clanhr.com/en">ClanHR</a></p>
+</li>
+<li>
+<p><a href="http://www.climate.com/">Climate Corp</a> (acquired by <a href="http://www.monsanto.com">Monsanto</a>)</p>
+</li>
+<li>
+<p><a href="http://www.clubhousehq.com/">Clubhouse</a></p>
+</li>
+<li>
+<p><a href="http://www.codurance.com/">Codurance</a></p>
+</li>
+<li>
+<p><a href="http://code54.com">Code54</a></p>
+</li>
+<li>
+<p><a href="https://www.cognician.com/">Cognician</a></p>
+</li>
+<li>
+<p><a href="http://codecentric.de">codecentric</a></p>
+</li>
+<li>
+<p><a href="http://devartcodefactory.com/">Co(de)factory</a></p>
+</li>
+<li>
+<p><a href="http://cognitect.com">Cognitect</a></p>
+</li>
+<li>
+<p><a href="http://collectivedigitalstudio.com">Collective Digital Studio</a></p>
+</li>
+<li>
+<p><a href="https://www.concur.com/">Concur</a></p>
+</li>
+<li>
+<p><a href="http://www.consumerreports.org/cro/index.htm">Consumer Reports</a></p>
+</li>
+<li>
+<p><a href="http://www.consumerfinance.gov/">CFPB (Credit Financial Protection Bureau)</a></p>
+</li>
+<li>
+<p><a href="http://www.cycloid.io">Cycloid</a></p>
+</li>
+<li>
+<p><a href="http://www.dailymail.co.uk/">Daily Mail MailOnline</a></p>
+</li>
+<li>
+<p><a href="https://www.databaselabs.io/">Database Labs</a></p>
+</li>
+<li>
+<p><a href="http://www.datacraft.sg/">Datacraft</a></p>
+</li>
+<li>
+<p><a href="http://www.datasnap.io/">DataSnap.io</a></p>
+</li>
+<li>
+<p><a href="http://www.datomic.com/">Datomic</a></p>
+</li>
+<li>
+<p><a href="http://democracy.works/">Democracy Works</a></p>
+</li>
+<li>
+<p><a href="http://www.designed.ly/">Designedly</a></p>
+</li>
+<li>
+<p><a href="https://www.db.com">Deutsche Bank</a></p>
+</li>
+<li>
+<p><a href="http://dov-e.com">DOV-E</a></p>
+</li>
+<li>
+<p><a href="http://dploy.io/">dploy.io</a></p>
+</li>
+<li>
+<p><a href="http://drwtrading.com">DRW Trading Group</a></p>
+</li>
+<li>
+<p><a href="http://www.ebay.com/">eBay</a></p>
+</li>
+<li>
+<p><a href="http://element84.com">Element 84</a></p>
+</li>
+<li>
+<p><a href="http://eventfabric.com/">Event Fabric</a></p>
+</li>
+<li>
+<p><a href="https://www.exoscale.ch/">exoscale</a></p>
+</li>
+<li>
+<p><a href="http://facebook.com">Facebook</a></p>
+</li>
+<li>
+<p><a href="http://www.facjure.com/">Facjure</a></p>
+</li>
+<li>
+<p><a href="http://www.factual.com/">Factual</a></p>
+</li>
+<li>
+<p><a href="http://www.farbetter.com/">FarBetter</a></p>
+</li>
+<li>
+<p><a href="https://farmlogs.com/">FarmLogs</a></p>
+</li>
+<li>
+<p><a href="http://www.finalist.nl/">Finalist</a></p>
+</li>
+<li>
+<p><a href="http://flocktory.com">Flocktory</a></p>
+</li>
+<li>
+<p><a href="http://www.flowa.fi/">Flowa</a></p>
+</li>
+<li>
+<p><a href="http://try.framed.io/">Framed Data</a></p>
+</li>
+<li>
+<p><a href="https://www.fullcontact.com/">FullContact</a></p>
+</li>
+<li>
+<p><a href="http://functionalworks.com/">Functional Works</a></p>
+</li>
+<li>
+<p><a href="http://fundingcircle.com">Funding Circle</a></p>
+</li>
+<li>
+<p><a href="http://www.getcontented.com.au/">GetContented</a></p>
+</li>
+<li>
+<p><a href="http://about.getset.com/">GetSet</a></p>
+</li>
+<li>
+<p><a href="https://goldfynch.com/">GoldFynch</a></p>
+</li>
+<li>
+<p><a href="https://goodhertz.co/">Goodhertz</a></p>
+</li>
+<li>
+<p><a href="http://www.gracenote.com/">Gracenote</a></p>
+</li>
+<li>
+<p><a href="http://www.groupon.com">Groupon</a></p>
+</li>
+<li>
+<p><a href="https://hashrocket.com/">Hashrocket</a></p>
+</li>
+<li>
+<p><a href="https://www.helpshift.com/">Helpshift</a></p>
+</li>
+<li>
+<p><a href="http://www.hendrickauto.com/">Hendrick Automotive Group</a></p>
+</li>
+<li>
+<p><a href="http://www.heroku.com">Heroku</a></p>
+</li>
+<li>
+<p><a href="https://hexawise.com/">Hexawise</a></p>
+</li>
+<li>
+<p><a href="https://homescreen.is/">#Homescreen</a></p>
+</li>
+<li>
+<p><a href="http://www.ib5k.com/">IB5k</a></p>
+</li>
+<li>
+<p><a href="https://indabamusic.com">Indaba Music</a></p>
+</li>
+<li>
+<p><a href="http://labs.ig.com/">IG</a></p>
+</li>
+<li>
+<p><a href="http://innoq.com">InnoQ</a></p>
+</li>
+<li>
+<p><a href="http://www.intentmedia.com/">Intent Media</a></p>
+</li>
+<li>
+<p><a href="http://www.intuit.com">Intuit</a></p>
+</li>
+<li>
+<p><a href="http://www.iplantcollaborative.org/">iPlant Collaborative</a></p>
+</li>
+<li>
+<p><a href="https://www.jcrew.com/">J.Crew</a></p>
+</li>
+<li>
+<p><a href="http://juxt.pro">JUXT</a></p>
+</li>
+<li>
+<p><a href="https://kirasystems.com/">Kira Inc</a></p>
+</li>
+<li>
+<p><a href="http://www.kontor.com">Kontor</a></p>
+</li>
+<li>
+<p><a href="https://kwelia.com/">Kwelia</a></p>
+</li>
+<li>
+<p><a href="http://leancloud.cn">Leancloud.cn</a></p>
+</li>
+<li>
+<p><a href="http://en.leanheat.com">Leanheat</a></p>
+</li>
+<li>
+<p><a href="http://levelmoney.com">Level Money</a></p>
+</li>
+<li>
+<p><a href="http://www.lifebooker.com">Lifebooker</a></p>
+</li>
+<li>
+<p><a href="http://liftoff.io/">Liftoff</a></p>
+</li>
+<li>
+<p><a href="http://lightmesh.com">LightMesh</a></p>
+</li>
+<li>
+<p><a href="http://likely.co/">Likely</a></p>
+</li>
+<li>
+<p><a href="http://www.listora.com/">Listora</a></p>
+</li>
+<li>
+<p><a href="http://www.liveops.com/">LiveOps</a></p>
+</li>
+<li>
+<p><a href="https://www.livingsocial.com/">LivingSocial</a></p>
+</li>
+<li>
+<p><a href="http://logicsoft.co.in/">Logic Soft Pvt. Ltd.</a></p>
+</li>
+<li>
+<p><a href="http://lonocloud.com/">LonoCloud</a> (acquired by <a href="https://www.viasat.com/">ViaSat</a>)</p>
+</li>
+<li>
+<p><a href="http://www.madriska.com/">Madriska Inc.</a></p>
+</li>
+<li>
+<p><a href="http://mainstreetgenome.com/">Main Street Genome</a></p>
+</li>
+<li>
+<p><a href="http://www.mastodonc.com/">Mastodon C</a></p>
+</li>
+<li>
+<p><a href="https://mazira.com/">Mazira</a></p>
+</li>
+<li>
+<p><a href="http://meewee.com">MeeWee</a></p>
+</li>
+<li>
+<p><a href="http://www.metail.com">Metail</a></p>
+</li>
+<li>
+<p><a href="http://metosin.fi/">Metosin</a></p>
+</li>
+<li>
+<p><a href="http://www.mixrad.io/">MixRadio</a></p>
+</li>
+<li>
+<p><a href="http://www.modelogiq.com/">modelogiq</a></p>
+</li>
+<li>
+<p><a href="http://www.mysema.com/">Mysema</a></p>
+</li>
+<li>
+<p><a href="http://nilenso.com/">nilenso</a></p>
+</li>
+<li>
+<p><a href="http://nemCV.com">nemCV.com</a></p>
+</li>
+<li>
+<p><a href="https://www.netflix.com">Netflix</a></p>
+</li>
+<li>
+<p><a href="https://www.neustar.biz/">Neustar</a></p>
+</li>
+<li>
+<p><a href="http://www.nextangles.com">NextAngles</a></p>
+</li>
+<li>
+<p><a href="https://www.nubank.com.br/">Nubank</a></p>
+</li>
+<li>
+<p><a href="https://nukomeet.com/">Nukomeet</a></p>
+</li>
+<li>
+<p><a href="http://numerical.co.nz/">Numerical Brass Computing</a></p>
+</li>
+<li>
+<p><a href="https://ona.io">Ona</a></p>
+</li>
+<li>
+<p><a href="https://opencompany.io/">OpenCompany</a></p>
+</li>
+<li>
+<p><a href="http://OpenSensors.io">OpenSensors.io</a></p>
+</li>
+<li>
+<p><a href="http://www.opentable.com/">OpenTable</a></p>
+</li>
+<li>
+<p><a href="http://www.oracle.com">Oracle</a></p>
+</li>
+<li>
+<p><a href="http://www.orgsync.com/">OrgSync</a></p>
+</li>
+<li>
+<p><a href="http://otto.de">Otto</a></p>
+</li>
+<li>
+<p><a href="http://www.outpace.com/">Outpace</a></p>
+</li>
+<li>
+<p><a href="http://owsy.com">Owsy</a></p>
+</li>
+<li>
+<p><a href="http://paddleguru.com">PaddleGuru</a></p>
+</li>
+<li>
+<p><a href="http://www.bdpanacea.com/">Panacea Systems</a></p>
+</li>
+<li>
+<p><a href="http://paper.li">paper.li</a></p>
+</li>
+<li>
+<p><a href="https://www.parcelbright.com/">ParcelBright</a></p>
+</li>
+<li>
+<p><a href="http://www.passivsystems.com/">PassivSystems</a></p>
+</li>
+<li>
+<p><a href="http://path.com/">Path</a></p>
+</li>
+<li>
+<p><a href="http://paygarden.com">PayGarden</a></p>
+</li>
+<li>
+<p><a href="http://www.pennymacusa.com">PennyMac</a></p>
+</li>
+<li>
+<p><a href="http://www.pivotal.io/">Pivotal Labs</a></p>
+</li>
+<li>
+<p><a href="http://www.pointslope.com">Point Slope</a></p>
+</li>
+<li>
+<p><a href="http://dmarc.postmarkapp.com/">Postmark</a></p>
+</li>
+<li>
+<p><a href="https://precursorapp.com/">Precursor</a></p>
+</li>
+<li>
+<p><a href="http://www.premium.nl/">Premium Business Consultants BV</a></p>
+</li>
+<li>
+<p><a href="http://www.print.io/">Print.IO</a></p>
+</li>
+<li>
+<p><a href="http://projexsys.com/">Projexsys</a></p>
+</li>
+<li>
+<p><a href="https://publizr.com/">Publizr</a></p>
+</li>
+<li>
+<p><a href="http://puppetlabs.com/">Puppet Labs</a></p>
+</li>
+<li>
+<p><a href="https://www.rallydev.com/">Rally</a></p>
+</li>
+<li>
+<p><a href="https://www.rareburg.com/">Rareburg</a></p>
+</li>
+<li>
+<p><a href="https://www.redpineapplemedia.com/">Red Pineapple Media</a></p>
+</li>
+<li>
+<p><a href="http://rentpath.com/">RentPath</a></p>
+</li>
+<li>
+<p><a href="http://rjmetrics.com/">RJMetrics</a></p>
+</li>
+<li>
+<p><a href="http://rocketfuel.com/">Rocket Fuel</a></p>
+</li>
+<li>
+<p><a href="http://www.roomkey.com/">RoomKey</a> - see <a href="http://cognitect.com/consulting/case-studies/roomkey">case study</a></p>
+</li>
+<li>
+<p><a href="http://roximity.com/">ROXIMITY</a></p>
+</li>
+<li>
+<p><a href="http://www.salesforce.com/">Salesforce</a></p>
+</li>
+<li>
+<p><a href="http://www.shareablee.com/">Shareablee</a></p>
+</li>
+<li>
+<p><a href="http://shore.li/">shore.li</a></p>
+</li>
+<li>
+<p><a href="http://www.signafire.com">Signafire</a></p>
+</li>
+<li>
+<p><a href="http://silverline.mobi/">Silverline Mobile</a></p>
+</li>
+<li>
+<p><a href="http://www.silverpond.com.au/">Silverpond</a></p>
+</li>
+<li>
+<p><a href="https://www.simple.com/">Simple</a></p>
+</li>
+<li>
+<p><a href="http://www.sinapsi.com/">Sinapsi</a></p>
+</li>
+<li>
+<p><a href="http://us.sios.com/">SIOS Technology Corp.</a></p>
+</li>
+<li>
+<p><a href="http://smilebooth.com/">Smilebooth</a></p>
+</li>
+<li>
+<p><a href="http://smxemail.com/">SMX</a></p>
+</li>
+<li>
+<p><a href="https://socialsuperstore.com/">Social Superstore</a></p>
+</li>
+<li>
+<p><a href="http://sonian.com/">Sonian</a></p>
+</li>
+<li>
+<p><a href="https://soundcloud.com">Soundcloud</a></p>
+</li>
+<li>
+<p><a href="https://www.sparkfund.co/">SparkFund</a></p>
+</li>
+<li>
+<p><a href="https://www.spotify.com">Spotify</a></p>
+</li>
+<li>
+<p><a href="http://www.staples-sparx.com/">Staples Sparx</a></p>
+</li>
+<li>
+<p><a href="http://structureddynamics.com/">Structured Dynamics</a></p>
+</li>
+<li>
+<p><a href="http://www.studyflow.nl">Studyflow</a></p>
+</li>
+<li>
+<p><a href="http://www.suprematic.net/">Suprematic</a></p>
+</li>
+<li>
+<p><a href="http://swirrl.com/">Swirrl</a></p>
+</li>
+<li>
+<p><a href="http://www.tappcommerce.com/">Tapp Commerce</a></p>
+</li>
+<li>
+<p><a href="http://www.technoidentity.com/">TechnoIdentity</a></p>
+</li>
+<li>
+<p><a href="http://www.teradata.com">Teradata</a> - <a href="http://www.teradata.com/Teradata-Loom">Loom</a></p>
+</li>
+<li>
+<p><a href="http://testdouble.com/">Test Double</a></p>
+</li>
+<li>
+<p><a href="http://www.thinktopic.com/">ThinkTopic</a></p>
+</li>
+<li>
+<p><a href="http://www.thoughtworks.com/">ThoughtWorks</a> - <a href="http://www.thoughtworks.com/clients/ioof">IOOF</a> (and others)</p>
+</li>
+<li>
+<p><a href="http://www.threatgrid.com/">ThreatGRID</a> (acquired by <a href="http://www.cisco.com/">Cisco</a>)</p>
+</li>
+<li>
+<p><a href="https://touk.pl">TouK</a></p>
+</li>
+<li>
+<p><a href="https://truckerpath.com">Trucker Path</a></p>
+</li>
+<li>
+<p><a href="http://www.twosigma.com/">Two Sigma</a></p>
+</li>
+<li>
+<p><a href="http://unbounce.com/">Unbounce</a></p>
+</li>
+<li>
+<p><a href="https://unfold.com/">Unfold</a></p>
+</li>
+<li>
+<p><a href="http://www.uhn.ca/">University Health Network</a></p>
+</li>
+<li>
+<p><a href="http://www.upworthy.com/">Upworthy</a></p>
+</li>
+<li>
+<p><a href="http://ustream.tv/">Ustream</a></p>
+</li>
+<li>
+<p><a href="http://www.uswitch.com/">uSwitch</a></p>
+</li>
+<li>
+<p><a href="http://vigiglobe.com/">Vigiglobe</a></p>
+</li>
+<li>
+<p><a href="https://www.virool.com/">Virool</a></p>
+</li>
+<li>
+<p><a href="http://vitallabs.co/">Vital Labs</a></p>
+</li>
+<li>
+<p><a href="http://www.walmartlabs.com/">Walmart Labs</a></p>
+</li>
+<li>
+<p><a href="https://www.whibse.com">Whibse</a></p>
+</li>
+<li>
+<p><a href="http://wikidocs.com/">Wikidocs</a> (acquired by <a href="https://www.atlassian.com">Atlassian</a>)</p>
+</li>
+<li>
+<p><a href="http://wildbit.com/">Wildbit</a></p>
+</li>
+<li>
+<p><a href="http://wit.ai">Wit.ai</a> (acquired by <a href="http://facebook.com">Facebook</a>)</p>
+</li>
+<li>
+<p><a href="http://worldsingles.com/">World Singles</a></p>
+</li>
+<li>
+<p><a href="https://xcoo.jp/">Xcoo, Inc.</a> - <a href="https://chrov.is">Chrovis</a>, <a href="http://newshack.io/">Hacker News Hack</a></p>
+</li>
+<li>
+<p><a href="http://xnlogic.com">XN Logic</a></p>
+</li>
+<li>
+<p><a href="http://yellerapp.com/">Yeller</a></p>
+</li>
+<li>
+<p><a href="http://www.yieldbot.com">Yieldbot</a></p>
+</li>
+<li>
+<p><a href="http://yetanalytics.com/">Yet Analytics</a></p>
+</li>
+<li>
+<p><a href="http://yousee.dk/">Yousee IT Innovation Labs</a></p>
+</li>
+<li>
+<p><a href="http://www.yummly.com/">Yummly</a></p>
+</li>
+<li>
+<p><a href="http://www.yuppiechef.com/">Yuppiechef</a></p>
+</li>
+<li>
+<p><a href="http://tech.zalando.com">Zalando</a> - <a href="https://zalando.github.io/">OSS</a></p>
+</li>
+<li>
+<p><a href="http://www.zendesk.com">Zendesk</a></p>
+</li>
+</ul>
+</div>
+
+
+<div class="clj-prev-next-container">
+  
+  
+</div>
+
+    </div>
+  </div>
+</div>
+
+  <div class="w-section clj-footer">
+    <div class="w-container clj-footer-links-container">
+      <div class="w-row">
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Community</h6><a href="http://igeldev.github.io/clojure-site-russian/community/resources" class="clj-footer-link">Resources</a><a href="http://igeldev.github.io/clojure-site-russian/community/contributing" class="clj-footer-link">Contributing</a><a href="http://igeldev.github.io/clojure-site-russian/community/companies" class="clj-footer-link">Companies</a>
+          <h6 class="clj-footer-heading">Legal</h6><a href="http://igeldev.github.io/clojure-site-russian/community/license" class="clj-footer-link">License</a><a href="http://igeldev.github.io/clojure-site-russian/privacy" class="clj-footer-link">Privacy Policy</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Documentation</h6><a href="http://igeldev.github.io/clojure-site-russian/about/rationale" class="clj-footer-link">Overview</a><a href="http://igeldev.github.io/clojure-site-russian/reference/documentation" class="clj-footer-link">Reference</a><a href="http://igeldev.github.io/clojure-site-russian/api/api" class="clj-footer-link">API</a><a href="http://igeldev.github.io/clojure-site-russian/guides/guides" class="clj-footer-link">Guides</a><a href="http://igeldev.github.io/clojure-site-russian/community/libraries" class="clj-footer-link">Libraries &amp; Tools</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Updates</h6><a href="http://igeldev.github.io/clojure-site-russian/news/news" class="clj-footer-link">News</a><a href="http://igeldev.github.io/clojure-site-russian/community/events" class="clj-footer-link">Events</a>
+          <h6 class="clj-footer-heading">ETC</h6><a href="https://www.youtube.com/user/ClojureTV" class="clj-footer-link">Video</a><a href="http://igeldev.github.io/clojure-site-russian/community/books" class="clj-footer-link">Books</a><a href="http://igeldev.github.io/clojure-site-russian/community/swag" class="clj-footer-link">Swag</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Code</h6><a href="http://igeldev.github.io/clojure-site-russian/community/downloads" class="clj-footer-link">Releases</a><a href="https://github.com/clojure/clojure/" class="clj-footer-link">Source</a><a href="http://igeldev.github.io/clojure-site-russian/about/clojurescript" class="clj-footer-link">ClojureScript</a><a href="http://igeldev.github.io/clojure-site-russian/about/clojureclr" class="clj-footer-link">ClojureCLR</a>
+        </div>
+      </div>
+    </div>
+    <div class="w-container clj-footer-legal-container">
+      <div class="w-clearfix clj-footer-legal">
+        <div class="clj-footer-logo">&nbsp;</div>
+        <div class="clj-footer-legal-links">
+          <div class="clj-footer-copyright">Copyright 2008-2016 Rich Hickey | <a class="clj-footer-sub-link" href="http://igeldev.github.io/clojure-site-russian/privacy">Privacy Policy</a><br/>Published 2017-05-17
+          </div>
+          <div class="clj-footer-designed-by">Logo &amp; site design by <a class="clj-footer-sub-link" href="http://tomhickey.com/">Tom Hickey</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/webflow.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+</body>
+</html>

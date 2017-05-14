@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<!-- This site was created in Webflow. http://www.webflow.com-->
+<!-- Last Published: Fri Nov 13 2015 01:48:45 GMT+0000 (UTC) -->
+<html data-wf-site="56414d6fc8c27cad0f4e12e7" data-wf-page="5643ac587b1f28dc58ed6b89">
+<head>
+  <meta charset="utf-8">
+  <title>Clojure - Functional Programming</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Webflow">
+  <link rel="stylesheet" type="text/css" href="../css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="../css/webflow.css">
+  <link rel="stylesheet" type="text/css" href="../css/clojureorg.webflow.css">
+  <link rel="stylesheet" type="text/css" href="../css/asciidoctor-mod.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ["Open Sans:300,300italic,400,400italic,600,600italic","PT Serif:400,400italic,700,700italic","Source Code Pro:regular,500"]
+      }
+    });
+  </script>
+  <script type="text/javascript" src="../js/modernizr.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="../images/clojure-logo-icon-32.png">
+  <link rel="apple-touch-icon" href="../images/clojure-logo-icon-256.png">
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4857754-16'], ['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script');
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+<body>
+  <div data-collapse="none" data-animation="default" data-duration="400" data-contain="1" class="w-nav clj-navbar">
+    <div class="w-container">
+      <a href="http://igeldev.github.io/clojure-site-russian/index" class="w-nav-brand w-clearfix clj-logo-container"><img width="60" src="../images/clojure-logo-120b.png" class="clj-logo">
+        <div class="clj-logo-text">Clojure</div>
+      </a>
+      <nav role="navigation" class="w-nav-menu clj-nav-menu"><a href="http://igeldev.github.io/clojure-site-russian/about/rationale" class="w-nav-link clj-nav-link">Overview</a><a href="http://igeldev.github.io/clojure-site-russian/reference/documentation" class="w-nav-link clj-nav-link">Reference‍</a><a href="http://igeldev.github.io/clojure-site-russian/api/api" class="w-nav-link clj-nav-link">API</a><a href="http://igeldev.github.io/clojure-site-russian/community/downloads" class="w-nav-link clj-nav-link">Releases</a><a href="http://igeldev.github.io/clojure-site-russian/guides/guides" class="w-nav-link clj-nav-link">Guides</a><a href="http://igeldev.github.io/clojure-site-russian/community/resources" class="w-nav-link clj-nav-link">Community</a><a href="http://igeldev.github.io/clojure-site-russian/news/news" class="w-nav-link clj-nav-link">News</a><a href="#" data-ix="search-click-trigger" class="w-nav-link clj-nav-link clj-nav-search"></a>
+      </nav>
+      <div class="w-nav-button clj-menu-button">
+        <div class="w-icon-nav-menu"></div>
+      </div>
+    </div>
+  </div>
+  <div data-ix="hide-search" class="w-section clj-search-section">
+    <div class="w-container">
+      <div class="w-form clj-search-form-wrapper">
+        <form id="wf-form-Search-Form" name="wf-form-Search-Form" data-name="Search Form" action="http://igeldev.github.io/clojure-site-russian/search" method="get">
+          <div class="w-row">
+            <div class="w-col w-col-9 w-col-small-9">
+              <input id="q" type="text" placeholder="Search clojure.org reference, guides, and API" name="q" data-name="q" autofocus="autofocus" class="w-input clj-search-input">
+            </div>
+            <div class="w-col w-col-3 w-col-small-3">
+              <input type="submit" value="Search" data-wait="Please wait..." class="w-button clj-search-submit">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+<div class="w-section clj-content-section">
+  <div class="w-container">
+    <div class="clj-section-nav-container">
+      <div data-collapse="small" data-animation="default" data-duration="200" data-contain="1" class="w-nav clj-section-navbar">
+        <div class="w-container">
+          <nav role="navigation" class="w-nav-menu clj-section-nav-menu"><a href="rationale" class="w-nav-link clj-section-nav-item-link">Rationale</a><a href="state" class="w-nav-link clj-section-nav-item-link">State</a><div class="w-nav-link clj-section-nav-heading">Features</div><a href="dynamic" class="w-nav-link clj-section-nav-item-link">Dynamic Development</a><a href="functional_programming" class="w-nav-link clj-section-nav-item-link">Functional Programming</a><a href="lisp" class="w-nav-link clj-section-nav-item-link">Lisp</a><a href="runtime_polymorphism" class="w-nav-link clj-section-nav-item-link">Runtime Polymorphism</a><a href="concurrent_programming" class="w-nav-link clj-section-nav-item-link">Concurrent Programming</a><a href="jvm_hosted" class="w-nav-link clj-section-nav-item-link">JVM Hosted</a><div class="w-nav-link clj-section-nav-heading">Other Hosts</div><a href="clojurescript" class="w-nav-link clj-section-nav-item-link">ClojureScript</a><a href="clojureclr" class="w-nav-link clj-section-nav-item-link">ClojureCLR</a>
+          </nav>
+          <div data-ix="toggle-section-nav-icon" class="w-nav-button w-clearfix clj-section-nav-toggle">
+            <div class="clj-section-nav-text">Functional Programming</div>
+            <div class="clj-section-nav-icon-closed"></div>
+            <div data-ix="init-hide-section-nav-icon-open" class="clj-section-nav-icon-open"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clj-content-container">
+
+      <h1>Functional Programming</h1>
+
+      <div id="preamble">
+<div class="sectionbody">
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_first_class_functions">First-class functions</a></li>
+<li><a href="#_immutable_data_structures">Immutable Data Structures</a></li>
+<li><a href="#_extensible_abstractions">Extensible Abstractions</a></li>
+<li><a href="#_recursive_looping">Recursive Looping</a></li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Clojure is a functional programming language. It provides the tools to avoid mutable state, provides functions as first-class objects, and emphasizes recursive iteration instead of side-effect based looping. Clojure is <em>impure</em>, in that it doesn&#8217;t force your program to be referentially transparent, and doesn&#8217;t strive for 'provable' programs. The philosophy behind Clojure is that most parts of most programs should be functional, and that programs that are more functional are more robust.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_first_class_functions">First-class functions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="xref/../../reference/special_forms#fn">fn</a> creates a function object. It yields a value like any other - you can store it in a var, pass it to functions etc.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">(def hello (fn [] "Hello world"))
+-&gt; #'user/hello
+(hello)
+-&gt; "Hello world"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/defn">defn</a> is a macro that makes defining functions a little simpler.
+Clojure supports arity overloading in a <em>single</em> function object, self-reference, and variable-arity functions using <strong>&amp;</strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">;trumped-up example
+(defn argcount
+  ([] 0)
+  ([x] 1)
+  ([x y] 2)
+  ([x y &amp; more] (+ (argcount x y) (count more))))
+-&gt; #'user/argcount
+(argcount)
+-&gt; 0
+(argcount 1)
+-&gt; 1
+(argcount 1 2)
+-&gt; 2
+(argcount 1 2 3 4 5)
+-&gt; 5</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can create local names for values inside a function using <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/let">let</a>. The scope of any local names is lexical, so a function created in the scope of local names will close over their values:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">(defn make-adder [x]
+  (let [y x]
+    (fn [z] (+ y z))))
+(def add2 (make-adder 2))
+(add2 4)
+-&gt; 6</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Locals created with <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/let">let</a> are not variables. Once created their values never change!</strong></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_immutable_data_structures">Immutable Data Structures</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The easiest way to avoid mutating state is to use immutable <a href="xref/../../reference/data_structures">data structures</a>. Clojure provides a set of immutable lists, vectors, sets and maps. Since they can&#8217;t be changed, 'adding' or 'removing' something from an immutable collection means creating a new collection just like the old one but with the needed change. <em>Persistence</em> is a term used to describe the property wherein the old version of the collection is still available after the 'change', and that the collection maintains its performance guarantees for most operations. Specifically, this means that the new version can&#8217;t be created using a full copy, since that would require linear time. Inevitably, persistent collections are implemented using linked data structures, so that the new versions can share structure with the prior version. Singly-linked lists and trees are the basic functional data structures, to which Clojure adds a hash map, set and vector both based upon array mapped hash tries. The collections have readable representations and common interfaces:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">(let [my-vector [1 2 3 4]
+      my-map {:fred "ethel"}
+      my-list (list 4 3 2 1)]
+  (list
+    (conj my-vector 5)
+    (assoc my-map :ricky "lucy")
+    (conj my-list 5)
+    ;the originals are intact
+    my-vector
+    my-map
+    my-list))
+-&gt; ([1 2 3 4 5] {:ricky "lucy", :fred "ethel"} (5 4 3 2 1) [1 2 3 4] {:fred "ethel"} (4 3 2 1))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Applications often need to associate attributes and other data about data that is orthogonal to the logical value of the data. Clojure provides direct support for this <a href="xref/../../reference/metadata">metadata</a>. Symbols, and all of the collections, support a metadata map. It can be accessed with the <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/meta">meta</a> function. Metadata does <em>not</em> impact equality semantics, nor will metadata be seen in operations on the value of a collection. Metadata can be read, and can be printed.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">(def v [1 2 3])
+(def attributed-v (with-meta v {:source :trusted}))
+(:source (meta attributed-v))
+-&gt; :trusted
+(= v attributed-v)
+-&gt; true</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_extensible_abstractions">Extensible Abstractions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Clojure uses Java interfaces to define its core data structures. This allows for extensions of Clojure to new concrete implementations of these interfaces, and the library functions will work with these extensions. This is a big improvement vs. hardwiring a language to the concrete implementations of its data types.</p>
+</div>
+<div class="paragraph">
+<p>A good example of this is the <a href="xref/../../reference/sequences">seq</a> interface. By making the core Lisp list construct into an abstraction, a wealth of library functions are extended to any data structure that can provide a sequential interface to its contents. All of the Clojure data structures can provide seqs. Seqs can be used like iterators or generators in other languages, with the significant advantage that seqs are immutable and persistent. Seqs are extremely simple, providing a <strong><em>first</em></strong> function, which return the first item in the sequence, and a <strong><em>rest</em></strong> function which returns the rest of the sequence, which is itself either a seq or nil.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">(let [my-vector [1 2 3 4]
+      my-map {:fred "ethel" :ricky "lucy"}
+      my-list (list 4 3 2 1)]
+  [(first my-vector)
+   (rest my-vector)
+   (keys my-map)
+   (vals my-map)
+   (first my-list)
+   (rest my-list)])
+-&gt; [1 (2 3 4) (:ricky :fred) ("lucy" "ethel") 4 (3 2 1)]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Many of the Clojure library functions produce and consume seqs <em>lazily</em>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">;cycle produces an 'infinite' seq!
+(take 15 (cycle [1 2 3 4]))
+-&gt; (1 2 3 4 1 2 3 4 1 2 3 4 1 2 3)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can define your own lazy seq-producing functions using the <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/lazy-seq">lazy-seq</a> macro, which takes a body of expressions that will be called on demand to produce a list of 0 or more items. Here&#8217;s a simplified <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/take">take</a>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">(defn take [n coll]
+  (lazy-seq
+    (when (pos? n)
+      (when-let [s (seq coll)]
+       (cons (first s) (take (dec n) (rest s)))))))</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_recursive_looping">Recursive Looping</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In the absence of mutable local variables, looping and iteration must take a different form than in languages with built-in <em>for</em> or <em>while</em> constructs that are controlled by changing state. In functional languages looping and iteration are replaced/implemented via recursive function calls. Many such languages guarantee that function calls made in tail position do not consume stack space, and thus recursive loops utilize constant space. Since Clojure uses the Java calling conventions, it cannot, and does not, make the same tail call optimization guarantees. Instead, it provides the <a href="xref/../../reference/special_forms#recur">recur special operator</a>, which does constant-space recursive looping by rebinding and jumping to the nearest enclosing loop or function frame. While not as general as tail-call-optimization, it allows most of the same elegant constructs, and offers the advantage of checking that calls to recur can only happen in a tail position.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-clojure" data-lang="clojure">(defn my-zipmap [keys vals]
+  (loop [my-map {}
+         my-keys (seq keys)
+         my-vals (seq vals)]
+    (if (and my-keys my-vals)
+      (recur (assoc my-map (first my-keys) (first my-vals))
+             (next my-keys)
+             (next my-vals))
+      my-map)))
+(my-zipmap [:a :b :c] [1 2 3])
+-&gt; {:b 2, :c 3, :a 1}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For situations where mutual recursion is called for, recur can&#8217;t be used. Instead, <a href="http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/trampoline">trampoline</a> may be a good option.</p>
+</div>
+</div>
+</div>
+
+
+<div class="clj-prev-next-container">
+  <a href="dynamic" class="clj-prev-link"><span class="clj-prevnext-link-icon"></span>&nbsp;Dynamic Development</a>
+  <a href="lisp" class="clj-next-link">Lisp&nbsp;<span class="clj-prevnext-link-icon"></span></a>
+</div>
+
+    </div>
+  </div>
+</div>
+
+  <div class="w-section clj-footer">
+    <div class="w-container clj-footer-links-container">
+      <div class="w-row">
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Community</h6><a href="http://igeldev.github.io/clojure-site-russian/community/resources" class="clj-footer-link">Resources</a><a href="http://igeldev.github.io/clojure-site-russian/community/contributing" class="clj-footer-link">Contributing</a><a href="http://igeldev.github.io/clojure-site-russian/community/companies" class="clj-footer-link">Companies</a>
+          <h6 class="clj-footer-heading">Legal</h6><a href="http://igeldev.github.io/clojure-site-russian/community/license" class="clj-footer-link">License</a><a href="http://igeldev.github.io/clojure-site-russian/privacy" class="clj-footer-link">Privacy Policy</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Documentation</h6><a href="http://igeldev.github.io/clojure-site-russian/about/rationale" class="clj-footer-link">Overview</a><a href="http://igeldev.github.io/clojure-site-russian/reference/documentation" class="clj-footer-link">Reference</a><a href="http://igeldev.github.io/clojure-site-russian/api/api" class="clj-footer-link">API</a><a href="http://igeldev.github.io/clojure-site-russian/guides/guides" class="clj-footer-link">Guides</a><a href="http://igeldev.github.io/clojure-site-russian/community/libraries" class="clj-footer-link">Libraries &amp; Tools</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Updates</h6><a href="http://igeldev.github.io/clojure-site-russian/news/news" class="clj-footer-link">News</a><a href="http://igeldev.github.io/clojure-site-russian/community/events" class="clj-footer-link">Events</a>
+          <h6 class="clj-footer-heading">ETC</h6><a href="https://www.youtube.com/user/ClojureTV" class="clj-footer-link">Video</a><a href="http://igeldev.github.io/clojure-site-russian/community/books" class="clj-footer-link">Books</a><a href="http://igeldev.github.io/clojure-site-russian/community/swag" class="clj-footer-link">Swag</a>
+        </div>
+        <div class="w-col w-col-3 w-col-small-6 w-col-tiny-6">
+          <h6 class="clj-footer-heading">Code</h6><a href="http://igeldev.github.io/clojure-site-russian/community/downloads" class="clj-footer-link">Releases</a><a href="https://github.com/clojure/clojure/" class="clj-footer-link">Source</a><a href="http://igeldev.github.io/clojure-site-russian/about/clojurescript" class="clj-footer-link">ClojureScript</a><a href="http://igeldev.github.io/clojure-site-russian/about/clojureclr" class="clj-footer-link">ClojureCLR</a>
+        </div>
+      </div>
+    </div>
+    <div class="w-container clj-footer-legal-container">
+      <div class="w-clearfix clj-footer-legal">
+        <div class="clj-footer-logo">&nbsp;</div>
+        <div class="clj-footer-legal-links">
+          <div class="clj-footer-copyright">Copyright 2008-2016 Rich Hickey | <a class="clj-footer-sub-link" href="http://igeldev.github.io/clojure-site-russian/privacy">Privacy Policy</a><br/>Published 2017-05-17
+          </div>
+          <div class="clj-footer-designed-by">Logo &amp; site design by <a class="clj-footer-sub-link" href="http://tomhickey.com/">Tom Hickey</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/webflow.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+</body>
+</html>
