@@ -14,7 +14,7 @@
             <a href="events" class="w-nav-link clj-section-nav-item-link">Events</a>
             <div class="w-nav-link clj-section-nav-heading">Legal</div>
             <a href="license" class="w-nav-link clj-section-nav-item-link">License</a>
-            <a href="/privacy" class="w-nav-link clj-section-nav-item-link">Privacy Policy</a>
+            <a href="${config.site_host}/privacy" class="w-nav-link clj-section-nav-item-link">Privacy Policy</a>
             <div class="w-nav-link clj-section-nav-heading">Help</div>
             <a href="books" class="w-nav-link clj-section-nav-item-link">Books</a>
             <a href="libraries" class="w-nav-link clj-section-nav-item-link">Libraries</a>

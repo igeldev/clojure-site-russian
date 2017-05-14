@@ -8,7 +8,7 @@
           <nav role="navigation" class="w-nav-menu clj-section-nav-menu">
             <#list posts as post>
               <#if (post.status == "published")>
-                <a href="/${post.uri}" class="w-nav-link clj-section-nav-item-link"><#escape x as x?xml>${post.title}</#escape></a>
+                <a href="${config.site_host}/${post.uri}" class="w-nav-link clj-section-nav-item-link"><#escape x as x?xml>${post.title}</#escape></a>
               </#if>
       </#list>
           </nav>

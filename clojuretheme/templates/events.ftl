@@ -15,7 +15,7 @@
           <#assign endtime = (event.end + " 23:59:00")?datetime("yyyy-MM-dd hh:mm:ss")>
           <#if (event.status == "published" && .now <= endtime)>
             <li><span class="clj-events-date">${starttime?string("yyyy-MM-dd")}</span>
-                &nbsp;<a href="/${event.uri}"><#escape x as x?xml>${event.title} ${event.edition}</#escape></a></li>
+                &nbsp;<a href="${config.site_host}/${event.uri}"><#escape x as x?xml>${event.title} ${event.edition}</#escape></a></li>
           </#if>
         </#list>
       </ul>

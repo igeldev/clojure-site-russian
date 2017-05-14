@@ -97,7 +97,7 @@
               <#list posts as post>
                 <#if (post.status == "published")>
                   <li><span class="clj-home-updates-date">${post.date?string("yyyy-MM-dd")}</span>
-                      &nbsp;<a href="/${post.uri}" class="clj-home-updates-link"><#escape x as x?xml>${post.title}</#escape></a></li>
+                      &nbsp;<a href="${config.site_host}/${post.uri}" class="clj-home-updates-link"><#escape x as x?xml>${post.title}</#escape></a></li>
                   <#assign c = c + 1>
                   <#if (c >= 3)>
                     <#break>
@@ -116,7 +116,7 @@
                 <#assign endtime = (event.end + " 23:59:00")?datetime("yyyy-MM-dd hh:mm:ss")>
                 <#if (event.status == "published" && endtime >= .now)>
                   <li><span class="clj-home-updates-date">${endtime?string("yyyy-MM-dd")}</span>
-                      &nbsp;<a href="/${event.uri}" class="clj-home-updates-link"><#escape x as x?xml>${event.title} ${event.edition}</#escape></a></li>
+                      &nbsp;<a href="${config.site_host}/${event.uri}" class="clj-home-updates-link"><#escape x as x?xml>${event.title} ${event.edition}</#escape></a></li>
                   <#assign c = c + 1>
                   <#if (c >= 3)>
                     <#break>

@@ -35,10 +35,10 @@
 <body>
   <div data-collapse="none" data-animation="default" data-duration="400" data-contain="1" class="w-nav clj-navbar">
     <div class="w-container">
-      <a href="/index" class="w-nav-brand w-clearfix clj-logo-container"><img width="60" src="<#if (content.rootpath)??>${content.rootpath}<#else></#if>images/clojure-logo-120b.png" class="clj-logo">
+      <a href="${config.site_host}/index" class="w-nav-brand w-clearfix clj-logo-container"><img width="60" src="<#if (content.rootpath)??>${content.rootpath}<#else></#if>images/clojure-logo-120b.png" class="clj-logo">
         <div class="clj-logo-text">Clojure</div>
       </a>
-      <nav role="navigation" class="w-nav-menu clj-nav-menu"><a href="/about/rationale" class="w-nav-link clj-nav-link">Overview</a><a href="/reference/documentation" class="w-nav-link clj-nav-link">Reference‍</a><a href="/api/api" class="w-nav-link clj-nav-link">API</a><a href="/community/downloads" class="w-nav-link clj-nav-link">Releases</a><a href="/guides/guides" class="w-nav-link clj-nav-link">Guides</a><a href="/community/resources" class="w-nav-link clj-nav-link">Community</a><a href="/news/news" class="w-nav-link clj-nav-link">News</a><a href="#" data-ix="search-click-trigger" class="w-nav-link clj-nav-link clj-nav-search"></a>
+      <nav role="navigation" class="w-nav-menu clj-nav-menu"><a href="${config.site_host}/about/rationale" class="w-nav-link clj-nav-link">Overview</a><a href="${config.site_host}/reference/documentation" class="w-nav-link clj-nav-link">Reference‍</a><a href="${config.site_host}/api/api" class="w-nav-link clj-nav-link">API</a><a href="${config.site_host}/community/downloads" class="w-nav-link clj-nav-link">Releases</a><a href="${config.site_host}/guides/guides" class="w-nav-link clj-nav-link">Guides</a><a href="${config.site_host}/community/resources" class="w-nav-link clj-nav-link">Community</a><a href="${config.site_host}/news/news" class="w-nav-link clj-nav-link">News</a><a href="#" data-ix="search-click-trigger" class="w-nav-link clj-nav-link clj-nav-search"></a>
       </nav>
       <div class="w-nav-button clj-menu-button">
         <div class="w-icon-nav-menu"></div>
@@ -48,7 +48,7 @@
   <div data-ix="hide-search" class="w-section clj-search-section">
     <div class="w-container">
       <div class="w-form clj-search-form-wrapper">
-        <form id="wf-form-Search-Form" name="wf-form-Search-Form" data-name="Search Form" action="/search" method="get">
+        <form id="wf-form-Search-Form" name="wf-form-Search-Form" data-name="Search Form" action="${config.site_host}/search" method="get">
           <div class="w-row">
             <div class="w-col w-col-9 w-col-small-9">
               <input id="q" type="text" placeholder="Search clojure.org reference, guides, and API" name="q" data-name="q" autofocus="autofocus" class="w-input clj-search-input">

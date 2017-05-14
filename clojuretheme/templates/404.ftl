@@ -27,22 +27,22 @@
       <div>
         <h2>Other Options</h2>
       </div>
-      <p>Visit our <a href="/index">home page</a> for an overview of what the site has to offer.</p>
+      <p>Visit our <a href="${config.site_host}/index">home page</a> for an overview of what the site has to offer.</p>
       <h3>Browse By Category</h3>
       <ul>
-        <li><a href="/about/rationale">Overview</a>
+        <li><a href="${config.site_host}/about/rationale">Overview</a>
         </li>
-        <li><a href="/reference/documentation">Reference</a>
+        <li><a href="${config.site_host}/reference/documentation">Reference</a>
         </li>
-        <li><a href="/api/api">API</a>
+        <li><a href="${config.site_host}/api/api">API</a>
         </li>
-        <li><a href="/community/downloads">Releases</a>
+        <li><a href="${config.site_host}/community/downloads">Releases</a>
         </li>
-        <li><a href="/guides/guides">Guides</a>
+        <li><a href="${config.site_host}/guides/guides">Guides</a>
         </li>
-        <li><a href="/community/resources">Community</a>
+        <li><a href="${config.site_host}/community/resources">Community</a>
         </li>
-        <li><a href="/news/news">News</a>
+        <li><a href="${config.site_host}/news/news">News</a>
         </li>
       </ul>
     </div>

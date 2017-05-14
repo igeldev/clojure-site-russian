@@ -8,7 +8,7 @@
           <nav role="navigation" class="w-nav-menu clj-section-nav-menu">
             <#list posts as post>
               <#if (post.status == "published")>
-                <a href="/${post.uri}" class="w-nav-link clj-section-nav-item-link"><#escape x as x?xml>${post.title}</#escape></a>
+                <a href="${config.site_host}/${post.uri}" class="w-nav-link clj-section-nav-item-link"><#escape x as x?xml>${post.title}</#escape></a>
               </#if>
             </#list>
           </nav>
@@ -24,7 +24,7 @@
     <div class="clj-content-container">
       <#list posts as post>
         <#if (post.status == "published")>
-         <a href="/${post.uri}" class="w-nav-link clj-section-nav-item-link"><h1><#escape x as x?xml>${post.title}</#escape></h1></a>
+         <a href="${config.site_host}/${post.uri}" class="w-nav-link clj-section-nav-item-link"><h1><#escape x as x?xml>${post.title}</#escape></h1></a>
          <p><em>${content.date?string("dd MMMM yyyy")}</em><br/>
             <em>${content.author}</em></p>
           <p>${post.body}</p>

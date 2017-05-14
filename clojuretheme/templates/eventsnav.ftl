@@ -6,7 +6,7 @@
         <#list events?reverse as event>
 				  <#assign endtime = (event.end + " 23:59:00")?datetime("yyyy-MM-dd hh:mm:ss")>
           <#if (endtime >= .now && event.status == "published")>
-            <a href="/${event.uri}" class="w-nav-link clj-section-nav-item-link"><#escape x as x?xml>${event.title} ${event.edition}</#escape></a>
+            <a href="${config.site_host}/${event.uri}" class="w-nav-link clj-section-nav-item-link"><#escape x as x?xml>${event.title} ${event.edition}</#escape></a>
           </#if>
         </#list>
       </nav>
