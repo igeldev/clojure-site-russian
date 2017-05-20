@@ -1,8 +1,9 @@
-= Datatypes: deftype, defrecord and reify
+= Типы данных: deftype, defrecord и reify
 Rich Hickey
 2015-01-01
 :type: reference
 :toc: macro
+:toc-title: Содержание
 :icons: font
 :navlinktext: Datatypes
 :prevpagehref: data_structures
@@ -14,13 +15,18 @@ ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 
 toc::[]
 
-== Motivation
+== Мотивация
 
-Clojure is written in terms of abstractions. There are abstractions for sequences, collections, callability, etc. In addition, Clojure supplies many implementations of these abstractions. The abstractions are specified by host interfaces, and the implementations by host classes. While this was sufficient for bootstrapping the language, it left Clojure without similar abstraction and low-level implementation facilities. The <<protocols#,protocols>> and <<datatypes#,datatypes>> features add powerful and flexible mechanisms for abstraction and data structure definition with no compromises vs the facilities of the host platform.
+Clojure написана в терминах абстракций.
+Существуют абстракции для последовательностей, коллекций, вызываемых функций и другие.
+Также Clojure поддерживает множество реализаций этих абстракций.
+Эти абстракции определены интерфейсами Java, а реализации - Java-классами.
+И хотя такой подход и ускоряет начальную загрузку языка, это оставляет Clojure без аналогичных абстракций и низкоуровневых средств реализации.
+<<protocols#,Протоколы>> и <<datatypes#,типы данных>> добавляют мощные и гибкие механизмы для объявления абстракций и структур данных гораздо более удобные, чем возможности платформы Java.
 
-== Basics
+== Основы
 
-The datatype features - http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/deftype[deftype] , http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/defrecord[defrecord] and http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/reify[reify] , provide the mechanism for defining implementations of abstractions, and in the case of reify, instances of those implementations. The abstractions themselves are defined by either <<protocols#,protocols>> or interfaces. A datatype provides a host type, (named in the case of deftype and defrecord, anonymous in the case of reify), with some structure (explicit fields in the case of deftype and defrecord, implicit closure in the case of reify), and optional in-type implementations of abstraction methods. They support, in a relatively clean manner, access to the highest-performance primitive representation and polymorphism mechanisms of the host. N.B. that they are not merely host-in-parens constructs. They support only a circumscribed subset of the host facilities, often with more dynamism than the host itself. The intent is that, unless interop forces one to go beyond their circumscribed scope, one need not leave Clojure to get the highest-performing data structures possible on the platform.
+Функции объявления типов http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/deftype[deftype] , http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/defrecord[defrecord] и http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/reify[reify] позволяют объявлять реализации абстракций и в случае reify - экземпляры этих реализаций. Абстракции сами по себе определяются либо с помощью <<protocols#,протоколов>>, либо - интерфейсов. Тип данных генерирует соответствующий ему Java-класс (именованный в случае deftype и defrecord, анонимный в случае reify), с некоторой структурой (явные поля в случае deftype и defrecord, неявные замыкания в случае reify), и необязательные внутренние реализации абстрактных методов. Они поддерживают доступ к высокопроизводительным примитивным представлениям и полиморфизму Java. Обратите внимание, что они не прото обертка над Java. Они поддерживают только ограниченное множество возможностей Java, часто с большим динамизмом, чем сама Java. Идея в том, что если interop не заставляет выйти за пределы их ограниченного объема, не нужно оставлять Clojure, чтобы получить на платформе самые высокопроизводительные структуры данных.
 
 == deftype and defrecord
 
