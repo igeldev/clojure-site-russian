@@ -30,42 +30,42 @@ Clojure написана в терминах абстракций.
 
 == deftype and defrecord
 
-http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/deftype[deftype] and http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/defrecord[defrecord] dynamically generate compiled bytecode for a named class with a set of given fields, and, optionally, methods for one or more protocols and/or interfaces. They are suitable for dynamic and interactive development, need not be AOT compiled, and can be re-evaluated in the course of a single session. They are similar to defstruct in generating data structures with named fields, but differ from defstruct in that:
+http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/deftype[deftype] и http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/defrecord[defrecord] динамически генерируют скомпилированный байткод именованного класса с заданным набором полей и, что необязтельно, методами для оного или более протоколов и/или интерфейсов. Они подходят для динамического и интерактивного программирования, не требуют компиляции перед исполнением и могет быть переопределены в рамках одной сессии. Они похожи на defstruct тем, что генерируют структуры данных с именованными полями, но отличаются от defstruct в следующем:
 
 
-* They generate a unique class, with fields corresponding to the given names.
-* the resulting class has a proper type, unlike conventions for encoding type for structs in metadata
-* because they generate a named class, it has an accessible constructor
-* fields can have type hints, and can be primitive
-** note that currently a type hint of a non-primitive type will not be used to constrain the field type nor the constructor arg, but will be used to optimize its use in the class methods
-** constraining the field type and constructor arg is planned
-* a deftype/defrecord can implement one or more protocols and/or interfaces
-* deftype/defrecord can be written with a special reader syntax #my.thing[1 2 3] where:
-** each element in the vector form is passed to the deftype/defrecord's constructor un-evaluated
-** the deftype/defrecord name must be fully qualified
-** only available in Clojure versions later than 1.3
-* when a deftype/defrecord Foo is defined a corresponding function `pass:[->Foo]` is defined that passes its arguments to the constructor (versions 1.3 and later only)
+* Они генерируют уникальный класс, с полями, соответствующими заданным именам.
+* полученный класс имеет правильный тип, в отличие от соглашений по кодированию типа для структур в метаданных
+* так как они генерируют именованный класс, он имеет доступный конструктор
+* поля могут иметь подсказки о типах и могут быть примитивами
+** заметим, что сейчас подсказки о непримитивных типах не будут использоваться, чтобы ограничить тип поля или аргумент конструктора, но будут использованы для оптимизации их использования в методах класса
+** планируется ограничение для типов полей и агрументов конструктора
+* deftype/defrecord могут реализовывать один или более протоколов и/или интерфейсов
+* deftype/defrecord могут быть запсаны специальным синтексисом считавателя #my.thing[1 2 3] где:
+** каждый элемент в вектор-форме передается в конструктор deftype/defrecord невычисленным
+** им deftype/defrecord должно быть уточненным
+** это доступно только в Clojure версии 1.3 и выше
+* когда deftype/defrecord Foo определено соответствующая функция `pass:[->Foo]` определена и передает свои аргументы в конструктор Foo (версии 1.3 и выше)
 
-http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/deftype[deftype] and http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/defrecord[defrecord] differ in the following ways:
+http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/deftype[deftype] и http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/defrecord[defrecord] отличаются в следующем:
 
 
-* deftype provides no functionality not specified by the user, other than a constructor
-* defrecord provides a complete implementation of a persistent map, including:
-** value-based equality and hashCode
-** metadata support
-** associative support
-** keyword accessors for fields
-** extensible fields (you can assoc keys not supplied with the defrecord definition)
-** etc
-* deftype supports mutable fields, defrecord does not
-* defrecord support an additional reader form of #my.record{:a 1, :b 2} taking a map that initializes a defrecord according to:
-** the defrecord name must be fully qualified
-** the elements in the map are un-evaluated
-** existing defrecord fields take the keyed values
-** defrecord fields without keyed values in the literal map are initialized to nil
-** additional keyed values are allowed and added to the defrecord
-** only available in Clojure versions later than 1.3
-* when a defrecord Bar is defined a corresponding function `pass:[map->Bar]` is defined that takes a map and initializes a new record instance with its contents (versions 1.3 and later only)
+* deftype не предоставляет никакой функциональности, не добавленной пользователем, кроме конструктора
+* defrecord предоставляет полную реализацию ассоциативного массива, в том числе:
+** equal и hashCode основанную на значениях
+** поддержку метаданных
+** поддержку ассоциаций
+** доступ к полям по ключемым словам
+** расширяемые поля (вы можете добвлять значения, ассоциированные с ключами, которых не было изначально)
+** и т.д.
+* deftype поддерживает изменяемые поля, defrecord - нет
+* defrecord поддерживает дополнительную форму считывателя #my.record{:a 1, :b 2} принимающую ассоциативный массив, который инициализирует defrecord:
+** имя defrecord должно быть уточнено
+** элементы в массиве невычислены
+** существующие поля defrecord принимают указанные в массиве значения
+** поля defrecord, которых нет в массиве устанавливаются в nil
+** дополнительные пары ключ-значение разрешены и добавляются в defrecord
+** доступно только в Clojure версии 1.3 и выше
+* если определена defrecord Bar, то соответствующая функция `pass:[map->Bar]` определена тоже и она принимает ассоциативный массив, который использует для инициализации нового экземпляра Bar (только 1.3 и выше)
 
 == Why have both deftype and defrecord?
 
