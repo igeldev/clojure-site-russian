@@ -67,15 +67,15 @@ http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/deftype[deft
 ** доступно только в Clojure версии 1.3 и выше
 * если определена defrecord Bar, то соответствующая функция `pass:[map->Bar]` определена тоже и она принимает ассоциативный массив, который использует для инициализации нового экземпляра Bar (только 1.3 и выше)
 
-== Why have both deftype and defrecord?
+== Почему существуют сразу и deftype и defrecord?
 
-It ends up that classes in most OO programs fall into two distinct categories: those classes that are artifacts of the implementation/programming domain, e.g. String or collection classes, or Clojure's reference types; and classes that represent application domain information, e.g. Employee, PurchaseOrder etc. It has always been an unfortunate characteristic of using classes for application domain information that it resulted in information being hidden behind class-specific micro-languages, e.g. even the seemingly harmless employee.getName() is a custom interface to data. Putting information in such classes is a problem, much like having every book being written in a different language would be a problem. You can no longer take a generic approach to information processing. This results in an explosion of needless specificity, and a dearth of reuse.
+Оказывается, что классы в большинстве объектно-ориентированных программах принадлежат одной из двух категорий: классы, являющиеся артефактами области реализации/программирования, например String или классы коллекций или ссылочные типы Clojure; и классы, которые представляют информацию о области приложения, например Employee, PurchaseOrder и т.д. Всегда была печальная практика использования классов для информации домена приложения, которая привела к тому, что информация была скрыта за специфичными для класса микроязыками, например даже кажующийся безобидным employee.getName() - это настраиваемый интерфейс для данных. Хранение информации в таких классах является проблемой, как если бы каждая книга была бы написана на своем языке. Вы больше не можете использовать общий подход к обработке информации. Это приводит к возрастанию ненужной специфичности и недостатку повторного использования.
 
-This is why Clojure has always encouraged putting such information in maps, and that advice doesn't change with datatypes. By using defrecord you get generically manipulable information, plus the added benefits of type-driven polymorphism, and the structural efficiencies of fields. OTOH, it makes no sense for a datatype that defines a collection like vector to have a default implementation of map, thus deftype is suitable for defining such programming constructs.
+Вот почему Clojure всегда поощряет хранение такой информации в ассоциативных массивах и этот совет касается и типов данных. Используя defrecord вы получаете единый способ доступа к информации, плюс дополнительные преимущества полиморфизма типов и структурной эффективности полей. С другой стороны, нет смысла для типа данных, который определяет коллекцию вроде вектора иметь реализацию ассоциативного массива, и в этом случае как раз лучшим образом подходит deftype.
 
-Overall, records will be better than structmaps for all information-bearing purposes, and you should move such structmaps to defrecord. It is unlikely much code was trying to use structmaps for programming constructs, but if so, you will find deftype much more suitable.
+В целом, defrecord будут лучше чем structmap во всех инормационно-ориентированных случаях и вы должны заменить все structmap на defrecord. Вряд ли многие пытались использовать structmap для программирования конструкций, но если это так - вы найдете deftype более подходящими.
 
-AOT-compiled deftype/defrecord may be suitable for some of the use cases of *gen-class*, where their limitations are not prohibitive. In those cases, they will have better performance than gen-class.
+Компилируемые перед исполнением deftype/defrecord могут подходить как замена gen-class, когда не мешают их ограничения. В этом случае они будут иметь лучшую производительность, чем gen-class.
 
 == Datatypes and protocols are opinionated
 
