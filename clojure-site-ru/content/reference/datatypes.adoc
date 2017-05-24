@@ -77,22 +77,22 @@ http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/deftype[deft
 
 Компилируемые перед исполнением deftype/defrecord могут подходить как замена gen-class, когда не мешают их ограничения. В этом случае они будут иметь лучшую производительность, чем gen-class.
 
-== Datatypes and protocols are opinionated
+== Типы данных и протоколы догматичны
 
-While datatypes and protocols have well-defined relationships with host constructs, and make for a great way to expose Clojure functionality to Java programs, they are not primarily interop constructs. That is, they make no effort to completely mimic or adapt to all of the OO mechanisms of the host. In particular, they reflect the following opinions:
+Хотя типы данных и протоколы имеют хорошо определенные отношения с конструкциями Java и сделаны для того, чтобы предоставить наилучшую функциональность Clojure для программ Java, они не являются в первую очередь конструкциями общения с Java. То есть они не прикладывают никаких усилий, чтобы полностью имитировать или адаптировать объектно-ориентированные механизмы Java. В частности, они отражают следующее:
 
-* Concrete derivation is bad
-** you cannot derive datatypes from concrete classes, only interfaces
-* You should always program to protocols or interfaces
-** datatypes cannot expose methods not in their protocols or interfaces
-* Immutability should be the default
-** and is the only option for records
-* Encapsulation of information is folly
-** fields are public, use protocols/interfaces to avoid dependencies
-* Tying polymorphism to inheritance is bad
-** protocols free you from that
+* Конкретное наследование - плохо
+** вы не можете наследовать типы данных от конкретных классов, только от интерфейсов
+* Вы всегда должны программировать протоколы или интерфейсы
+** типы данных не могут предоставлять методы, которых нет в их протоколах или интерфейсах
+* Неизменяемость должна быть по-умолчанию
+** и быть единственным вариантом для defrecord
+* Инкапсуляция информации - глупость
+** поля - публичны, используйте протоколы/интерфейсы чтобы избежать зависимостей
+* Связывание полиморфизма с наследованием - плохо
+** протоколы свободны от этого
 
-If you use datatypes and protocols you will have a clean, interface-based API to offer your Java consumers. If you are dealing with a clean, interface-based Java API, datatypes and protocols can be used to interoperate with and extend it. If you have a 'bad' Java API, you will have to use gen-class. Only in this way can the programming constructs you use to design and implement your Clojure programs be free of the incidental complexities of OO.
+Если вы используете типы данных и протоколы - вы сможете предложить пользователям чистый, основанный на интерфейсах API. Если вы имеете дело с чистым, основанным на интерфейсах Java API, типы данных и протоколы могут быть использованы, чтобы взаимодействовать и расширять его. Если у вас имеется 'плохой' Java API, вы будете должны использовать gen-class. Только таким образом программные конструкции, которые вы используете чтобы разрабатывать и реализовывать программы на Clojure, будут свободны от непредвиденных сложностей объектно-ориентированного программирования.
 
 == reify
 
