@@ -1,8 +1,9 @@
-= Sequences
+= Последовательности
 Rich Hickey
 2015-01-01
 :type: reference
 :toc: macro
+:toc-title: Содержание
 :icons: font
 :prevpagehref: datatypes
 :prevpagetitle: Datatypes
@@ -13,7 +14,7 @@ ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 
 toc::[]
 
-Clojure defines many algorithms in terms of sequences (seqs). A seq is a logical list, and unlike most Lisps where the list is represented by a concrete, 2-slot structure, Clojure uses the ISeq interface to allow many data structures to provide access to their elements as sequences. The http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/seq[seq] function yields an implementation of ISeq appropriate to the collection. Seqs differ from iterators in that they are persistent and immutable, not stateful cursors into a collection. As such, they are useful for much more than foreach - functions can consume and produce seqs, they are thread safe, they can share structure etc.
+Clojure определяет множество алгоритмов в терминах последовательностей. Последовательность - это логический список, но в отличие от большинства диалектов Lisp, где список представляется конкретной 2-х-слотовой структурой Clojure использует интерфейс ISeq, чтобы позволить множеству структур данных предоставлять доступ к своим элементам как к последовательностям. Функция http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/seq[seq] порождает реализацию ISeq, подходящую входной коллекции. Последовательности отличаются от итераторов тем, что они являются постоянными и неизменяемыми, не имеющими внутреннего состояния указателями в коллекции. По существу, они более полезны, чем оператор foreach - функции могут возвращать последовательности и принимать их в качестве аргументов, они потокобезопасны, могут работать с одной и той же структурой и т.д.
 
 Most of the sequence library functions are _lazy_, i.e. functions that return seqs do so incrementally, as they are consumed, and thus consume any seq arguments incrementally as well. Functions returning lazy seqs can be implemented using the http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/lazy-seq[lazy-seq] macro. See also <<lazy#,lazy>>.
 
