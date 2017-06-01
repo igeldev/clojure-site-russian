@@ -20,20 +20,20 @@ Clojure определяет множество алгоритмов в терм
 
 Когда функция http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/seq[seq] используется на объектах, которые реализуют интерфейс Iterable, получаемые последовательности будут по прежнему неизменяемыми и постоянными, и будут представлять единичный проход по данным. Так как этот проход может быть осуществлен лениво, проход может увидеть изменения, случившиеся после вызова http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/seq[seq]. Также, если исходный итератор может выбросить ConcurrentModificationException, тоже самое может сделать и последовательность. Когда функция seq используется на массивах Java, изменения в исходном массиве будут отражены в последовательности - чтобы получить действительную неизменяемость вы должны скопировать исходный массив. Таким образом, есть польза от использования функции seq на экземплярах Iterable и массивах так как последовательности поддерживают многоходовые и ленивые алгоритмы. Хорошие программы не должны изменять массивы или экземпляры Iterable, на основе которых была создана последовательность.
 
-Many of the functions in the seq library take one or more collections, call http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/seq[seq] on them, and then operate on the resulting seq. In other words, many of these functions take collections but operate on their seqs.
+Множество библиотечных функций последовательностей принимают одну или более коллекций, вызывают http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/seq[seq] на них, и затем оперируют с полученными последовательностями. Другими словами, многие из этих функций принимают коллекции, но оперируют с последовательностями.
 
-== The Seq interface
+== Интерфейс Seq
 
 === (_first_ coll)
-Returns the first item in the collection. Calls seq on its argument. If coll is nil, returns nil.
+Возвращает первый элемент в коллекции. Вызывает функцию seq на своем аргументе. Если аргумент равен nil, возвращает nil.
 
 === (_rest_ coll)
-Returns a sequence of the items after the first. Calls seq on its argument. If there are no more items, returns a logical sequence for which *seq* returns nil.
+Возвращает последовательность элементов, следующих за первым. Вызывает функцию seq на своем аргументе. Если после первого элементов больше нет, возвращает логическую последовательность, для которой *seq* возвращает nil.
 
 === (_cons_ item seq)
-Returns a new seq where item is the first element and seq is the rest.
+Возвращает новую поелсдовательность, где первый элемент будет item, а затем будут идти элементы последовательности seq.
 
-For a discussion of *rest* vs. *next* and *lazy-seq* see <<lazy#,lazy>>.
+Сравнение *rest*, *next* и *lazy-seq* см. разделе <<lazy#,леность>>
 
 == The Seq library
 
