@@ -35,11 +35,11 @@ Clojure определяет множество алгоритмов в терм
 
 Сравнение *rest*, *next* и *lazy-seq* см. разделе <<lazy#,леность>>
 
-== The Seq library
+== Библиотека последовательностей
 
-This is a sampling of the primary sequence functions, grouped broadly by their capabilities. Some functions can be used in different ways and so appear in more than one group. There are many more listed in the http://clojure.github.io/clojure/[API] section.
+Это набор важнейших функций последовательностей, сгруппированный по их возможностям. Некоторые функции могут быть использованы различным образом, поэтому они присутствуют в разных группах. Больше функций перечисленно в секции http://clojure.github.io/clojure/[API].
 
-Since Clojure 1.7, Clojure also provides <<transducers#,transducers>>, an alternate model for composable transformations on collections. Transducers decouple the input, processing, and output parts of transformation and allow reuse of transformations in more contexts, such as core.async channels. Many of the sequence functions in the list below will create transducers if the input collection is omitted. See the Transducers page for more details.
+Начиная с версии 1.7, Clojure также предоставляет <<transducers#,преобразователи>>, альтернативную модель для трансформаций коллекций. Преобразователи разъединяют части вход, обработка и выход и позволяют переиспользовать преобразования для разлиных задач, например в каналах core.async. Множество функций последовательностей из списка ниже будут создавать преобразователи если входная коллекция пропущена. Чтобы узнать больше см. страницу о преобразователях.
 
 === Seq in, Seq out
 
