@@ -14,27 +14,27 @@ ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 
 toc::[]
 
-== Motivation
+== Мотивация
 
-Clojure is written in terms of abstractions. There are abstractions for sequences, collections, callability, etc. In addition, Clojure supplies many implementations of these abstractions. The abstractions are specified by host interfaces, and the implementations by host classes. While this was sufficient for bootstrapping the language, it left Clojure without similar abstraction and low-level implementation facilities. The <<protocols#,protocols>> and <<datatypes#,datatypes>> features add powerful and flexible mechanisms for abstraction and data structure definition with no compromises vs the facilities of the host platform.
+Clojure написана в терминах абстракций. Существуют абстракции для последовательностей, коллекций, вызываемых функций и другие. Также Clojure поддерживает множество реализаций этих абстракций. Эти абстракции определены интерфейсами Java, а реализации - Java-классами. И хотя такой подход и ускоряет начальную загрузку языка, это оставляет Clojure без аналогичных абстракций и низкоуровневых средств реализации. <<protocols#,Протоколы>> и <<datatypes#,типы данных>> добавляют мощные и гибкие механизмы для объявления абстракций и структур данных гораздо более удобные, чем возможности платформы Java.
 
-There are several motivations for protocols:
+Существуют следующие причины создания протоколов:
 
-* Provide a high-performance, dynamic polymorphism construct as an alternative to interfaces
-* Support the best parts of interfaces
-** specification only, no implementation
-** a single type can implement multiple protocols
-* While avoiding some of the drawbacks
-** Which interfaces are implemented is a design-time choice of the type author, cannot be extended later (although interface injection might eventually address this)
-** implementing an interface creates an isa/instanceof type relationship and hierarchy
-* Avoid the 'expression problem' by allowing independent extension of the set of types, protocols, and implementations of protocols on types, by different parties
-** do so without wrappers/adapters
-* Support the 90% case of multimethods (single dispatch on type) while providing higher-level abstraction/organization
+* Предоставить высокопроизводительную конструкцию с динамическим полиморфизмом как альтернативу интерфейсам
+* Поддерживать лучшее из интерфесов
+** только спецификация, без реализации
+** один тип может реализовывать несколько протоколов
+* При этом избежать некоторых недостатков
+** Какие интерфейсы реализовываются - это выбор, осуществляющийся автором во время проектирования и это не может быть расширено позже (хотя вставки интерфейсов могут в конечном итоге обратиться к этому)
+** реализация интерфейса создает отношения между классами и иерархию
+* Избежать "проблемы выражения" позволив независимо расширять множество типов, протоколов и реализаций протоколов
+** делать это без оберток и адаптеров
+* Поддерживать 90% случаев мультиметодов во время предоставления высокоуровневой абстракции/организации
 
-[NOTE]
-Protocols were introduced in Clojure 1.2.
+[ВНИМАНИЕ]
+Протоколы были добавлены в Clojure 1.2.
 
-== Basics
+== Основы
 
 A protocol is a named set of named methods and their signatures, defined using http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/defprotocol[defprotocol]:
 
