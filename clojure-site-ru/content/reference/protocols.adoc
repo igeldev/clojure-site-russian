@@ -36,7 +36,7 @@ Clojure написана в терминах абстракций. Сущест�
 
 == Основы
 
-A protocol is a named set of named methods and their signatures, defined using http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/defprotocol[defprotocol]:
+Протокол - это именованное множество методов и их сигнатур, определенных с помощью http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/defprotocol[defprotocol]:
 
 [source,clojure]
 ----
@@ -46,12 +46,12 @@ A protocol is a named set of named methods and their signatures, defined using h
   (baz [a] [a b] [a b c] "baz docs"))
 ----
 
-* No implementations are provided
-* Docs can be specified for the protocol and the functions
-* The above yields a set of polymorphic functions and a protocol object
-** all are namespace-qualified by the namespace enclosing the definition
-* The resulting functions dispatch on the type of their first argument, and thus must have at least one argument
-* defprotocol is dynamic, and does not require AOT compilation
+* Никаких реализаций не предосталвяется
+* Комментарии могут специфицировать как протокол, так и функции
+* Код выше порождает множество полиморфичных функций и объект протокола
+** все они будут принадлежать пространству имен, в котором было выполнено объявление протокола
+* Получаемые функции отправляют по типу их первого аргумента и поэтому должны иметь хотя бы один аргумент
+* defprotocol - динамический и не требует AOT-компиляции.
 
 http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/defprotocol[defprotocol] will automatically generate a corresponding interface, with the same name as the protocol, i.e. given a protocol my.ns/Protocol, an interface my.ns.Protocol. The interface will have methods corresponding to the protocol functions, and the protocol will automatically work with instances of the interface.
 
