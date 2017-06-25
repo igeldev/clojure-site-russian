@@ -53,9 +53,13 @@ Clojure написана в терминах абстракций. Сущест�
 * Получаемые функции отправляют по типу их первого аргумента и поэтому должны иметь хотя бы один аргумент
 * defprotocol - динамический и не требует AOT-компиляции.
 
-http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/defprotocol[defprotocol] will automatically generate a corresponding interface, with the same name as the protocol, i.e. given a protocol my.ns/Protocol, an interface my.ns.Protocol. The interface will have methods corresponding to the protocol functions, and the protocol will automatically work with instances of the interface.
+http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/defprotocol[defprotocol] автоматически генерирует соответствующий интерфейс, с тем же именем, как у протокола, то есть для протокола my.ns/Protocol будет сгенерирован интерфейс my.ns.Protocol. Интерфейс будет иметь методы, соответсующими функциям протокола и протокол будет автоматически работать с экземплярами этого интерфейса.
 
-Note that you do not need to use this interface with http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/deftype[deftype] , http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/defrecord[defrecord] , or http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/reify[reify], as they support protocols directly:
+Заметим, что вам не необходимо использовать этот интерфейс с
+ http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/deftype[deftype] ,
+ http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/defrecord[defrecord] ,
+ или http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/reify[reify],
+ так как они напрямую поддерживают протокол:
 
 [source,clojure]
 ----
