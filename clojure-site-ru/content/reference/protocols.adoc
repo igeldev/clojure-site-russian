@@ -86,9 +86,9 @@ http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/defprotocol[
 > 17
 ----
 
-A Java client looking to participate in the protocol can do so most efficiently by implementing the protocol-generated interface.
+Java клиент желающий участвовать в протоколе может наиболее эффективно сделать это реализовав сгенерированный протоколом интерфейс.
 
-External implementations of the protocol (which are needed when you want a class or type not in your control to participate in the protocol) can be provided using the http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/extend[extend] construct:
+Внешние реализации протокола (которые необходимы когда вы хотите привлечь класс или тип, находящийся вне вашего контроля, для взаимодействия с протоколом) могет быть предоставлены с помощью конструкции http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/extend[extend]:
 
 [source,clojure]
 ----
@@ -102,7 +102,7 @@ External implementations of the protocol (which are needed when you want a class
 ...)
 ----
 
-extend takes a type/class (or interface, see below), a one or more protocol + function map (evaluated) pairs.
+extend берет тип/класс (или интерфейс, см. ниже) одну или более пар протокол + функции.
 
 * Will extend the polymorphism of the protocol's methods to call the supplied functions when an AType is provided as the first argument
 * Function maps are maps of the keywordized method names to ordinary fns
