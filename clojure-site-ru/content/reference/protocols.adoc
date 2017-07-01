@@ -102,19 +102,19 @@ Java клиент желающий участвовать в протоколе 
 ...)
 ----
 
-extend берет тип/класс (или интерфейс, см. ниже) одну или более пар протокол + функции.
+extend берет тип/класс (или интерфейс, см. ниже) одну или более пар протокол + ассоциативный массив функций.
 
-* Will extend the polymorphism of the protocol's methods to call the supplied functions when an AType is provided as the first argument
-* Function maps are maps of the keywordized method names to ordinary fns
-** this facilitates easy reuse of existing fns and maps, for code reuse/mixins without derivation or composition
-* You can implement a protocol on an interface
-** this is primarily to facilitate interop with the host (e.g. Java)
-** but opens the door to incidental multiple inheritance of implementation
-*** since a class can inherit from more than one interface, both of which implement the protocol
-*** if one interface is derived from the other, the more derived is used, else which one is used is unspecified.
-* The implementing fn can presume first argument is instanceof AType
-* You can implement a protocol on _**nil**_
-* To define a default implementation of protocol (for other than nil) just use Object
+* Расширит полиморфизм методов протокола, чтобы вызвать предоставленные функции, когда AType был предоставлен в качестве первого аргумента
+* Ассоциативный массив функций содержит соответствия между ключевыми словами-именами и обычными функциями
+** это облегчает переиспользование существующих функций и ассоциативных массивов
+* Вы можете реализовать протокол на интерфейсе
+** это в первую очередь облегчает взаимодействие с Java-платформой
+** но открывает дверь в случайное множественное наследование реализаций
+*** поскольку класс может реализовывать более одного интерфейса, которые реализуют протокол
+*** если один интерфейс расширяет другой, используется первый, иначе неопределено, какой из них будет использован.
+* Реализация функции может предполагать первый аргумент экземпляром AType
+* Вы можете реализовать протокол на _**nil**_
+* Чтобы определить реализацию протокола по-умолчанию, (отличную от nil) просто используйте Object
 
 Protocols are fully reified and support reflective capabilities via http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/extends%3F[extends?] , http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/extenders[extenders] , and http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/satisfies%3F[satisfies?] .
 
