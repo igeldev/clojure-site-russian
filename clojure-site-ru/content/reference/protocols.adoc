@@ -116,10 +116,10 @@ extend берет тип/класс (или интерфейс, см. ниже) 
 * Вы можете реализовать протокол на _**nil**_
 * Чтобы определить реализацию протокола по-умолчанию, (отличную от nil) просто используйте Object
 
-Protocols are fully reified and support reflective capabilities via http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/extends%3F[extends?] , http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/extenders[extenders] , and http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/satisfies%3F[satisfies?] .
+Протоколы полностью материализованы и поддерживают рефлексию с помощью http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/extends%3F[extends?] , http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/extenders[extenders] , и http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/satisfies%3F[satisfies?] .
 
-* Note the convenience macros http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/extend-type[extend-type] , and http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/extend-protocol[extend-protocol]
-* If you are providing external definitions inline, these will be more convenient than using *extend* directly
+* Отметим удобные макросы http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/extend-type[extend-type] , и http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/extend-protocol[extend-protocol]
+* Если вы предоставляете внешне определенные функции внутрь, они будут более эффективны, чем прямое использование *extend*
 
 [source,clojure]
 ----
