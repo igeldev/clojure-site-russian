@@ -14,17 +14,17 @@ ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 
 toc::[]
 
-Symbols and collections support metadata, a map of data _about_ the symbol or collection. The metadata system allows for arbitrary annotation of data. It is used to convey information to the compiler about types, but can also be used by application developers for many purposes, annotating data sources, policy etc.
+Знаки и коллекции поддерживают метаданные - ассоциативные массивы данных _про_ знак или коллекцию. Система метаданных позволяет произвольно аннотировать данные. Это используется для передачи информации о типах компилятору, но также может быть использовано разработчиками для различных целях: аннотирования источников данных, соглашений и прочее.
 
-An important thing to understand about metadata is that it is not considered to be part of the value of an object. As such, _metadata does not impact equality (or hash codes)_. Two objects that differ only in metadata are equal.
+Важно понять о метаданных, что они не рассматриваются как часть значения объекта. Как таковые, _метаданные не влияют на эквивалентность (или хэш-код)_. Два объекта, различающиеся только метаданными являются эквивалентными.
 
-That said, metadata and its relationship to an object is immutable - an object with different metadata is a different object. One consequence of this is that applying metadata to a lazy sequence will realize the head of the sequence so that both objects can share the same sequence.
+Тем не менее, метаданные и их отношения с объектами неизменны: объект с другими метаданными - это уже другой объект. Следовательно добавление метаданных к ленивой последовательности будет вычислять первый элемент, чтобы оба объекта могли переиспользовать одну последовательность.
 
 ''''
 
 == (_meta_ obj)
 
-Returns the metadata of obj, returns nil if there is no metadata.
+Возвращает метаданные obj или nil если их нет.
 
 ''''
 
