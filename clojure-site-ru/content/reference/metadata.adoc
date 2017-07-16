@@ -29,19 +29,20 @@ toc::[]
 ''''
 
 == (_with-meta_ obj map)
-Returns an object of the same type and value as obj, with map as its metadata.
+Возвращает объект с тим же типом и значением, что и obj, с map в качестве метаданных.
 
-== Metadata Reader Macros
+== Макрос считывателя
 
-In addition to with-meta, there are a number of reader macros (<<reader#macrochars,The Reader: Macro Characters>>) for applying metadata to the expression following it:
+В дополнении к with-meta существует несколько макросов считывателя (<<reader#macrochars,Считыватель: Макросимволы>>)
+ для добавления метаданных к выражению:
 
-* `^{:doc "How obj works!"} obj` - Sets the metadata of obj to the provided map.
-** Equivalent to `(with-meta obj {:doc "How obj works!"})`
-* `^:dynamic obj` - Sets the given keyword to true in the object's metadata.
-** Equivalent to `^{:dynamic true} obj`
-* `^String obj` - Sets the value of :tag key in the object's metadata.
-** Equivalent to `^{:tag java.lang.String} obj`
-** Used to hint an objects type to the Clojure compiler. See <<java_interop#typehints,Java Interop: Type Hints>> for more information and a complete list of special type hints.
+* `^{:doc "How obj works!"} obj` - Устанавливает предоставленный ассоциативный массив как метаданные obj.
+** То же что и `(with-meta obj {:doc "How obj works!"})`
+* `^:dynamic obj` - Устанавливает заданное ключевое слово, соответствующее true как метаданные объекта.
+** То же что `^{:dynamic true} obj`
+* `^String obj` - Устанавливает значение ключа :tag в метаданных объекта.
+** То же что `^{:tag java.lang.String} obj`
+** Используется чтобы подсказать тип объекта компилятору Clojure. Раздел <<java_interop#typehints,Интеграция с Java: Подсказки типов>> содержит более детальную информацию и полный список специальных подсказок о типах.
 
-It is possible to add multiple pieces of metadata by chaining the metadata reader macros together.
-For example: `^:dynamic ^ints obj` would apply both the :dynamic flag and ints type-hint to obj.
+Возможно добавлять несколько пар значений метаданных, если группировать макросы вместе.
+Например, `^:dynamic ^ints obj` добавит к объекту и флаг :dynamic, и подсказку о типе int.
