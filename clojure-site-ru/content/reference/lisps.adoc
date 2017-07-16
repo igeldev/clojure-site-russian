@@ -1,8 +1,9 @@
-= Differences with other Lisps
+= Отличия от других диалектов Lisp
 Rich Hickey
 2015-01-01
 :type: reference
 :toc: macro
+:toc-title: Содержание
 :icons: font
 :navlinktext: Differences with Lisps
 :prevpagehref: other_libraries
