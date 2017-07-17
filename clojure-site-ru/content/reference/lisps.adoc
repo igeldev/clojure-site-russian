@@ -11,20 +11,20 @@ Rich Hickey
 
 ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 
-This information is provided for programmers familiar with Common Lisp or Scheme.
+Эта информация предоставлена для программистов, знакомых с Common List или Scheme.
 
-* Clojure is case sensitive
-* Clojure is a Lisp-1
-* () is not the same as nil
-* The reader is side-effect free
-* Keywords are not Symbols
-* Symbols are not storage locations (see Var)
-* _**nil**_ is not a Symbol
-* t is not syntax, use _**true**_
-* The read table is currently not accessible to user programs
-* _**let**_ binds sequentially
-* _**do**_ is not a looping construct
-* There is no tail-call optimization, use _**recur**_.
+* Clojure чувствителен к регистру
+* Clojure это Lisp-1
+* () не то же самое что nil
+* Считыватель не имеет побочных действий
+* Ключевые слова - это не знаки
+* Знаки - это не хранилища (см. раздел о переменных)
+* _**nil**_ это не знак
+* t не принадлежит синтаксису, используйте _**true**_
+* Таблица чтения сейчас недоступна для пользовательских программ
+* _**let**_ присваивает последоательно
+* _**do**_ не циклическая конструкция
+* Не существует хвостовой рекурсии, используйте _**recur**_.
 * syntax-quote does symbol resolution, so `x is not the same as 'x.
 * ` has auto-gensyms.
 * ~ is unquote ',' is whitespace
