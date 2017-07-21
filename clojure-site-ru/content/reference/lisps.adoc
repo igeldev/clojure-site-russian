@@ -25,14 +25,14 @@ ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 * _**let**_ присваивает последоательно
 * _**do**_ не циклическая конструкция
 * Не существует хвостовой рекурсии, используйте _**recur**_.
-* syntax-quote does symbol resolution, so `x is not the same as 'x.
-* ` has auto-gensyms.
-* ~ is unquote ',' is whitespace
-* There is reader syntax for maps, vectors, and sets
-* _**cons**_, _**first**_ and _**rest**_ manipulate sequence abstractions, not concrete cons cells
-* Most data structures are immutable
-* lambda is _**fn**_, and supports overloading by arity
-* _**pass:[=]**_ is the equality predicate
+* кавычка разрешает знак в текущем контекте, то есть `x не то же самое что 'x.
+* ` автоматически создает структуры данных.
+* ~ отменяет знак цитирования `, а ',' - это пробельный символ
+* Существует синтаксис считывателя для ассоциативных массивов, векторов и множеств
+* _**cons**_, _**first**_ и _**rest**_ регулируют абстракцию последовательности, не конкретные ячейки cons
+* Большинство структур данных неизменяемы
+* лямбда - это _**fn**_, и поддерживает перегрузку по количеству параметров
+* _**pass:[=]**_ - это предикат эквивалентности
 * Global Vars can be dynamically rebound (if declared dynamic) without interfering with lexical local bindings. No special declarations are necessary to distinguish between dynamic and lexical bindings. Since Clojure is a Lisp-1, (global) functions can be dynamically rebound (if they are marked as dynamic).
 * No letrec, labels or flet - use (fn name [args]...) for self-reference, http://clojure.github.io/clojure/clojure.core-api.html#clojure.core/letfn[letfn] for mutual reference.
 * In Clojure _**nil**_ means 'nothing'. It signifies the absence of a value, of any type, and is not specific to lists or sequences.
